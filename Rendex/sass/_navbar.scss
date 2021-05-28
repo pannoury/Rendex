@@ -35,20 +35,24 @@ header{
     transition: 0.5s;
     display: flex;
     flex-direction: column;
-    text-align: right;
-    a{
-        padding: 10px 10px 10px 30px;
+    a {
         text-decoration: none;
         font-size: 22px;
         display: block;
         transition: 0.5s;
+        padding: 0.4em 0.5em;
+        &:hover{
+            color: $dark-mode-hover;
+            transition: 0.3s;
+        }
     }
-    .btn-close{
+    .btn-close {
         position: absolute;
         top: 0;
         right: 22px;
         font-size: 36px;
-        margin-left: 50px;   
+        margin-left: 50px;  
+        text-align: right; 
     }
 }
 @media(max-width:750px){.navbarselector{display: none;}}
