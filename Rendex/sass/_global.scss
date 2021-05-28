@@ -1,0 +1,41 @@
+$grey-background: #d3d1d1;
+$rendex-orange: #f07900;
+$rendex-orange1: #e07900;
+$rendex-orange2: #d07900;
+$rendex-orange3: #c07900;
+$rendex-black: #333;
+$rendex-black1: #444;
+$rendex-black2: #555;
+$rendex-black3: #666;
+$rendex-black4: #777;
+$rendex-black5: #888;
+$rendex-black10: #e9e9e9;
+$hover-dark: #708090;
+$dark-blue: #00006d;
+$dark-blue2: #0F1419;
+$dark-blue-hover: #000042;
+$dark-mode1: #38383D;
+$dark-mode2: #2A2A2E;
+$dark-mode-hover: #515155;
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    width: 100% !important;
+    background-color: #f4f4f4;
+    color: #000000;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+/* GLOBAL SETTINGS */
+.container{width: 80%;margin: auto;overflow: hidden;}
+a:hover {color: #708090}
+a:link, a:active, a:visited {text-decoration: none!important;color: #ffffff;}
+main{ width: 100%;padding-top: 100px;}
+h1, h2{width: 100%;}
+.clear{clear: both;}
+.bold{font-weight: bold;}
+.redasterix{color: red; font-weight: bold;}
+.orangespan{color: #f07900;}
+/* GLOBAL SETTINGS */

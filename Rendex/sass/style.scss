@@ -1,0 +1,51 @@
+/* START GLOBAL SETTINS */
+@import 'global';
+@import 'navbar'; /*Header*/
+@import 'pagenav';
+@import 'footer'; /*Footer*/
+@import 'sidebars'; /* Sidebars */
+/* END GLOBAL SETTINGS - End Here!*/
+
+@import 'homepage'; /* Index Page, indexsearch & showcase */
+@import 'indexlinks'; /* Index-links */
+
+@import 'login'; /* Login page settings */
+@import 'createaccount'; /* Create Account Page */
+@import 'faq'; /* Frequently Asked Questions Page */
+@import 'searchpage'; /* Search Page */
+@import 'contactus'; /* Contact us page */
+@import 'inbox'; /* Inbox Page */
+
+/* terms of use PAGE START*/
+.containercentretou{
+    margin: auto;
+    display: flex;
+    flex-direction: column;        
+    border-radius: 8px;
+    max-width: 700px;
+    margin-bottom: 100px;
+    ul{padding-left: 40px;}
+    a{color: blue;}
+    h2{margin: 30px 0 0px 0;}
+    h1{text-align: center;}
+    p{margin: 0 0 20px 0;}
+}
+#imgcontainertou{
+    background-image: url('../images/terms_of_use_cover.jpeg'); background-size: cover;
+    width: 100%; height: 500px; background-position: 50% 45%;
+}
+/* terms of use PAGE END */
+
+/* BLOG PAGES */
+/* Kitchen Start */
+#kitchenblogbackground{
+    background-image: url('../images/kitchen_stockphoto.jpeg'); background-size: cover;
+    width: 100%; height: 500px; background-position: 50% 45%;
+}
+.kitchenimg, .kitchenimg2{display: block; margin-left: auto; margin-right: auto;}
+.kitchenimg{width: 500px; height: 500px;} .kitchenimg2{width: 700px; height: 460px;}
+/* Kitchen End */
+
+/* Countertop */
+#countertopimg{background-image: url('../images/countertop1.jpg'); background-size: cover;
+width: 100%; height: 500px; background-position: 60% 70%;}

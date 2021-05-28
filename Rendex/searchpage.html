@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="sv" style="display:flex;width:100%">
+<head>
+  <title>Rendex</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Hitta renoverare">
+  <meta name="keywords" content="arbete, bygg, renovering, elektriker, offert, hitta renoverare, hitta arbetare, hitta elektriker, golv, lägga golv, VVS, Rendex, Rendex AB">
+  <meta name="author" content="Patrick Tannoury">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="sass/style.css" type="text/css">
+</head>
+<body>
+  <!--Navigation Bar-->
+  <header>
+    <div class="container">
+      <div id="navlogo">
+        <a href="index.html">
+          <img src="assets/images/Rendex_white.svg" alt="logo_white" class="logo" width="125" height="20">
+        </a>
+      </div>
+      <nav class="navbar">
+            <span class="open-slide">
+              <a href="#" onclick="openSlideMenu()">
+                <svg width="30" height="30">
+                  <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+                  <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+                  <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+                </svg>
+              </a>
+            </span>
+            <ul class="navbarselector">
+              <li><a href="searchpage.html">Sök</a></li>
+              <li><a href="inbox.html">Inkorg</a></li>
+              <li><a href="create_account.html">Bli Medlem</a></li>
+              <li><a href="login.html">Logga In</a></li>
+            </ul>  
+      </nav>
+    </div>
+    <div id="side-menu" class="side-nav">
+      <ul>
+        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+        <a href="index.html">Hem</a>
+        <a href="login.html">Logga in</a>
+        <a href="create_account.html">Bli Medlem</a>
+        <a href="inbox.html">Inkorg</a>
+        <a href="searchpage.html">Sök</a>
+      </ul>
+    </div>
+    <script>
+      function openSlideMenu(){
+        document.getElementById('side-menu').style.width='250px';
+        document.getElementById('main').style.marginLeft='250px';
+      }
+      function closeSlideMenu(){
+        document.getElementById('side-menu').style.width='0';
+        document.getElementById('main').style.marginLeft='0';
+      }
+    </script>
+  </header>
+  <!--END-Navigation Bar-->
+
+  <section class="searchpage-section">
+      <div id="search-tabber">
+        <div id="search-tabber-subdiv">
+          <div class="indexsearch-input">
+            <form class="searchpage-search">
+              <svg class="iconSearch_svg" width="16" height="16" viewbox="0 0 32 32" color="#696766">
+                <path id="iconSearch_svg" d="M12.618 23.318c-6.9 0-10.7-3.8-10.7-10.7 0-6.9 3.8-10.7 10.7-10.7 6.9 0 10.7 3.8 10.7 10.7 0 3.458-.923 6.134-2.745 7.955-1.821 1.822-4.497 2.745-7.955 2.745zm17.491 5.726l-7.677-7.678c1.854-2.155 2.804-5.087 2.804-8.748C25.236 4.6 20.636 0 12.618 0S0 4.6 0 12.618c0 8.019 4.6 12.618 12.618 12.618 3.485 0 6.317-.85 8.44-2.531l7.696 7.695 1.355-1.356z"></path>
+              </svg>
+              <input type="search" placeholder="Sök bland uppdragstagare" class="searchpage-search" id="searchpage-searchindex">
+            </form>
+          </div>
+          <div id="searchpage-regioncity-select-wrapper">
+            <div class="searchpage-regionselect-wrapper">
+              <form class="searchpage-regionselect-form">
+                <select class="searchregion-searchpage">
+                  <option value="" disabled selected hidden id="disabledselect">Välj Region</option>
+                  <option value="Hela Sverige">Hela Sverige</option>
+                  <option value="Blekinge">Blekinge</option>
+                  <option value="Dalarna">Dalarna</option>
+                  <option value="Gävleborg">Gävleborg</option>
+                  <option value="Gotland">Gotland</option>
+                  <option value="Halland">Halland</option>
+                  <option value="Jämtland">Jämtland</option>
+                  <option value="Jönköping">Jönköping</option>
+                  <option value="Kalmar">Kalmar</option>
+                  <option value="Kronoberg">Kronoberg</option>
+                  <option value="Norrbotten">Norrbotten</option>
+                  <option value="Örebro">Örebro</option>
+                  <option value="Östergötland">Östergötland</option>
+                  <option value="Skåne">Skåne</option>
+                  <option value="Sörmland">Sörmland</option>
+                  <option value="Stockholm">Stockholm</option>
+                  <option value="Uppsala">Uppsala</option>
+                  <option value="Värmland">Värmland</option>
+                  <option value="Västerbotten">Västerbotten</option>
+                  <option value="Västernorrland">Västernorrland</option>
+                  <option value="Västmanland">Västmanland</option>
+                  <option value="Västra Götaland">Västra Götaland</option> 
+                </select>
+              </form>
+              <span class="searchbar-arrow"></span>
+            </div>
+            <div id="select-separator"></div>
+            <div class="searchpage-cityselect-wrapper">
+              <form class="searchpage-cityselect-form">
+                <select class="searchcity-searchpage">
+                  <option value="" disabled selected hidden id="disabledselect">Välj Stad</option>
+                  <option value="Stad">Stad</option>
+                </select>
+              </form>
+              <span class="searchbar-arrow"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-nav-searchpage-wrapper">
+        <div class="page-nav-searchpage">
+          <h4><a>Alla</a></h4><p>></p><h4><a>Kök</a></h4>
+        </div>
+      </div>
+  </section>
+  <!--************************ RESULT SECTION **********************************-->
+  <main class="search-result-main">
+    <div class="search-result-topwrapper">
+      <div class="search-result-wrapper">
+        <div class="search-result-midpage">
+          <div class="search-result-midpage-header">
+            <div class="search-result-midpage-header-left">
+              <h1 id="search-header-result-area">Uppdragstagare i <span id="region-header-display">Stockholm</span></h1>
+            </div>
+            <div class="search-result-midpage-header-right">
+              <p>[xx xxx annonser]</p>
+            </div>
+          </div>
+          <div class="search-result-midpage-results">
+            <div class="article-wrapper">
+              <article class="search-result-articles">
+                <div class="search-result-articles-picture">
+                  <div class="search-result-articles-picture-img">
+                    <picture>
+                      <source type="image/jpeg" srcset="#">
+                      <img src="#" alt="img uppdragsgivare">
+                    </picture>
+                  </div>
+                </div>
+                <div class="search-result-articles-information">
+                  <div class="name-area-wrapper">
+                    <p class="name-topinfo-area">
+                      <a>[FirstName, LastName] </a>&bull;<a> [område]</a>
+                    </p>
+                    <p class="license-topinfo-boolean">
+                      <a>[Licensierad: Ja]</a>
+                    </p>
+                  </div>
+                  <div class="company-middleinfo-wrapper">
+                    <div class="comapny-middleinfo-div">
+                      <p class="company-middleinfo-text">
+                        <a>[CompanyName] </a>&bull;<a> [#Anställda]</a>
+                      </p>
+                    </div>
+                    <div class="company-rating-div">
+                      <a class="rating">
+                        <p class="tot-rating">[#]</p>
+                        <svg class="star-1" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-2" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-3" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-4" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-5" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="company-tags-bottom-header">
+                    <p>[Erbjuder]</p>
+                  </div>
+                  <div class="company-tags-bottom-wrapper">
+                    <button>[Kök]</button>
+                    <button>[VVS]</button>
+                    <button>[Badrum]</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="article-wrapper">
+              <article class="search-result-articles">
+                <div class="search-result-articles-picture">
+                  <div class="search-result-articles-picture-img">
+                    <picture>
+                      <source type="image/jpeg" srcset="#">
+                      <img src="#" alt="img uppdragsgivare">
+                    </picture>
+                  </div>
+                </div>
+                <div class="search-result-articles-information">
+                  <div class="name-area-wrapper">
+                    <p class="name-topinfo-area">
+                      <a>[FirstName, LastName] </a>&bull;<a> [område]</a>
+                    </p>
+                    <p class="license-topinfo-boolean">
+                      <a>[Licensierad: Ja]</a>
+                    </p>
+                  </div>
+                  <div class="company-middleinfo-wrapper">
+                    <div class="comapny-middleinfo-div">
+                      <p class="company-middleinfo-text">
+                        <a>[CompanyName] </a>&bull;<a> [#Anställda]</a>
+                      </p>
+                    </div>
+                    <div class="company-rating-div">
+                      <a class="rating">
+                        <p class="tot-rating">[#]</p>
+                        <svg class="star-1" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-2" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-3" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-4" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-5" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="company-tags-bottom-header">
+                    <p>[Erbjuder]</p>
+                  </div>
+                  <div class="company-tags-bottom-wrapper">
+                    <button>[Kök]</button>
+                    <button>[VVS]</button>
+                    <button>[Badrum]</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="article-wrapper">
+              <article class="search-result-articles">
+                <div class="search-result-articles-picture">
+                  <div class="search-result-articles-picture-img">
+                    <picture>
+                      <source type="image/jpeg" srcset="#">
+                      <img src="#" alt="img uppdragsgivare">
+                    </picture>
+                  </div>
+                </div>
+                <div class="search-result-articles-information">
+                  <div class="name-area-wrapper">
+                    <p class="name-topinfo-area">
+                      <a>[FirstName, LastName] </a>&bull;<a> [område]</a>
+                    </p>
+                    <p class="license-topinfo-boolean">
+                      <a>[Licensierad: Ja]</a>
+                    </p>
+                  </div>
+                  <div class="company-middleinfo-wrapper">
+                    <div class="comapny-middleinfo-div">
+                      <p class="company-middleinfo-text">
+                        <a>[CompanyName] </a>&bull;<a> [#Anställda]</a>
+                      </p>
+                    </div>
+                    <div class="company-rating-div">
+                      <a class="rating">
+                        <p class="tot-rating">[#]</p>
+                        <svg class="star-1" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-2" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-3" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-4" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-5" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="company-tags-bottom-header">
+                    <p>[Erbjuder]</p>
+                  </div>
+                  <div class="company-tags-bottom-wrapper">
+                    <button>[Kök]</button>
+                    <button>[VVS]</button>
+                    <button>[Badrum]</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="article-wrapper">
+              <article class="search-result-articles">
+                <div class="search-result-articles-picture">
+                  <div class="search-result-articles-picture-img">
+                    <picture>
+                      <source type="image/jpeg" srcset="#">
+                      <img src="#" alt="img uppdragsgivare">
+                    </picture>
+                  </div>
+                </div>
+                <div class="search-result-articles-information">
+                  <div class="name-area-wrapper">
+                    <p class="name-topinfo-area">
+                      <a>[FirstName, LastName] </a>&bull;<a> [område]</a>
+                    </p>
+                    <p class="license-topinfo-boolean">
+                      <a>[Licensierad: Ja]</a>
+                    </p>
+                  </div>
+                  <div class="company-middleinfo-wrapper">
+                    <div class="comapny-middleinfo-div">
+                      <p class="company-middleinfo-text">
+                        <a>[CompanyName] </a>&bull;<a> [#Anställda]</a>
+                      </p>
+                    </div>
+                    <div class="company-rating-div">
+                      <a class="rating">
+                        <p class="tot-rating">[#]</p>
+                        <svg class="star-1" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-2" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-3" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-4" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-5" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="company-tags-bottom-header">
+                    <p>[Erbjuder]</p>
+                  </div>
+                  <div class="company-tags-bottom-wrapper">
+                    <button>[Kök]</button>
+                    <button>[VVS]</button>
+                    <button>[Badrum]</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="article-wrapper">
+              <article class="search-result-articles">
+                <div class="search-result-articles-picture">
+                  <div class="search-result-articles-picture-img">
+                    <picture>
+                      <source type="image/jpeg" srcset="#">
+                      <img src="#" alt="img uppdragsgivare">
+                    </picture>
+                  </div>
+                </div>
+                <div class="search-result-articles-information">
+                  <div class="name-area-wrapper">
+                    <p class="name-topinfo-area">
+                      <a>[FirstName, LastName] </a>&bull;<a> [område]</a>
+                    </p>
+                    <p class="license-topinfo-boolean">
+                      <a>[Licensierad: Ja]</a>
+                    </p>
+                  </div>
+                  <div class="company-middleinfo-wrapper">
+                    <div class="comapny-middleinfo-div">
+                      <p class="company-middleinfo-text">
+                        <a>[CompanyName] </a>&bull;<a> [#Anställda]</a>
+                      </p>
+                    </div>
+                    <div class="company-rating-div">
+                      <a class="rating">
+                        <p class="tot-rating">[#]</p>
+                        <svg class="star-1" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-2" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-3" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-4" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                        <svg class="star-5" height="20px" viewbox="0 0 20 20">
+                          <path id="star-rating" d="M17.684,7.925l-5.131-0.67L10.329,2.57c-0.131-0.275-0.527-0.275-0.658,0L7.447,7.255l-5.131,0.67C2.014,7.964,1.892,8.333,2.113,8.54l3.76,3.568L4.924,17.21c-0.056,0.297,0.261,0.525,0.533,0.379L10,15.109l4.543,2.479c0.273,0.153,0.587-0.089,0.533-0.379l-0.949-5.103l3.76-3.568C18.108,8.333,17.986,7.964,17.684,7.925 M13.481,11.723c-0.089,0.083-0.129,0.205-0.105,0.324l0.848,4.547l-4.047-2.208c-0.055-0.03-0.116-0.045-0.176-0.045s-0.122,0.015-0.176,0.045l-4.047,2.208l0.847-4.547c0.023-0.119-0.016-0.241-0.105-0.324L3.162,8.54L7.74,7.941c0.124-0.016,0.229-0.093,0.282-0.203L10,3.568l1.978,4.17c0.053,0.11,0.158,0.187,0.282,0.203l4.578,0.598L13.481,11.723z"></path>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="company-tags-bottom-header">
+                    <p>[Erbjuder]</p>
+                  </div>
+                  <div class="company-tags-bottom-wrapper">
+                    <button>[Kök]</button>
+                    <button>[VVS]</button>
+                    <button>[Badrum]</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="search-result-midpage-navigation-wrapper">
+            <div>
+              <div class="midpage-navigation-text">
+                <span class="pagination-navigation-bottom">1 - 40</span>
+                &nbsp; av totalt
+                <span class="pagination-side-total-count">[XXX]</span>
+                annonser
+              </div>
+              <div class="navigation-buttons-wrapper">
+                <div class="navigation-leftbutton">
+                  <a rel="previous" class="arrow-navigation">
+                    <span class="arrow-css"></span>
+                  </a>
+                </div>
+                <div class="navigation-numberbuttons-wrapper">
+                  <a class="navigation-numberbuttons-link">1</a> <!--1-->
+                  <a class="navigation-numberbuttons-link">2</a><!--2-->
+                  <a class="navigation-numberbuttons-link">3</a><!--3-->
+                  <a class="navigation-numberbuttons-link">4</a><!--4-->
+                  <a class="navigation-numberbuttons-link">5</a><!--5-->
+                  <a class="navigation-numberbuttons-link">6</a><!--6-->
+                  <a class="navigation-numberbuttons-link">7</a><!--7-->
+                  <a class="navigation-numberbuttons-link">8</a><!--8-->
+                  <a class="navigation-numberbuttons-link">...</a><!--9-->
+                  <a class="navigation-numberbuttons-link">X</a><!--10-->
+                </div>
+                <div class="navigation-rightbutton">
+                  <a rel="next" class="arrow-navigation">
+                    <span class="arrow-css"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="search-result-rightpage">
+          <aside>
+
+          </aside>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+    <!--FOOTER START-->
+    <footer>
+        <div class="boxtest">
+    <div id="footercolumn1">
+      <h2>Villkor</h2>
+        <ul>
+        <li><a href="#">Policy</a></li>
+        <li><a href="terms_of_use.html">Användarvillkor</a></li>
+        <li><a href="#">Integritetspolicy</a></li>
+        <li><a href="#">Personuppgiftshantering</a></li>
+        <li><a href="cookies.html">Cookies</a></li>
+      </ul>
+    </div>
+    <div id="footercolumn2">
+      <h2>Navigation</h2>
+      <ul>
+        <li><a href="#">Snabblänkar</a></li>
+        <li><a href="kitchen.html">Kök</a></li>
+        <li><a href="bathroom.html">Badrum</a></li>
+        <li><a href="floor.html">Golv</a></li>
+      </ul>
+    </div>
+    <div id="footercolumn3">
+      <h2>Rendex</h2>
+      <ul>
+        <li><a href="About.html">Om Rendex</a></li>
+        <li><a href="customerservice.html">Kontakta oss</a></li>
+        <li><a href="FAQpage.html">Vanliga Frågor</a></li>
+      </ul>
+    </div>
+        </div>
+        <div class="appbadge">
+          <a id="applebadge" href="https://www.apple.com/se/ios/app-store/"><img src="assets/images/Download_on_the_App_Store_Badge_SE_RGB_blk_100317.svg" alt="applebadge"></a>
+          <a id="googlebadge" href="https://play.google.com/store"><img src="assets/images/512px-Google_Play_Store_badge_EN.svg" alt="googlebadge"></a>
+        </div>
+        <div class="endbox">
+          <p>&copy; 2021 Rendex AB</p>
+      </div>
+  </footer>
+  <!--FOOTER END-->
+  <script>
+    document.getElementById('searchpage-searchindex').addEventListener('input', inputQuery);
+    function inputQuery(data){
+      let theInput = data.target;
+      
+      console.log(theInput.value);
+      return theInput.value;
+    }
+  </script>
+  <script src="/Rendex/JS/index.js"></script>
+  <script src="/Rendex/JS/search.js"></script>
+  <script src="/Rendex/JS/main.js"></script>
+</body>
+<html>

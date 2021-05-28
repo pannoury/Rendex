@@ -1,0 +1,158 @@
+// *********************** Search-window Section Start ************************//
+@media(min-width:875px){
+    #search-tabber{
+        display: flex;
+        flex-wrap: wrap;
+        flex-flow: row; 
+        margin-top: 50px;
+        width: 100%;
+        background-color: $dark-blue2;
+        @media(min-width:875px){
+            border-bottom: white 1px solid;
+        }
+    }
+}
+@media(max-width:750px){
+    #search-tabber{
+        margin-top: 56px;
+        width: 100%;
+        background-color: $dark-blue2;
+    }
+}
+@media(max-width:875px) and (min-width:750px){
+    #search-tabber{
+        margin-top: 50px;
+        background-color: $dark-blue2;
+    }
+}
+
+@media(max-width:875px){ //750-875px //
+    #search-tabber{
+        display: flex;
+        flex-wrap: wrap;
+        flex-flow: row;
+    }
+    #search-tabber-subdiv{
+        display: flex;
+        width: 100%;
+        height: 60px;
+        margin: 0;
+        align-items: center;
+        .indexsearch-input{
+            display: flex;
+            height: 50px;
+            position: relative;
+            border: medium none;
+            width: 50%;
+            .searchpage-search{
+                width: 100%;
+                height: 40px;
+                padding: 5px;
+                margin-left: -5px;
+                border-radius: 3px;
+                border-style: none;
+                padding-left: 40px;
+                font-size: 14px;
+            }
+        }
+        #searchpage-regioncity-select-wrapper{
+            display: flex;
+            width: 50%;
+            #select-separator{
+                border-left: 1px solid white;
+                opacity: 0.4;
+                width: 0px;
+                margin: 8px 8px 8px 8px;
+            }
+            .searchpage-regionselect-wrapper, .searchpage-cityselect-wrapper{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                width: 50%;
+                height: 50px;
+                justify-content: right;
+                justify-content: flex-end; // for Chrome and Edge //
+                .searchpage-regionselect-form, .searchpage-cityselect-form{                
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    width: 100%;
+                    select{
+                        width: 100%;
+                        height: 40px;
+                        padding-left: 10px;
+                        border-radius: 3px;
+                        border-style: none;
+                        appearance: none;
+                        background-color: $dark-blue2;
+                        color: white;
+                        font-size: 15px;
+                    }
+                } 
+            }
+        }
+    }
+}
+@media(min-width:875px){
+    #search-tabber-subdiv{
+        display: flex;
+        width: 80%;
+        height: 60px;
+        margin: auto;
+        align-items: center;
+        .indexsearch-input{
+            display: flex;
+            height: 50px;
+            position: relative;
+            border: medium none;
+            width: 60%;
+            .searchpage-search{
+                width: 100%;
+                height: 40px;
+                padding: 5px;
+                margin-left: -5px;
+                border-radius: 3px;
+                border-style: none;
+                padding-left: 40px;
+                font-size: 18px;
+            }
+        }
+        #searchpage-regioncity-select-wrapper{
+            display: flex;
+            width: 40%;
+            #select-separator{
+                border-left: 1px solid white;
+                opacity: 0.4;
+                width: 0px;
+                margin: 8px 8px 8px 8px;
+            }
+            .searchpage-regionselect-wrapper, .searchpage-cityselect-wrapper{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                width: 50%;
+                height: 50px;
+                justify-content: right;
+                justify-content: flex-end; // for Chrome and Edge //
+                .searchpage-regionselect-form, .searchpage-cityselect-form{                
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    width: 100%;
+                    select{
+                        width: 100%;
+                        height: 40px;
+                        padding-left: 10px;
+                        border-radius: 3px;
+                        border-style: none;
+                        appearance: none;
+                        background-color: $dark-blue2;
+                        color: white;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+//************************** Search-window Section END ***********************//

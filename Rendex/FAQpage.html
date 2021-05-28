@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="sv" style="display:flex;width:100%">
+<head>
+  <title>Rendex</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Hitta renoverare">
+  <meta name="keywords" content="arbete, bygg, renovering, elektriker, offert, hitta renoverare, hitta arbetare, hitta elektriker, golv, lägga golv, VVS, Rendex, Rendex AB">
+  <meta name="author" content="Patrick Tannoury">
+  <link rel="stylesheet" href="sass/style.css" type="text/css">
+  <script src="main.js"></script>
+</head>
+<body>
+  <!--Navigation Bar-->
+  <header>
+    <div class="container">
+      <div id="navlogo">
+        <a href="index.html">
+          <img src="assets/images/Rendex1_white.png" alt="logo_white" class="logo" width="125" height="20">
+        </a>
+      </div>
+      <nav class="navbar">
+            <span class="open-slide">
+              <a href="#" onclick="openSlideMenu()">
+                <svg width="30" height="30">
+                  <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+                  <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+                  <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+                </svg>
+              </a>
+            </span>
+            <ul class="navbarselector">
+              <li><a href="#">Sök</a></li>
+              <li><a href="#">Inkorg</a></li>
+              <li><a href="create_account.html">Bli Medlem</a></li>
+              <li><a href="login.html">Logga In</a></li>
+            </ul>  
+      </nav>
+    </div>
+    <div id="side-menu" class="side-nav">
+      <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+      <a href="index.html">Hem</a>
+      <a href="login.html">Logga in</a>
+      <a href="create_account.html">Bli Medlem</a>
+      <a href="#">Inkorg</a>
+      <a href="#">Sök</a>
+    </div>
+    <script>
+      function openSlideMenu(){
+        document.getElementById('side-menu').style.width='250px';
+        document.getElementById('main').style.marginLeft='250px';
+      }
+      function closeSlideMenu(){
+        document.getElementById('side-menu').style.width='0';
+        document.getElementById('main').style.marginLeft='0';
+      }
+    </script>
+  </header>
+  <!--END-Navigation Bar-->
+  <!--FAQ START-->
+  <main id="faq-main">
+    <div class="centralwrapper">
+      <h1>Kundservice</h1>
+      <div id="faqquicknav">
+        <div id="column-1">
+            <div class="column1b">
+              <a>
+                <h2>Inloggning</h2>
+                <p>För dig som upplever problem med att logga in</p>
+              </a>
+            </div>
+            <div class="column2b">
+              <a href="contactus.html">
+                <h2>Kontakta oss</h2>
+                <p>För de som vill kontakta oss genom kundtjänst</p>
+              </a>
+            </div>
+            <div class="column3b">
+              <a>
+                <h2>Pris</h2>
+                <p>Frågor kring priser på Rendex</p>
+              </a>
+            </div>
+        </div>
+        <div id="column-2">
+          <div class="column1b">
+            <a>
+              <h2>Klagomål</h2>
+              <p>För klagomål kring en användare eller ett uppdrag</p>
+            </a>
+          </div>
+          <div class="column2b">
+            <a>
+              <h2>Viktiga Dokument</h2>
+            </a>
+          </div>
+          <div class="column3b">
+            <a>
+              <h2>Row 2/2 3rd</h2>
+            </a>
+          </div>
+        </div>
+        <div id="column-3">
+          <div class="column1b">
+            <h2>Buggar</h2>
+            <p>Rapportera buggar du har identifierat på hemsidan</p>
+          </div>
+          <div class="column2b">
+            <h2>Y</h2>
+          </div>
+          <div class="column3b">
+            <a>
+              <h2>Övrigt</h2>
+              <p></p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!--FAQ END-->
+ <!--FOOTER START-->
+  <footer>
+    <div class="boxtest">
+  <div id="footercolumn1">
+  <h2>Villkor</h2>
+    <ul>
+    <li><a href="#">Policy</a></li>
+    <li><a href="terms_of_use.html">Användarvillkor</a></li>
+    <li><a href="#">Integritetspolicy</a></li>
+    <li><a href="#">Personuppgiftshantering</a></li>
+    <li><a href="cookies.html">Cookies</a></li>
+  </ul>
+  </div>
+  <div id="footercolumn2">
+  <h2>Navigation</h2>
+  <ul>
+    <li><a href="#">Snabblänkar</a></li>
+    <li><a href="kitchen.html">Kök</a></li>
+    <li><a href="bathroom.html">Badrum</a></li>
+    <li><a href="floor.html">Golv</a></li>
+  </ul>
+  </div>
+  <div id="footercolumn3">
+  <h2>Rendex</h2>
+  <ul>
+    <li><a href="About.html">Om Rendex</a></li>
+    <li><a href="customerservice.html">Kontakta oss</a></li>
+    <li><a href="FAQpage.html">Kundservice</a></li>
+  </ul>
+  </div>
+    </div>
+    <div class="appbadge">
+      <a id="applebadge" href="https://www.apple.com/se/ios/app-store/"><img src="assets/images/Download_on_the_App_Store_Badge_SE_RGB_blk_100317.svg" alt="applebadge"></a>
+      <a id="googlebadge" href="https://play.google.com/store"><img src="assets/images/512px-Google_Play_Store_badge_EN.svg" alt="googlebadge"></a>
+    </div>
+    <div class="endbox">
+      <p>&copy; 2021 Rendex AB</p>
+  </div>
+  </footer>
+  <!--FOOTER END-->
+</body>
+<html>

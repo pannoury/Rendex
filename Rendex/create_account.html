@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="sv" style="display:flex;width:100%">
+<head>
+  <title>Rendex</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Hitta renoverare">
+  <meta name="keywords" content="arbete, bygg, renovering, elektriker, offert, hitta renoverare, hitta arbetare, hitta elektriker, golv, lägga golv, VVS, Rendex, Rendex AB">
+  <meta name="author" content="Patrick Tannoury">
+  <link rel="stylesheet" href="sass/style.css" type="text/css">
+  <scrip src="main.js"></scrip>
+</head>
+<body>
+  <!--Navigation Bar-->
+  <header>
+    <div class="container">
+      <div id="navlogo">
+        <a href="index.html">
+          <img src="assets/images/Rendex1_white.png" alt="logo_white" class="logo" width="125" height="20">
+        </a>
+      </div>
+      <nav class="navbar">
+            <span class="open-slide">
+              <a href="#" onclick="openSlideMenu()">
+                <svg width="30" height="30">
+                  <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+                  <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+                  <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+                </svg>
+              </a>
+            </span>
+            <ul class="navbarselector">
+              <li><a href="#">Sök</a></li>
+              <li><a href="#">Inkorg</a></li>
+              <li><a href="create_account.html">Bli Medlem</a></li>
+              <li><a href="login.html">Logga In</a></li>
+            </ul>  
+      </nav>
+    </div>
+    <div id="side-menu" class="side-nav">
+      <ul>
+        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+        <a href="index.html">Hem</a>
+        <a href="login.html">Logga in</a>
+        <a href="create_account.html">Bli Medlem</a>
+        <a href="#">Inkorg</a>
+        <a href="#">Sök</a>
+      </ul>
+    </div>
+    <script>
+      function openSlideMenu(){
+        document.getElementById('side-menu').style.width='250px';
+        document.getElementById('main').style.marginLeft='250px';
+      }
+      function closeSlideMenu(){
+        document.getElementById('side-menu').style.width='0';
+        document.getElementById('main').style.marginLeft='0';
+      }
+    </script>
+  </header>
+  <!--END-Navigation Bar-->
+
+  <!-- Create Account Page START-->
+  <section id="createaccountsection">
+    <div id="createaccountheaderdiv">
+      <h1>Välkommen till Rendex</h1>
+      <p>Skapa ett konto för få tillgång till alla våra tjänster</p>
+      <div id="createaccountwrapper">
+        <form>
+          <p><span class="bold">Personnummer</span><span class="redasterix">*</span></p>
+          <input type="text" class="insurancenumber" placeholder="YYYYMMDDXXXX" required="">
+          <p><span class="bold">Förnamn</span><span class="redasterix">*</span></p>
+          <input type="text" placeholder="Förnamn" id="firstnameinput" required=""> 
+          <p><span class="bold">Efternamn</span><span class="redasterix">*</span></p>
+          <input type="text" placeholder="Efternamn" id="surnameinput" required="">
+          <p><span class="bold">Din roll</span><span class="redasterix">*</span></p>
+          <select id="purposeselect" required="">
+            <option value="" disabled selected id="disabledselect">Välj Roll</option>
+            <option value="Uppdragsgivare">Uppdragsgivare</option>
+            <option value="Uppdragstagere">Uppdragstagare</option>
+          </select>
+          <p><span class="bold">Region</span><span class="redasterix">*</span></p>
+          <select id="regioninput" required="">
+            <option value="" disabled selected hidden id="disabledselect">Välj Region</option>
+            <option value="Blekinge">Blekinge</option>
+            <option value="Dalarna">Dalarna</option>
+            <option value="Gävleborg">Gävleborg</option>
+            <option value="Gotland">Gotland</option>
+            <option value="Halland">Halland</option>
+            <option value="Jämtland">Jämtland</option>
+            <option value="Jönköping">Jönköping</option>
+            <option value="Kalmar">Kalmar</option>
+            <option value="Kronoberg">Kronoberg</option>
+            <option value="Norrbotten">Norrbotten</option>
+            <option value="Örebro">Örebro</option>
+            <option value="Östergötland">Östergötland</option>
+            <option value="Skåne">Skåne</option>
+            <option value="Sörmland">Sörmland</option>
+            <option value="Stockholm">Stockholm</option>
+            <option value="Uppsala">Uppsala</option>
+            <option value="Värmland">Värmland</option>
+            <option value="Västerbotten">Västerbotten</option>
+            <option value="Västernorrland">Västernorrland</option>
+            <option value="Västmanland">Västmanland</option>
+            <option value="Västra Götaland">Västra Götaland</option> 
+          </select>
+          <p><span class="bold">Postnummer</span><span class="redasterix">*</span></p>
+          <input type="text" placeholder="100 10" class="zipcodeinput" required="">
+          <p><span class="bold">E-mailadress</span><span class="redasterix">*</span></p>
+          <input type="email" placeholder="E-mailadress" required="">
+          <p><span class="bold">Skapa ett lösenord</span><span class="redasterix">*</span></p>
+          <input type="password" placeholder="Lösenord" required="">
+          <p><span class="bold">Bekräfta lösenord</span><span class="redasterix">*</span></p>
+          <input type="password" placeholder="Bekräfta lösenord" required="">
+            <div class="checkboxdiv">
+              <input type="checkbox" name="agreetoa" id="agreetoa" required=""> <!-- add event-->
+              <label>Genom att skapa ett konto hos Rendex godkänner du <a href="terms_of_use.html">användarvillkoren</a><span class="redasterix">*</span></label>
+            </div>
+        </form>
+      </div>
+      <div class="buttondiv">
+        <button href="#" onclick="createAccountClick()">Skapa Konto</button>
+      </div>
+    </div>
+  </section>
+  <!-- Create Account Page END-->
+
+  <!--FOOTER START-->
+    <footer>
+          <div class="boxtest">
+      <div>
+        <h2>Villkor</h2>
+          <ul>
+          <li><a href="#">Policy</a></li>
+          <li><a href="terms_of_use.html">Användarvillkor</a></li>
+          <li><a href="#">Integritetspolicy</a></li>
+          <li><a href="#">Personuppgiftshantering</a></li>
+          <li><a href="cookies.html">Cookies</a></li>
+          <li><a href="FAQpage.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Column 2</h2>
+        <ul>
+          <li><a href="#">Snickare</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Rendex</h2>
+        <ul>
+          <li><a href="About.html">Om Rendex</a></li>
+          <li><a href="#">Kontakta oss</a></li>
+        </ul>
+      </div>
+          </div>
+          <div class="appbadge">
+            <a id="applebadge" href="https://www.apple.com/se/ios/app-store/"><img src="assets/images/Download_on_the_App_Store_Badge_SE_RGB_blk_100317.svg" alt="applebadge"></a>
+            <a id="googlebadge" href="https://play.google.com/store"><img src="assets/images/512px-Google_Play_Store_badge_EN.svg" alt="googlebadge"></a>
+          </div>
+          <div class="endbox">
+            <p>&copy; 2021 Rendex AB</p>
+        </div>
+    </footer>
+    <script>
+      function createAccountClick(){
+        function firstName(){
+          var firstName = document.getElementById('firstnameinput').value;
+          console.log(firstName);
+          return firstName;
+        }
+        function lastName(){
+          var lastName = document.getElementById('surnameinput').value;
+          console.log(lastName);
+          return lastName;
+        }
+        function roleSelect(){
+          var roleSelect = document.getElementById('purposeselect').value;
+          console.log(roleSelect);
+          return roleSelect;
+        }
+        function regionSelect(){
+          var regionSelected = document.getElementById('regioninput').value;
+          console.log(regionSelected);
+          return regionSelected;
+        }
+      }
+    </script>
+    <!--FOOTER END-->
+</body>
+<html>

@@ -1,0 +1,75 @@
+// *********************** Search-window Section  ************************//
+@import 'searchpage/searchpage_searchbar';
+// *********************** Search-window Section  ************************//
+
+// ************************** Search-result section ***************************//
+@import 'searchpage/searchpage_results';
+// ************************** Search-result section ***************************//
+
+// ************************ Search-navigation section ***************************//
+@import 'searchpage/searchpage_navigation';
+// ************************ Search-navigation section ***************************//
+
+// ********************** Rightpage Section ************************************ //
+@media(min-width:875px){
+    .search-result-rightpage{
+        width: 20%;
+        grid-column: 2/3;
+        margin-left: 16px;
+        background-color: slategray;
+        border-radius: 3px;
+    }
+}
+@media(max-width:875px){
+    .search-result-rightpage{display: none;}
+}
+// ********************** Rightpage Section ************************************ //
+
+//ArrowDown icon SVG //
+.searchbar-arrow{
+    position: absolute;
+    margin-right: 10px;
+    border-top: 0.5em solid white;
+    border-right: 0.5em solid transparent;
+    border-left: 0.5em solid transparent;
+}
+//ArrowDown icon SVG //
+
+// Search icon SVG //
+.iconSearch_svg{
+    z-index: 2;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin: 12px 0 0 6px;
+}
+//Search icon SVG //
+
+//***************************** Page mini nav ******************************//
+@media(min-width:875px){
+    .page-nav-searchpage-wrapper{
+        background-color: $dark-blue2;
+        color: white;
+        margin-bottom: 50px;
+    }
+}
+@media(max-width:875px){
+    .page-nav-searchpage-wrapper{
+        display: none;
+        a, p{display: none;}
+    }
+}
+.page-nav-searchpage-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 30px;
+    .page-nav-searchpage{
+        display: flex;
+        align-items: center;
+        width: 80%;
+        padding-left: 40px;
+        a{margin: 0 5px 0 5px;}
+    }
+}
+//***************************** Page mini nav ******************************//

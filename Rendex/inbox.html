@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="sv" style="display:flex;width:100%">
+<head>
+  <title>Rendex</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Hitta renoverare">
+  <meta name="keywords" content="arbete, bygg, renovering, elektriker, offert, hitta renoverare, hitta arbetare, hitta elektriker, golv, lägga golv, VVS, Rendex, Rendex AB">
+  <meta name="author" content="Patrick Tannoury">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="sass/style.css" type="text/css">
+</head>
+<body>
+  <!--Navigation Bar-->
+  <header>
+    <div class="container">
+      <div id="navlogo">
+        <a href="index.html">
+          <img src="assets/images/Rendex_white.svg" alt="logo_white" class="logo" width="125" height="20">
+        </a>
+      </div>
+      <nav class="navbar">
+            <span class="open-slide">
+              <a href="#" onclick="openSlideMenu()">
+                <svg width="30" height="30">
+                  <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+                  <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+                  <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+                </svg>
+              </a>
+            </span>
+            <ul class="navbarselector">
+              <li><a href="searchpage.html">Sök</a></li>
+              <li><a href="inbox.html">Inkorg</a></li>
+              <li><a href="create_account.html">Bli Medlem</a></li>
+              <li><a href="login.html">Logga In</a></li>
+            </ul>  
+      </nav>
+    </div>
+    <div id="side-menu" class="side-nav">
+      <ul>
+        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+        <a href="index.html">Hem</a>
+        <a href="login.html">Logga in</a>
+        <a href="create_account.html">Bli Medlem</a>
+        <a href="#">Inkorg</a>
+        <a href="#">Sök</a>
+      </ul>
+    </div>
+    <script>
+      function openSlideMenu(){
+        document.getElementById('side-menu').style.width='250px';
+        document.getElementById('main').style.marginLeft='250px';
+      }
+      function closeSlideMenu(){
+        document.getElementById('side-menu').style.width='0';
+        document.getElementById('main').style.marginLeft='0';
+      }
+    </script>
+  </header>
+  <!--END-Navigation Bar-->
+  <main id="main-inbox">
+    <div class="inbox-wrapper-wrapper">
+      <div class="inbox-wrapper">
+        <div class="conversation-inbox-list">
+          <h1>Meddelanden</h1>
+          <div class="inbox-separator"></div>
+          <a class="conversation-selection" id="conversation-1" onclick="conversationSelect()">
+            <div class="conversation">
+              <div class="conversation-img">
+                <img src="/Rendex/assets/images/stock_guy.jpeg">
+              </div>
+              <div class="conversation-list-information">
+                <div class="name-and-date">
+                  <p><span class="bold">[FirstName, SurName]</span></p>
+                  <p class="conversation-date">[Datum]</p>
+                </div>
+                <div class="message-cue">
+                  <p>[Meddelande cue]</p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <div class="inbox-separator"></div>
+          <a class="conversation-selection" id="conversation-2" onclick="conversationSelect()">
+            <div class="conversation">
+              <div class="conversation-img">
+                <img src="/Rendex/assets/images/stock_guy.jpeg">
+              </div>
+              <div class="conversation-list-information">
+                <div class="name-and-date">
+                  <p><span class="bold">[FirstName, SurName]</span></p>
+                  <p class="conversation-date">[Datum]</p>
+                </div>
+                <div class="message-cue">
+                  <p>[Meddelande cue]</p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <div class="inbox-separator"></div>
+          <a class="conversation-selection" id="conversation-3">
+            <div class="conversation">
+              <div class="conversation-img">
+                <img src="/Rendex/assets/images/stock_guy.jpeg">
+              </div>
+              <div class="conversation-list-information">
+                <div class="name-and-date">
+                  <p><span class="bold">[FirstName, SurName]</span></p>
+                  <p class="conversation-date">[Datum]</p>
+                </div>
+                <div class="message-cue">
+                  <p>[Meddelande cue]</p>
+                </div>
+              </div>
+            </div>
+          </a>
+          <div class="inbox-separator" id="conversation-3"></div>
+        </div>
+        <div class="conversation-display">
+          <div id="conversation-header">
+            <div class="conversation-header-information">
+              <p><span class="bold">[FirstName, SurName]</span></p>
+              <a><span class="conversation-options">&bull; &bull; &bull;</span></a>
+            </div>
+            <div class="conversation-topic-clue">
+              <p>[Beskrivning]</p>
+            </div>
+            <div class="header-separator-inbox"></div>
+          </div>
+          <div class="chat-display-window">
+
+          </div>
+          <div class="chat-input">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+    <!--FOOTER START-->
+    <footer>
+        <div class="boxtest">
+    <div id="footercolumn1">
+      <h2>Villkor</h2>
+        <ul>
+        <li><a href="#">Policy</a></li>
+        <li><a href="terms_of_use.html">Användarvillkor</a></li>
+        <li><a href="#">Integritetspolicy</a></li>
+        <li><a href="#">Personuppgiftshantering</a></li>
+        <li><a href="cookies.html">Cookies</a></li>
+      </ul>
+    </div>
+    <div id="footercolumn2">
+      <h2>Navigation</h2>
+      <ul>
+        <li><a href="#">Snabblänkar</a></li>
+        <li><a href="kitchen.html">Kök</a></li>
+        <li><a href="bathroom.html">Badrum</a></li>
+        <li><a href="floor.html">Golv</a></li>
+      </ul>
+    </div>
+    <div id="footercolumn3">
+      <h2>Rendex</h2>
+      <ul>
+        <li><a href="About.html">Om Rendex</a></li>
+        <li><a href="customerservice.html">Kontakta oss</a></li>
+        <li><a href="FAQpage.html">Vanliga Frågor</a></li>
+      </ul>
+    </div>
+        </div>
+        <div class="appbadge">
+          <a id="applebadge" href="https://www.apple.com/se/ios/app-store/"><img src="assets/images/Download_on_the_App_Store_Badge_SE_RGB_blk_100317.svg" alt="applebadge"></a>
+          <a id="googlebadge" href="https://play.google.com/store"><img src="assets/images/512px-Google_Play_Store_badge_EN.svg" alt="googlebadge"></a>
+        </div>
+        <div class="endbox">
+          <p>&copy; 2021 Rendex AB</p>
+      </div>
+  </footer>
+  <!--FOOTER END-->
+  <script>
+    var conversationClicked = false;
+    conversationHeader = document.getElementById('conversation-header');
+    conversationHeader.style.display = "hidden";
+    function conversationSelect(){
+      var conversationWindow = document.getElementById('conversation-1');
+      conversationWindow.style.backgroundColor = "#515155";
+      var conversationClicked = true; 
+    }
+  </script>
+  <script src="index.js"></script>
+  <script src="main.js"></script>
+</body>
+<html>

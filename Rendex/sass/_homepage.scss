@@ -1,0 +1,214 @@
+/* Main search */
+@media(max-width:875px){
+    #indexsearchsection{margin-top: -40px;width: 100%;}
+    #indexwrapper{background-color: #d3d1d1;padding: 20px 0 20px 20px; margin-top: 20px; width: 100%;
+    .indexsearchform{
+        h1{margin: 0;}
+        p{margin-bottom: 0px;}
+        select{margin-top: 0px;}
+    }}
+    #tablewrappersearch{display: flex; flex-direction: column; gap: 10px;}
+    .column1{flex-direction: column;} .column1 p{margin: 20px 0 0 0; font-size: 18px;}
+    .column2{flex-direction: column;} .column2 p{margin: 20px 0 0 0; font-size: 18px;}
+    #mainRegionSelect, .mainCitySelect, #mainRoleSelect, #mainPurposeSelect{display: flex; margin-top: 10px; width: 300px; height: 30px; font-size: 18px;} // Fixa så den är mer responsiv //
+    .indexhsearchbutton{display: flex; margin-top: 10px;}
+    #indexsearchbutton{
+        width: 150px; 
+        height: 40px; 
+        font-size: 18px; 
+        color:white;
+        border-radius: 20px;
+        background-color: $dark-blue; 
+        margin-top: 20px;
+        &:hover{
+            background-color: $dark-blue-hover;
+        }
+    }
+    #select:invalid{color: gray;}
+    #indexheaderdiv{
+        h1{padding: 0 20px 0 20px; width: 80%; background-size: contain;}
+        p{padding: 0 20px 0 20px; width: 80%;}
+    }
+}
+
+@media(min-width:875px){
+    #indexsearchsection{                    /* <Section> */
+        background: url('../images/showcase21.jpg');
+        background-size: cover;
+        background-position: 10% 65%;
+        width: 100%;
+        float: left;
+        margin-top: -80px;
+    }
+    #indexheaderdiv{
+        padding-top: 20px;
+        padding-left: 40px;
+        margin-top: 30px;
+        h1{font-size: 40px; width: 65%; color: white; margin-bottom: 10px;}
+        p{font-size: 30px; width: 55%; color: white; margin-top: 0;}
+    }
+    #indexwrapper{
+        background-color: #d3d1d1;
+        max-width: 660px;
+        padding: 20px 0 20px 20px;
+        margin: 50px 20px 20px 20px;
+        border-radius: 8px;
+    }
+    #tablewrappersearch{            /* <div "wrapper"> */
+        display: flex;
+        gap: 10px;
+        select{border-radius: 3px; border-color: #333; 
+            border-width: 1px; appearance: none; margin-top: 0px;}
+    }
+    .column1{flex-direction: column;float: left;
+    p{margin: 20px 0 0 0;font-size: 18px;}}
+    .column2{flex-direction: column;float: right;
+    p{margin: 20px 0 0 0;font-size: 18px;}}
+    #h1search{text-align: left; margin: 0;}
+    #mainRegionSelect, .mainCitySelect, #mainRoleSelect, #mainPurposeSelect{display: flex; margin-top: 10px; width: 300px; height: 30px; font-size: 18px;}
+    .indexsearchbutton{display: flex;justify-content: center;margin-top: 10px;}
+    #indexsearchbutton{
+        width: 150px;
+        height: 40px;
+        font-size: 18px;
+        color: #ffffff;
+        background-color: $dark-blue; 
+        border-radius: 20px;
+        border-style: none;
+        &:hover{
+            background-color: $dark-blue-hover; 
+        }
+    }
+    select:invalid{color: gray;}
+}
+
+@media(min-width:875px){
+    .mainindex-search-wrapper-wrapper{
+        display: flex;
+        width: 100%;
+        #indexSearchRegionSelect, #indexSearchCitySelect, #indexSearchRoleSelect, #indexSearchPurposeSelect{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            position: relative;
+            justify-content: right;
+            justify-content: flex-end;
+            select{padding-left: 10px;}
+            .arrow-select{
+                position: absolute;
+                margin-right: 10px;
+                border-top: 0.5em solid black;
+                border-right: 0.5em solid transparent;
+                border-left: 0.5em solid transparent;
+            }
+        }
+    }
+}
+@media(max-width:875px){
+    .mainindex-search-wrapper-wrapper{
+        display: flex;
+        width: 100%;
+        #indexSearchRegionSelect, #indexSearchCitySelect, #indexSearchRoleSelect, #indexSearchPurposeSelect{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            position: relative;
+            justify-content: right;
+            justify-content: flex-end;
+            select{padding-left: 10px;}
+            .arrow-select{
+                position: absolute;
+                margin-right: 10px;
+                border-top: 0.5em solid black;
+                border-right: 0.5em solid transparent;
+                 border-left: 0.5em solid transparent;
+            }
+        }
+    }
+    #tablewrappersearch{            /* <div "wrapper"> */
+        display: flex;
+        gap: 10px;
+        select{border-radius: 3px; border-color: #333; 
+            border-width: 1px; appearance: none; margin-top: 0px;}
+    }
+}
+/* Main search END*/
+
+
+
+
+//Numbers showcase section START//
+@media(min-width:875px){ 
+        #company-number-row{
+            display: flex; align-content: stretch;
+            align-items: flex-start; text-align: center; gap: 0px; justify-content: space-evenly;
+            width: 62%; margin: auto; margin-bottom: 20px; padding-top: 20px;
+            div{
+                &:nth-child(1){width: 33% !important;}
+                &:nth-child(3){width: 33% !important;}
+                &:nth-child(5){width: 33% !important;}
+                .line-separator{width: 1px;}
+            }
+            h1{font-size: 64px; color: #333; margin-bottom: 10px; margin-top: 5px;}
+            p{width: 100%;}
+            a{color: blue;
+                &:hover{color: slategray;}
+            }
+            .line-separator{
+                border-left: 1px solid black;
+                opacity: 0.3;
+                margin: 38px 5px 38px 5px;
+                height: 150px;
+            }
+        }
+        .company-stats-container{width: 33%; padding-left: 10px; padding-right: 10px;}   
+} 
+
+@media(max-width:875px){
+    #company-number-row{
+        text-align: center;
+        h1{font-size: 64px; color: #333; margin-bottom: 10px; 
+        margin-top: 5px;}
+        p{width: 100%;}
+        a{color: blue;
+            &:hover{color: slategray;}
+    }
+    }
+}
+//Numbers showcase section END//
+
+// Index Text START //
+#index-text{width: 60%; margin: auto; margin-bottom: 50px;}
+#index-text-wrapper{
+    display: flex; justify-content: center;
+    .index-text-column{width: 50%; margin: 0 20px 0 20px;}
+    h3{font-size: 26px; margin-bottom: 10px;}
+    p{line-height:1.5rem;}
+    a{color: blue;
+    &:hover{color: slategray;}}
+}
+@media(max-width: 875px){
+    #index-text-wrapper{
+        .index-text-column{
+            h3{font-size: 20px;}
+            p{line-height: 1rem;}
+        }
+        
+    }
+}
+
+// Index Text END //
+#blekingeCitySelect, #dalarnaCitySelect, #gotlandCitySelect, #gävleborgCitySelect, #hallandCitySelect,
+#jämtlandCitySelect, #jönköpingCitySelect, #kalmarCitySelect, #kronobergCitySelect,
+#norrbottenCitySelect, #skåneCitySelect, #södermanlandCitySelect, #stockholmCitySelect,
+#uppsalaCitySelect, #värmlandCitySelect, #västerbottenCitySelect, #västernorrlandCitySelect,
+#västmanlandCitySelect, #västernorrlandCitySelect, #västmanlandCitySelect,
+#västraGötalandCitySelect, #örebroCitySelect, #östergötlandCitySelect{
+    display: none;
+}
+#error-message-purpose, #error-message-role{
+    margin: 0;
+    font-size: 14px;
+    color: red;
+    display: none;
+}

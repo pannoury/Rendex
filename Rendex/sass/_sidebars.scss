@@ -1,0 +1,21 @@
+/* Sidebar - Left */
+
+@media(min-width:1400px){
+    .sidebarright{float: left; margin: 30px 20px 20px 40px; 
+        background-color: #e5e2e2; width: 10%; padding: 20px; 
+        position: fixed; z-index: -1; border-style: solid; border-width: 1px;
+        display: flex; flex-direction: column;
+    h3{margin: 0 0 10px 0;}
+    a{color: black;
+        &:hover{color: rgb(236, 235, 235) !important;}}
+    } 
+    .sidebarheader{border-bottom: solid; border-width: 1px; margin-bottom: 5px;}
+    .sidebarlist{display:flex; flex-direction: column;}
+}
+@media(max-width:1400px){.sidebarright{display: none;}}
+
+/* Sidebar - Left */
+
+/* Sidebar - Right */
+
+/* Sidebar - Right */
