@@ -2356,6 +2356,10 @@ header #navlogo img {
   border-bottom-right-radius: 8px;
 }
 
+.inbox-wrapper-wrapper .inbox-wrapper .conversation-display #conversation-header {
+  height: 95px;
+}
+
 .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2381,6 +2385,70 @@ header #navlogo img {
 
 .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-topic-clue {
   padding-left: 10px;
+}
+
+.inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-display-window {
+  height: 662px;
+}
+
+.inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-display-window #insert-window {
+  background-color: #434347;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 600px;
+  margin-left: 10px;
+  row-gap: 6px;
+  padding: 6px;
+  border-radius: 6px;
+  z-index: 10;
+  display: none;
+}
+
+.inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper {
+  height: 40px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: visible;
+}
+
+.inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .insert-button-chat {
+  margin: auto;
+  margin-right: -5px;
+}
+
+.inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .insert-button-chat #insert-button-chat:hover {
+  -webkit-filter: brightness(50%);
+          filter: brightness(50%);
+}
+
+.inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .chat-input {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 90%;
+}
+
+.inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .chat-input #chat-input {
+  background-color: #434347;
+  color: white;
+  border-radius: 20px;
+  border-style: none;
+  height: 24px;
+  width: 530px;
+  padding-left: 10px;
+}
+
+.inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .chat-input #chat-input:focus {
+  outline: none;
 }
 
 /* Inbox Page */

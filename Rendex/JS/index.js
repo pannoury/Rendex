@@ -1,6 +1,3 @@
-/*
-var optionsÖstergötland = [Boxholm, Finspång, Kinda, Linköping, Mjölby, Motala, Norrköping, Söderköping, Vadstena, Valdemarsvik, Ydre, Åtvidaberg, Ödeshög];
-*/
 /******************************* Index Search *************************************/
 function regionCityCheck(){
     var regionSelected = document.getElementById('mainRegionSelect').value;

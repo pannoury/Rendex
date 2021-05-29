@@ -127,9 +127,21 @@
           </div>
           <div class="chat-display-window">
 
+            <div id="insert-window">
+              <a>Bifoga bild</a>
+              <a>Bifoga dokument</a>
+            </div>
           </div>
-          <div class="chat-input">
-
+          <div class="header-separator-inbox"></div>
+          <div class="chat-input-wrapper">
+            <div class="insert-button-chat">
+              <img id="insert-button-chat" src="/Rendex/assets/images/plussign-chattbutton.svg" height="20px" width="20px" onclick="displayInsertWindow()">
+            </div>
+            <div class="chat-input">
+              <form>
+                <input type="text" id="chat-input" placeholder="Skriv ett meddelande...">
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -187,7 +199,7 @@
       var conversationClicked = true; 
     }
   </script>
-  <script src="index.js"></script>
-  <script src="main.js"></script>
+  <script src="JS/inbox.js"></script>
+  <script src="/Rendex/JS/main.js"></script>
 </body>
 <html>

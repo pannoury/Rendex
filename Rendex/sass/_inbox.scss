@@ -79,6 +79,9 @@
             color: white;
             border-top-right-radius: 8px;
             border-bottom-right-radius: 8px;
+            #conversation-header{
+                height: 95px;
+            }
             .conversation-header-information{
                 display: flex;
                 justify-content: space-between;
@@ -95,6 +98,55 @@
             }
             .conversation-topic-clue{
                 padding-left: 10px;
+            }
+            .chat-display-window{
+                height: 662px;
+                #insert-window{
+                    background-color: #434347;
+                    position: absolute;
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 600px;
+                    margin-left: 10px;
+                    row-gap: 6px;
+                    padding: 6px;
+                    border-radius: 6px;
+                    z-index: 10;
+                    display: none;
+                }
+            }
+            .chat-input-wrapper{
+                height: 40px;
+                margin: auto;
+                display: flex;
+                overflow: visible;
+                .insert-button-chat{
+                    margin: auto;
+                    margin-right: -5px;
+                    #insert-button-chat{
+                        &:hover{
+                            filter: brightness(50%);
+                        }
+                    }
+                }
+                .chat-input{
+                    margin: auto;
+                    display: flex;
+                    width: 90%;
+                    #chat-input{
+                        background-color: #434347;
+                        color: white;
+                        border-radius: 20px;
+                        border-style: none;
+                        height: 24px;
+                        width: 530px;
+                        padding-left: 10px;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+
+                }
             }
         }
     }

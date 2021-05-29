@@ -13,6 +13,3 @@ window.onload = function(){
     }
     console.log(regionSelected);
 }
-
-//eat this //
-//durim//
