@@ -1,0 +1,52 @@
+<html>
+<head>
+    <link rel="stylesheet" href="sass/style.css" type="text/css">
+</head>
+<body>
+  <!--Navigation Bar-->
+  <header>
+    <div class="container">
+      <div id="navlogo">
+        <a href="index.html">
+          <img src="assets/images/Rendex_white.svg" alt="logo_white" class="logo" width="125" height="20">
+        </a>
+      </div>
+      <nav class="navbar">
+            <span class="open-slide">
+              <a href="#" onclick="openSlideMenu()">
+                <svg width="30" height="30">
+                  <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+                  <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+                  <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+                </svg>
+              </a>
+            </span>
+            <ul class="navbarselector">
+              <li><a href="searchpage.html">Sök</a></li>
+              <li><a href="inbox.html">Inkorg</a></li>
+              <li><a href="create_account.html">Bli Medlem</a></li>
+              <li><a href="login.html">Logga In</a></li>
+            </ul>  
+      </nav>
+    </div>
+    <div id="side-menu" class="side-nav">
+      <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>        
+      <a href="index.html">Hem</a>
+      <a href="login.html">Logga in</a>
+      <a href="create_account.html">Bli Medlem</a>
+      <a href="#">Inkorg</a>
+      <a href="#">Sök</a>
+    </div>
+    <script>
+      function openSlideMenu(){
+        document.getElementById('side-menu').style.width='250px';
+        document.getElementById('main').style.marginLeft='250px';
+      }
+      function closeSlideMenu(){
+        document.getElementById('side-menu').style.width='0';
+        document.getElementById('main').style.marginLeft='0';
+      }
+    </script>
+  </header>
+</body>
+</html>

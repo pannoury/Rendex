@@ -8,10 +8,18 @@
         select{margin-top: 0px;}
     }}
     #tablewrappersearch{display: flex; flex-direction: column; gap: 10px;}
-    .column1{flex-direction: column;} .column1 p{margin: 20px 0 0 0; font-size: 18px;}
-    .column2{flex-direction: column;} .column2 p{margin: 20px 0 0 0; font-size: 18px;}
-    #mainRegionSelect, .mainCitySelect, #mainRoleSelect, #mainPurposeSelect{display: flex; margin-top: 10px; width: 300px; height: 30px; font-size: 18px;} // Fixa så den är mer responsiv //
-    .indexhsearchbutton{display: flex; margin-top: 10px;}
+    .column1, .column2{flex-direction: column;} .column1 p, .column2 p{margin: 20px 0 0 0; font-size: 18px;}
+    #mainRegionSelect, .mainCitySelect, #mainRoleSelect, #mainPurposeSelect{
+        display: flex; 
+        margin-top: 10px; 
+        width: 300px; 
+        height: 30px; 
+        font-size: 18px;
+    }
+    .indexhsearchbutton{
+        display: flex; 
+        margin-top: 10px;
+    }
     #indexsearchbutton{
         width: 150px; 
         height: 40px; 

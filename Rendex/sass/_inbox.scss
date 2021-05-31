@@ -115,7 +115,9 @@
                 padding-left: 10px;
             }
             .chat-display-window{
-                height: 652px;
+                height: 650px;
+                margin-top: 2px;
+                overflow-y: scroll;
                 #insert-window{
                     background-color: #434347;
                     position: absolute;
@@ -169,3 +171,65 @@
         }
     }
 }
+
+/*********************** Chat CSS ***************************/
+#text-sent{
+    padding-right: 10px;
+    .text-sent-wrapper{
+        display: flex;
+        flex-direction: column;
+        float: right;
+        text-align: right;
+    }
+    .chat-text{
+        background-color: #1f4ece;
+        text-align: right;
+        margin-bottom: 10px;
+        p{padding-right: 10px;}
+    }
+}
+#text-recieved{
+    padding-left: 10px;
+    .chat-time-stamp{
+        p{text-align: left;}
+    }
+    .chat-text{
+        background-color: gray;
+        text-align: left;
+        margin-bottom: 10px;
+        p{padding-left: 10px;}
+    }
+}
+.testish{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    .chat-text > p{
+        width: auto;
+    }
+}
+#chat-list{
+    list-style-position: none;
+    list-style-image: none;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding-left: 0;
+    .chat-item{
+        .chat-time-stamp{
+            font-size: 12px;
+        }
+        .chat-text{
+            border-radius: 20px;
+            padding: 6px;
+            padding-left: 10px;
+            padding-right: 10px;
+            color: white;
+            height: auto;
+            max-width: 300px;
+            p{margin: 0;}
+        }
+    }
+}
+/*********************** Chat CSS ***************************/
