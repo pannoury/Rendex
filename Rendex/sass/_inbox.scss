@@ -87,9 +87,24 @@
                 justify-content: space-between;
                 align-items: center;
                 padding-left: 10px;
-                padding-right: 10px;
-                .conversation-options{
+                padding-right: 20px;
+                #conversation-options{
                     font-size: 16px;
+                    user-select: none;
+                }
+                #conversation-options-window{
+                    display: flex;
+                    flex-direction: column;
+                    padding: 10px;
+                    border-radius: 6px;
+                    background-color: #434347;
+                    row-gap: 6px;
+                    font-size: 12px;
+                    position: absolute;
+                    margin-left: 460px;
+                    margin-top: 30px;
+                    user-select: none;
+                    display: none;
                 }
             }
             .header-separator-inbox{
@@ -100,7 +115,7 @@
                 padding-left: 10px;
             }
             .chat-display-window{
-                height: 662px;
+                height: 652px;
                 #insert-window{
                     background-color: #434347;
                     position: absolute;
@@ -112,17 +127,19 @@
                     padding: 6px;
                     border-radius: 6px;
                     z-index: 10;
+                    user-select: none;
                     display: none;
                 }
             }
             .chat-input-wrapper{
-                height: 40px;
+                height: 50px;
                 margin: auto;
                 display: flex;
                 overflow: visible;
                 .insert-button-chat{
                     margin: auto;
                     margin-right: -5px;
+                    height: 20px;
                     #insert-button-chat{
                         &:hover{
                             filter: brightness(50%);
@@ -138,9 +155,10 @@
                         color: white;
                         border-radius: 20px;
                         border-style: none;
-                        height: 24px;
+                        height: 35px;
                         width: 530px;
-                        padding-left: 10px;
+                        padding-left: 20px;
+                        font-size: 14px;
                         &:focus{
                             outline: none;
                         }
