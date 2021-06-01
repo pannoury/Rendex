@@ -13,7 +13,6 @@
         border-color: whitesmoke; 
         font-size: 18px;
         padding: 8px;
-        margin: auto;
         &:hover{
             background-color: #000042;
         }
@@ -44,6 +43,9 @@
         gap: 20px;
         width: 60%;
         padding: 10px;
+        #form-logo{
+            margin: auto;
+        }
         #insurance-wrapper{
             display: flex;
             flex-direction: column;
@@ -109,8 +111,10 @@
         }
     }
     #createaccount-hero{
-        background-color: $dark-blue;
-        color: white;
+        background-image: url('/Rendex/assets/images/createaccount-hero-picture.jpg');
+        background-size: cover;
+        background-position: 40%;
+        color: black;
         width: 40%;
         padding: 20px;
         padding-left: 40px;
@@ -138,6 +142,22 @@
     }
 }
 
-/* Create Account END */
+@media (max-width: 450px){
+    #createaccountsection{
+        width: 100%;
+        margin-top: 50px;
+        #createaccountheaderdiv{
+            width: 100%;
+            #createaccountwrapper{
+                width: 100%;
+                #createaccount-hero{
+                    display: none;
+                }
+                #form-wrapper{
+                    width: 100%;
+                }
+            }
+        }
+    }
 
-/********************* ANIMATIONS *************************/
+}

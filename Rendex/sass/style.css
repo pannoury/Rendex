@@ -1261,7 +1261,6 @@ header #navlogo img {
   border-color: whitesmoke;
   font-size: 18px;
   padding: 8px;
-  margin: auto;
 }
 
 #createaccountsection #createaccount-btn:hover {
@@ -1315,6 +1314,10 @@ header #navlogo img {
   width: 60%;
   padding: 10px;
   /* Inputs */
+}
+
+#createaccountwrapper #form-wrapper #form-logo {
+  margin: auto;
 }
 
 #createaccountwrapper #form-wrapper #insurance-wrapper {
@@ -1430,8 +1433,10 @@ header #navlogo img {
 }
 
 #createaccountwrapper #createaccount-hero {
-  background-color: #00006d;
-  color: white;
+  background-image: url("/Rendex/assets/images/createaccount-hero-picture.jpg");
+  background-size: cover;
+  background-position: 40%;
+  color: black;
   width: 40%;
   padding: 20px;
   padding-left: 40px;
@@ -1473,8 +1478,25 @@ header #navlogo img {
   margin-left: 5px;
 }
 
-/* Create Account END */
-/********************* ANIMATIONS *************************/
+@media (max-width: 450px) {
+  #createaccountsection {
+    width: 100%;
+    margin-top: 50px;
+  }
+  #createaccountsection #createaccountheaderdiv {
+    width: 100%;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper {
+    width: 100%;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #createaccount-hero {
+    display: none;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper {
+    width: 100%;
+  }
+}
+
 /* Create Account Page */
 .centralwrapper {
   margin: auto;

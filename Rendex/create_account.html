@@ -35,9 +35,12 @@
           <p>Skapa ett konto för få tillgång till alla våra tjänster</p>
         </div>
         <div id="form-wrapper">
+          <div id="form-logo">
+            <img src="/Rendex/assets/images/rendex_black.svg" width="150px" height="45px">
+          </div>
           <div id="insurance-wrapper">
             <p><span class="bold">Personnummer</span><span class="redasterix">*</span></p>
-            <input type="text" class="insurancenumber" placeholder="YYYYMMDDXXXX" required="">
+            <input type="text" id="insurancenumber" placeholder="YYYYMMDDXXXX" required="">
           </div>
           <div id="fullname-input-wrapper">
             <div class="firstname-wrapper">
@@ -95,18 +98,21 @@
           <div id="account-createpassword">
             <div id="password-first-wrapper">
               <p><span class="bold">Skapa ett lösenord</span><span class="redasterix">*</span></p>
-              <input type="password" placeholder="Lösenord" required="">
+              <input type="password" id="createpassword" placeholder="Lösenord" required="">
             </div>
             <div id="password-repeat-wrapper">
               <p><span class="bold">Bekräfta lösenord</span><span class="redasterix">*</span></p>
-              <input type="password" placeholder="Bekräfta lösenord" required="">
+              <input type="password" id="repeatpassword" placeholder="Bekräfta lösenord" required="">
             </div>
           </div>
           <div class="checkboxdiv">
             <input type="checkbox" name="agreetoa" id="agreetoa" required=""> <!-- add event-->
             <label>Genom att skapa ett konto hos Rendex godkänner du <a href="terms_of_use.html">användarvillkoren</a><span class="redasterix">*</span></label>
           </div>
-          <button id="createaccount-btn" href="#" onclick="createAccountClick()">Skapa Konto</button>
+          <div>
+            <button id="createaccount-btn" href="#" onclick="createAccountClick()">Skapa Konto</button>
+            <p>Har du redan ett konto?<a href="login.html"> Logga in här</a></p>
+          </div>
         </div>
       </div>
     </div>
@@ -116,30 +122,6 @@
   <!--FOOTER START-->
   <div id="footer"></div>
   <!--FOOTER END-->
-    <script>
-      function createAccountClick(){
-        function firstName(){
-          var firstName = document.getElementById('firstnameinput').value;
-          console.log(firstName);
-          return firstName;
-        }
-        function lastName(){
-          var lastName = document.getElementById('surnameinput').value;
-          console.log(lastName);
-          return lastName;
-        }
-        function roleSelect(){
-          var roleSelect = document.getElementById('purposeselect').value;
-          console.log(roleSelect);
-          return roleSelect;
-        }
-        function regionSelect(){
-          var regionSelected = document.getElementById('regioninput').value;
-          console.log(regionSelected);
-          return regionSelected;
-        }
-      }
-    </script>
-    <script src="/Rendex/JS/createaccount.js"></script>
+  <script src="/Rendex/JS/createaccount.js"></script>
 </body>
 <html>
