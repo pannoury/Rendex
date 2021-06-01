@@ -1251,18 +1251,8 @@ header #navlogo img {
   margin: 80px 0 40px 0;
 }
 
-#createaccountsection h1 {
-  text-align: center;
-  font-size: 30px;
-  margin: 2px;
-}
-
-#createaccountsection .buttondiv {
-  margin: 20px auto auto auto;
-}
-
-#createaccountsection .buttondiv button {
-  width: 400px;
+#createaccountsection #createaccount-btn {
+  width: 200px;
   height: 40px;
   background-color: #00006d;
   color: white;
@@ -1271,9 +1261,10 @@ header #navlogo img {
   border-color: whitesmoke;
   font-size: 18px;
   padding: 8px;
+  margin: auto;
 }
 
-#createaccountsection .buttondiv button:hover {
+#createaccountsection #createaccount-btn:hover {
   background-color: #000042;
 }
 
@@ -1297,12 +1288,22 @@ header #navlogo img {
   padding: 20px;
 }
 
-#createaccountheaderdiv p {
-  width: 100%;
-  text-align: center;
+#createaccountwrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  overflow: hidden;
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  border-radius: 6px;
 }
 
-#createaccountwrapper {
+#createaccountwrapper #form-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1310,42 +1311,139 @@ header #navlogo img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  overflow-x: hidden;
-  width: 40%;
-  margin: auto;
-  background-color: white;
-  border-radius: 6px;
+  gap: 20px;
+  width: 60%;
+  padding: 10px;
+  /* Inputs */
 }
 
-#createaccountwrapper form {
-  margin: 20px auto 10px auto;
-  width: 80%;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  overflow-x: hidden;
+#createaccountwrapper #form-wrapper #insurance-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 10px;
 }
 
-#createaccountwrapper form select {
+#createaccountwrapper #form-wrapper #insurance-wrapper p {
+  margin-top: 0;
+}
+
+#createaccountwrapper #form-wrapper #fullname-input-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
-  height: 45px;
-  margin-top: 5px;
+}
+
+#createaccountwrapper #form-wrapper #fullname-input-wrapper .firstname-wrapper, #createaccountwrapper #form-wrapper #fullname-input-wrapper .lastname-wrapper {
+  width: 48%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#createaccountwrapper #form-wrapper #fullname-input-wrapper .firstname-wrapper p, #createaccountwrapper #form-wrapper #fullname-input-wrapper .lastname-wrapper p {
+  margin-top: 0;
+  margin-bottom: 2px;
+}
+
+#createaccountwrapper #form-wrapper #account-role-select, #createaccountwrapper #form-wrapper #account-region-select, #createaccountwrapper #form-wrapper #account-postalcode, #createaccountwrapper #form-wrapper #account-email {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#createaccountwrapper #form-wrapper #account-role-select p, #createaccountwrapper #form-wrapper #account-region-select p, #createaccountwrapper #form-wrapper #account-postalcode p, #createaccountwrapper #form-wrapper #account-email p {
+  margin-top: 0;
+  margin-bottom: 2px;
+}
+
+#createaccountwrapper #form-wrapper #account-createpassword {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#createaccountwrapper #form-wrapper #account-createpassword #password-first-wrapper, #createaccountwrapper #form-wrapper #account-createpassword #password-repeat-wrapper {
+  width: 48%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#createaccountwrapper #form-wrapper #account-createpassword #password-first-wrapper p, #createaccountwrapper #form-wrapper #account-createpassword #password-repeat-wrapper p {
+  margin-top: 0;
+  margin-bottom: 2px;
+}
+
+#createaccountwrapper #form-wrapper select {
+  height: 30px;
+  width: 100%;
   font-size: 16px;
   border-radius: 6px;
   color: black;
   padding-left: 10px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
 }
 
-#createaccountwrapper form input {
-  width: 100%;
-  height: 40px;
-  margin-top: 5px;
+#createaccountwrapper #form-wrapper input {
+  height: 30px;
   font-size: 16px;
   border-radius: 6px;
+  outline: none;
   border: 1px groove black;
   color: black;
   padding-left: 10px;
+}
+
+#createaccountwrapper #createaccount-hero {
+  background-color: #00006d;
+  color: white;
+  width: 40%;
+  padding: 20px;
+  padding-left: 40px;
+}
+
+#createaccountwrapper #createaccount-hero h1 {
+  font-size: 28px;
+  margin-bottom: 0;
+}
+
+#createaccountwrapper #createaccount-hero p {
+  margin-top: 2px;
 }
 
 #createaccountwrapper a {
@@ -1368,8 +1466,7 @@ header #navlogo img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 5px;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 #createaccountwrapper .checkboxdiv label {
@@ -1377,6 +1474,7 @@ header #navlogo img {
 }
 
 /* Create Account END */
+/********************* ANIMATIONS *************************/
 /* Create Account Page */
 .centralwrapper {
   margin: auto;
@@ -2259,6 +2357,23 @@ header #navlogo img {
   border-bottom: groove 1px;
 }
 
+.inbox-wrapper-wrapper .inbox-wrapper .conversation-inbox-list #conversation-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: scroll;
+  height: 750px;
+  padding-bottom: 1px;
+}
+
+.inbox-wrapper-wrapper .inbox-wrapper .conversation-inbox-list #conversation-list:nth-last-child(1) {
+  border-bottom-left-radius: 8px;
+}
+
 .inbox-wrapper-wrapper .inbox-wrapper .conversation-inbox-list .conversation-selection {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2406,7 +2521,7 @@ header #navlogo img {
 
 .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-display-window {
   height: 650px;
-  margin-top: 2px;
+  margin-top: 0.5px;
   overflow-y: scroll;
 }
 
@@ -2494,13 +2609,15 @@ header #navlogo img {
 }
 
 #text-sent .chat-text {
-  background-color: #1f4ece;
   text-align: right;
   margin-bottom: 10px;
 }
 
 #text-sent .chat-text p {
-  padding-right: 10px;
+  background-color: #1f4ece;
+  border-radius: 20px;
+  padding: 10px 10px 10px 20px;
+  text-align: left;
 }
 
 #text-recieved {
@@ -2512,13 +2629,14 @@ header #navlogo img {
 }
 
 #text-recieved .chat-text {
-  background-color: gray;
   text-align: left;
   margin-bottom: 10px;
 }
 
 #text-recieved .chat-text p {
-  padding-left: 10px;
+  background-color: gray;
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
 }
 
 .testish {
@@ -2531,10 +2649,6 @@ header #navlogo img {
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-}
-
-.testish .chat-text > p {
-  width: auto;
 }
 
 #chat-list {
@@ -2557,13 +2671,12 @@ header #navlogo img {
 }
 
 #chat-list .chat-item .chat-text {
-  border-radius: 20px;
-  padding: 6px;
-  padding-left: 10px;
-  padding-right: 10px;
   color: white;
   height: auto;
   max-width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #chat-list .chat-item .chat-text p {

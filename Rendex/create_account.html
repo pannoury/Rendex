@@ -29,63 +29,85 @@
   <!-- Create Account Page START-->
   <section id="createaccountsection">
     <div id="createaccountheaderdiv">
-      <h1>Välkommen till Rendex</h1>
-      <p>Skapa ett konto för få tillgång till alla våra tjänster</p>
       <div id="createaccountwrapper">
-        <form>
-          <p><span class="bold">Personnummer</span><span class="redasterix">*</span></p>
-          <input type="text" class="insurancenumber" placeholder="YYYYMMDDXXXX" required="">
-          <p><span class="bold">Förnamn</span><span class="redasterix">*</span></p>
-          <input type="text" placeholder="Förnamn" id="firstnameinput" required=""> 
-          <p><span class="bold">Efternamn</span><span class="redasterix">*</span></p>
-          <input type="text" placeholder="Efternamn" id="surnameinput" required="">
-          <p><span class="bold">Din roll</span><span class="redasterix">*</span></p>
-          <select id="purposeselect" required="">
-            <option value="" disabled selected id="disabledselect">Välj Roll</option>
-            <option value="Uppdragsgivare">Uppdragsgivare</option>
-            <option value="Uppdragstagere">Uppdragstagare</option>
-          </select>
-          <p><span class="bold">Region</span><span class="redasterix">*</span></p>
-          <select id="regioninput" required="">
-            <option value="" disabled selected hidden id="disabledselect">Välj Region</option>
-            <option value="Blekinge">Blekinge</option>
-            <option value="Dalarna">Dalarna</option>
-            <option value="Gävleborg">Gävleborg</option>
-            <option value="Gotland">Gotland</option>
-            <option value="Halland">Halland</option>
-            <option value="Jämtland">Jämtland</option>
-            <option value="Jönköping">Jönköping</option>
-            <option value="Kalmar">Kalmar</option>
-            <option value="Kronoberg">Kronoberg</option>
-            <option value="Norrbotten">Norrbotten</option>
-            <option value="Örebro">Örebro</option>
-            <option value="Östergötland">Östergötland</option>
-            <option value="Skåne">Skåne</option>
-            <option value="Sörmland">Sörmland</option>
-            <option value="Stockholm">Stockholm</option>
-            <option value="Uppsala">Uppsala</option>
-            <option value="Värmland">Värmland</option>
-            <option value="Västerbotten">Västerbotten</option>
-            <option value="Västernorrland">Västernorrland</option>
-            <option value="Västmanland">Västmanland</option>
-            <option value="Västra Götaland">Västra Götaland</option> 
-          </select>
-          <p><span class="bold">Postnummer</span><span class="redasterix">*</span></p>
-          <input type="text" placeholder="100 10" class="zipcodeinput" required="">
-          <p><span class="bold">E-mailadress</span><span class="redasterix">*</span></p>
-          <input type="email" placeholder="E-mailadress" required="">
-          <p><span class="bold">Skapa ett lösenord</span><span class="redasterix">*</span></p>
-          <input type="password" placeholder="Lösenord" required="">
-          <p><span class="bold">Bekräfta lösenord</span><span class="redasterix">*</span></p>
-          <input type="password" placeholder="Bekräfta lösenord" required="">
-            <div class="checkboxdiv">
-              <input type="checkbox" name="agreetoa" id="agreetoa" required=""> <!-- add event-->
-              <label>Genom att skapa ett konto hos Rendex godkänner du <a href="terms_of_use.html">användarvillkoren</a><span class="redasterix">*</span></label>
+        <div id="createaccount-hero">
+          <h1>Välkommen till Rendex</h1>
+          <p>Skapa ett konto för få tillgång till alla våra tjänster</p>
+        </div>
+        <div id="form-wrapper">
+          <div id="insurance-wrapper">
+            <p><span class="bold">Personnummer</span><span class="redasterix">*</span></p>
+            <input type="text" class="insurancenumber" placeholder="YYYYMMDDXXXX" required="">
+          </div>
+          <div id="fullname-input-wrapper">
+            <div class="firstname-wrapper">
+              <p><span class="bold">Förnamn</span><span class="redasterix">*</span></p>
+              <input type="text" placeholder="Förnamn" id="firstnameinput" required=""> 
             </div>
-        </form>
-      </div>
-      <div class="buttondiv">
-        <button href="#" onclick="createAccountClick()">Skapa Konto</button>
+            <div class="lastname-wrapper">
+              <p><span class="bold">Efternamn</span><span class="redasterix">*</span></p>
+              <input type="text" placeholder="Efternamn" id="surnameinput" required="">
+            </div>
+          </div>
+          <div id="account-role-select">
+            <p><span class="bold">Din roll</span><span class="redasterix">*</span></p>
+            <select id="purposeselect" required="">
+              <option value="" disabled selected id="disabledselect">Välj Roll</option>
+              <option value="Uppdragsgivare">Uppdragsgivare</option>
+              <option value="Uppdragstagere">Uppdragstagare</option>
+            </select>
+          </div>
+          <div id="account-region-select">
+            <p><span class="bold">Region</span><span class="redasterix">*</span></p>
+            <select id="regioninput" required="">
+              <option value="" disabled selected hidden id="disabledselect">Välj Region</option>
+              <option value="Blekinge">Blekinge</option>
+              <option value="Dalarna">Dalarna</option>
+              <option value="Gävleborg">Gävleborg</option>
+              <option value="Gotland">Gotland</option>
+              <option value="Halland">Halland</option>
+              <option value="Jämtland">Jämtland</option>
+              <option value="Jönköping">Jönköping</option>
+              <option value="Kalmar">Kalmar</option>
+              <option value="Kronoberg">Kronoberg</option>
+              <option value="Norrbotten">Norrbotten</option>
+              <option value="Örebro">Örebro</option>
+              <option value="Östergötland">Östergötland</option>
+              <option value="Skåne">Skåne</option>
+              <option value="Sörmland">Sörmland</option>
+              <option value="Stockholm">Stockholm</option>
+              <option value="Uppsala">Uppsala</option>
+              <option value="Värmland">Värmland</option>
+              <option value="Västerbotten">Västerbotten</option>
+              <option value="Västernorrland">Västernorrland</option>
+              <option value="Västmanland">Västmanland</option>
+              <option value="Västra Götaland">Västra Götaland</option> 
+            </select>
+          </div>
+          <div id="account-postalcode">
+            <p><span class="bold">Postnummer</span><span class="redasterix">*</span></p>
+            <input type="text" placeholder="100 10" id="zipcodeinput" required="">
+          </div>
+          <div id="account-email">
+            <p><span class="bold">E-mailadress</span><span class="redasterix">*</span></p>
+            <input type="email" placeholder="E-mailadress" required="">
+          </div>
+          <div id="account-createpassword">
+            <div id="password-first-wrapper">
+              <p><span class="bold">Skapa ett lösenord</span><span class="redasterix">*</span></p>
+              <input type="password" placeholder="Lösenord" required="">
+            </div>
+            <div id="password-repeat-wrapper">
+              <p><span class="bold">Bekräfta lösenord</span><span class="redasterix">*</span></p>
+              <input type="password" placeholder="Bekräfta lösenord" required="">
+            </div>
+          </div>
+          <div class="checkboxdiv">
+            <input type="checkbox" name="agreetoa" id="agreetoa" required=""> <!-- add event-->
+            <label>Genom att skapa ett konto hos Rendex godkänner du <a href="terms_of_use.html">användarvillkoren</a><span class="redasterix">*</span></label>
+          </div>
+          <button id="createaccount-btn" href="#" onclick="createAccountClick()">Skapa Konto</button>
+        </div>
       </div>
     </div>
   </section>
@@ -118,5 +140,6 @@
         }
       }
     </script>
+    <script src="/Rendex/JS/createaccount.js"></script>
 </body>
 <html>

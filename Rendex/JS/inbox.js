@@ -31,15 +31,26 @@ window.addEventListener('click', function(e){
 document.getElementById('chat-input').addEventListener('keypress', function (e){
     var input = document.getElementById('chat-input').value;
     var ulList = document.getElementById('chat-list');
+    var timeStamp = new Date();
+    var day = timeStamp.getDate;
+    var month = timeStamp.getMonth;
+    var hour = timeStamp.getHours;
+    var minute = timeStamp.getMinutes;
+    //const dataString = (${day} + ${month}, ${hour} + ':' + ${minute}); 
+
 
     if(e.key === 'Enter'){
-        var li = document.createElement('li');
-        ulList.appendChild(li);
-        li.appendChild(document.createElement('div'));
-        li.classList.add('chat-item');
-        li.id = "text-sent";
-
-        console.log(input);
-        return input;
+        alert(input);
+        alert(dataString);
     }
 });
+window.addEventListener('load', function conversationCount(){
+    var a = $(".conversation-selection").lenght;
+    if (a > 7){
+        console.log(a);
+        $(".inbox-separator").last().css("display", "none");
+    }
+});
+
+// $('<li>', {'class': 'chat-item'}, {'id': 'text-sent'}).appendTo('#chat-list');
+

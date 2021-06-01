@@ -26,6 +26,16 @@
                 height: 1px;
                 border-bottom: groove 1px;
             }
+            #conversation-list{
+                display: flex;
+                flex-direction: column;
+                overflow-y: scroll;
+                height: 750px;
+                padding-bottom: 1px;
+                &:nth-last-child(1){
+                    border-bottom-left-radius: 8px;
+                }
+            }
             .conversation-selection{
                 display: flex;
                 flex-direction: column;
@@ -116,7 +126,7 @@
             }
             .chat-display-window{
                 height: 650px;
-                margin-top: 2px;
+                margin-top: 0.5px;
                 overflow-y: scroll;
                 #insert-window{
                     background-color: #434347;
@@ -182,10 +192,14 @@
         text-align: right;
     }
     .chat-text{
-        background-color: #1f4ece;
         text-align: right;
         margin-bottom: 10px;
-        p{padding-right: 10px;}
+        p{
+            background-color: #1f4ece;
+            border-radius: 20px;
+            padding: 10px 10px 10px 20px;
+            text-align: left;
+        }
     }
 }
 #text-recieved{
@@ -194,19 +208,19 @@
         p{text-align: left;}
     }
     .chat-text{
-        background-color: gray;
         text-align: left;
         margin-bottom: 10px;
-        p{padding-left: 10px;}
+        p{
+            background-color: gray;
+            border-radius: 20px;
+            padding: 10px 20px 10px 20px;
+        }
     }
 }
 .testish{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    .chat-text > p{
-        width: auto;
-    }
 }
 #chat-list{
     list-style-position: none;
@@ -221,13 +235,10 @@
             font-size: 12px;
         }
         .chat-text{
-            border-radius: 20px;
-            padding: 6px;
-            padding-left: 10px;
-            padding-right: 10px;
             color: white;
             height: auto;
             max-width: 300px;
+            display: flex;
             p{margin: 0;}
         }
     }
