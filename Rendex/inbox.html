@@ -219,12 +219,14 @@
             <div class="conversation-topic-clue">
               <p>[Beskrivning]</p>
             </div>
-            <div class="header-separator-inbox" id="header-separator-inbox-chat"></div>
           </div>
+          <div class="header-separator-inbox" id="header-separator-inbox-chat"></div>
           <div class="chat-display-window">
             <div id="insert-window"> <!--insert window-->
-              <a>Bifoga bild</a>
-              <a>Bifoga dokument</a>
+              <a id="imginputlink">Bifoga bild</a>
+              <input id="imginput" type="file" name="image" multiple="" accept="image/png,image/jpeg,image/jpeg,image/gif" value="">
+              <a id="fileinputlink">Bifoga dokument</a>
+              <input id="fileinput" type="file" name="file" multiple="" accept="application/pdf" value="">
             </div>
             <ul id="chat-list">
               <li class="chat-item" id="text-sent">

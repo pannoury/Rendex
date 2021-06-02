@@ -41,6 +41,7 @@
           <div id="insurance-wrapper">
             <p><span class="bold">Personnummer</span><span class="redasterix">*</span></p>
             <input type="text" id="insurancenumber" placeholder="YYYYMMDDXXXX" required="">
+            <span id="wronginsurancenumber">Ange ett giltigt personnummer</span>
           </div>
           <div id="fullname-input-wrapper">
             <div class="firstname-wrapper">
@@ -88,29 +89,25 @@
             </select>
           </div>
           <div id="account-postalcode">
-            <p><span class="bold">Postnummer</span><span class="redasterix">*</span></p>
-            <input type="text" placeholder="100 10" id="zipcodeinput" required="">
-          </div>
-          <div id="account-email">
             <p><span class="bold">E-mailadress</span><span class="redasterix">*</span></p>
-            <input type="email" placeholder="E-mailadress" required="">
+            <input type="email" placeholder="rendex@test.com" id="emailinput" required="">
           </div>
-          <div id="account-createpassword">
-            <div id="password-first-wrapper">
-              <p><span class="bold">Skapa ett lösenord</span><span class="redasterix">*</span></p>
-              <input type="password" id="createpassword" placeholder="Lösenord" required="">
-            </div>
-            <div id="password-repeat-wrapper">
-              <p><span class="bold">Bekräfta lösenord</span><span class="redasterix">*</span></p>
-              <input type="password" id="repeatpassword" placeholder="Bekräfta lösenord" required="">
-            </div>
+          <div id="account-emailrepeat">
+            <p><span class="bold">Bekfräfta E-mailadress</span><span class="redasterix">*</span></p>
+            <input type="email" placeholder="rendex@test.com" required="" id="emailinputrepeat">
+            <span id="wrongemailrepeat">E-mailadresserna matchar inte</span>
+          </div>
+          <div id="account-phonenumber">
+            <p><span class="bold">Mobiltelefon</span><span class="redasterix">*</span></p>
+            <input type="text" placeholder="Ange telefonnummer" required="" id= "phonenumberinput">
+            <span id="wrongphonenumber">Vänligen ange ett giltigt telefonnummer</span>
           </div>
           <div class="checkboxdiv">
             <input type="checkbox" name="agreetoa" id="agreetoa" required=""> <!-- add event-->
             <label>Genom att skapa ett konto hos Rendex godkänner du <a href="terms_of_use.html">användarvillkoren</a><span class="redasterix">*</span></label>
           </div>
-          <div>
-            <button id="createaccount-btn" href="#" onclick="createAccountClick()">Skapa Konto</button>
+          <div id="finalcreateaccount">
+            <button id="createaccount-btn" href="#">Skapa Konto</button>
             <p>Har du redan ett konto?<a href="login.html"> Logga in här</a></p>
           </div>
         </div>

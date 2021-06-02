@@ -16,6 +16,7 @@
             color: white;
             border-top-left-radius: 8px;
             border-bottom-left-radius: 8px;
+            overflow: hidden;
             h1{
                 font-size: 24px; 
                 margin-bottom: 0;
@@ -89,6 +90,7 @@
             color: white;
             border-top-right-radius: 8px;
             border-bottom-right-radius: 8px;
+            overflow: hidden;
             #conversation-header{
                 height: 95px;
             }
@@ -242,5 +244,8 @@
             p{margin: 0;}
         }
     }
+}
+#imginput, #fileinput{
+    display: none;
 }
 /*********************** Chat CSS ***************************/

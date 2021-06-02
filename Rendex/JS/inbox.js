@@ -54,3 +54,10 @@ window.addEventListener('load', function conversationCount(){
 
 // $('<li>', {'class': 'chat-item'}, {'id': 'text-sent'}).appendTo('#chat-list');
 
+
+document.getElementById('imginputlink').addEventListener('click', () => {
+    document.getElementById('imginput').click();
+});
+document.getElementById('fileinputlink').addEventListener('click', () => {
+    document.getElementById('fileinput').click();
+});
