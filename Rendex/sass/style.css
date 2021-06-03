@@ -1088,11 +1088,34 @@ header #navlogo img {
     font-weight: normal;
     line-height: 1.4;
   }
+  .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile #bankid-insurancenumber {
+    margin: auto;
+    margin-bottom: 10px;
+    font-size: 18px;
+    border-radius: 6px;
+    border-style: groove 0.5px;
+    padding: 6px 6px 6px 8px;
+    width: 75%;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
   .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile .open-bankid, .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile .bankid-other-devices {
     width: 80%;
     border-radius: 20px;
     font-size: 18px;
     padding: 8px;
+    margin: auto;
   }
   .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile .open-bankid {
     background-color: #00006d;

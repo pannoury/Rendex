@@ -74,11 +74,24 @@
                 h1{font-size: 22px;}
                 h3{font-size: 16px; font-weight: normal; line-height: 1.4;}
                 .bankID-mobile{
+                    display: flex;
+                    flex-direction: column;
+                    #bankid-insurancenumber{
+                        margin: auto;
+                        margin-bottom: 10px;
+                        font-size: 18px;
+                        border-radius: 6px;
+                        border-style: groove 0.5px;
+                        padding: 6px 6px 6px 8px;
+                        width: 75%;
+                        user-select: none;
+                    }
                     .open-bankid, .bankid-other-devices{
                         width: 80%;
                         border-radius: 20px;
                         font-size: 18px;
                         padding: 8px;
+                        margin: auto;
                     }
                     .open-bankid{
                         background-color: #00006d; 
