@@ -76,6 +76,5 @@ document.getElementById('chat-input').addEventListener('keypress', function (e){
 
     if(e.code === 'Enter'){
         console.log(b);
-        console.log(b);
     }
 });
