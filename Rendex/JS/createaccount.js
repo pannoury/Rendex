@@ -8,11 +8,7 @@ document.getElementById('insurancenumber').onblur = function insuranceLengthChec
     var c = document.getElementById('wronginsurancenumber');
     var d = false;
 
-    if(b.length > 0 && b.length < '12'){
-        a.style.borderColor = "red";
-        c.style.display = "block";
-    }
-    else if (b.length > 12){
+    if(b.length > 0 && b.length < '12'|| b.length > 12){
         a.style.borderColor = "red";
         c.style.display = "block";
     }
@@ -35,11 +31,6 @@ document.getElementById('insurancenumber').oninput = function insuranceValueChec
         c.style.display = "none";
         var v = true;
     }
-    /*function insuranceControl(){
-        if (v = true && d = true){
-            return x.value;
-        }
-    } */
 }
 /********************************PERSONNUMMER************************************ */
 document.getElementById('firstnameinput').oninput = function(){
@@ -121,5 +112,12 @@ document.getElementById('emailinputrepeat').onblur = function(){
 }
 
 document.getElementById('createaccount-btn').onclick = function retrieveData(){
-    
+    var a = docuemnt.getElementById('regioninput').value;
+
+
+    for(var i = 0; i <= a; i++){
+
+    }
 }
+
+

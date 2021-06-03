@@ -27,7 +27,7 @@ window.addEventListener('click', function(e){
         chatOptionsWindow.style.display = "none";
     }
 });
-
+/*
 document.getElementById('chat-input').addEventListener('keypress', function (e){
     var input = document.getElementById('chat-input').value;
     var ulList = document.getElementById('chat-list');
@@ -44,6 +44,7 @@ document.getElementById('chat-input').addEventListener('keypress', function (e){
         alert(dataString);
     }
 });
+*/
 window.addEventListener('load', function conversationCount(){
     var a = $(".conversation-selection").lenght;
     if (a > 7){
@@ -60,4 +61,20 @@ document.getElementById('imginputlink').addEventListener('click', () => {
 });
 document.getElementById('fileinputlink').addEventListener('click', () => {
     document.getElementById('fileinput').click();
+});
+/*
+document.getElementById('chat-input').oninput = function chatInput(){
+    var a = document.getElementById('chat-input');
+    var b = a.value;
+
+    console.log(b);
+} */
+
+document.getElementById('chat-input').addEventListener('keypress', function (e){
+    var a = document.getElementById('chat-input');
+    var b = a.value;
+
+    if(e.code === 'Enter'){
+        console.log(b);
+    }
 });
