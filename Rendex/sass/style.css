@@ -158,6 +158,10 @@ header #navlogo img {
   }
 }
 
+#loggedInTrue {
+  display: none;
+}
+
 /* END NAVBAR */
 /*Header*/
 @media (min-width: 750px) {
