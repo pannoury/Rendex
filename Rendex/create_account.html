@@ -38,10 +38,27 @@
           <div id="form-logo">
             <img src="/Rendex/assets/images/rendex_black.svg" width="150px" height="45px">
           </div>
-          <div id="insurance-wrapper">
-            <p><span class="bold">Personnummer</span><span class="redasterix">*</span></p>
-            <input type="text" id="insurancenumber" placeholder="YYYYMMDDXXXX" required="">
-            <span id="wronginsurancenumber">Ange ett giltigt personnummer</span>
+          <div id="insurance_companynumber-wrapper">
+            <div id="company-wrapper">
+              <p><span class="bold">Organisationsnummer</span><span class="redasterix">*</span></p>
+              <input type="text" id="organisationnumber" placeholder="550000-0000" required="">
+              <span id="wronginsurancenumber">Ange ett giltigt orgnisationsnummer</span>
+            </div>
+            <div id="insurance-wrapper">
+              <p><span class="bold">Personnummer</span><span class="redasterix">*</span></p>
+              <input type="text" id="insurancenumber" placeholder="YYYYMMDDXXXX" required="">
+              <span id="wronginsurancenumber">Ange ett giltigt personnummer</span>
+            </div>
+              <button type="menu" id="selection-input-btn">TJENIS</button>
+              <img src="/Rendex/assets/images/arrow-down.svg" height="15px" fill="#0000">
+            <div id="selection-input">
+              <p><span class="bold">xxxxx</span></p>
+              <select id="individual-organisation-select">
+                  <option value="Aktiebolag">Aktiebolag</option>
+                  <option value="Enskild Firma">Enskild Firma</option>
+                  <option value="Individ">Person</option>
+              </select>
+            </div>
           </div>
           <div id="fullname-input-wrapper">
             <div class="firstname-wrapper">
@@ -109,6 +126,8 @@
           <div id="finalcreateaccount">
             <button id="createaccount-btn" href="#">Skapa Konto</button>
             <p>Har du redan ett konto?<a href="login.html"> Logga in här</a></p>
+          </div>
+          <div id="registration-tracker">
           </div>
         </div>
       </div>

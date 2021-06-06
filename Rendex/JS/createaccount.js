@@ -57,6 +57,10 @@ document.getElementById('regioninput').onchange = function regionSelect(){
     var r = document.getElementById('regioninput').value;
     return r;
 }
+document.getElementById('selection-input-btn').addEventListener('click', () => {
+    var a = document.getElementById('individual-organisation-select');
+    document.getElementById('individual-organisation-select').click();
+});
 /****************************Phone number ***********************************/
 document.getElementById('phonenumberinput').onblur = function(){
     var a = document.getElementById('phonenumberinput');

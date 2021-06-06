@@ -1485,6 +1485,51 @@ header #navlogo img {
   text-align: center;
 }
 
+#insurance_companynumber-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100%;
+}
+
+#insurance_companynumber-wrapper #company-wrapper {
+  display: none;
+  width: 48%;
+}
+
+#insurance_companynumber-wrapper #selection-input {
+  width: 48%;
+  display: none;
+}
+
+#insurance_companynumber-wrapper #insurance-wrapper {
+  width: 48%;
+}
+
+#insurance_companynumber-wrapper #selection-input-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: groove 1px black;
+  border-radius: 6px;
+  padding: 4px;
+  height: 34px;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#insurance_companynumber-wrapper #selection-input-btn img {
+  fill: black;
+}
+
 @media (max-width: 450px) {
   #createaccountsection {
     width: 100%;
