@@ -1275,7 +1275,7 @@ header #navlogo img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 80px 0 40px 0;
+  margin: 130px 0 100px 0;
 }
 
 #createaccountsection #createaccount-btn {
@@ -1311,7 +1311,6 @@ header #navlogo img {
           justify-content: center;
   margin: auto;
   width: 70%;
-  padding: 20px;
 }
 
 #createaccountwrapper {
@@ -1324,6 +1323,7 @@ header #navlogo img {
           flex-direction: row;
   overflow: hidden;
   width: 80%;
+  height: 530px;
   margin: auto;
   background-color: white;
   border-radius: 6px;
@@ -1339,12 +1339,13 @@ header #navlogo img {
           flex-direction: column;
   gap: 20px;
   width: 60%;
-  padding: 10px;
+  padding: 40px 20px 0px 20px;
   /* Inputs */
 }
 
-#createaccountwrapper #form-wrapper #form-logo {
-  margin: auto;
+#createaccountwrapper #form-wrapper #form-logo p {
+  margin-top: 0px;
+  font-size: 18px;
 }
 
 #createaccountwrapper #form-wrapper #insurance-wrapper {
@@ -1363,9 +1364,7 @@ header #navlogo img {
 }
 
 #createaccountwrapper #form-wrapper #fullname-input-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -1393,9 +1392,7 @@ header #navlogo img {
 }
 
 #createaccountwrapper #form-wrapper #account-role-select, #createaccountwrapper #form-wrapper #account-region-select, #createaccountwrapper #form-wrapper #account-postalcode, #createaccountwrapper #form-wrapper #account-emailrepeat, #createaccountwrapper #form-wrapper #account-phonenumber {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -1462,17 +1459,15 @@ header #navlogo img {
   margin-bottom: 0;
 }
 
-#createaccountwrapper .checkboxdiv {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+#createaccountwrapper #checkboxdiv {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   font-size: 12px;
+  display: none;
 }
 
-#createaccountwrapper .checkboxdiv label {
+#createaccountwrapper #checkboxdiv label {
   margin-left: 5px;
 }
 
@@ -1481,11 +1476,19 @@ header #navlogo img {
   display: none;
 }
 
+#finalcreateaccount {
+  display: none;
+}
+
 #finalcreateaccount p {
   text-align: center;
 }
 
-#insurance_companynumber-wrapper {
+#insurance-wrapper {
+  width: 100%;
+}
+
+#registration-tracker {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1493,41 +1496,63 @@ header #navlogo img {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-#insurance_companynumber-wrapper #company-wrapper {
-  display: none;
-  width: 48%;
+#registration-tracker p {
+  margin-top: 0px;
 }
 
-#insurance_companynumber-wrapper #selection-input {
-  width: 48%;
-  display: none;
+#registration-tracker #tracker1, #registration-tracker #tracker2, #registration-tracker #tracker3 {
+  font-size: 48px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
-#insurance_companynumber-wrapper #insurance-wrapper {
-  width: 48%;
+#registration-tracker #tracker1 {
+  color: black;
 }
 
-#insurance_companynumber-wrapper #selection-input-btn {
+#registration-tracker #tracker2 {
+  color: #888;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#registration-tracker #tracker3 {
+  color: #afafaf;
+}
+
+#next-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: groove 1px black;
-  border-radius: 6px;
-  padding: 4px;
-  height: 34px;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: auto;
 }
 
-#insurance_companynumber-wrapper #selection-input-btn img {
-  fill: black;
+#next-button #next-btn {
+  border-radius: 20px;
+  border-style: solid;
+  border-color: #00006d;
+  background-color: #00006d;
+  color: white;
+  padding: 10px 30px 10px 30px;
+  font-size: 16px;
+}
+
+#next-button #next-btn:hover {
+  background-color: #000042;
 }
 
 @media (max-width: 450px) {

@@ -1,38 +1,65 @@
-$.getJSON("https://skatteverket.entryscape.net/rowstore/dataset/b4de7df7-63c0-4e7e-bb59-1f156a591763", function(personId){
+$.getJSON("https://skatteverket.entryscape.net/rowstore/dataset/b4de7df7-63c0-4e7e-bb59-1f156a591763", function skatteverketApi(personId){
     console.log(personId);
-})
-/********************************PERSONNUMMER************************************ */
+});
+
+var insuranceWrapper = document.getElementById('insurance-wrapper');
+var fullNameInputWrapper = document.getElementById('fullname-input-wrapper');
+var accountRoleSelect = document.getElementById('account-role-select');
+var accountRegionSelect = document.getElementById('account-region-select');
+var accountEmail = document.getElementById('account-postalcode');
+var accountEmailRepeat = document.getElementById('account-emailrepeat');
+var accountPhoneNumber = document.getElementById('account-phonenumber');
+var accountCheckboxDiv = document.getElementById('checkboxdiv');
+var accountFinalCreateAccount = document.getElementById('finalcreateaccount');
+var registrationTrackerOne = document.getElementById('tracker1');
+var registrationTrackerTwo = document.getElementById('tracker2');
+var registrationTrackerThree = document.getElementById('tracker3');
+var personnummer = false;
+var aktieBolag = false;
+var enskildFirma = false;
+var personIdentifier = skatteverketApi(personId);
+
+/****************************PERSONNUMMER/ORGNUMMER***************************** */
 document.getElementById('insurancenumber').onblur = function insuranceLengthCheck(){
     var a = document.getElementById('insurancenumber');
     var b = a.value;
     var c = document.getElementById('wronginsurancenumber');
-    var d = false;
-
-    if(b.length > 0 && b.length < '12'|| b.length > 12){
-        a.style.borderColor = "red";
-        c.style.display = "block";
+    var i;
+    var personIdentifier = personId.results;
+    for(i = 0; i < personId.results; i++){
+        var x = personIdentifier[i];
     }
-    else{
+
+    if(b.length === 12 && !isNaN(b)){
+        personnummer = true;
+        aktieBolag = false;
+        enskildFirma = true;
         a.style.borderColor = "black";
         c.style.display = "none";
-        return (d = true);
+        console.log(b, personnummer)
+        return (b, personnummer);
     }
-};
-document.getElementById('insurancenumber').oninput = function insuranceValueCheck(){
-    var x = document.getElementById('insurancenumber');
-    var v = false;
-
-    if(isNaN(x.value)){
-        x.style.borderColor = "red";
-        c.style.display = "block";
+    else if(b.length === 10 && !isNaN(b)){
+        personnummer = false;
+        aktiebolag = true;
+        enskildFirma = false;
+        a.style.borderColor = "black";
+        c.style.display = "none";
+        return (b, `aktiebolag ${aktiebolag}`);
     }
     else{
-        x.style.borderColor = "black";
-        c.style.display = "none";
-        var v = true;
+        a.style.borderColor = "red";
+        c.style.display = "block";
+        personnummer = false;
+        aktieBolag = false;
+        enskildFirma = false;
     }
+};
+document.getElementById('next-btn').onclick = function nextPage(){
+    var personnummer = insuranceLengthCheck();
+    console.log(personnummer)
 }
-/********************************PERSONNUMMER************************************ */
+/****************************PERSONNUMMER/ORGNUMMER***************************** */
 document.getElementById('firstnameinput').oninput = function(){
     document.getElementById('firstnameinput').onblur = function(){
         var f = document.getElementById('firstnameinput');
@@ -57,10 +84,6 @@ document.getElementById('regioninput').onchange = function regionSelect(){
     var r = document.getElementById('regioninput').value;
     return r;
 }
-document.getElementById('selection-input-btn').addEventListener('click', () => {
-    var a = document.getElementById('individual-organisation-select');
-    document.getElementById('individual-organisation-select').click();
-});
 /****************************Phone number ***********************************/
 document.getElementById('phonenumberinput').onblur = function(){
     var a = document.getElementById('phonenumberinput');
@@ -112,15 +135,6 @@ document.getElementById('emailinputrepeat').onblur = function(){
         a.style.borderColor = "black";
         c.style.display = "none"
         return d;
-    }
-}
-
-document.getElementById('createaccount-btn').onclick = function retrieveData(){
-    var a = docuemnt.getElementById('regioninput').value;
-
-
-    for(var i = 0; i <= a; i++){
-
     }
 }
 

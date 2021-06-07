@@ -37,30 +37,14 @@
         <div id="form-wrapper">
           <div id="form-logo">
             <img src="/Rendex/assets/images/rendex_black.svg" width="150px" height="45px">
+            <p>Skapa ditt Rendex konto</p>
           </div>
-          <div id="insurance_companynumber-wrapper">
-            <div id="company-wrapper">
-              <p><span class="bold">Organisationsnummer</span><span class="redasterix">*</span></p>
-              <input type="text" id="organisationnumber" placeholder="550000-0000" required="">
-              <span id="wronginsurancenumber">Ange ett giltigt orgnisationsnummer</span>
-            </div>
-            <div id="insurance-wrapper">
-              <p><span class="bold">Personnummer</span><span class="redasterix">*</span></p>
-              <input type="text" id="insurancenumber" placeholder="YYYYMMDDXXXX" required="">
-              <span id="wronginsurancenumber">Ange ett giltigt personnummer</span>
-            </div>
-              <button type="menu" id="selection-input-btn">TJENIS</button>
-              <img src="/Rendex/assets/images/arrow-down.svg" height="15px" fill="#0000">
-            <div id="selection-input">
-              <p><span class="bold">xxxxx</span></p>
-              <select id="individual-organisation-select">
-                  <option value="Aktiebolag">Aktiebolag</option>
-                  <option value="Enskild Firma">Enskild Firma</option>
-                  <option value="Individ">Person</option>
-              </select>
-            </div>
+          <div id="insurance-wrapper" aria-label="displayed">
+            <p><span class="bold">Personnummer/Organisationsnummer</span><span class="redasterix">*</span></p>
+            <input type="text" id="insurancenumber" placeholder="YYYYMMDDXXXX/55XXXXXXXX" required="">
+            <span id="wronginsurancenumber">Ange ett giltigt personnummer/organisationsnummer</span>
           </div>
-          <div id="fullname-input-wrapper">
+          <div id="fullname-input-wrapper" aria-label="not-displayed">
             <div class="firstname-wrapper">
               <p><span class="bold">Förnamn</span><span class="redasterix">*</span></p>
               <input type="text" placeholder="Förnamn" id="firstnameinput" required=""> 
@@ -119,15 +103,19 @@
             <input type="text" placeholder="Ange telefonnummer" required="" id= "phonenumberinput">
             <span id="wrongphonenumber">Vänligen ange ett giltigt telefonnummer</span>
           </div>
-          <div class="checkboxdiv">
+          <div id="checkboxdiv">
             <input type="checkbox" name="agreetoa" id="agreetoa" required=""> <!-- add event-->
             <label>Genom att skapa ett konto hos Rendex godkänner du <a href="terms_of_use.html">användarvillkoren</a><span class="redasterix">*</span></label>
           </div>
           <div id="finalcreateaccount">
             <button id="createaccount-btn" href="#">Skapa Konto</button>
+          </div>
+          <div id="next-button">
             <p>Har du redan ett konto?<a href="login.html"> Logga in här</a></p>
+            <button id="next-btn">Nästa</button>
           </div>
           <div id="registration-tracker">
+            <p><span id="tracker1">&bull;</span><span id="tracker2">&bull;</span><span id="tracker3">&bull;</span></p>
           </div>
         </div>
       </div>
