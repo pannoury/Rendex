@@ -1,7 +1,3 @@
-$.getJSON("https://skatteverket.entryscape.net/rowstore/dataset/b4de7df7-63c0-4e7e-bb59-1f156a591763", function skatteverketApi(personId){
-    console.log(personId);
-});
-
 var insuranceWrapper = document.getElementById('insurance-wrapper');
 var fullNameInputWrapper = document.getElementById('fullname-input-wrapper');
 var accountRoleSelect = document.getElementById('account-role-select');
@@ -17,7 +13,6 @@ var registrationTrackerThree = document.getElementById('tracker3');
 var personnummer = false;
 var aktieBolag = false;
 var enskildFirma = false;
-var personIdentifier = skatteverketApi(personId);
 
 /****************************PERSONNUMMER/ORGNUMMER***************************** */
 document.getElementById('insurancenumber').onblur = function insuranceLengthCheck(){
@@ -25,40 +20,47 @@ document.getElementById('insurancenumber').onblur = function insuranceLengthChec
     var b = a.value;
     var c = document.getElementById('wronginsurancenumber');
     var i;
-    var personIdentifier = personId.results;
-    for(i = 0; i < personId.results; i++){
-        var x = personIdentifier[i];
-    }
-
-    if(b.length === 12 && !isNaN(b)){
-        personnummer = true;
-        aktieBolag = false;
-        enskildFirma = true;
-        a.style.borderColor = "black";
-        c.style.display = "none";
-        console.log(b, personnummer)
-        return (b, personnummer);
-    }
-    else if(b.length === 10 && !isNaN(b)){
-        personnummer = false;
-        aktiebolag = true;
-        enskildFirma = false;
-        a.style.borderColor = "black";
-        c.style.display = "none";
-        return (b, `aktiebolag ${aktiebolag}`);
-    }
-    else{
-        a.style.borderColor = "red";
-        c.style.display = "block";
-        personnummer = false;
-        aktieBolag = false;
-        enskildFirma = false;
+    var insuranceNumberArray = $.getJSON("https://skatteverket.entryscape.net/rowstore/dataset/b4de7df7-63c0-4e7e-bb59-1f156a591763/json", function skatteverketApi(){
+        var x = insuranceNumberArray.responseJSON.results;
+        var y = x.map(value => value.testpersonnummer);
+        console.log(y);
+        for(i = 0; i < y.length; i++){
+            if(b === y[i]){
+                personnummer = true;
+                aktieBolag = false;
+                enskildFirma = true;
+                a.style.borderColor = "black";
+                c.style.display = "none";
+                console.log(b, personnummer)
+                return (b, personnummer);
+            }
+            else if(b.length === 10 && !isNaN(b)){
+                personnummer = false;
+                aktiebolag = true;
+                enskildFirma = false;
+                a.style.borderColor = "black";
+                c.style.display = "none";
+                return (b, `aktiebolag ${aktiebolag}`);
+            }
+            else{
+                a.style.borderColor = "red";
+                c.style.display = "block";
+                personnummer = false;
+                aktieBolag = false;
+                enskildFirma = false;
+            }
+        }
+        var personnummer = sessionStorage.setItem("personnummer");
+    });
+    return (personnummer);
+};
+document.getElementById('next-btn').onclick = function nextSlide(){
+    var personnummer = sessionStorage.getItem("personnummer");
+    alert(`${personnummer}`);
+    if (personnummer = true){
+        
     }
 };
-document.getElementById('next-btn').onclick = function nextPage(){
-    var personnummer = insuranceLengthCheck();
-    console.log(personnummer)
-}
 /****************************PERSONNUMMER/ORGNUMMER***************************** */
 document.getElementById('firstnameinput').oninput = function(){
     document.getElementById('firstnameinput').onblur = function(){
