@@ -184,6 +184,32 @@
         }
     }
 }
+#name-set{
+    display: none;
+    flex-direction: row;
+    align-content: center;
+    p{
+        margin-left: 6px;
+        margin-top: 0px;
+        align-self: center;
+        font-weight: bold;
+    }
+}
+#arrow-back{
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    background-color: none;
+    padding: 4px;
+    width: 20px;
+    height: 20px;
+    &:hover{
+        background-color: #d3d3d3;
+    }
+    svg{
+        margin-left: 1px;
+    }
+}
 
 
 @media (max-width: 450px){

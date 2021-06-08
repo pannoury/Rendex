@@ -10,9 +10,13 @@ var accountFinalCreateAccount = document.getElementById('finalcreateaccount');
 var registrationTrackerOne = document.getElementById('tracker1');
 var registrationTrackerTwo = document.getElementById('tracker2');
 var registrationTrackerThree = document.getElementById('tracker3');
+var formWrapper = document.getElementById('form-wrapper');
 var personnummer = false;
 var aktieBolag = false;
 var enskildFirma = false;
+var arrowBack = document.getElementById('name-set');
+var arrowBackAddInfo = document.getElementById('addPersonnummer');
+var ariaLabelFormWrapper = formWrapper.ariaLabel;
 
 /****************************PERSONNUMMER/ORGNUMMER***************************** */
 document.getElementById('insurancenumber').onblur = function insuranceLengthCheck(){
@@ -42,6 +46,10 @@ document.getElementById('insurancenumber').onblur = function insuranceLengthChec
                 c.style.display = "none";
                 return (b, `aktiebolag ${aktiebolag}`);
             }
+            else if(b.length === 0){
+                a.style.borderColor = "black";
+                c.style.display = "none";
+            }
             else{
                 a.style.borderColor = "red";
                 c.style.display = "block";
@@ -50,26 +58,68 @@ document.getElementById('insurancenumber').onblur = function insuranceLengthChec
                 enskildFirma = false;
             }
         }
-        var personnummer = sessionStorage.setItem("personnummer");
     });
-    return (personnummer);
 };
 document.getElementById('next-btn').onclick = function nextSlide(){
-    var personnummer = sessionStorage.getItem("personnummer");
-    alert(`${personnummer}`);
-    if (personnummer = true){
-        
+    var a = document.getElementById('insurancenumber');
+    var b = a.value;
+    var z = $.getJSON("https://skatteverket.entryscape.net/rowstore/dataset/b4de7df7-63c0-4e7e-bb59-1f156a591763/json", function skatteverketApi(){
+        var x = z.responseJSON.results;
+        var y = x.map(value => value.testpersonnummer);
+        for(i = 0; i < y.length; i++){
+            if(b === y[i] && ariaLabelFormWrapper === "slideOne"){
+                arrowBackAddInfo.innerHTML = `${b}`
+                arrowBack.style.display = "flex";
+                registrationTrackerOne.style.color = "#888";
+                registrationTrackerTwo.style.color = "black";
+                registrationTrackerThree.style.color = "#888";
+                insuranceWrapper.style.display = "none";
+                fullNameInputWrapper.style.display = "flex";
+                formWrapper.setAttribute('aria-label', "slideTwo");
+            }
+            else if(insuranceWrapper.style.display = "none" && ariaLabelFormWrapper === "slideTwo"){
+                registrationTrackerOne.style.color = "#afafaf";
+                registrationTrackerTwo.style.color = "#888";
+                registrationTrackerThree.style.color = "black";
+                insuranceWrapper.style.display = "none";
+                fullNameInputWrapper.style.display = "none";
+                accountRegionSelect.style.display = "flex";
+                formWrapper.setAttribute('aria-label', "slideThree");
+            }
+        }
+    });
+};
+
+document.getElementById('arrow-back').onclick = function backClick(){
+    if(ariaLabelFormWrapper = "slideTwo"){
+        arrowBackAddInfo.innerHTML = "";
+        arrowBack.style.display = "none";
+        registrationTrackerOne.style.color = "black";
+        registrationTrackerTwo.style.color = "#888";
+        registrationTrackerThree.style.color = "#afafaf";
+        insuranceWrapper.style.display = "flex";
+        fullNameInputWrapper.style.display = "none";
+        formWrapper.setAttribute('aria-label', "slideOne");
+    }
+    else if(ariaLabelFormWrapper === "slideThree"){
+        alert("test slideThree triggered")
+
+    }
+    else{
+        alert("test");
     }
 };
 /****************************PERSONNUMMER/ORGNUMMER***************************** */
 document.getElementById('firstnameinput').oninput = function(){
     document.getElementById('firstnameinput').onblur = function(){
         var f = document.getElementById('firstnameinput');
-        if(f.length < 2){
+        var z = f.value;
+        if(z.length < 2){
             f.style.borderColor = "red";
         }
-        f.style.borderColor = "black"
-        return f;
+        else{
+            f.style.borderColor = "black"
+        }
     }
 }
 document.getElementById('surnameinput').oninput = function(){
