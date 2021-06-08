@@ -1,6 +1,6 @@
 /* Create Account START */
 #createaccountsection{
-    display: flex ;
+    display: flex;
     justify-content: center;
     margin: 130px 0 100px 0;
     #createaccount-btn{ 
@@ -56,7 +56,7 @@
             p{margin-top: 0;}
         }
         #fullname-input-wrapper{
-            display: none; //Display: Flex; when activated //
+            display: none;
             flex-direction: row;
             justify-content: space-between;
             width: 100%;
@@ -71,7 +71,7 @@
             }
         }
         #account-role-select, #account-region-select, #account-postalcode, #account-emailrepeat, #account-phonenumber{
-            display: none; //Display: Flex; when activated //
+            display: none;
             flex-direction: column;
             p{
                 margin-top: 0;
@@ -155,10 +155,10 @@
         margin-bottom: 0px;
     }
     #tracker1{
-        color: black;
+        color: #616161;
     }
     #tracker2{
-        color: #888;
+        color: #afafaf;
         margin-left: 20px;
         margin-right: 20px;
     }

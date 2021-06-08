@@ -10,12 +10,12 @@ var accountFinalCreateAccount = document.getElementById('finalcreateaccount');
 var registrationTrackerOne = document.getElementById('tracker1');
 var registrationTrackerTwo = document.getElementById('tracker2');
 var registrationTrackerThree = document.getElementById('tracker3');
-var formWrapper = document.getElementById('form-wrapper');
 var personnummer = false;
 var aktieBolag = false;
 var enskildFirma = false;
 var arrowBack = document.getElementById('name-set');
 var arrowBackAddInfo = document.getElementById('addPersonnummer');
+var formWrapper = document.getElementById('form-wrapper');
 var ariaLabelFormWrapper = formWrapper.ariaLabel;
 
 /****************************PERSONNUMMER/ORGNUMMER***************************** */
@@ -68,34 +68,40 @@ document.getElementById('next-btn').onclick = function nextSlide(){
         var y = x.map(value => value.testpersonnummer);
         for(i = 0; i < y.length; i++){
             if(b === y[i] && ariaLabelFormWrapper === "slideOne"){
-                arrowBackAddInfo.innerHTML = `${b}`
+                arrowBackAddInfo.innerHTML = `${b}`;
                 arrowBack.style.display = "flex";
-                registrationTrackerOne.style.color = "#888";
-                registrationTrackerTwo.style.color = "black";
-                registrationTrackerThree.style.color = "#888";
+                registrationTrackerOne.style.color = "#afafaf";
+                registrationTrackerTwo.style.color = "#616161";
+                registrationTrackerThree.style.color = "#afafaf";
                 insuranceWrapper.style.display = "none";
                 fullNameInputWrapper.style.display = "flex";
                 formWrapper.setAttribute('aria-label', "slideTwo");
             }
-            else if(insuranceWrapper.style.display = "none" && ariaLabelFormWrapper === "slideTwo"){
+            else if(ariaLabelFormWrapper === "slideTwo"){
                 registrationTrackerOne.style.color = "#afafaf";
-                registrationTrackerTwo.style.color = "#888";
-                registrationTrackerThree.style.color = "black";
-                insuranceWrapper.style.display = "none";
+                registrationTrackerTwo.style.color = "#afafaf";
+                registrationTrackerThree.style.color = "#616161";
+                insuranceWrapper.setAttribute('style', 'display:none');
                 fullNameInputWrapper.style.display = "none";
                 accountRegionSelect.style.display = "flex";
                 formWrapper.setAttribute('aria-label', "slideThree");
+            }
+            else{
+
             }
         }
     });
 };
 
 document.getElementById('arrow-back').onclick = function backClick(){
+    var a = document.getElementById('insurancenumber');
     if(ariaLabelFormWrapper = "slideTwo"){
-        arrowBackAddInfo.innerHTML = "";
+        
+        a.value = "";
+        arrowBackAddInfo.innerHTML = '';
         arrowBack.style.display = "none";
-        registrationTrackerOne.style.color = "black";
-        registrationTrackerTwo.style.color = "#888";
+        registrationTrackerOne.style.color = "#616161";
+        registrationTrackerTwo.style.color = "#afafaf";
         registrationTrackerThree.style.color = "#afafaf";
         insuranceWrapper.style.display = "flex";
         fullNameInputWrapper.style.display = "none";

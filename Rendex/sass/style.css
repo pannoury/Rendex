@@ -1514,11 +1514,11 @@ header #navlogo img {
 }
 
 #registration-tracker #tracker1 {
-  color: black;
+  color: #616161;
 }
 
 #registration-tracker #tracker2 {
-  color: #888;
+  color: #afafaf;
   margin-left: 20px;
   margin-right: 20px;
 }
