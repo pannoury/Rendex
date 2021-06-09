@@ -66,30 +66,35 @@ document.getElementById('next-btn').onclick = function nextSlide(){
     var z = $.getJSON("https://skatteverket.entryscape.net/rowstore/dataset/b4de7df7-63c0-4e7e-bb59-1f156a591763/json", function skatteverketApi(){
         var x = z.responseJSON.results;
         var y = x.map(value => value.testpersonnummer);
-        for(i = 0; i < y.length; i++){
-            if(b === y[i] && ariaLabelFormWrapper === "slideOne"){
-                arrowBackAddInfo.innerHTML = `${b}`;
-                arrowBack.style.display = "flex";
-                registrationTrackerOne.style.color = "#afafaf";
-                registrationTrackerTwo.style.color = "#616161";
-                registrationTrackerThree.style.color = "#afafaf";
-                insuranceWrapper.style.display = "none";
-                fullNameInputWrapper.style.display = "flex";
-                formWrapper.setAttribute('aria-label', "slideTwo");
-            }
-            else if(ariaLabelFormWrapper === "slideTwo"){
-                registrationTrackerOne.style.color = "#afafaf";
-                registrationTrackerTwo.style.color = "#afafaf";
-                registrationTrackerThree.style.color = "#616161";
-                insuranceWrapper.setAttribute('style', 'display:none');
-                fullNameInputWrapper.style.display = "none";
-                accountRegionSelect.style.display = "flex";
-                formWrapper.setAttribute('aria-label', "slideThree");
-            }
-            else{
-
+        if(ariaLabelFormWrapper === 'slideOne'){
+            for(i = 0; i < y.length; i++){
+                if(b === y[i] && ariaLabelFormWrapper === "slideOne"){
+                    arrowBackAddInfo.innerHTML = `${b}`;
+                    arrowBack.style.display = "flex";
+                    registrationTrackerOne.style.color = "#afafaf";
+                    registrationTrackerTwo.style.color = "#616161";
+                    registrationTrackerThree.style.color = "#afafaf";
+                    insuranceWrapper.style.display = "none";
+                    fullNameInputWrapper.style.display = "flex";
+                    formWrapper.setAttribute('aria-label', "slideTwo");
+                }
+                else if(ariaLabelFormWrapper === "slideTwo"){
+                    registrationTrackerOne.style.color = "#afafaf";
+                    registrationTrackerTwo.style.color = "#afafaf";
+                    registrationTrackerThree.style.color = "#616161";
+                    insuranceWrapper.setAttribute('style', 'display:none');
+                    fullNameInputWrapper.style.display = "none";
+                    accountRegionSelect.style.display = "flex";
+                    formWrapper.setAttribute('aria-label', "slideThree");
+                }
+                else{
+                }
             }
         }
+        else if(ariaLabelFormWrapper != "slideOne"){
+            alert("else if triggered")
+        }
+
     });
 };
 
