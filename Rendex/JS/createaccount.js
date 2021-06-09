@@ -16,7 +16,7 @@ var enskildFirma = false;
 var arrowBack = document.getElementById('name-set');
 var arrowBackAddInfo = document.getElementById('addPersonnummer');
 var formWrapper = document.getElementById('form-wrapper');
-var ariaLabelFormWrapper = formWrapper.ariaLabel;
+var classFormWrapper = formWrapper.className;
 
 /****************************PERSONNUMMER/ORGNUMMER***************************** */
 document.getElementById('insurancenumber').onblur = function insuranceLengthCheck(){
@@ -35,7 +35,8 @@ document.getElementById('insurancenumber').onblur = function insuranceLengthChec
                 enskildFirma = true;
                 a.style.borderColor = "black";
                 c.style.display = "none";
-                console.log(b, personnummer)
+                console.log(b, personnummer);
+                sessionStorage.setItem('personnummer', `${b}`)
                 return (b, personnummer);
             }
             else if(b.length === 10 && !isNaN(b)){
@@ -66,9 +67,9 @@ document.getElementById('next-btn').onclick = function nextSlide(){
     var z = $.getJSON("https://skatteverket.entryscape.net/rowstore/dataset/b4de7df7-63c0-4e7e-bb59-1f156a591763/json", function skatteverketApi(){
         var x = z.responseJSON.results;
         var y = x.map(value => value.testpersonnummer);
-        if(ariaLabelFormWrapper === 'slideOne'){
+        if(classFormWrapper === 'slideOne'){
             for(i = 0; i < y.length; i++){
-                if(b === y[i] && ariaLabelFormWrapper === "slideOne"){
+                if(b === y[i]){
                     arrowBackAddInfo.innerHTML = `${b}`;
                     arrowBack.style.display = "flex";
                     registrationTrackerOne.style.color = "#afafaf";
@@ -76,22 +77,24 @@ document.getElementById('next-btn').onclick = function nextSlide(){
                     registrationTrackerThree.style.color = "#afafaf";
                     insuranceWrapper.style.display = "none";
                     fullNameInputWrapper.style.display = "flex";
-                    formWrapper.setAttribute('aria-label', "slideTwo");
+                    formWrapper.setAttribute('class', "slideTwo");
+                    return ("slideTwo");
                 }
-                else if(ariaLabelFormWrapper === "slideTwo"){
+                else if(classFormWrapper === "slideTwo"){
                     registrationTrackerOne.style.color = "#afafaf";
                     registrationTrackerTwo.style.color = "#afafaf";
                     registrationTrackerThree.style.color = "#616161";
-                    insuranceWrapper.setAttribute('style', 'display:none');
+                    insuranceWrapper.style.display = "none";
                     fullNameInputWrapper.style.display = "none";
                     accountRegionSelect.style.display = "flex";
-                    formWrapper.setAttribute('aria-label', "slideThree");
+                    formWrapper.setAttribute('class', "slideThree");
+                    return ("slideThree");
                 }
                 else{
                 }
             }
         }
-        else if(ariaLabelFormWrapper != "slideOne"){
+        else if(classFormWrapper != "slideOne"){
             alert("else if triggered")
         }
 
@@ -100,7 +103,7 @@ document.getElementById('next-btn').onclick = function nextSlide(){
 
 document.getElementById('arrow-back').onclick = function backClick(){
     var a = document.getElementById('insurancenumber');
-    if(ariaLabelFormWrapper = "slideTwo"){
+    if(classFormWrapper = "slideTwo"){
         
         a.value = "";
         arrowBackAddInfo.innerHTML = '';
@@ -110,9 +113,9 @@ document.getElementById('arrow-back').onclick = function backClick(){
         registrationTrackerThree.style.color = "#afafaf";
         insuranceWrapper.style.display = "flex";
         fullNameInputWrapper.style.display = "none";
-        formWrapper.setAttribute('aria-label', "slideOne");
+        formWrapper.setAttribute('class', "slideOne");
     }
-    else if(ariaLabelFormWrapper === "slideThree"){
+    else if(classLabelFormWrapper === "slideThree"){
         alert("test slideThree triggered")
 
     }

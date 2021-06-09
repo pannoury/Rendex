@@ -9,71 +9,91 @@ function regionCityCheck(){
     }
     else if(regionSelected === 'Blekinge'){
         var citySelected = document.getElementById('blekingeCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Dalarna'){
         var citySelected = document.getElementById('dalarnaCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Gotland'){
         var citySelected = document.getElementById('gotlandCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Gävleborg'){
         var citySelected = document.getElementById('gävleborgCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Halland'){
         var citySelected = document.getElementById('hallandCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Jämtland'){
         var citySelected = document.getElementById('jämtlandCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Jönköping'){
         var citySelected = document.getElementById('jönköpingCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Kalmar'){
         var citySelected = document.getElementById('kalmarCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Kronoberg'){
         var citySelected = document.getElementById('kronobergCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Norrbotten'){
         var citySelected = document.getElementById('norrbottenCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Skåne'){
         var citySelected = document.getElementById('skåneCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Stockholm'){
         var citySelected = document.getElementById('stockholmCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Södermanland'){
         var citySelected = document.getElementById('södermanlandCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Uppsala'){
         var citySelected = document.getElementById('uppsalaCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Värmland'){
         var citySelected = document.getElementById('värmlandCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Västerbotten'){
         var citySelected = document.getElementById('västerbottenCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Västernorrland'){
         var citySelected = document.getElementById('västernorrlandCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Västmanland'){
         var citySelected = document.getElementById('västmanlandCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Västra Götaland'){
         var citySelected = document.getElementById('västraGötalandCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Örebro'){
         var citySelected = document.getElementById('örebroCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
     else if(regionSelected === 'Östergötland'){
         var citySelected = document.getElementById('östergötlandCitySelect').value;
+        localStorage.setItem("citySelected", `${citySelected.value}`);
     }
 
     console.log(regionSelected, citySelected);
-    localStorage.setItem("regionSelected", regionSelected.value);
-    localStorage.setItem("citySelected", citySelected.value);
+    localStorage.setItem("regionSelected", `${regionSelected}`);
     return (regionSelected, citySelected);
 }
 function rolePurposeCheck(){
@@ -82,8 +102,6 @@ function rolePurposeCheck(){
     var alertMessagePurpose = document.getElementById('error-message-purpose');
     var alertMessageRole = document.getElementById('error-message-role');
     var arbeteHeader = document.getElementById('arbete-header');
-
-    console.log(roleSelected.value, purposeSelected.value);
 
     if((!roleSelected.value) || (!purposeSelected.value)){
         if(roleSelected.value !== ""){
@@ -106,8 +124,8 @@ function rolePurposeCheck(){
         }
     }
     else {window.location.href= "searchpage.html"};
-    localStorage.setItem("roleSelected", roleSelected);
-    localStorage.setItem("purposeSelected", purposeSelected);
+    localStorage.setItem("roleSelected", `${roleSelected.value}`);
+    localStorage.setItem("purposeSelected", `${purposeSelected.value}`);
     return (roleSelected.value, purposeSelected.value)
 }
 /***************************Dynamic Search City************************************/
@@ -689,6 +707,7 @@ window.onload = function qualitControlCheck(){
     var västraGötalandSelection = document.getElementById('västraGötalandCitySelect');
     var örebroSelection = document.getElementById('örebroCitySelect');
     var östergötlandSelection = document.getElementById('östergötlandCitySelect');
+    localStorage.clear();
 
     if(regionSelected === 'Hela Sverige'){
         defaultCitySelection.style.display = "block";
