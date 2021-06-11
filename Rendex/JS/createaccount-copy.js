@@ -122,85 +122,16 @@ document.getElementById('arrow-back').onclick = function backClick(){
         alert("test");
     }
 };
-/****************************PERSONNUMMER/ORGNUMMER***************************** */
-document.getElementById('firstnameinput').oninput = function(){
-    document.getElementById('firstnameinput').onblur = function(){
-        var f = document.getElementById('firstnameinput');
-        var z = f.value;
-        if(z.length < 2){
-            f.style.borderColor = "red";
+
+function personnummerCheck (){
+    var a = document.getElementById('insurancenumber');
+    var b = a.value;
+    for(i = 0; i < y.length; i++){
+        if(b === y[i]){
+            sessionStorage.setItem
+            return 
         }
         else{
-            f.style.borderColor = "black"
         }
     }
 }
-document.getElementById('surnameinput').oninput = function(){
-    document.getElementById('surnameinput').onblur = function(){
-        var s = document.getElementById('surnameinput').value;
-        return s;
-    } 
-}
-document.getElementById('purposeselect').onchange = function purposeSelect(){
-    var p = document.getElementById('purposeselect').value;
-    return p;
-}
-document.getElementById('regioninput').onchange = function regionSelect(){
-    var r = document.getElementById('regioninput').value;
-    return r;
-}
-/****************************Phone number ***********************************/
-document.getElementById('phonenumberinput').onblur = function(){
-    var a = document.getElementById('phonenumberinput');
-    var b = a.value;
-    var c = document.getElementById('wrongphonenumber');
-
-    if(b.length > 0 && b.length < '10'){
-        a.style.borderColor = "red";
-        c.style.display = "block"
-    }
-    else if (b.length > 10){
-        a.style.borderColor = "red";
-        c.style.display = "block"
-    }
-    else{
-        a.style.borderColor = "black";
-        c.style.display = "none"
-    }
-};
-document.getElementById('phonenumberinput').oninput = function(){
-    var x = document.getElementById('phonenumberinput');
-    var c = document.getElementById('wrongphonenumber');
-
-    if(isNaN(x.value)){
-        x.style.borderColor = "red";
-        c.style.display = "block"
-    }
-    else{
-        x.style.borderColor = "black";
-        c.style.display = "none"
-    }
-}
-/****************************Phone number ***********************************/
-document.getElementById('emailinputrepeat').onblur = function(){
-    var a = document.getElementById('emailinputrepeat');
-    var b = document.getElementById('emailinput');
-    var c = document.getElementById('wrongemailrepeat');
-    var d = a.value
-
-    if(d.length < 1){
-        a.style.borderColor = "black";
-        c.style.display = "none"
-    }
-    else if(a.value != b.value){
-        a.style.borderColor = "red";
-        c.style.display = "block"
-    }
-    else{
-        a.style.borderColor = "black";
-        c.style.display = "none"
-        return d;
-    }
-}
-
-
