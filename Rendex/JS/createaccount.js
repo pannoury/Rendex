@@ -19,7 +19,11 @@ var formWrapper = document.getElementById('form-wrapper');
 var classFormWrapper = formWrapper.className;
 
 /****************************PERSONNUMMER/ORGNUMMER***************************** */
-document.getElementById('insurancenumber').onblur = function insuranceLengthCheck(){
+window.onload = function clear(){
+    sessionStorage.clear();
+    /* setInterval(clear, 600000) */
+}
+document.getElementById('insurancenumber').oninput = function insuranceLengthCheck(){
     var a = document.getElementById('insurancenumber');
     var b = a.value;
     var c = document.getElementById('wronginsurancenumber');
@@ -36,7 +40,8 @@ document.getElementById('insurancenumber').onblur = function insuranceLengthChec
                 a.style.borderColor = "black";
                 c.style.display = "none";
                 console.log(b, personnummer);
-                sessionStorage.setItem('personnummer', `${b}`)
+                sessionStorage.setItem('personnummerValue', `${b}`);
+                sessionStorage.setItem('personnummer', true);
                 return (b, personnummer);
             }
             else if(b.length === 10 && !isNaN(b)){
@@ -64,46 +69,36 @@ document.getElementById('insurancenumber').onblur = function insuranceLengthChec
 document.getElementById('next-btn').onclick = function nextSlide(){
     var a = document.getElementById('insurancenumber');
     var b = a.value;
-    var z = $.getJSON("https://skatteverket.entryscape.net/rowstore/dataset/b4de7df7-63c0-4e7e-bb59-1f156a591763/json", function skatteverketApi(){
-        var x = z.responseJSON.results;
-        var y = x.map(value => value.testpersonnummer);
-        if(classFormWrapper === 'slideOne'){
-            for(i = 0; i < y.length; i++){
-                if(b === y[i]){
-                    arrowBackAddInfo.innerHTML = `${b}`;
-                    arrowBack.style.display = "flex";
-                    registrationTrackerOne.style.color = "#afafaf";
-                    registrationTrackerTwo.style.color = "#616161";
-                    registrationTrackerThree.style.color = "#afafaf";
-                    insuranceWrapper.style.display = "none";
-                    fullNameInputWrapper.style.display = "flex";
-                    formWrapper.setAttribute('class', "slideTwo");
-                    return ("slideTwo");
-                }
-                else if(classFormWrapper === "slideTwo"){
-                    registrationTrackerOne.style.color = "#afafaf";
-                    registrationTrackerTwo.style.color = "#afafaf";
-                    registrationTrackerThree.style.color = "#616161";
-                    insuranceWrapper.style.display = "none";
-                    fullNameInputWrapper.style.display = "none";
-                    accountRegionSelect.style.display = "flex";
-                    formWrapper.setAttribute('class', "slideThree");
-                    return ("slideThree");
-                }
-                else{
-                }
-            }
-        }
-        else if(classFormWrapper != "slideOne"){
-            alert("else if triggered")
-        }
-
-    });
+    var c = sessionStorage.getItem("slidePage");
+    var d = sessionStorage.getItem('personnummer');
+    if(d = true && d != null){
+        arrowBackAddInfo.innerHTML = `${b}`;
+        arrowBack.style.display = "flex";
+        registrationTrackerOne.style.color = "#afafaf";
+        registrationTrackerTwo.style.color = "#616161";
+        registrationTrackerThree.style.color = "#afafaf";
+        insuranceWrapper.style.display = "none";
+        fullNameInputWrapper.style.display = "flex";
+        sessionStorage.setItem("slidePage", 2);
+        return ("slideTwo");
+    }
+    else if(c == 2 && c != null){
+        registrationTrackerOne.style.color = "#afafaf";
+        registrationTrackerTwo.style.color = "#afafaf";
+        registrationTrackerThree.style.color = "#616161";
+        insuranceWrapper.style.display = "none";
+        fullNameInputWrapper.style.display = "none";
+        accountRegionSelect.style.display = "flex";
+        return ("slideThree");
+    }
+    else{
+    }
 };
 
 document.getElementById('arrow-back').onclick = function backClick(){
     var a = document.getElementById('insurancenumber');
-    if(classFormWrapper = "slideTwo"){
+    var page = sessionStorage.getItem("slidePage");
+    if(page = 2){
         a.value = "";
         arrowBackAddInfo.innerHTML = '';
         arrowBack.style.display = "none";
@@ -112,9 +107,9 @@ document.getElementById('arrow-back').onclick = function backClick(){
         registrationTrackerThree.style.color = "#afafaf";
         insuranceWrapper.style.display = "flex";
         fullNameInputWrapper.style.display = "none";
-        formWrapper.setAttribute('class', "slideOne");
+        sessionStorage.clear();
     }
-    else if(classLabelFormWrapper === "slideThree"){
+    else if(page = 3){
         alert("test slideThree triggered")
 
     }

@@ -54,6 +54,71 @@ h1, h2 {
 }
 
 /* GLOBAL SETTINGS */
+/* COOKIES WINDOW */
+#cookiewindowpopupwrapper {
+  display: none;
+  z-index: 2;
+  position: fixed;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  background-color: #000042;
+  padding: 20px 40px 20px 40px;
+}
+
+#cookiewindowpopupwrapper #cookiewindowpopup {
+  width: 90%;
+}
+
+#cookiewindowpopupwrapper #cookiewindowpopup #cookiewindowpopup-column1 {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#cookiewindowpopupwrapper #cookiewindowpopup #cookiewindowpopup-column1 p {
+  font-size: 16px;
+  color: white;
+  width: 70%;
+}
+
+#cookiewindowpopupwrapper #cookiewindowpopup #cookiewindowpopup-column1 p a {
+  color: #f07900;
+}
+
+#cookiewindowpopupwrapper #cookiewindowpopup #cookiewindowpopup-column1 p a:hover {
+  color: #708090;
+}
+
+#cookiewindowpopupwrapper #cookiewindowpopup #cookiewindowpopup-column1 #cookiebtn {
+  border-radius: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-width: 0;
+  font-weight: bold;
+  font-size: 14px;
+  height: 45px;
+  background-color: #d3d1d1;
+  color: black;
+}
+
+#cookiewindowpopupwrapper #cookiewindowpopup #cookiewindowpopup-column1 #cookiebtn:hover {
+  background-color: #888;
+  color: black;
+}
+
 /* START NAVBAR */
 header {
   background-color: #333;

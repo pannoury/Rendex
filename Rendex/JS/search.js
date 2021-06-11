@@ -50,7 +50,7 @@ window.onload = function(){
         regionHeader.innerText = "Norrbotten";
         searchRegion = "Norrbotten";
     }
-    else if(region = "Örebro"){
+    else if(region == "Örebro"){
         regionHeader.innerText = "Örebro";
         searchRegion = 'Örebro';
     }
@@ -94,4 +94,11 @@ window.onload = function(){
         regionHeader.innerText = "Västra Götaland";
         searchRegion = "Västra Götaland";
     }
+}
+document.getElementById('searchpage-searchindex').addEventListener('input', inputQuery);
+function inputQuery(data){
+  let theInput = data.target;
+  
+  console.log(theInput.value);
+  return theInput.value;
 }

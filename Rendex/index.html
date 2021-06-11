@@ -21,6 +21,9 @@
   $(function(){
     $("#navbar").load("navbar.html"); 
   });
+  $(function(){
+    $("#cookiewindowpopupwrapper").load("cookieswindow.html");
+  })
   </script>
 </head>
 <body>
@@ -473,9 +476,6 @@
                           <option value="Bygga & Renovera">Bygga & Renovera</option>
                           <option value="Flytt & Transport">Flytt & Transport</option>
                           <option value="Städning">Städning</option>
-                          <option value="VVS">VVS</option>
-                          <option value="Elinstallation">Elinstallation</option>
-                          <option value="Montering">Montering</option>
                         </select>
                         <span class="arrow-select"></span>
                       </form>
@@ -673,11 +673,13 @@
       </div>
     </section> <!--Row 3 End-->
       <!--Showcase END-->
+    <div id="cookiewindowpopupwrapper"></div>
   </main>
   <!--FOOTER START-->
   <div id="footer"></div>
   <!--FOOTER END-->
   <script src="/Rendex/JS/index.js"></script>
+  <script src="/Rendex/JS/cookie.js"></script>
   <script src="/Rendex/JS/main.js"></script>
 </body>
 <html>
