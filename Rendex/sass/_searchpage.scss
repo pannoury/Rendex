@@ -12,13 +12,6 @@
 
 // ********************** Rightpage Section ************************************ //
 @media(min-width:875px){
-    .search-result-rightpage{
-        width: 20%;
-        grid-column: 2/3;
-        margin-left: 16px;
-        background-color: slategray;
-        border-radius: 3px;
-    }
 }
 @media(max-width:875px){
     .search-result-rightpage{display: none;}

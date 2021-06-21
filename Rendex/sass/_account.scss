@@ -1,0 +1,15 @@
+@media(min-width:875px){
+    #account-page{
+        #account-page-wrapper{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            #acccount-image-wrapper{
+                width: 30%;
+            }
+            #account-companybackground{
+                width: 70%;
+            }
+        }
+    }
+}
