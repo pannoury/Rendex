@@ -120,9 +120,26 @@ document.getElementById('arrowclose-anchor').onclick = function sideMenuClose(){
     var arrowClose = document.getElementById('arrowclose-anchor');
     var sideMenu = document.getElementById('searchpage-sidemenu');
     var darkCover = document.getElementById('darkcover');
+    document.getElementById('golvoptionextended').style.width = "0px";
+    document.getElementById('vvsoptionextended').style.width = "0px";
 
     arrowClick.style.display = "block";
     arrowClose.style.display = "none";
     sideMenu.style.width = "0px";
     darkCover.style.display = "none"
+}
+
+/**************** EXTENDED LIST ***************************/
+
+function closeExtendedMenu(){
+    var closeExtendedMenu = document.getElementsByClassName('sidemenuextended');
+    for (i = 0; i < closeExtendedMenu.length; i++) {
+        closeExtendedMenu[i].style.width = "0px";
+    }
+}
+document.getElementById('golvoption').onclick = function(){
+    document.getElementById('golvoptionextended').style.width = "400px";
+}
+document.getElementById('vvsoption').onclick = function(){
+    document.getElementById('vvsoptionextended').style.width = "400px";
 }

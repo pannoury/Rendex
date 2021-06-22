@@ -2414,12 +2414,30 @@ header #navlogo img {
     color: white;
   }
   #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 10px 10px 10px 40px;
+  }
+  #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div .whitearrowright {
+    display: none;
   }
   #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div:hover {
     background-color: rgba(51, 51, 51, 0.8);
     color: white;
     cursor: pointer;
+  }
+  #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div:hover .blackarrowright {
+    visibility: hidden;
+  }
+  #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div:hover .whitearrowright {
+    display: block;
   }
   .sidemenu-separator {
     height: 1px;
@@ -2435,6 +2453,71 @@ header #navlogo img {
     background-color: rgba(0, 0, 0, 0.6);
     -webkit-transition: 0.5s;
     transition: 0.5s;
+  }
+  .sidemenuextended {
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    color: black;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0px;
+    padding-top: 20px;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .sidemenuextended .sidemenu-option-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 10px 10px 10px 40px;
+  }
+  .sidemenuextended .sidemenu-option-div h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 20px;
+  }
+  .sidemenuextended .sidemenu-option-div p {
+    font-size: 16px;
+    margin: 0px;
+  }
+  .sidemenuextended .sidemenu-option-div .whitearrowleft {
+    display: none;
+  }
+  .sidemenuextended .sidemenu-option-div:hover {
+    background-color: #333333cc;
+    color: white;
+    cursor: pointer;
+  }
+  .sidemenuextended .sidemenu-option-div:hover .blackarrowleft {
+    visibility: hidden;
+  }
+  .sidemenuextended .sidemenu-option-div:hover .whitearrowleft {
+    display: block;
+  }
+  .sidemenuextended .sidemenu-option-div:hover h2 {
+    margin-left: 5px;
   }
 }
 

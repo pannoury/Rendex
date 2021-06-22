@@ -276,11 +276,23 @@
                 }
             }
             .sidemenu-option-div{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 padding: 10px 10px 10px 40px;
+                .whitearrowright{
+                    display: none;
+                }
                 &:hover{
                     background-color: rgba(51, 51, 51, 0.8);
                     color: white;
                     cursor: pointer;
+                    .blackarrowright{
+                        visibility: hidden;
+                    }
+                    .whitearrowright{
+                        display: block;
+                    }
                 }
             }
         }
@@ -298,6 +310,59 @@
         z-index: 2;
         background-color: rgba(0, 0, 0, 0.6);
         transition: 0.5s;
+    }
+    .sidemenuextended{
+        width: 0px;
+        height: 0px;
+        overflow: hidden;
+        color: black;
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 20;
+        top: 0;
+        left: 0px;
+        padding-top: 20px;
+        background-color:white;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transition: 0.5s;
+        display: flex;
+        flex-direction: column;
+        .sidemenu-option-div{
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            padding: 10px 10px 10px 40px;
+            h2{
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: 0;
+                margin-bottom: 0;
+                margin-left: 20px;
+            }
+            p{
+                font-size: 16px;
+                margin: 0px;
+            }
+            .whitearrowleft{
+                display: none;
+            }
+            &:hover{
+                background-color: #333333cc;
+                color: white;
+                cursor: pointer;
+                .blackarrowleft{
+                    visibility: hidden;
+                }
+                .whitearrowleft{
+                    display: block;
+                }
+                h2{
+                    margin-left: 5px;
+                }
+            }
+        }
     }
 }
 // ************************** Search-result section ***************************//
