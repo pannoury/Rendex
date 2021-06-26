@@ -23,17 +23,17 @@ function eraseCookie(name) {
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 /*********************** GLOBAL COOKIE SETTINGS **********************************/
-window.onload = function checkCookie() {
-    var user=getCookie("cookieconsent");
-    if (user != "") {
-      document.getElementById('cookiewindowpopupwrapper').style.visibility = "hidden";
-    } else {
-       document.getElementById('cookiewindowpopupwrapper').style.visibility = "visible";
-       if (user != "" && user != null) {
-        setCookie("cookieconsent", user, 30);
-       }
+window.addEventListener('load', function checkCookie(){
+  var user=getCookie("cookieconsent");
+  if (user != "") {
+    document.getElementById('cookiewindowpopupwrapper').style.visibility = "hidden";
+  } else {
+    document.getElementById('cookiewindowpopupwrapper').style.visibility = "visible";
+    if (user != "" && user != null) {
+      setCookie("cookieconsent", user, 30);
     }
   }
+});
 function consentClicked(){
     document.cookie = "cookieconsent=true";
     document.getElementById('cookiewindowpopupwrapper').style.visibility = "hidden";

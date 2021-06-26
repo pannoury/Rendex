@@ -64,7 +64,7 @@
                 width: 0px;
                 margin: 8px 8px 8px 8px;
             }
-            .searchpage-regionselect-wrapper, .searchpage-cityselect-wrapper{
+            #searchpage-regionselect-wrapper, #searchpage-cityselect-wrapper{
                 display: flex;
                 flex-wrap: wrap;
                 align-items: center;
@@ -100,6 +100,7 @@
         height: 60px;
         margin: auto;
         align-items: center;
+        z-index: 1;
         .indexsearch-input{
             display: flex;
             height: 50px;
@@ -126,7 +127,7 @@
                 width: 0px;
                 margin: 8px 8px 8px 8px;
             }
-            .searchpage-regionselect-wrapper, .searchpage-cityselect-wrapper{
+            #searchpage-regionselect-wrapper, #searchpage-cityselect-wrapper{
                 display: flex;
                 flex-wrap: wrap;
                 align-items: center;
@@ -156,3 +157,20 @@
     }
 }
 //************************** Search-window Section END ***********************//
+@media(min-width: 875px){
+    #locationselectwindow{
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        background-color: #545454;
+        overflow-x: hidden;
+        padding-top: 60px;
+        transition: 0.5s;
+        display: flex;
+        flex-direction: column;
+        color: white;
+    }
+}

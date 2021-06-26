@@ -128,7 +128,7 @@ header {
   padding-bottom: 10px;
   border-bottom: #708090 3px solid;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
 }
 
 header a {
@@ -1867,7 +1867,7 @@ header #navlogo img {
     width: 0px;
     margin: 8px 8px 8px 8px;
   }
-  #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-regionselect-wrapper, #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-cityselect-wrapper {
+  #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-regionselect-wrapper, #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-cityselect-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1885,7 +1885,7 @@ header #navlogo img {
         -ms-flex-pack: end;
             justify-content: flex-end;
   }
-  #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-regionselect-wrapper .searchpage-regionselect-form, #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-regionselect-wrapper .searchpage-cityselect-form, #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-cityselect-wrapper .searchpage-regionselect-form, #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-cityselect-wrapper .searchpage-cityselect-form {
+  #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-regionselect-wrapper .searchpage-regionselect-form, #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-regionselect-wrapper .searchpage-cityselect-form, #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-cityselect-wrapper .searchpage-regionselect-form, #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-cityselect-wrapper .searchpage-cityselect-form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1896,7 +1896,7 @@ header #navlogo img {
             align-items: center;
     width: 100%;
   }
-  #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-regionselect-wrapper .searchpage-regionselect-form select, #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-regionselect-wrapper .searchpage-cityselect-form select, #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-cityselect-wrapper .searchpage-regionselect-form select, #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-cityselect-wrapper .searchpage-cityselect-form select {
+  #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-regionselect-wrapper .searchpage-regionselect-form select, #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-regionselect-wrapper .searchpage-cityselect-form select, #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-cityselect-wrapper .searchpage-regionselect-form select, #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-cityselect-wrapper .searchpage-cityselect-form select {
     width: 100%;
     height: 40px;
     padding-left: 10px;
@@ -1922,6 +1922,7 @@ header #navlogo img {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    z-index: 1;
   }
   #search-tabber-subdiv .indexsearch-input {
     display: -webkit-box;
@@ -1954,7 +1955,7 @@ header #navlogo img {
     width: 0px;
     margin: 8px 8px 8px 8px;
   }
-  #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-regionselect-wrapper, #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-cityselect-wrapper {
+  #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-regionselect-wrapper, #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-cityselect-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1972,7 +1973,7 @@ header #navlogo img {
         -ms-flex-pack: end;
             justify-content: flex-end;
   }
-  #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-regionselect-wrapper .searchpage-regionselect-form, #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-regionselect-wrapper .searchpage-cityselect-form, #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-cityselect-wrapper .searchpage-regionselect-form, #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-cityselect-wrapper .searchpage-cityselect-form {
+  #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-regionselect-wrapper .searchpage-regionselect-form, #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-regionselect-wrapper .searchpage-cityselect-form, #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-cityselect-wrapper .searchpage-regionselect-form, #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-cityselect-wrapper .searchpage-cityselect-form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1983,7 +1984,7 @@ header #navlogo img {
             align-items: center;
     width: 100%;
   }
-  #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-regionselect-wrapper .searchpage-regionselect-form select, #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-regionselect-wrapper .searchpage-cityselect-form select, #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-cityselect-wrapper .searchpage-regionselect-form select, #search-tabber-subdiv #searchpage-regioncity-select-wrapper .searchpage-cityselect-wrapper .searchpage-cityselect-form select {
+  #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-regionselect-wrapper .searchpage-regionselect-form select, #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-regionselect-wrapper .searchpage-cityselect-form select, #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-cityselect-wrapper .searchpage-regionselect-form select, #search-tabber-subdiv #searchpage-regioncity-select-wrapper #searchpage-cityselect-wrapper .searchpage-cityselect-form select {
     width: 100%;
     height: 40px;
     padding-left: 10px;
@@ -1995,6 +1996,30 @@ header #navlogo img {
     background-color: #0F1419;
     color: white;
     font-size: 15px;
+  }
+}
+
+@media (min-width: 875px) {
+  #locationselectwindow {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    background-color: #545454;
+    overflow-x: hidden;
+    padding-top: 60px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    color: white;
   }
 }
 
