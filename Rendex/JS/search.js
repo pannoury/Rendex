@@ -40,184 +40,27 @@ window.addEventListener('load', function(){
         regionHeader.innerText = "Blekinge";
         regionHeader.innerText = "Blekinge";
         citySpanText.innerText = "";
-        defaultCitySelection.style.display = "none";
-        blekingeSelection.style.display = "flex";
-        dalarnaSelection.style.display = "none";
-        gotlandSelection.style.display = "none";
-        gävleborgSelection.style.display = "none";
-        hallandSelection.style.display = "none";
-        jämtlandSelection.style.display = "none";
-        jönköpingSelection.style.display = "none";
-        kalmarSelection.style.display = "none";
-        kronobergSelection.style.display = "none";
-        norrbottenSelection.style.display = "none";
-        skåneSelection.style.display = "none";
-        stockholmSelection.style.display = "none";
-        södermanlandSelection.style.display = "none";
-        uppsalaSelection.style.display = "none";
-        värmlandSelection.style.display = "none";
-        västerbottenSelection.style.display = "none";
-        västernorrlandSelection.style.display = "none";
-        västmanlandSelection.style.display = "none";
-        västraGötalandSelection.style.display = "none";
-        örebroSelection.style.display = "none";
-        östergötlandSelection.style.display = "none";
     }
     else if(region == 'Dalarna'){
         regionHeader.innerText = "Dalarna";
-        defaultCitySelection.style.display = "none";
-        blekingeSelection.style.display = "none";
-        dalarnaSelection.style.display = "block";
-        gotlandSelection.style.display = "none";
-        gävleborgSelection.style.display = "none";
-        hallandSelection.style.display = "none";
-        jämtlandSelection.style.display = "none";
-        jönköpingSelection.style.display = "none";
-        kalmarSelection.style.display = "none";
-        kronobergSelection.style.display = "none";
-        norrbottenSelection.style.display = "none";
-        skåneSelection.style.display = "none";
-        stockholmSelection.style.display = "none";
-        södermanlandSelection.style.display = "none";
-        uppsalaSelection.style.display = "none";
-        värmlandSelection.style.display = "none";
-        västerbottenSelection.style.display = "none";
-        västernorrlandSelection.style.display = "none";
-        västmanlandSelection.style.display = "none";
-        västraGötalandSelection.style.display = "none";
-        örebroSelection.style.display = "none";
-        östergötlandSelection.style.display = "none";
     }
     else if(region == 'Gävleborg'){
         regionHeader.innerText = "Gävleborg";
-        defaultCitySelection.style.display = "none";
-        blekingeSelection.style.display = "none";
-        dalarnaSelection.style.display = "none";
-        gotlandSelection.style.display = "none";
-        gävleborgSelection.style.display = "block";
-        hallandSelection.style.display = "none";
-        jämtlandSelection.style.display = "none";
-        jönköpingSelection.style.display = "none";
-        kalmarSelection.style.display = "none";
-        kronobergSelection.style.display = "none";
-        norrbottenSelection.style.display = "none";
-        skåneSelection.style.display = "none";
-        stockholmSelection.style.display = "none";
-        södermanlandSelection.style.display = "none";
-        uppsalaSelection.style.display = "none";
-        värmlandSelection.style.display = "none";
-        västerbottenSelection.style.display = "none";
-        västernorrlandSelection.style.display = "none";
-        västmanlandSelection.style.display = "none";
-        västraGötalandSelection.style.display = "none";
-        örebroSelection.style.display = "none";
-        östergötlandSelection.style.display = "none";
+
     }
     else if(region == 'Gotland'){
         regionHeader.innerText = "Gotland";
-        defaultCitySelection.style.display = "none";
-        blekingeSelection.style.display = "none";
-        dalarnaSelection.style.display = "none";
-        gotlandSelection.style.display = "block";
-        gävleborgSelection.style.display = "none";
-        hallandSelection.style.display = "none";
-        jämtlandSelection.style.display = "none";
-        jönköpingSelection.style.display = "none";
-        kalmarSelection.style.display = "none";
-        kronobergSelection.style.display = "none";
-        norrbottenSelection.style.display = "none";
-        skåneSelection.style.display = "none";
-        stockholmSelection.style.display = "none";
-        södermanlandSelection.style.display = "none";
-        uppsalaSelection.style.display = "none";
-        värmlandSelection.style.display = "none";
-        västerbottenSelection.style.display = "none";
-        västernorrlandSelection.style.display = "none";
-        västmanlandSelection.style.display = "none";
-        västraGötalandSelection.style.display = "none";
-        örebroSelection.style.display = "none";
-        östergötlandSelection.style.display = "none";
     }
     else if(region == 'Halland'){
         regionHeader.innerText = "Halland";
-        searchRegion.value = "Halland";
-        document.getElementById('searchpage-cityselect-wrapper').style.display = "flex";
-        defaultCitySelection.style.display = "none";
-        blekingeSelection.style.display = "none";
-        dalarnaSelection.style.display = "none";
-        gotlandSelection.style.display = "none";
-        gävleborgSelection.style.display = "none";
-        hallandSelection.style.display = "block";
-        jämtlandSelection.style.display = "none";
-        jönköpingSelection.style.display = "none";
-        kalmarSelection.style.display = "none";
-        kronobergSelection.style.display = "none";
-        norrbottenSelection.style.display = "none";
-        skåneSelection.style.display = "none";
-        stockholmSelection.style.display = "none";
-        södermanlandSelection.style.display = "none";
-        uppsalaSelection.style.display = "none";
-        värmlandSelection.style.display = "none";
-        västerbottenSelection.style.display = "none";
-        västernorrlandSelection.style.display = "none";
-        västmanlandSelection.style.display = "none";
-        västraGötalandSelection.style.display = "none";
-        örebroSelection.style.display = "none";
-        östergötlandSelection.style.display = "none";
     }
     else if(region == 'Jämtland'){
         regionHeader.innerText = "Jämtland";
         searchRegion.value = "Jämtland";
-        document.getElementById('searchpage-cityselect-wrapper').style.display = "flex";
-        defaultCitySelection.style.display = "none";
-        blekingeSelection.style.display = "none";
-        dalarnaSelection.style.display = "none";
-        gotlandSelection.style.display = "none";
-        gävleborgSelection.style.display = "none";
-        hallandSelection.style.display = "none";
-        jämtlandSelection.style.display = "block";
-        jönköpingSelection.style.display = "none";
-        kalmarSelection.style.display = "none";
-        kronobergSelection.style.display = "none";
-        norrbottenSelection.style.display = "none";
-        skåneSelection.style.display = "none";
-        stockholmSelection.style.display = "none";
-        södermanlandSelection.style.display = "none";
-        uppsalaSelection.style.display = "none";
-        värmlandSelection.style.display = "none";
-        västerbottenSelection.style.display = "none";
-        västernorrlandSelection.style.display = "none";
-        västmanlandSelection.style.display = "none";
-        västraGötalandSelection.style.display = "none";
-        örebroSelection.style.display = "none";
-        östergötlandSelection.style.display = "none";
     }
     else if(region == 'Jönköping'){
         regionHeader.innerText = "Jönköping";
         searchRegion.value = "Jönköping";
-        document.getElementById('searchpage-cityselect-wrapper').style.display = "flex";
-        defaultCitySelection.style.display = "none";
-        blekingeSelection.style.display = "none";
-        dalarnaSelection.style.display = "none";
-        gotlandSelection.style.display = "none";
-        gävleborgSelection.style.display = "none";
-        hallandSelection.style.display = "none";
-        jämtlandSelection.style.display = "none";
-        jönköpingSelection.style.display = "block";
-        kalmarSelection.style.display = "none";
-        kronobergSelection.style.display = "none";
-        norrbottenSelection.style.display = "none";
-        skåneSelection.style.display = "none";
-        stockholmSelection.style.display = "none";
-        södermanlandSelection.style.display = "none";
-        uppsalaSelection.style.display = "none";
-        värmlandSelection.style.display = "none";
-        västerbottenSelection.style.display = "none";
-        västernorrlandSelection.style.display = "none";
-        västmanlandSelection.style.display = "none";
-        västraGötalandSelection.style.display = "none";
-        örebroSelection.style.display = "none";
-        östergötlandSelection.style.display = "none";
     }
     else if(region == 'Kalmar'){
         regionHeader.innerText = "Kalmar";
@@ -462,149 +305,37 @@ window.addEventListener('load', function(){
     }
     else if(region == 'Värmland'){
         regionHeader.innerText = "Värmland";
-        searchRegion.value = "Värmland";
-        document.getElementById('searchpage-cityselect-wrapper').style.display = "flex";
-        defaultCitySelection.style.display = "none";
-        blekingeSelection.style.display = "none";
-        dalarnaSelection.style.display = "none";
-        gotlandSelection.style.display = "none";
-        gävleborgSelection.style.display = "none";
-        hallandSelection.style.display = "none";
-        jämtlandSelection.style.display = "none";
-        jönköpingSelection.style.display = "none";
-        kalmarSelection.style.display = "none";
-        kronobergSelection.style.display = "none";
-        norrbottenSelection.style.display = "none";
-        skåneSelection.style.display = "none";
-        stockholmSelection.style.display = "none";
-        södermanlandSelection.style.display = "none";
-        uppsalaSelection.style.display = "none";
-        värmlandSelection.style.display = "block";
-        västerbottenSelection.style.display = "none";
-        västernorrlandSelection.style.display = "none";
-        västmanlandSelection.style.display = "none";
-        västraGötalandSelection.style.display = "none";
-        örebroSelection.style.display = "none";
-        östergötlandSelection.style.display = "none";
+        document.getElementById('regionspan-text').innerText = "Värmland";
     }
     else if(region == 'Västerbotten'){
         regionHeader.innerText = "Västerbotten";
-        searchRegion.value = "Västerbotten";
-        document.getElementById('searchpage-cityselect-wrapper').style.display = "flex";
-        defaultCitySelection.style.display = "none";
-        blekingeSelection.style.display = "none";
-        dalarnaSelection.style.display = "none";
-        gotlandSelection.style.display = "none";
-        gävleborgSelection.style.display = "none";
-        hallandSelection.style.display = "none";
-        jämtlandSelection.style.display = "none";
-        jönköpingSelection.style.display = "none";
-        kalmarSelection.style.display = "none";
-        kronobergSelection.style.display = "none";
-        norrbottenSelection.style.display = "none";
-        skåneSelection.style.display = "none";
-        stockholmSelection.style.display = "none";
-        södermanlandSelection.style.display = "none";
-        uppsalaSelection.style.display = "none";
-        värmlandSelection.style.display = "none";
-        västerbottenSelection.style.display = "block";
-        västernorrlandSelection.style.display = "none";
-        västmanlandSelection.style.display = "none";
-        västraGötalandSelection.style.display = "none";
-        örebroSelection.style.display = "none";
-        östergötlandSelection.style.display = "none";
+        document.getElementById('regionspan-text').innerText = "Västerbotten";
     }
     else if(region == 'Västernorrland'){
         regionHeader.innerText = "Västernorrland";
-        searchRegion.value = "Västernorrland";
-        document.getElementById('searchpage-cityselect-wrapper').style.display = "flex";
-        defaultCitySelection.style.display = "none";
-        blekingeSelection.style.display = "none";
-        dalarnaSelection.style.display = "none";
-        gotlandSelection.style.display = "none";
-        gävleborgSelection.style.display = "none";
-        hallandSelection.style.display = "none";
-        jämtlandSelection.style.display = "none";
-        jönköpingSelection.style.display = "none";
-        kalmarSelection.style.display = "none";
-        kronobergSelection.style.display = "none";
-        norrbottenSelection.style.display = "none";
-        skåneSelection.style.display = "none";
-        stockholmSelection.style.display = "none";
-        södermanlandSelection.style.display = "none";
-        uppsalaSelection.style.display = "none";
-        värmlandSelection.style.display = "none";
-        västerbottenSelection.style.display = "none";
-        västernorrlandSelection.style.display = "block";
-        västmanlandSelection.style.display = "none";
-        västraGötalandSelection.style.display = "none";
-        örebroSelection.style.display = "none";
-        östergötlandSelection.style.display = "none";
+        document.getElementById('regionspan-text').innerText = "Västernorrland";
     }
     else if(region == 'Västmanland'){
         regionHeader.innerText = "Västmanland";
-        searchRegion.value = "Västmanland";
-        document.getElementById('searchpage-cityselect-wrapper').style.display = "flex";
-        defaultCitySelection.style.display = "none";
-        blekingeSelection.style.display = "none";
-        dalarnaSelection.style.display = "none";
-        gotlandSelection.style.display = "none";
-        gävleborgSelection.style.display = "none";
-        hallandSelection.style.display = "none";
-        jämtlandSelection.style.display = "none";
-        jönköpingSelection.style.display = "none";
-        kalmarSelection.style.display = "none";
-        kronobergSelection.style.display = "none";
-        norrbottenSelection.style.display = "none";
-        skåneSelection.style.display = "none";
-        stockholmSelection.style.display = "none";
-        södermanlandSelection.style.display = "none";
-        uppsalaSelection.style.display = "none";
-        värmlandSelection.style.display = "none";
-        västerbottenSelection.style.display = "none";
-        västernorrlandSelection.style.display = "none";
-        västmanlandSelection.style.display = "block";
-        västraGötalandSelection.style.display = "none";
-        örebroSelection.style.display = "none";
-        östergötlandSelection.style.display = "none";
+        document.getElementById('regionspan-text').innerText = "Västmanland";
     }
     else if(region == 'Västra Götaland'){
         regionHeader.innerText = "Västra Götaland";
-        searchRegion.value = "Västra Götaland";
-        document.getElementById('searchpage-cityselect-wrapper').style.display = "flex";
-        defaultCitySelection.style.display = "none";
-        blekingeSelection.style.display = "none";
-        dalarnaSelection.style.display = "none";
-        gotlandSelection.style.display = "none";
-        gävleborgSelection.style.display = "none";
-        hallandSelection.style.display = "none";
-        jämtlandSelection.style.display = "none";
-        jönköpingSelection.style.display = "none";
-        kalmarSelection.style.display = "none";
-        kronobergSelection.style.display = "none";
-        norrbottenSelection.style.display = "none";
-        skåneSelection.style.display = "none";
-        stockholmSelection.style.display = "none";
-        södermanlandSelection.style.display = "none";
-        uppsalaSelection.style.display = "none";
-        värmlandSelection.style.display = "none";
-        västerbottenSelection.style.display = "none";
-        västernorrlandSelection.style.display = "none";
-        västmanlandSelection.style.display = "none";
-        västraGötalandSelection.style.display = "block";
-        örebroSelection.style.display = "none";
-        östergötlandSelection.style.display = "none";
+        document.getElementById('regionspan-text').innerText = "Västra Götaland";
+
     }
-    else if(region == null){
+    else if(region = null || region == undefined){
         regionHeader.innerText = "Hela Sverige";
-        searchRegion.value = "Hela Sverige";
         localStorage.setItem("regionSelected", "Hela Sverige");
-        document.getElementById('searchpage-cityselect-wrapper').style.display = "none";
         document.getElementById('regionspan-text').innerText = "Hela Sverige";
     }
 });
-document.getElementById('locationselect-button').addEventListener('click', function(){
-    document.getElementById('loctionselectwindow').style.width = "400px";
+document.getElementById('searchpage-regioncity-select-wrapper').onclick = function locationSelectButton(){
+    document.getElementById('locationselectwindow').style.width = "300px";
+    windowOpen();
+};
+document.getElementById('closelocationselectwindow').addEventListener('click', function(){
+    document.getElementById('locationselectwindow').style.width = "0px";
 });
 /**************************END OF REGION/CITY SELECT************************* */
 document.getElementById('searchpage-searchindex').addEventListener('input', inputQuery);

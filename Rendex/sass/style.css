@@ -1993,17 +1993,29 @@ header #navlogo img {
 
 @media (min-width: 875px) {
   #locationselectwindow {
-    height: 100%;
-    width: 0;
+    height: 50vh;
+    width: 0px;
     position: fixed;
     z-index: 10;
-    top: 50%;
-    right: 0;
-    background-color: #545454;
+    top: 25vh;
+    right: 50%;
+    background-color: #0F1419;
     overflow-x: hidden;
-    padding-top: 60px;
     -webkit-transition: 0.5s;
     transition: 0.5s;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    color: white;
+    border-radius: 6px;
+    -webkit-box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+            box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+  }
+  #locationselectwindow #locationheader-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2011,7 +2023,143 @@ header #navlogo img {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 2px;
+    padding: 10px 20px 0px 20px;
+  }
+  #locationselectwindow #locationheader-wrapper h2 {
+    font-size: 18px;
+    margin: 0px;
+  }
+  #locationselectwindow #locationheader-wrapper a {
+    font-size: 40px;
+  }
+  #locationselectwindow #locationheader-wrapper a:hover {
+    cursor: pointer;
+  }
+  #locationselectwindow #locationhelasverige {
+    padding-left: 20px;
+    border-bottom: 1px solid white;
+    padding-bottom: 6px;
+  }
+  #locationselectwindow #locationselect-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  #locationselectwindow #locationselect-wrapper {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  #locationselectwindow #locationselect-wrapper #locationselectwindow-region {
+    margin-top: 10px;
+    margin-left: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  #locationselectwindow #locationselect-wrapper #locationselectwindow-region #locationregion-specific {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 6px;
+    border-top: white 1px;
+    padding-bottom: 10px;
+  }
+  #locationselectwindow #locationselectwindow-city {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: none;
+  }
+  #locationselectwindow #locationselectwindow-separator {
+    border-left: black 1px;
+    height: 100%;
+    width: 2px;
+  }
+  #locationselectwindow .locationregion-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    width: 100%;
+  }
+  #locationselectwindow .locationregion-row p {
+    margin: 0px;
+  }
+  #locationselectwindow .locationregion-row #locationregion-row-wrapper-1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    gap: 8px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 50%;
+  }
+  #locationselectwindow #location-button-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+  }
+  #locationselectwindow #location-button-wrapper #location-initiate-button {
+    border-radius: 8px;
+    width: 50%;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: bold;
     color: white;
+    background-color: #555;
+    border-style: none;
+  }
+  #locationselectwindow #location-button-wrapper #location-initiate-button:hover {
+    opacity: 0.8;
+  }
+  #locationselectwindow #location-button-wrapper #location-city-button {
+    border-radius: 8px;
+    width: 50%;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #708090;
+    border-style: none;
   }
 }
 

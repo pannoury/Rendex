@@ -1,3 +1,14 @@
+var helaSverige = document.getElementById('helasverigecheckbox');
+var blekinge = document.getElementById('blekingecheckbox');
+
+var checkboxes = document.querySelectorAll
+
+function windowOpen(){
+    if(helaSverige.value)
+};
+
+
+
 /*
 document.getElementById('searchregion-searchpage').onchange = function(){
     var regionSelected = document.getElementById('searchregion-searchpage').value;

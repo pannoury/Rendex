@@ -157,18 +157,120 @@
 //************************** Search-window Section END ***********************//
 @media(min-width: 875px){
     #locationselectwindow{
-        height: 100%;
-        width: 0;
+        height: 50vh;
+        width: 0px;
         position: fixed;
         z-index: 10;
-        top: 50%;
-        right: 0;
-        background-color: #545454;
+        top: 25vh;
+        right: 50%;
+        background-color: $dark-blue2;
         overflow-x: hidden;
-        padding-top: 60px;
         transition: 0.5s;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         color: white;
+        border-radius: 6px;
+        box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+        #locationheader-wrapper{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2px;
+            padding: 10px 20px 0px 20px;
+            h2{
+                font-size: 18px;
+                margin: 0px;
+            }
+            a{
+                font-size: 40px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        #locationhelasverige{
+            padding-left: 20px;
+            border-bottom: 1px solid white;
+            padding-bottom: 6px;
+        }
+        #locationselect-wrapper{
+            display: flex;
+            flex-direction: row;
+        }
+        #locationselect-wrapper{
+            overflow-y: auto;
+            overflow-x: hidden;
+            #locationselectwindow-region{
+                margin-top: 10px;
+                margin-left: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                width: 100%;
+                #locationregion-specific{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 6px;
+                    border-top: white 1px;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+        #locationselectwindow-city{
+            margin-top: 10px;
+            margin-left: 10px;
+            display: none;
+        }
+        #locationselectwindow-separator{
+            border-left: black 1px;
+            height: 100%;
+            width: 2px;
+        }
+        .locationregion-row{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            width: 100%;
+            p{margin: 0px;}
+            #locationregion-row-wrapper-1{
+                display: flex;
+                flex-direction: row;
+                gap: 8px;
+                align-items: center;
+                width: 50%;
+            }
+        }
+        #location-button-wrapper{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            padding: 10px;
+            #location-initiate-button{
+                border-radius: 8px;
+                width: 50%;
+                padding: 8px;
+                font-size: 14px;
+                font-weight: bold;
+                color: white;
+                background-color: $rendex-black2;
+                border-style: none;
+                &:hover{
+                    opacity: 0.8;
+                }
+            }
+            #location-city-button{
+                border-radius: 8px;
+                width: 50%;
+                padding: 8px;
+                font-size: 14px;
+                font-weight: bold;
+                color: white;
+                background-color: $hover-dark;
+                border-style: none;
+            }
+        }
     }
 }
