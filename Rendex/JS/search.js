@@ -3,7 +3,8 @@ var region = localStorage.getItem("regionSelected");
 var citySelected = localStorage.getItem('citySelected');
 var roleSelected = localStorage.getItem('roleSelected');
 var purposeSelected = localStorage.getItem('purposeSelected');
-var searchRegion = document.getElementById('searchregion-searchpage');
+var regionSpanText = document.getElementById('regionspan-text');
+var citySpanText = document.getElementById('cityspan-text');
 
 var defaultCitySelection = document.getElementById('defualtCitySelect');
 var blekingeSelection = document.getElementById('blekingeCitySelect');
@@ -27,17 +28,18 @@ var västmanlandSelection = document.getElementById('västmanlandCitySelect');
 var västraGötalandSelection = document.getElementById('västraGötalandCitySelect');
 var örebroSelection = document.getElementById('örebroCitySelect');
 var östergötlandSelection = document.getElementById('östergötlandCitySelect');
+var regionSpan = document.getElementById('regionspan-text');
+var citySpan = document.getElementById('cityspan-text');
 
 window.addEventListener('load', function(){
     if(region == 'Hela Sverige'){
         regionHeader.innerText = "Hela Sverige";
-        searchRegion.value = "Hela Sverige";
-        document.getElementById('searchpage-cityselect-wrapper').style.display = "none";
+        regionSpanText.innerText = "Hela Sverige";
     }
     else if(region == 'Blekinge'){
         regionHeader.innerText = "Blekinge";
-        searchRegion.value = "Blekinge";
-        document.getElementById('searchpage-cityselect-wrapper').style.display = "flex";
+        regionHeader.innerText = "Blekinge";
+        citySpanText.innerText = "";
         defaultCitySelection.style.display = "none";
         blekingeSelection.style.display = "flex";
         dalarnaSelection.style.display = "none";
@@ -63,8 +65,6 @@ window.addEventListener('load', function(){
     }
     else if(region == 'Dalarna'){
         regionHeader.innerText = "Dalarna";
-        searchRegion.value = "Dalarna";
-        document.getElementById('searchpage-cityselect-wrapper').style.display = "flex";
         defaultCitySelection.style.display = "none";
         blekingeSelection.style.display = "none";
         dalarnaSelection.style.display = "block";
@@ -90,8 +90,6 @@ window.addEventListener('load', function(){
     }
     else if(region == 'Gävleborg'){
         regionHeader.innerText = "Gävleborg";
-        searchRegion.value = "Gävleborg";
-        document.getElementById('searchpage-cityselect-wrapper').style.display = "flex";
         defaultCitySelection.style.display = "none";
         blekingeSelection.style.display = "none";
         dalarnaSelection.style.display = "none";
@@ -117,8 +115,6 @@ window.addEventListener('load', function(){
     }
     else if(region == 'Gotland'){
         regionHeader.innerText = "Gotland";
-        searchRegion.value = 'Gotland';
-        document.getElementById('searchpage-cityselect-wrapper').style.display = "flex";
         defaultCitySelection.style.display = "none";
         blekingeSelection.style.display = "none";
         dalarnaSelection.style.display = "none";
@@ -414,8 +410,6 @@ window.addEventListener('load', function(){
     }
     else if(region == 'Stockholm'){
         regionHeader.innerText = "Stockholm";
-        searchRegion.value = "Stockholm";
-        document.getElementById('searchpage-cityselect-wrapper').style.display = "flex";
         defaultCitySelection.style.display = "none";
         blekingeSelection.style.display = "none";
         dalarnaSelection.style.display = "none";
@@ -606,9 +600,12 @@ window.addEventListener('load', function(){
         searchRegion.value = "Hela Sverige";
         localStorage.setItem("regionSelected", "Hela Sverige");
         document.getElementById('searchpage-cityselect-wrapper').style.display = "none";
+        document.getElementById('regionspan-text').innerText = "Hela Sverige";
     }
 });
-
+document.getElementById('locationselect-button').addEventListener('click', function(){
+    document.getElementById('loctionselectwindow').style.width = "400px";
+});
 /**************************END OF REGION/CITY SELECT************************* */
 document.getElementById('searchpage-searchindex').addEventListener('input', inputQuery);
 function inputQuery(data){

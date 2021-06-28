@@ -1,3 +1,4 @@
+/*
 document.getElementById('searchregion-searchpage').onchange = function(){
     var regionSelected = document.getElementById('searchregion-searchpage').value;
     var defaultCitySelection = document.getElementById('defualtCitySelect');
@@ -574,3 +575,4 @@ document.getElementById('searchregion-searchpage').onchange = function(){
         location.reload();
     }
 }
+*/
