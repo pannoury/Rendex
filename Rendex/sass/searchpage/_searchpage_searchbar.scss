@@ -123,6 +123,14 @@
             flex-direction: row;
             align-items: center;
             width: 20%;
+            border-radius: 8px;
+            border-style: groove;
+            border-width: 1px;
+            border-color: white;
+            padding: 4px;
+            &:hover{
+                opacity: 0.7;
+            }
             #locationselect-button{
                 width: 100%;
                 height: 40px;
@@ -217,11 +225,6 @@
                 }
             }
         }
-        #locationselectwindow-city{
-            margin-top: 10px;
-            margin-left: 10px;
-            display: none;
-        }
         #locationselectwindow-separator{
             border-left: black 1px;
             height: 100%;
@@ -270,6 +273,96 @@
                 color: white;
                 background-color: $hover-dark;
                 border-style: none;
+                &:hover{
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+    #locationselectwindow-city{
+        height: 50vh;
+        width: 0px;
+        position: fixed;
+        z-index: 10;
+        top: 25vh;
+        right: 50%;
+        background-color: $dark-blue2;
+        overflow-x: hidden;
+        transition: 0.5s;
+        display: flex;
+        flex-direction: column;
+        color: white;
+        border-radius: 6px;
+        box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+        #locationheader-wrapper-city{
+            padding: 10px 20px 0px 20px;
+            border-bottom: 1px solid white;
+            margin-bottom: 2px;
+            h2{
+                font-size: 18px;
+                margin-bottom: 8px;
+                margin-top: 8px;
+            }
+            #allareas-wrapper{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 6px;
+                font-size: 16px;
+                margin-bottom: 4px;
+            }
+        }
+        #locationselect-cityoptions{
+            overflow-y: scroll;
+            margin-left: 20px;
+            .locationcityoptions{
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                padding-top: 4px;
+                .singlecityoption{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 6px;
+                    label{
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+        #cityoptionbtns{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 10px;
+            #backtoregionselect{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 12px;
+                background-color: $rendex-black2;
+                padding: 8px;
+                border-radius: 8px;
+                color: white;
+                font-size: 14px;
+                font-weight: bold;
+                border-style: none;
+                width: 48%;
+                &:hover{
+                    opacity: 0.8;
+                }
+            }
+            #selectcitybtn{
+                background-color: $hover-dark;
+                border-radius: 6px;
+                color: white;
+                font-weight: bold;
+                border-style: none;
+                width: 48%;
+                &:hover{
+                    opacity: 0.8;
+                }
             }
         }
     }

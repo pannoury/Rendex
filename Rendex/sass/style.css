@@ -1955,6 +1955,14 @@ header #navlogo img {
         -ms-flex-align: center;
             align-items: center;
     width: 20%;
+    border-radius: 8px;
+    border-style: groove;
+    border-width: 1px;
+    border-color: white;
+    padding: 4px;
+  }
+  #search-tabber-subdiv #searchpage-regioncity-select-wrapper:hover {
+    opacity: 0.7;
   }
   #search-tabber-subdiv #searchpage-regioncity-select-wrapper #locationselect-button {
     width: 100%;
@@ -2085,11 +2093,6 @@ header #navlogo img {
     border-top: white 1px;
     padding-bottom: 10px;
   }
-  #locationselectwindow #locationselectwindow-city {
-    margin-top: 10px;
-    margin-left: 10px;
-    display: none;
-  }
   #locationselectwindow #locationselectwindow-separator {
     border-left: black 1px;
     height: 100%;
@@ -2160,6 +2163,136 @@ header #navlogo img {
     color: white;
     background-color: #708090;
     border-style: none;
+  }
+  #locationselectwindow #location-button-wrapper #location-city-button:hover {
+    opacity: 0.8;
+  }
+  #locationselectwindow-city {
+    height: 50vh;
+    width: 0px;
+    position: fixed;
+    z-index: 10;
+    top: 25vh;
+    right: 50%;
+    background-color: #0F1419;
+    overflow-x: hidden;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    color: white;
+    border-radius: 6px;
+    -webkit-box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+            box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+  }
+  #locationselectwindow-city #locationheader-wrapper-city {
+    padding: 10px 20px 0px 20px;
+    border-bottom: 1px solid white;
+    margin-bottom: 2px;
+  }
+  #locationselectwindow-city #locationheader-wrapper-city h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+  }
+  #locationselectwindow-city #locationheader-wrapper-city #allareas-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 6px;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  #locationselectwindow-city #locationselect-cityoptions {
+    overflow-y: scroll;
+    margin-left: 20px;
+  }
+  #locationselectwindow-city #locationselect-cityoptions .locationcityoptions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 6px;
+    padding-top: 4px;
+  }
+  #locationselectwindow-city #locationselect-cityoptions .locationcityoptions .singlecityoption {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 6px;
+  }
+  #locationselectwindow-city #locationselect-cityoptions .locationcityoptions .singlecityoption label {
+    font-size: 16px;
+  }
+  #locationselectwindow-city #cityoptionbtns {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 10px;
+  }
+  #locationselectwindow-city #cityoptionbtns #backtoregionselect {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 12px;
+    background-color: #555;
+    padding: 8px;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-style: none;
+    width: 48%;
+  }
+  #locationselectwindow-city #cityoptionbtns #backtoregionselect:hover {
+    opacity: 0.8;
+  }
+  #locationselectwindow-city #cityoptionbtns #selectcitybtn {
+    background-color: #708090;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    border-style: none;
+    width: 48%;
+  }
+  #locationselectwindow-city #cityoptionbtns #selectcitybtn:hover {
+    opacity: 0.8;
   }
 }
 

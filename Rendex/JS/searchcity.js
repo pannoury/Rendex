@@ -1,11 +1,239 @@
 var helaSverige = document.getElementById('helasverigecheckbox');
 var blekinge = document.getElementById('blekingecheckbox');
+var citySelected = localStorage.getItem('citySelected');
+var region = localStorage.getItem("regionSelected");
 
-var checkboxes = document.querySelectorAll
+var cityButton = document.getElementById('location-city-button');
+var backToRegionBtn = document.getElementById('backtoregionselect');
 
-function windowOpen(){
-    if(helaSverige.value)
+/* OPEN REGION WINDOW */
+document.getElementById('searchpage-regioncity-select-wrapper').onclick = function locationSelectButton(){
+    var x = document.getElementsByClassName('regioncheckbox');
+    var checkedboxes = 0;
+    for(i = 0; i < x.length; i++){
+        if (x[i].checked) {
+            if(helaSverige.checked = true && region == "Hela Sverige"){
+                document.getElementById('blekingecheckbox').checked = false;
+                document.getElementById('dalarnacheckbox').checked = false;
+                document.getElementById('gävleborgcheckbox').checked = false;
+                document.getElementById('gotlandcheckbox').checked = false;
+                document.getElementById('hallandcheckbox').checked = false;
+                document.getElementById('jämtlandcheckbox').checked = false;
+                document.getElementById('jönköpingcheckbox').checked = false;
+                document.getElementById('kalmarcheckbox').checked = false;
+                document.getElementById('kronobergcheckbox').checked = false;
+                document.getElementById('norrbottencheckbox').checked = false;
+                document.getElementById('örebrocheckbox').checked = false;
+                document.getElementById('östergötlandcheckbox').checked = false;
+                document.getElementById('skånecheckbox').checked = false;
+                document.getElementById('sörmlandcheckbox').checked = false;
+                document.getElementById('stockholmcheckbox').checked = false;
+                document.getElementById('uppsalacheckbox').checked = false;
+                document.getElementById('värmlandcheckbox').checked = false;
+                document.getElementById('västerbottencheckbox').checked = false;
+                document.getElementById('västernorrlandcheckbox').checked = false;
+                document.getElementById('västmanlandcheckbox').checked = false;
+                document.getElementById('västragötalandcheckbox').checked = false;
+                document.getElementById('location-initiate-button').style.display = "block";
+                document.getElementById('location-city-button').style.display = "none";
+            }
+            else if(checkedboxes > 1 || region == Array){
+                document.getElementById('helasverigecheckbox').checked = false;
+                document.getElementById('location-initiate-button').style.display = "block";
+                document.getElementById('location-city-button').style.display = "none";
+            }
+            else if(checkedboxes = 1 && helaSverige.checked == false){
+                document.getElementById('location-initiate-button').style.display = "block";
+                document.getElementById('location-city-button').style.display = "block";
+            }
+        }
+    }
+    document.getElementById('locationselectwindow').style.width = "300px";
+    document.getElementById('location-arrow-down').style.display = "none";
+    document.getElementById('location-arrow-up').style.display = "block";
 };
+/* CLOSE REGION WINDOW */
+document.getElementById('closelocationselectwindow').addEventListener('click', function(){
+    document.getElementById('locationselectwindow').style.width = "0px";
+    document.getElementById('location-arrow-down').style.display = "block";
+    document.getElementById('location-arrow-up').style.display = "none";
+});
+/* CLOSE REGION WINDOW */
+$('input[name=region]').change(function checkBoxControl(){
+    var x = document.getElementsByClassName('regioncheckbox');
+    var checkedboxes = 0;
+    for(i = 0; i < x.length; i++){
+        if (x[i].checked) {
+            checkedboxes++;
+            if (checkedboxes > 1) {
+                if(helaSverige.checked === true){
+                    helaSverige.checked = false;
+                    if(checkedboxes > 1){
+                        document.getElementById('location-initiate-button').style.display = "block";
+                        document.getElementById('location-city-button').style.display = "block";
+                    }
+                }
+                else if(helaSverige.checked === false){
+                    document.getElementById('location-initiate-button').style.display = "block";
+                    document.getElementById('location-city-button').style.display = "none";
+                }
+            }
+            else if (checkedboxes > 1 && helaSverige.checked === false){
+                document.getElementById('location-initiate-button').style.display = "block";
+                document.getElementById('location-city-button').style.display = "none";
+            }
+            else if (checkedboxes === 1 && helasverigecheckbox.checked == true) {
+                document.getElementById('location-initiate-button').style.display = "block";
+                document.getElementById('location-city-button').style.display = "none";
+            }
+            else if (checkedboxes === 1 && helasverigecheckbox.checked === false){
+                document.getElementById('location-initiate-button').style.display = "block";
+                document.getElementById('location-city-button').style.display = "block";
+            }
+        }
+        else if(checkedboxes === 0){
+            document.getElementById('location-initiate-button').style.display = "none";
+            document.getElementById('location-city-button').style.display = "none";
+        }
+    }
+});
+document.getElementById('helasverigecheckbox').onclick = function(){
+    var x = document.getElementsByClassName('regioncheckbox');
+    var checkedboxes = 0;
+    for(i = 0; i < x.length; i++){
+        if (x[i].checked) {
+            checkedboxes++;
+            if (checkedboxes > 1){
+                helaSverige.checked = true;
+                document.getElementById('blekingecheckbox').checked = false;
+                document.getElementById('dalarnacheckbox').checked = false;
+                document.getElementById('gävleborgcheckbox').checked = false;
+                document.getElementById('gotlandcheckbox').checked = false;
+                document.getElementById('hallandcheckbox').checked = false;
+                document.getElementById('jämtlandcheckbox').checked = false;
+                document.getElementById('jönköpingcheckbox').checked = false;
+                document.getElementById('kalmarcheckbox').checked = false;
+                document.getElementById('kronobergcheckbox').checked = false;
+                document.getElementById('norrbottencheckbox').checked = false;
+                document.getElementById('örebrocheckbox').checked = false;
+                document.getElementById('östergötlandcheckbox').checked = false;
+                document.getElementById('skånecheckbox').checked = false;
+                document.getElementById('sörmlandcheckbox').checked = false;
+                document.getElementById('stockholmcheckbox').checked = false;
+                document.getElementById('uppsalacheckbox').checked = false;
+                document.getElementById('värmlandcheckbox').checked = false;
+                document.getElementById('västerbottencheckbox').checked = false;
+                document.getElementById('västernorrlandcheckbox').checked = false;
+                document.getElementById('västmanlandcheckbox').checked = false;
+                document.getElementById('västragötalandcheckbox').checked = false;
+                document.getElementById('location-initiate-button').style.display = "block";
+                document.getElementById('location-city-button').style.display = "none";
+            }
+            else{}
+        }
+    }
+};
+document.getElementById('location-initiate-button').addEventListener('click', function(){
+    var allCheckedBoxes = document.querySelectorAll('input[name="region"]:checked');
+    let checkedRegionBoxes = [];
+    allCheckedBoxes.forEach((checkbox) => {
+        checkedRegionBoxes.push(checkbox.value);
+        console.log(checkedRegionBoxes);
+        localStorage.setItem("regionSelected", `${checkedRegionBoxes}`);
+    });
+    location.reload();
+});
+
+
+/*****************************CITY-WINDOW SCRIPT*************************** */
+cityButton.addEventListener('click', function cityDisplayControl(){
+    clearCityList();
+    if(document.getElementById('blekingecheckbox').checked === true){
+    }
+    else if(document.getElementById('dalarnacheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('gävleborgcheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('gotlandcheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('hallandcheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('jämtlandcheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('jönköpingcheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('kalmarcheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('kronobergcheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('norrbottencheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('örebrocheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('östergötlandcheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('skånecheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('sörmlandcheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('stockholmcheckbox').checked === true){
+        document.getElementById('locationstockholm').style.display = "flex";
+    }
+    else if(document.getElementById('uppsalacheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('värmlandcheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('västerbottencheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('västernorrlandcheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('västmanlandcheckbox').checked === true){
+        
+    }
+    else if(document.getElementById('västragötalandcheckbox').checked === true){
+        
+    }
+    else if(region = null || region == Array){
+        var cityOptionForRegions = document.getElementsByClassName('locationcityoptions');
+        for (i = 0; i < cityOptionForRegions.length; i++) {
+            cityOptionForRegions[i].style.display = "none";
+        }
+    }
+    document.getElementById('locationselectwindow-city').style.width = "300px";
+});
+backToRegionBtn.addEventListener('click', function(){
+    document.getElementById('locationselectwindow-city').style.width = "0px";
+    var cityOptionForRegions = document.getElementsByClassName('locationcityoptions');
+    for (i = 0; i < cityOptionForRegions.length; i++) {
+        cityOptionForRegions[i].style.display = "none";
+    }
+});
+function clearCityList(){
+    var cityOptionForRegions = document.getElementsByClassName('locationcityoptions');
+    for (i = 0; i < cityOptionForRegions.length; i++) {
+        cityOptionForRegions[i].style.display = "none";
+    }
+}
+document.getElementById('selectcitybtn').addEventListener('click', function citySelectLoad(){
+
+});
 
 
 
