@@ -1682,6 +1682,15 @@ header #navlogo img {
 
 /* Create Account Page */
 @media (min-width: 875px) {
+  #account-page {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
   #account-page #account-page-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1690,13 +1699,102 @@ header #navlogo img {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    width: 100%;
+    gap: 10px;
+    width: 80%;
+    margin: auto;
   }
-  #account-page #account-page-wrapper #acccount-image-wrapper {
-    width: 30%;
+  #account-page #account-page-wrapper #account-image-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 20%;
+    height: 100px;
+    padding: 20px;
+    background-color: black;
+    color: white;
+  }
+  #account-page #account-page-wrapper #account-image-wrapper #companylogologo {
+    height: 100px;
+    width: 100px;
   }
   #account-page #account-page-wrapper #account-companybackground {
-    width: 70%;
+    width: 80%;
+    padding: 20px;
+    background-color: gray;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  #account-page #account-page-wrapper #account-companybackground #account-companybackground-column1 .companyheader-div h2 {
+    margin: 0px;
+  }
+  #account-page #account-page-wrapper #account-companybackground #account-companybackground-column1 #companyshortinformation {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #account-page #account-page-wrapper #account-companybackground #account-companybackground-column1 #companyshortinformation p {
+    margin: 0;
+    margin-top: 4px;
+  }
+  #account-page #account-page-wrapper #account-companybackground #account-companybackground-column2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: right;
+  }
+  #account-page #account-page-wrapper #account-companybackground #account-companybackground-column2 p {
+    margin: 0;
+    margin-bottom: 4px;
+  }
+  #account-page #account-page-wrapper #account-companybackground #account-companybackground-column2 #numberofreviewscompany {
+    font-weight: bold;
+  }
+  #account-page #account-page-wrapper #account-companybackground #account-companybackground-column2 #companybackground-rating {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    gap: 2px;
+  }
+  #account-page #companyannonser {
+    width: 80%;
+    margin: auto;
+    background-color: honeydew;
+  }
+  #account-page #companyannonser #companyannonser-wrapper {
+    background-color: hotpink;
+  }
+  #companybroadbackground {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 10px auto 10px auto;
+    width: 80%;
+    background-color: gray;
+  }
+  #companybroadbackground #companybroadbackground-text {
+    padding: 20px;
   }
 }
 
@@ -1993,9 +2091,11 @@ header #navlogo img {
   #search-tabber-subdiv #searchpage-regioncity-select-wrapper #location-arrow-up {
     display: none;
     margin-left: 8px;
+    margin-right: 4px;
   }
   #search-tabber-subdiv #searchpage-regioncity-select-wrapper #location-arrow-down {
     margin-left: 8px;
+    margin-right: 4px;
   }
 }
 
@@ -2216,8 +2316,9 @@ header #navlogo img {
     margin-bottom: 4px;
   }
   #locationselectwindow-city #locationselect-cityoptions {
-    overflow-y: scroll;
+    overflow-y: auto;
     margin-left: 20px;
+    height: 343px;
   }
   #locationselectwindow-city #locationselect-cityoptions .locationcityoptions {
     display: -webkit-box;
@@ -2285,8 +2386,9 @@ header #navlogo img {
   }
   #locationselectwindow-city #cityoptionbtns #selectcitybtn {
     background-color: #708090;
-    border-radius: 6px;
+    border-radius: 8px;
     color: white;
+    font-size: 14px;
     font-weight: bold;
     border-style: none;
     width: 48%;
@@ -2304,19 +2406,6 @@ header #navlogo img {
   width: 100%;
   display: -ms-grid;
   display: grid;
-}
-
-@media (min-width: 875px) {
-  .search-result-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    width: 100%;
-    margin: auto;
-  }
 }
 
 @media (max-width: 875px) {
@@ -2468,6 +2557,28 @@ header #navlogo img {
 }
 
 @media (min-width: 875px) {
+  #searchbutton-wrappers {
+    height: 100px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 10px;
+    display: none;
+  }
+  .search-result-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    margin: auto;
+  }
   .search-result-midpage {
     display: -webkit-box;
     display: -ms-flexbox;

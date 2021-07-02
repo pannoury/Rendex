@@ -155,9 +155,11 @@
             #location-arrow-up{
                 display: none;
                 margin-left: 8px;
+                margin-right: 4px;
             }
             #location-arrow-down{
                 margin-left: 8px;
+                margin-right: 4px;
             }
         }
     }
@@ -313,8 +315,9 @@
             }
         }
         #locationselect-cityoptions{
-            overflow-y: scroll;
+            overflow-y: auto;
             margin-left: 20px;
+            height: 343px;
             .locationcityoptions{
                 display: flex;
                 flex-direction: column;
@@ -355,8 +358,9 @@
             }
             #selectcitybtn{
                 background-color: $hover-dark;
-                border-radius: 6px;
+                border-radius: 8px;
                 color: white;
+                font-size: 14px;
                 font-weight: bold;
                 border-style: none;
                 width: 48%;

@@ -51,6 +51,12 @@
         </div>
       </div>
   </section>
+  <section id="searchbutton-wrappers">
+    <div id="searchbutton-wrappers-regions">
+    </div>
+    <div id="searchbutton-wrappers-city">
+    </div>
+  </section>
   <!--************************ RESULT SECTION **********************************-->
   <main class="search-result-main">
     <div class="search-result-topwrapper">
@@ -469,7 +475,7 @@
   <!--FOOTER START-->
   <div id="locationselectwindow">
     <div id="locationheader-wrapper">    
-      <h2>Välj Region</h2>
+      <h2><span id="region-location-cityheader">Välj Region</span></h2>
       <a id="closelocationselectwindow">&times;</a>
     </div>
     <div class="locationregion-row" id="locationhelasverige">
@@ -501,7 +507,7 @@
           <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Västerbotten" id="västerbottencheckbox"><p>Västerbotten</p></div>
           <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Västernorrland" id="västernorrlandcheckbox"><p>Västernorrland</p></div>
           <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Västmanland" id="västmanlandcheckbox"><p>Västmanland</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Västra Götaland" id="västragötalandcheckbox"><p>Västra Götaland</p></div>
+          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Götaland" id="västragötalandcheckbox"><p>Västra Götaland</p></div>
         </div>
       </div>
       <div id="locationselectwindow-separator"></div>
@@ -514,105 +520,105 @@
   <div id="locationselectwindow-city">
     <div id="locationheader-wrapper-city">
       <h2><span id="regioncityheader"></span></h2>
-      <div id="allareas-wrapper"><input type="checkbox" id="allaområdencheckbox"><label>Alla områden</label></div>
+      <div id="allareas-wrapper"><input type="checkbox" name="city" value="Alla Städer" id="allaområdencheckbox" class="citycheckbox"><label>Alla områden</label></div>
     </div>
     <div id="locationselect-cityoptions">
       <div class="locationcityoptions" id="locationblekinge">
-        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Karlshamn" id="botkyrkacheckbox"><label>Karlshamn</label></div>
-        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Karlskrona" id="vallentunacheckbox"><label>Karlskrona</label></div>
-        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Olofström" id="vaxholmcheckbox"><label>Olofström</label></div>
-        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Ronneby" id="värmdöcheckbox"><label>Ronneby</label></div>
-        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Sölvesborg" id="österåkercheckbox"><label>Sölvesborg</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Karlshamn" id="karlshamncheckbox"><label>Karlshamn</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Karlskrona" id="karlskronacheckbox"><label>Karlskrona</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Olofström" id="olofströmcheckbox"><label>Olofström</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Ronneby" id="ronnebycheckbox"><label>Ronneby</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Sölvesborg" id="sölvesborgcheckbox"><label>Sölvesborg</label></div>
       </div>
-      <select class="mainCitySelect" id="dalarnaCitySelect" aria-placeholder="Välj Stad">
-        <option value="Avesta">Avesta</option>
-        <option value="Borlänge">Borlänge</option>
-        <option value="Falun">Falun</option>
-        <option value="Gagnef">Gagnef</option>
-        <option value="Hedemora">Hedemora</option>
-        <option value="Leksand">Leksand</option>
-        <option value="Ludvika">Ludvika</option>
-        <option value="Malung-Sälen">Malung-Sälen</option>
-        <option value="Mora">Mora</option>
-        <option value="Orsa">Orsa</option>
-        <option value="Rättvik">Rättvik</option>
-        <option value="Smedjebacken">Smedjebacken</option>
-        <option value="Säter">Säter</option>
-        <option value="Vansbro">Vansbro</option>
-        <option value="Älvdalen">Älvdalen</option>
-      </select>
-      <select class="mainCitySelect" id="gotlandCitySelect" aria-placeholder="Välj Stad">
-        <option value="Hela Gotland">Hela Gotland</option>
-      </select>
-      <select class="mainCitySelect" id="gävleborgCitySelect" aria-placeholder="Välj Stad">
-        <option value="Bollnäs">Bollnäs</option>
-        <option value="Gävle">Gävle</option>
-        <option value="Hofors">Hofors</option>
-        <option value="Hudiksval">Hudiksval</option>
-        <option value="Ljusdal">Ljusdal</option>
-        <option value="Nordanstig">Nordanstig</option>
-        <option value="Ockelbo">Ockelbo</option>
-        <option value="Ovanåker">Ovanåker</option>
-        <option value="Sandviken">Sandviken</option>
-        <option value="Söderhamn">Söderhamn</option>
-      </select>
-      <select class="mainCitySelect" id="hallandCitySelect" aria-placeholder="Välj Stad">
-        <option value="Falkenberg">Falkenberg</option>
-        <option value="Halmstad">Halmstad</option>
-        <option value="Hylte">Hylte</option>
-        <option value="Kungsbacka">Kungsbacka</option>
-        <option value="Laholm">Laholm</option>
-        <option value="Varberg">Varberg</option>
-      </select>
-      <select class="mainCitySelect" id="jämtlandCitySelect" aria-placeholder="Välj Stad">
-        <option value="Berg">Berg</option>
-        <option value="Bräcke">Bräcke</option>
-        <option value="Härjedalen">Härjedalen</option>
-        <option value="Krokom">Krokom</option>
-        <option value="Ragunda">Ragunda</option>
-        <option value="Strömsund">Strömsund</option>
-        <option value="Åre">Åre</option>
-        <option value="Östersund">Östersund</option>
-      </select>
-      <select class="mainCitySelect" id="jönköpingCitySelect" aria-placeholder="Välj Stad">
-        <option value="Aneby">Aneby</option>
-        <option value="Eksjö">Eksjö</option>
-        <option value="Gislaved">Gislaved</option>
-        <option value="Gnosjö">Gnosjö</option>
-        <option value="Habo">Habo</option>
-        <option value="Jönköping">Jönköping</option>
-        <option value="Mullsjö">Mullsjö</option>
-        <option value="Nässjö">Nässjö</option>
-        <option value="Sävsjö">Sävsjö</option>
-        <option value="Tranås">Tranås</option>
-        <option value="Vaggeryd">Vaggeryd</option>
-        <option value="Vetlanda">Vetlanda</option>
-        <option value="Värnamo">Värnamo</option>
-      </select>
-      <select class="mainCitySelect" id="kalmarCitySelect" aria-placeholder="Välj Stad">
-        <option value="Borgholm">Borgholm</option>
-        <option value="Emmaboda">Emmaboda</option>
-        <option value="Hultsfred">Hultsfred</option>
-        <option value="Högsby">Högsby</option>
-        <option value="Kalmar">Kalmar</option>
-        <option value="Mösterås">Mösterås</option>
-        <option value="Mörbylånga">Mörbylånga</option>
-        <option value="Nybro">Nybro</option>
-        <option value="Oskarshamn">Oskarshamn</option>
-        <option value="Torsås">Torsås</option>
-        <option value="Vimmerby">Vimmerby</option>
-        <option value="Västervik">Västervik</option>
-      </select>
-      <select class="mainCitySelect" id="kronobergCitySelect" aria-placeholder="Välj Stad">
-        <option value="Alvesta">Alvesta</option>
-        <option value="Lessebo">Lessebo</option>
-        <option value="Ljungby">Ljungby</option>
-        <option value="Markaryd">Markaryd</option>
-        <option value="Tingsryd">Tingsryd</option>
-        <option value="Uppvidinge">Uppvidinge</option>
-        <option value="Växjö">Växjö</option>
-        <option value="Älmhult">Älmhult</option>
-      </select>
+      <div class="locationcityoptions" id="locationdalarna">
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Avesta" id="botkyrkacheckbox"><label>Avesta</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Borlänge" id="vallentunacheckbox"><label>Borlänge</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Falun" id="vaxholmcheckbox"><label>Falun</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Gagnef" id="värmdöcheckbox"><label>Gagnef</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Hedemora" id="österåkercheckbox"><label>Hedemora</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Leksand" id="botkyrkacheckbox"><label>Leksand</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Ludvika" id="vallentunacheckbox"><label>Ludvika</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Malung-Sälen" id="vaxholmcheckbox"><label>Malung-Sälen</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Mora" id="värmdöcheckbox"><label>Mora</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Orsa" id="österåkercheckbox"><label>Orsa</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Rättvik" id="botkyrkacheckbox"><label>Rättvik</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Smedjebacken" id="vallentunacheckbox"><label>Smedjebacken</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Säter" id="vaxholmcheckbox"><label>Säter</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Vansbro" id="värmdöcheckbox"><label>Vansbro</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Älvdalen" id="österåkercheckbox"><label>Älvdalen</label></div>
+      </div>
+      <div class="locationcityoptions" id="locationgotland">
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Hela Gotland" id="botkyrkacheckbox"><label>Hela Gotland</label></div>
+      </div>
+      <div class="locationcityoptions" id="locationgävleborg">
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Bollnäs" id="botkyrkacheckbox"><label>Bollnäs</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Gävle" id="vallentunacheckbox"><label>Gävle</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Hofors" id="vaxholmcheckbox"><label>Hofors</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Hudiksval" id="värmdöcheckbox"><label>Hudiksval</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Ljusdal" id="österåkercheckbox"><label>Ljusdal</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Nordanstig" id="botkyrkacheckbox"><label>Nordanstig</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Ockelbo" id="vallentunacheckbox"><label>Ockelbo</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Ovanåker" id="vaxholmcheckbox"><label>Ovanåker</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Sandviken" id="värmdöcheckbox"><label>Sandviken</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Söderhamn" id="österåkercheckbox"><label>Söderhamn</label></div>
+      </div>
+      <div class="locationcityoptions" id="locationhalland">
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Falkenberg" id="botkyrkacheckbox"><label>Falkenberg</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Halmstad" id="vallentunacheckbox"><label>Halmstad</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Hylte" id="vaxholmcheckbox"><label>Hylte</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Hudiksval" id="värmdöcheckbox"><label>Kungsbacka</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Laholm" id="österåkercheckbox"><label>Laholm</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Varberg" id="botkyrkacheckbox"><label>Varberg</label></div>
+      </div>
+      <div class="locationcityoptions" id="locationjämtland">
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Berg" id="botkyrkacheckbox"><label>Berg</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Bräcke" id="vallentunacheckbox"><label>Bräcke</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Härjedalen" id="botkyrkacheckbox"><label>Härjedalen</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Krokom" id="vallentunacheckbox"><label>Krokom</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Ragunda" id="vaxholmcheckbox"><label>Ragunda</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Strömsund" id="värmdöcheckbox"><label>Strömsund</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Åre" id="österåkercheckbox"><label>Åre</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Östersund" id="botkyrkacheckbox"><label>Östersund</label></div>
+      </div>
+      <div class="locationcityoptions" id="locationjönköping">
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Aneby" id="botkyrkacheckbox"><label>Aneby</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Eksjö" id="vallentunacheckbox"><label>Eksjö</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Gislaved" id="botkyrkacheckbox"><label>Gislaved</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Gnosjö" id="vallentunacheckbox"><label>Gnosjö</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Habo" id="vaxholmcheckbox"><label>Habo</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Jönköping" id="botkyrkacheckbox"><label>Jönköping</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Mullsjö" id="vallentunacheckbox"><label>Mullsjö</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Nässjö" id="botkyrkacheckbox"><label>Nässjö</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Sävsjö" id="vallentunacheckbox"><label>Sävsjö</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Tranås" id="vaxholmcheckbox"><label>Tranås</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Vaggeryd" id="värmdöcheckbox"><label>Vaggeryd</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Vetlanda" id="österåkercheckbox"><label>Vetlanda</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Värnamo" id="botkyrkacheckbox"><label>Värnamo</label></div>
+      </div>
+      <div class="locationcityoptions" id="locationkalmar">
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Borgholm" id="vallentunacheckbox"><label>Borgholm</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Emmaboda" id="botkyrkacheckbox"><label>Emmaboda</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Hultsfred" id="vallentunacheckbox"><label>Hultsfred</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Högsby" id="vaxholmcheckbox"><label>Högsby</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Kalmar" id="botkyrkacheckbox"><label>Kalmar</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Mösterås" id="vallentunacheckbox"><label>Mösterås</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Mörbylånga" id="botkyrkacheckbox"><label>Mörbylånga</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Nybro" id="vallentunacheckbox"><label>Nybro</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Oskarshamn" id="vaxholmcheckbox"><label>Oskarshamn</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Torsås" id="värmdöcheckbox"><label>Torsås</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Vimmerby" id="österåkercheckbox"><label>Vimmerby</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Västervik" id="botkyrkacheckbox"><label>Västervik</label></div>
+      </div>
+      <div class="locationcityoptions" id="locationkronoberg">
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Alvesta" id="botkyrkacheckbox"><label>Alvesta</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Lessebo" id="vallentunacheckbox"><label>Lessebo</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Ljungby" id="botkyrkacheckbox"><label>Ljungby</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Markaryd" id="vallentunacheckbox"><label>Markaryd</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Tingsryd" id="vaxholmcheckbox"><label>Tingsryd</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Uppvidinge" id="värmdöcheckbox"><label>Uppvidinge</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Växjö" id="österåkercheckbox"><label>Växjö</label></div>
+        <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Älmhult" id="botkyrkacheckbox"><label>Älmhult</label></div>
+      </div>
       <select class="mainCitySelect" id="norrbottenCitySelect" aria-placeholder="Välj Stad">
         <option value="Arjeplog">Arjeplog</option>
         <option value="Arvidsjaur">Arvidsjaur</option>
@@ -664,7 +670,7 @@
         <option value="Örkelljunga">Örkelljunga</option>
         <option value="Östra Göinge">Östra Göinge</option>
       </select>
-      <div class="locationcityoptions" id="locationsödermanland">
+      <div class="locationcityoptions" id="locationsörmland">
         <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Eskilstuna" id="botkyrkacheckbox"><label>Eskilstuna</label></div>
         <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Flen" id="botkyrkacheckbox"><label>Flen</label></div>
         <div class="singlecityoption"><input type="checkbox" name="city" class="citycheckbox" value="Gnesta" id="botkyrkacheckbox"><label>Gnesta</label></div>
@@ -859,5 +865,6 @@
   <!--FOOTER END-->
   <script src="/Rendex/JS/search.js"></script>
   <script src="/Rendex/JS/searchcity.js"></script>
+  <script src="/Rendex/JS/search01.js"></script>
 </body>
 <html>
