@@ -118,27 +118,27 @@ document.getElementById('helasverigecheckbox').onclick = function(){
             checkedboxes++;
             if (checkedboxes > 1){
                 helaSverige.checked = true;
-                document.getElementById('blekingecheckbox').checked = false;
-                document.getElementById('dalarnacheckbox').checked = false;
-                document.getElementById('gävleborgcheckbox').checked = false;
-                document.getElementById('gotlandcheckbox').checked = false;
-                document.getElementById('hallandcheckbox').checked = false;
-                document.getElementById('jämtlandcheckbox').checked = false;
-                document.getElementById('jönköpingcheckbox').checked = false;
-                document.getElementById('kalmarcheckbox').checked = false;
-                document.getElementById('kronobergcheckbox').checked = false;
-                document.getElementById('norrbottencheckbox').checked = false;
-                document.getElementById('örebrocheckbox').checked = false;
-                document.getElementById('östergötlandcheckbox').checked = false;
-                document.getElementById('skånecheckbox').checked = false;
-                document.getElementById('sörmlandcheckbox').checked = false;
-                document.getElementById('stockholmcheckbox').checked = false;
-                document.getElementById('uppsalacheckbox').checked = false;
-                document.getElementById('värmlandcheckbox').checked = false;
-                document.getElementById('västerbottencheckbox').checked = false;
-                document.getElementById('västernorrlandcheckbox').checked = false;
-                document.getElementById('västmanlandcheckbox').checked = false;
-                document.getElementById('västragötalandcheckbox').checked = false;
+                document.getElementById('Blekinge').checked = false;
+                document.getElementById('Dalarna').checked = false;
+                document.getElementById('Gävleborg').checked = false;
+                document.getElementById('Gotland').checked = false;
+                document.getElementById('Halland').checked = false;
+                document.getElementById('Jämtland').checked = false;
+                document.getElementById('Jönköping').checked = false;
+                document.getElementById('Kalmar').checked = false;
+                document.getElementById('Kronoberg').checked = false;
+                document.getElementById('Norrbotten').checked = false;
+                document.getElementById('Örebro').checked = false;
+                document.getElementById('Östergötland').checked = false;
+                document.getElementById('Skåne').checked = false;
+                document.getElementById('Sörmland').checked = false;
+                document.getElementById('Stockholm').checked = false;
+                document.getElementById('Uppsala').checked = false;
+                document.getElementById('Värmland').checked = false;
+                document.getElementById('Västerbotten').checked = false;
+                document.getElementById('Västernorrland').checked = false;
+                document.getElementById('Västmanland').checked = false;
+                document.getElementById('Västra Götaland').checked = false;
                 document.getElementById('location-initiate-button').style.display = "block";
                 document.getElementById('location-city-button').style.display = "none";
             }
@@ -323,7 +323,6 @@ function cityWindowScript(regionValue){
             else if(citySelected.includes(',')){
                 var citySelected = citySelected.replace(/"/g, "");
                 var citySelected = citySelected.split(',');
-                console.log(citySelected);
                 for (i = 0; i < citySelected.length; i++){
                     document.getElementById(citySelected[i]).checked = true;
                     document.getElementById('allaområdencheckbox').checked = false;
@@ -331,7 +330,6 @@ function cityWindowScript(regionValue){
             }
             else{
                 var citySelected = citySelected.replace(/"/g, "");
-                console.log(citySelected);
                 document.getElementById(`${citySelected}`).checked = true;
             }
         }
