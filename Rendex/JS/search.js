@@ -137,11 +137,8 @@ function loadRegionCheckV2(regionValue){
     regionSpanText.innerText = `${regionValue}`;
     regionCityHeader.innerText = `${regionValue}`;
     if (regionValue === 'Västra Götaland') {
-        var regionValueLowerCase = regionValue.toLowerCase();
-        var regionValueLowerCase = regionValueLowerCase.replace(/ /g, "");
-        var regionElementId = `${regionValueLowerCase}checkbox`;
         document.getElementById('helasverigecheckbox').checked = false;
-        document.getElementById(`${regionElementId}`).checked = true;
+        document.getElementById(`${regionValue}`).checked = true;
 
         var citySelected = this.localStorage.getItem("citySelected");
         console.log(citySelected);
@@ -173,11 +170,9 @@ function loadRegionCheckV2(regionValue){
         }
     }
     else{
-        var regionValueLowerCase = regionValue.toLowerCase();
-        var regionElementId = `${regionValueLowerCase}checkbox`;
-        console.log(regionElementId);
+        console.log(regionValue);
         document.getElementById('helasverigecheckbox').checked = false;
-        document.getElementById(`${regionElementId}`).checked = true;
+        document.getElementById(`${regionValue}`).checked = true;
     
     
         var citySelected = this.localStorage.getItem("citySelected");
