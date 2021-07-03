@@ -32,5 +32,8 @@ async function regionArrayPopulate(region){
     var regionSelected = regionSelected.split(',');
     for (i = 0; i < regionSelected.length; i++){
         document.getElementById(regionSelected[i]).checked = true;
+        if(i === 21){
+            break;
+        }
     }
 } 

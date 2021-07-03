@@ -18,6 +18,7 @@ document.getElementById('searchpage-regioncity-select-wrapper').onclick = functi
             if(region !== null && region !== undefined){
                 if(region.includes(',')){
                     regionArrayPopulate(region)
+                    break;
                 }
                 else{
                     var region = localStorage.getItem("regionSelected");
