@@ -38,13 +38,10 @@ window.addEventListener('load', function loadRegionCheck(){
             regionHeader.innerText = "Flera Regioner";
             document.getElementById('regionspan-text').innerText = "Flera Regioner";
             document.getElementById('location-city-button').style.display = "none";
-            var region = region.replace(/"/g, "")
-            var region = region.split(',');
-            console.log(region);
+            regionArrayPopulate(region);
         }
         else{
             var region = region.replace(/[^a-öA-Ö ]/g, "");
-            console.log(region);
             if(region == 'Hela Sverige'){
                 regionHeader.innerText = "Hela Sverige";
                 regionSpanText.innerText = "Hela Sverige";

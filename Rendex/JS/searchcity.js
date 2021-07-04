@@ -295,7 +295,6 @@ function clearCitySelection(){
 function cityWindowScript(regionValue){
     clearCityList();
     var citySelected = localStorage.getItem("citySelected");
-    var regionValueChechbox = `${regionValue}checkbox`;
     if(regionValue === 'västra götaland'){
         //var regionValueNoSpace = regionValue.replace(/ /g, "");
         document.getElementById('locationvästragötaland').style.display = "flex";
@@ -304,12 +303,21 @@ function cityWindowScript(regionValue){
             clearCitySelection();
             document.getElementById('allaområdencheckbox').checked = true;
         }
-        else if(citySelected.includes(',') === false){
-            console.log(citySelected);
+        else if(citySelected.includes(',')){
+            var citySelected = citySelected.replace(/"/g, "");
+            var citySelected = citySelected.split(',');
+            for (i = 0; i < citySelected.length; i++){
+                document.getElementById(citySelected[i]).checked = true;
+                document.getElementById('allaområdencheckbox').checked = false;
+            }
         }
-        else if(citySelected.includes(',') === true){
-            alert("array is detected!");
-            console.log(citySelected);
+        else if(citySelected = 'Alla Städer'){
+            clearCitySelection();
+            document.getElementById('allaområdencheckbox').checked = true;
+        }
+        else{
+            var citySelected = citySelected.replace(/"/g, "");
+            document.getElementById(`${citySelected}`).checked = true;
         }
     }
     else if(regionValue !== 'västra götaland'){
