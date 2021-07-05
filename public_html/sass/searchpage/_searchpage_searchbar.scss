@@ -4,7 +4,9 @@
         display: flex;
         flex-wrap: wrap;
         flex-flow: row; 
-        margin-top: 50px;
+        margin-top: 49px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         width: 100%;
         background-color: $dark-blue2;
         @media(min-width:875px){

@@ -337,6 +337,7 @@ function cityWindowScript(regionValue){
                 }
             }
             else{
+                console.log(citySelected);
                 var citySelected = citySelected.replace(/"/g, "");
                 document.getElementById(`${citySelected}`).checked = true;
             }
