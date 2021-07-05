@@ -19,7 +19,7 @@ function clearRegionsV2(){
     for(i = 0; i < x.length; i++){
         if (x[i].checked) {
             checkedboxes++;
-            if (checkedboxes > 1){
+            if (checkedboxes > 0){
                 x[i].checked = false;
             }
             else{}
@@ -27,7 +27,7 @@ function clearRegionsV2(){
     }
 };
 
-async function regionArrayPopulate(region){
+function regionArrayPopulate(region){
     var regionSelected = region.replace(/"/g, "");
     var regionSelected = regionSelected.split(',');
     for (i = 0; i < regionSelected.length; i++){

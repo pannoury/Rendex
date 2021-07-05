@@ -9,7 +9,6 @@ var brackets = /\[|\]/g;
 
 /* OPEN REGION WINDOW */
 document.getElementById('searchpage-regioncity-select-wrapper').onclick = function locationSelectButton(){
-    clearRegionsV2();
     var x = document.getElementsByClassName('regioncheckbox');
     var region = localStorage.getItem("regionSelected");
     var checkedboxes = 0;
