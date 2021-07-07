@@ -161,8 +161,6 @@
                                 text-align: left;
                                 display: flex;
                                 justify-content: space-between;
-                                .name-topinfo-area{}
-                                .license-topinfo-boolean{}
                             }
                             .company-middleinfo-wrapper{
                                 display: flex;
@@ -290,12 +288,14 @@
         }
     }
 }
+/*
 @media(max-width:875px) and (min-width:750px){
     #search-tabber{
         margin-top: 50px;
         background-color: $dark-blue2;
     }
 }
+*/
 
 @media(max-width: 875px){
     #locationselectwindow{
