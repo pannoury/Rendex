@@ -3,8 +3,6 @@
 @import 'searchpage/searchpage_navigation'; // Search-navigation section //
 
 // ********************** Rightpage Section ************************************ //
-@media(min-width:875px){
-}
 @media(max-width:875px){
     .search-result-rightpage{display: none;}
 }

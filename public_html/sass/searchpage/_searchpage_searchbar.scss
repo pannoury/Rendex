@@ -1,7 +1,7 @@
 // *********************** Search-window Section Start ************************//
-@media(min-width:875px){
-    #searchpage-section{
-        width: 100vh;
+@media(min-width: 875px){
+    .searchpage-section{
+        width: 100%;
         #search-tabber{
             display: flex;
             flex-wrap: wrap;

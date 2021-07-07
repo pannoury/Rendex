@@ -1,5 +1,5 @@
 /********** SEARCH PAGE NAVIGATION ****************/
-@media(max-width:875px){
+@media(max-width: 875px){
     .search-result-midpage-navigation-wrapper{
         .midpage-navigation-text{
             font-size: 18px;
@@ -91,7 +91,7 @@
 /********** SEARCH PAGE NAVIGATION ****************/
 
 /**************** SEARCH PAGE RESULTS ***************/
-@media(max-width:875px){
+@media(max-width: 875px){
     .search-result-main{
         margin: auto;
         .search-result-topwrapper{
@@ -195,7 +195,7 @@
 }
 
 /**************** SEARCH PAGE SEARCHBAR *******************/
-@media(max-width:750px){
+@media(max-width: 750px){
     .searchpage-section{
         width: 100vh;
         #search-tabber{
@@ -283,6 +283,160 @@
                         margin-left: 8px;
                         margin-right: 4px;
                     }
+                }
+            }
+        }
+    }
+    #searchpage-sidemenu-wrapper{
+        display: flex;
+        flex-direction: row-reverse;
+        position: fixed;
+        z-index: 15;
+        background-color: #333;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+        left: 0px;
+        top: 240px;
+        #arrowopen-anchor{
+            cursor: pointer;
+            &:hover{
+                opacity: 0.5; 
+            }
+            #sidemenu-arrow-open{
+                margin: 6px;
+                display: block;
+            }
+        }
+        #arrowclose-anchor{
+            display: none;
+            cursor: pointer;
+            &:hover{
+                opacity: 0.5; 
+            }
+            #sidemenu-arrow-close{
+                margin: 6px;
+                margin-left: 400px;
+            }
+        }
+    }
+    #searchpage-sidemenu{
+        width: 0px;
+        height: 0px;
+        overflow: hidden;
+        color: black;
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        padding-top: 20px;
+        background-color:white;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transition: 0.5s;
+        display: flex;
+        flex-direction: column;
+        .sidemenu-option-wrapper{
+            display: flex;
+            flex-direction: column;
+            h2{
+                font-size: 20px;
+                margin-bottom: 4px;
+                margin-top: 4px;
+                padding-left: 40px;
+            }
+            a{
+                font-size: 16px;
+                &:hover{
+                    color: white;
+                }
+            }
+            .sidemenu-option-div{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 10px 10px 40px;
+                .whitearrowright{
+                    display: none;
+                }
+                &:hover{
+                    background-color: rgba(51, 51, 51, 0.8);
+                    color: white;
+                    cursor: pointer;
+                    .blackarrowright{
+                        visibility: hidden;
+                    }
+                    .whitearrowright{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+    .sidemenu-separator{
+        height: 1px;
+        border-bottom: groove 1px;
+    }
+    #darkcover{
+        display: none;
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0.6);
+        transition: 0.5s;
+    }
+    .sidemenuextended{
+        width: 0px;
+        height: 0px;
+        overflow: hidden;
+        color: black;
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 20;
+        top: 0;
+        left: 0px;
+        padding-top: 20px;
+        background-color:white;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transition: 0.5s;
+        display: flex;
+        flex-direction: column;
+        .sidemenu-option-div{
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            padding: 10px 10px 10px 40px;
+            h2{
+                font-size: 18px;
+                font-weight: bold;
+                margin-top: 0;
+                margin-bottom: 0;
+                margin-left: 20px;
+            }
+            p{
+                font-size: 16px;
+                margin: 0px;
+            }
+            .whitearrowleft{
+                display: none;
+            }
+            &:hover{
+                background-color: #333333cc;
+                color: white;
+                cursor: pointer;
+                .blackarrowleft{
+                    visibility: hidden;
+                }
+                .whitearrowleft{
+                    display: block;
+                }
+                h2{
+                    margin-left: 5px;
                 }
             }
         }
