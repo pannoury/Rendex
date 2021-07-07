@@ -1,14 +1,6 @@
-// *********************** Search-window Section  ************************//
-@import 'searchpage/searchpage_searchbar';
-// *********************** Search-window Section  ************************//
-
-// ************************** Search-result section ***************************//
-@import 'searchpage/searchpage_results';
-// ************************** Search-result section ***************************//
-
-// ************************ Search-navigation section ***************************//
-@import 'searchpage/searchpage_navigation';
-// ************************ Search-navigation section ***************************//
+@import 'searchpage/searchpage_searchbar'; // Search-window Section //
+@import 'searchpage/searchpage_results'; // Search-result section //
+@import 'searchpage/searchpage_navigation'; // Search-navigation section //
 
 // ********************** Rightpage Section ************************************ //
 @media(min-width:875px){
