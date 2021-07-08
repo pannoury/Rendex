@@ -6,6 +6,7 @@ var region = localStorage.getItem("regionSelected");
 var cityButton = document.getElementById('location-city-button');
 var backToRegionBtn = document.getElementById('backtoregionselect');
 var brackets = /\[|\]/g;
+var width = window.screen.width;
 
 /* OPEN REGION WINDOW */
 document.getElementById('searchpage-regioncity-select-wrapper').onclick = function locationSelectButton(){
@@ -60,10 +61,22 @@ document.getElementById('searchpage-regioncity-select-wrapper').onclick = functi
             }
         }
     }
-    document.getElementById('locationselectwindow').style.width = "300px";
+    windowWidthCheck();
+};
+function windowWidthCheck(){
+    var width = window.screen.width;
+    if(width > 875){
+        document.getElementById('locationselectwindow').style.width = "300px";
+    }
+    else if(width < 875){
+        document.getElementById('locationselectwindow').style.width = "90vh";
+        document.getElementById('locationselectwindow').style.marginRight = "5vh";
+        document.getElementById('locationselectwindow').style.right = "0vh"
+    }
+
     document.getElementById('location-arrow-down').style.display = "none";
     document.getElementById('location-arrow-up').style.display = "block";
-};
+}
 /* CLOSE REGION WINDOW */
 document.getElementById('closelocationselectwindow').addEventListener('click', function(){
     document.getElementById('locationselectwindow').style.width = "0px";
@@ -72,6 +85,7 @@ document.getElementById('closelocationselectwindow').addEventListener('click', f
 });
 /* CLOSE REGION WINDOW */
 $('input[name=region]').change(function checkBoxControl(){
+    localStorage.removeItem("citySelected");
     clearCityList();
     var x = document.getElementsByClassName('regioncheckbox');
     var checkedboxes = 0;
@@ -349,7 +363,17 @@ function cityWindowScript(regionValue){
             cityOptionForRegions[i].style.display = "none";
         }
     }
-    document.getElementById('locationselectwindow-city').style.width = "300px";
+    
+    if(width > 875){
+        document.getElementById('locationselectwindow-city').style.width = "300px";
+    }
+    else{
+        document.getElementById('locationselectwindow-city').style.width = "90vh";
+        document.getElementById('locationselectwindow-city').style.marginRight = "5vh";
+        document.getElementById('locationselectwindow-city').style.right = "0vh";
+
+    }
+    
 }
 /*************************INITIATE LOAD******************* */
 document.getElementById('location-initiate-button').addEventListener('click', function(){

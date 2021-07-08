@@ -1,0 +1,120 @@
+@media(max-width:875px){
+    #index-firstpicture{
+        width: 90%;
+    }
+    header{
+        background-color: #333;
+        color: white;
+        width: 100% !important;
+        padding-bottom: 14px;
+        padding-top: 5px;
+        border-bottom: #708090 3px solid;
+        position: fixed;
+        z-index: 10;
+        a{    
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            float: right;
+            font-size: 16px;}
+        li{
+            float: right;
+            display: inline;
+            padding: 3px 20px 0 20px;
+        }
+        .container{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-left: 25px;
+            margin-right: 50px;
+            .navbar{
+                height: 70px;
+                width: 70px;
+                background-image: url("/public_html/assets/images/round-white.svg");
+                background-size: cover;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                #cross-black{
+                    display: none;
+                }
+            }
+            #navlogo{
+                float: left;
+                margin-top: 15px;
+                #navlogo-link{
+                    .logo{
+                        margin: 0;
+                        height: 50px;
+                        width: 250px;
+                    }
+                }
+            }
+            nav{
+                margin-top: 10px;
+                .open-slide{
+                    a{
+                        /*
+                        #hamburgermenu{
+                            height: 40px;
+                            width: 80px;
+                        }
+                        */
+                    }
+                }
+            }
+        }
+    }
+    .navbarselector {
+        li{
+            margin: 0;
+        }
+        a:hover{
+            color: slategray;
+        }
+    }
+    .side-nav{
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 10;
+        top: 100px;
+        right: 0;
+        background-color: #333;
+        overflow-x: hidden;
+        padding-top: 60px;
+        transition: 0.5s;
+        display: flex;
+        flex-direction: column;
+        a {
+            text-decoration: none;
+            font-size: 40px;
+            display: block;
+            transition: 0.5s;
+            padding: 0.4em 1em;
+            &:hover{
+                color: $dark-mode-hover;
+                transition: 0.3s;
+            }
+        }
+        .btn-close {
+            position: absolute;
+            top: 0;
+            right: 22px;
+            font-size: 36px;
+            margin-left: 50px;  
+            text-align: right; 
+        }
+    }
+}
+
+@media(max-width:750px){
+    .navbarselector{
+        display: none;
+    }
+}
+#loggedInTrue{
+    display: none;
+}

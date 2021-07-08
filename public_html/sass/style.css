@@ -12,12 +12,6 @@ body {
 }
 
 /* GLOBAL SETTINGS */
-.container {
-  width: 80%;
-  margin: auto;
-  overflow: hidden;
-}
-
 a:hover {
   color: #708090;
 }
@@ -104,80 +98,82 @@ h1, h2 {
 }
 
 /* START NAVBAR */
-header {
-  background-color: #333;
-  color: white;
-  width: 100% !important;
-  margin: auto;
-  padding-bottom: 10px;
-  border-bottom: #708090 3px solid;
-  position: fixed;
-  z-index: 10;
-}
-header a {
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-  float: right;
-  font-size: 16px;
-}
-header li {
-  float: right;
-  display: inline;
-  padding: 3px 20px 0 20px;
-}
-header nav {
-  margin-top: 10px;
-}
-header #navlogo {
-  float: left;
-  margin-top: 15px;
-}
-header #navlogo img {
-  margin: 0;
-}
+@media (min-width: 875px) {
+  header {
+    background-color: #333;
+    color: white;
+    width: 100% !important;
+    margin: auto;
+    padding-bottom: 10px;
+    border-bottom: #708090 3px solid;
+    position: fixed;
+    z-index: 10;
+    overflow: hidden;
+  }
+  header a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    float: right;
+    font-size: 16px;
+  }
+  header li {
+    float: right;
+    display: inline;
+    padding: 3px 20px 0 20px;
+  }
+  header nav {
+    margin-top: 10px;
+  }
+  header #navlogo {
+    float: left;
+    margin-top: 15px;
+  }
+  header #navlogo img {
+    margin: 0;
+  }
 
-.navbarselector li {
-  margin: 0;
-}
-.navbarselector a:hover {
-  color: slategray;
-}
+  .navbarselector li {
+    margin: 0;
+  }
+  .navbarselector a:hover {
+    color: slategray;
+  }
 
-.side-nav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  right: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 60px;
-  transition: 0.5s;
-  display: flex;
-  flex-direction: column;
+  .side-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+  }
+  .side-nav a {
+    text-decoration: none;
+    font-size: 22px;
+    display: block;
+    transition: 0.5s;
+    padding: 0.4em 0.5em;
+  }
+  .side-nav a:hover {
+    color: #515155;
+    transition: 0.3s;
+  }
+  .side-nav .btn-close {
+    position: absolute;
+    top: 0;
+    right: 22px;
+    font-size: 36px;
+    margin-left: 50px;
+    text-align: right;
+  }
 }
-.side-nav a {
-  text-decoration: none;
-  font-size: 22px;
-  display: block;
-  transition: 0.5s;
-  padding: 0.4em 0.5em;
-}
-.side-nav a:hover {
-  color: #515155;
-  transition: 0.3s;
-}
-.side-nav .btn-close {
-  position: absolute;
-  top: 0;
-  right: 22px;
-  font-size: 36px;
-  margin-left: 50px;
-  text-align: right;
-}
-
 @media (max-width: 750px) {
   .navbarselector {
     display: none;
@@ -339,83 +335,6 @@ header #navlogo img {
 /* Sidebars */
 /* END GLOBAL SETTINGS - End Here!*/
 /* Main search */
-@media (max-width: 875px) {
-  #indexsearchsection {
-    margin-top: -40px;
-    width: 100%;
-  }
-
-  #indexwrapper {
-    background-color: #d3d1d1;
-    padding: 20px 0 20px 20px;
-    margin-top: 20px;
-    width: 100%;
-  }
-  #indexwrapper .indexsearchform h1 {
-    margin: 0;
-  }
-  #indexwrapper .indexsearchform p {
-    margin-bottom: 0px;
-  }
-  #indexwrapper .indexsearchform select {
-    margin-top: 0px;
-  }
-
-  #tablewrappersearch {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .column1, .column2 {
-    flex-direction: column;
-  }
-
-  .column1 p, .column2 p {
-    margin: 20px 0 0 0;
-    font-size: 18px;
-  }
-
-  #mainRegionSelect, .mainCitySelect, #mainRoleSelect, #mainPurposeSelect {
-    display: flex;
-    margin-top: 10px;
-    width: 300px;
-    height: 30px;
-    font-size: 18px;
-  }
-
-  .indexhsearchbutton {
-    display: flex;
-    margin-top: 10px;
-  }
-
-  #indexsearchbutton {
-    width: 150px;
-    height: 40px;
-    font-size: 18px;
-    color: white;
-    border-radius: 20px;
-    background-color: #00006d;
-    margin-top: 20px;
-  }
-  #indexsearchbutton:hover {
-    background-color: #000042;
-  }
-
-  #select:invalid {
-    color: gray;
-  }
-
-  #indexheaderdiv h1 {
-    padding: 0 20px 0 20px;
-    width: 80%;
-    background-size: contain;
-  }
-  #indexheaderdiv p {
-    padding: 0 20px 0 20px;
-    width: 80%;
-  }
-}
 @media (min-width: 875px) {
   #indexsearchsection {
     /* <Section> */
@@ -521,32 +440,7 @@ header #navlogo img {
   select:invalid {
     color: gray;
   }
-}
-@media (min-width: 875px) {
-  .mainindex-search-wrapper-wrapper {
-    display: flex;
-    width: 100%;
-  }
-  .mainindex-search-wrapper-wrapper #indexSearchRegionSelect, .mainindex-search-wrapper-wrapper #indexSearchCitySelect, .mainindex-search-wrapper-wrapper #indexSearchRoleSelect, .mainindex-search-wrapper-wrapper #indexSearchPurposeSelect {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    position: relative;
-    justify-content: right;
-    justify-content: flex-end;
-  }
-  .mainindex-search-wrapper-wrapper #indexSearchRegionSelect select, .mainindex-search-wrapper-wrapper #indexSearchCitySelect select, .mainindex-search-wrapper-wrapper #indexSearchRoleSelect select, .mainindex-search-wrapper-wrapper #indexSearchPurposeSelect select {
-    padding-left: 10px;
-  }
-  .mainindex-search-wrapper-wrapper #indexSearchRegionSelect .arrow-select, .mainindex-search-wrapper-wrapper #indexSearchCitySelect .arrow-select, .mainindex-search-wrapper-wrapper #indexSearchRoleSelect .arrow-select, .mainindex-search-wrapper-wrapper #indexSearchPurposeSelect .arrow-select {
-    position: absolute;
-    margin-right: 10px;
-    border-top: 0.5em solid black;
-    border-right: 0.5em solid transparent;
-    border-left: 0.5em solid transparent;
-  }
-}
-@media (max-width: 875px) {
+
   .mainindex-search-wrapper-wrapper {
     display: flex;
     width: 100%;
@@ -570,23 +464,6 @@ header #navlogo img {
     border-left: 0.5em solid transparent;
   }
 
-  #tablewrappersearch {
-    /* <div "wrapper"> */
-    display: flex;
-    gap: 10px;
-  }
-  #tablewrappersearch select {
-    border-radius: 3px;
-    border-color: #333;
-    border-width: 1px;
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
-    margin-top: 0px;
-  }
-}
-/* Main search END*/
-@media (min-width: 875px) {
   #company-number-row {
     display: flex;
     align-content: stretch;
@@ -638,119 +515,33 @@ header #navlogo img {
     padding-left: 10px;
     padding-right: 10px;
   }
-}
-@media (max-width: 875px) {
-  #company-number-row {
-    text-align: center;
+
+  #index-text {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 50px;
   }
-  #company-number-row h1 {
-    font-size: 64px;
-    color: #333;
+
+  #index-text-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  #index-text-wrapper .index-text-column {
+    width: 50%;
+    margin: 0 20px 0 20px;
+  }
+  #index-text-wrapper h3 {
+    font-size: 26px;
     margin-bottom: 10px;
-    margin-top: 5px;
   }
-  #company-number-row p {
-    width: 100%;
+  #index-text-wrapper p {
+    line-height: 1.5rem;
   }
-  #company-number-row a {
+  #index-text-wrapper a {
     color: blue;
   }
-  #company-number-row a:hover {
+  #index-text-wrapper a:hover {
     color: slategray;
-  }
-}
-#index-text {
-  width: 60%;
-  margin: auto;
-  margin-bottom: 50px;
-}
-
-#index-text-wrapper {
-  display: flex;
-  justify-content: center;
-}
-#index-text-wrapper .index-text-column {
-  width: 50%;
-  margin: 0 20px 0 20px;
-}
-#index-text-wrapper h3 {
-  font-size: 26px;
-  margin-bottom: 10px;
-}
-#index-text-wrapper p {
-  line-height: 1.5rem;
-}
-#index-text-wrapper a {
-  color: blue;
-}
-#index-text-wrapper a:hover {
-  color: slategray;
-}
-
-@media (max-width: 875px) {
-  #index-text-wrapper .index-text-column h3 {
-    font-size: 20px;
-  }
-  #index-text-wrapper .index-text-column p {
-    line-height: 1rem;
-  }
-}
-#blekingeCitySelect, #dalarnaCitySelect, #gotlandCitySelect, #gävleborgCitySelect, #hallandCitySelect,
-#jämtlandCitySelect, #jönköpingCitySelect, #kalmarCitySelect, #kronobergCitySelect,
-#norrbottenCitySelect, #skåneCitySelect, #södermanlandCitySelect, #stockholmCitySelect,
-#uppsalaCitySelect, #värmlandCitySelect, #västerbottenCitySelect, #västernorrlandCitySelect,
-#västmanlandCitySelect, #västernorrlandCitySelect, #västmanlandCitySelect,
-#västraGötalandCitySelect, #örebroCitySelect, #östergötlandCitySelect {
-  display: none;
-}
-
-#error-message-purpose, #error-message-role {
-  margin: 0;
-  font-size: 14px;
-  color: red;
-  display: none;
-}
-
-/* Index Page, indexsearch & showcase */
-/* Showcase START */
-@media (max-width: 875px) {
-  .containershowcase {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    margin-bottom: 50px;
-    width: 100%;
-  }
-  .containershowcase a {
-    width: 100%;
-    overflow: hidden;
-  }
-  .containershowcase p, .containershowcase h3 {
-    padding: 0 5px 0 5px;
-    color: #333;
-  }
-  .containershowcase img {
-    width: 100%;
-    height: 300px;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-
-  #wallpaint {
-    -o-object-position: center top;
-       object-position: center top;
-  }
-
-  a:hover h3 {
-    color: #fdfcfc;
-  }
-
-  .link-showcase-wrapper {
-    width: 100%;
-  }
-
-  .link-showcase-wrapper-wrapper {
-    width: 100%;
   }
 }
 @media (min-width: 875px) {
@@ -822,8 +613,23 @@ header #navlogo img {
        object-position: center top;
   }
 }
-/* Showcase END */
-/* Index-links */
+#blekingeCitySelect, #dalarnaCitySelect, #gotlandCitySelect, #gävleborgCitySelect, #hallandCitySelect,
+#jämtlandCitySelect, #jönköpingCitySelect, #kalmarCitySelect, #kronobergCitySelect,
+#norrbottenCitySelect, #skåneCitySelect, #södermanlandCitySelect, #stockholmCitySelect,
+#uppsalaCitySelect, #värmlandCitySelect, #västerbottenCitySelect, #västernorrlandCitySelect,
+#västmanlandCitySelect, #västernorrlandCitySelect, #västmanlandCitySelect,
+#västraGötalandCitySelect, #örebroCitySelect, #östergötlandCitySelect {
+  display: none;
+}
+
+#error-message-purpose, #error-message-role {
+  margin: 0;
+  font-size: 14px;
+  color: red;
+  display: none;
+}
+
+/* Index Page, indexsearch & showcase */
 /*LOGIN/ACCOUNT PAGE SETTINGS START*/
 .body-login {
   background-color: #e9e9e9;
@@ -2377,6 +2183,256 @@ header #navlogo img {
 }
 /* Inbox Page */
 @media (max-width: 875px) {
+  main {
+    width: 100vh;
+  }
+  main #firstpage-background {
+    margin-top: -8px;
+    background-image: url("/public_html/images/Showcase3.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 600px;
+    width: 100vh;
+  }
+
+  #indexsearchsection {
+    margin-top: -34px;
+    width: 100%;
+  }
+  #indexsearchsection #indexheaderdiv {
+    padding-top: 10px;
+  }
+  #indexsearchsection #indexheaderdiv h1 {
+    padding: 0 20px 0 20px;
+    width: 100%;
+    background-size: contain;
+    font-size: 40px;
+  }
+  #indexsearchsection #indexheaderdiv p {
+    padding: 0 20px 0 20px;
+    width: 100%;
+    font-size: 30px;
+  }
+  #indexsearchsection #indexwrapper {
+    background-color: #d3d1d1;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+  }
+  #indexsearchsection #indexwrapper h1 {
+    font-size: 40px;
+    margin: 0px;
+  }
+  #indexsearchsection #indexwrapper #tablewrappersearch {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  #indexsearchsection #indexwrapper #tablewrappersearch .column1 .tablesearch {
+    width: 100%;
+  }
+  #indexsearchsection #indexwrapper #tablewrappersearch .column1, #indexsearchsection #indexwrapper #tablewrappersearch .column2 {
+    flex-direction: column;
+    width: 100%;
+  }
+  #indexsearchsection #indexwrapper #tablewrappersearch .column1 p, #indexsearchsection #indexwrapper #tablewrappersearch .column2 p {
+    margin: 20px 0 0 0;
+    font-size: 30px;
+  }
+  #indexsearchsection #indexwrapper .indexhsearchbutton {
+    display: flex;
+    margin-top: 10px;
+  }
+  #indexsearchsection #indexwrapper #indexsearchbutton {
+    width: 100%;
+    height: 60px;
+    font-size: 30px;
+    padding: 6px;
+    color: white;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #00006d;
+    margin-top: 20px;
+  }
+  #indexsearchsection #indexwrapper #select:invalid {
+    color: gray;
+  }
+
+  .mainindex-search-wrapper {
+    width: 100%;
+  }
+  .mainindex-search-wrapper #mainRegionSelect {
+    width: 100%;
+    font-size: 20px;
+    height: 40px;
+  }
+
+  #indexSearchCitySelect {
+    width: 100%;
+    font-size: 30px;
+    height: 40px;
+  }
+  #indexSearchCitySelect .mainCitySelect {
+    width: 100%;
+    font-size: 20px;
+    height: 40px;
+  }
+
+  #mainRegionSelect, .mainCitySelect, #mainRoleSelect, #mainPurposeSelect {
+    display: flex;
+    margin-top: 10px;
+  }
+
+  .arrow-select {
+    position: absolute;
+    margin-right: 10px;
+    border-top: 0.5em solid black;
+    border-right: 0.5em solid transparent;
+    border-left: 0.5em solid transparent;
+  }
+
+  .column2 .tablesearch {
+    width: 100%;
+  }
+  .column2 .tablesearch #indexSearchRoleSelect #mainRoleSelect {
+    width: 100%;
+    font-size: 20px;
+    height: 40px;
+  }
+  .column2 .tablesearch #indexSearchPurposeSelect #mainPurposeSelect {
+    width: 100%;
+    font-size: 20px;
+    height: 40px;
+  }
+
+  .mainindex-search-wrapper-wrapper {
+    display: flex;
+    width: 100%;
+  }
+  .mainindex-search-wrapper-wrapper #indexSearchRegionSelect, .mainindex-search-wrapper-wrapper #indexSearchCitySelect, .mainindex-search-wrapper-wrapper #indexSearchRoleSelect, .mainindex-search-wrapper-wrapper #indexSearchPurposeSelect {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    justify-content: right;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  .mainindex-search-wrapper-wrapper #indexSearchRegionSelect select, .mainindex-search-wrapper-wrapper #indexSearchCitySelect select, .mainindex-search-wrapper-wrapper #indexSearchRoleSelect select, .mainindex-search-wrapper-wrapper #indexSearchPurposeSelect select {
+    padding-left: 10px;
+  }
+
+  #tablewrappersearch {
+    /* <div "wrapper"> */
+    display: flex;
+    gap: 10px;
+  }
+  #tablewrappersearch select {
+    border-radius: 3px;
+    border-color: #333;
+    border-width: 1px;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    margin-top: 0px;
+  }
+}
+@media (max-width: 875px) {
+  #company-number-row {
+    text-align: center;
+  }
+  #company-number-row h1 {
+    font-size: 64px;
+    color: #333;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+  #company-number-row p {
+    width: 100%;
+  }
+  #company-number-row a {
+    color: blue;
+  }
+  #company-number-row a:hover {
+    color: slategray;
+  }
+
+  #index-text-wrapper .index-text-column h3 {
+    font-size: 20px;
+  }
+  #index-text-wrapper .index-text-column p {
+    line-height: 1rem;
+  }
+
+  #index-text {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 50px;
+  }
+
+  #index-text-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  #index-text-wrapper .index-text-column {
+    width: 50%;
+    margin: 0 20px 0 20px;
+  }
+  #index-text-wrapper h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+  #index-text-wrapper p {
+    line-height: 1.5rem;
+  }
+  #index-text-wrapper a {
+    color: blue;
+  }
+  #index-text-wrapper a:hover {
+    color: slategray;
+  }
+}
+@media (max-width: 875px) {
+  .containershowcase {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+  }
+  .containershowcase a {
+    width: 100%;
+    overflow: hidden;
+  }
+  .containershowcase p, .containershowcase h3 {
+    padding: 0 5px 0 5px;
+    color: #333;
+  }
+  .containershowcase img {
+    width: 100%;
+    height: 300px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
+  #wallpaint {
+    -o-object-position: center top;
+       object-position: center top;
+  }
+
+  a:hover h3 {
+    color: #fdfcfc;
+  }
+
+  .link-showcase-wrapper {
+    width: 100%;
+  }
+
+  .link-showcase-wrapper-wrapper {
+    width: 100%;
+  }
+}
+@media (max-width: 875px) {
   footer {
     width: 100vh;
     background-color: #333;
@@ -2388,8 +2444,10 @@ header #navlogo img {
   }
 
   .boxtest {
-    display: grid;
-    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100vh;
     padding-left: 20px;
     height: auto;
   }
@@ -2401,46 +2459,53 @@ header #navlogo img {
     font-size: 16px;
     margin-bottom: 6px;
   }
-
-  #footercolumn1, #footercolumn2, #footercolumn3 {
-    width: 33%;
+  .boxtest #footercolumn1, .boxtest #footercolumn2, .boxtest #footercolumn3 {
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
+  }
+  .boxtest #footercolumn1 h2, .boxtest #footercolumn2 h2, .boxtest #footercolumn3 h2 {
+    font-size: 36px;
+    margin-bottom: 6px;
+  }
+  .boxtest #footercolumn1 ul li, .boxtest #footercolumn2 ul li, .boxtest #footercolumn3 ul li {
+    font-size: 25px;
+    margin-bottom: 20px;
   }
 
-  #footercolumn1 {
-    grid-row: 1;
-    grid-column: 1/2;
-    margin: 0 100px 20px 0;
+  #socialmedia-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 3vh;
   }
-
-  #footercolumn2 {
-    grid-row: 1;
-    grid-column: 2/2;
-  }
-
-  #footercolumn3 {
-    grid-row: 2;
-    grid-column: 1/2;
-  }
-  #footercolumn3 img {
-    margin-top: 40px;
-    margin-left: 5px;
-    margin-right: 5px;
+  #socialmedia-wrapper .socialmediabadge {
+    width: 50px;
+    height: 50px;
   }
 
   .appbadge {
     display: flex;
-    justify-content: center;
-    margin-top: 50px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px auto auto auto;
+    width: 90vh;
+  }
+  .appbadge a {
+    margin: 0;
   }
 
+  #applebadge, #googlebadge {
+    display: flex;
+    flex-wrap: wrap;
+  }
   #applebadge img, #googlebadge img {
-    width: 200px;
-    height: 40px;
+    width: 40vh;
+    height: 80px;
   }
 
   .endbox {
     background-color: #333;
-    height: 30px;
     width: 100%;
     padding-bottom: 20px;
     text-align: center;
@@ -2448,6 +2513,9 @@ header #navlogo img {
     flex-direction: row;
     justify-content: center;
     gap: 50px;
+  }
+  .endbox p {
+    font-size: 30px;
   }
 }
 @media (max-width: 875px) {
@@ -3045,7 +3113,7 @@ header #navlogo img {
     display: flex;
     flex-wrap: wrap;
     flex-flow: row;
-    margin-top: 56px;
+    margin-top: 81px;
     width: 100%;
     background-color: #0F1419;
   }
@@ -3160,7 +3228,7 @@ header #navlogo img {
   }
   #searchpage-sidemenu-wrapper #arrowclose-anchor #sidemenu-arrow-close {
     margin: 6px;
-    margin-left: 400px;
+    margin-left: 80vh;
   }
 
   #searchpage-sidemenu {
@@ -3187,16 +3255,13 @@ header #navlogo img {
     flex-direction: column;
   }
   #searchpage-sidemenu .sidemenu-option-wrapper h2 {
-    font-size: 20px;
-    margin-bottom: 4px;
-    margin-top: 4px;
+    font-size: 40px;
+    margin-bottom: 8px;
+    margin-top: 8px;
     padding-left: 40px;
   }
   #searchpage-sidemenu .sidemenu-option-wrapper a {
-    font-size: 16px;
-  }
-  #searchpage-sidemenu .sidemenu-option-wrapper a:hover {
-    color: white;
+    font-size: 30px;
   }
   #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div {
     display: flex;
@@ -3207,16 +3272,9 @@ header #navlogo img {
   #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div .whitearrowright {
     display: none;
   }
-  #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div:hover {
-    background-color: rgba(51, 51, 51, 0.8);
-    color: white;
-    cursor: pointer;
-  }
-  #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div:hover .blackarrowright {
-    visibility: hidden;
-  }
-  #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div:hover .whitearrowright {
-    display: block;
+  #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div .blackarrowright {
+    width: 35px;
+    height: 35px;
   }
 
   .sidemenu-separator {
@@ -3323,11 +3381,11 @@ header #navlogo img {
     padding: 10px 20px 0px 20px;
   }
   #locationselectwindow #locationheader-wrapper h2 {
-    font-size: 18px;
+    font-size: 30px;
     margin: 0px;
   }
   #locationselectwindow #locationheader-wrapper a {
-    font-size: 40px;
+    font-size: 60px;
   }
   #locationselectwindow #locationheader-wrapper a:hover {
     cursor: pointer;
@@ -3356,7 +3414,7 @@ header #navlogo img {
   #locationselectwindow #locationselect-wrapper #locationselectwindow-region #locationregion-specific {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 18px;
     border-top: white 1px;
     padding-bottom: 10px;
   }
@@ -3369,8 +3427,8 @@ header #navlogo img {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 8px;
-    font-size: 16px;
+    gap: 18px;
+    font-size: 30px;
     width: 100%;
   }
   #locationselectwindow .locationregion-row p {
@@ -3383,6 +3441,10 @@ header #navlogo img {
     align-items: center;
     width: 50%;
   }
+  #locationselectwindow .locationregion-row .regioncheckbox {
+    height: 25px;
+    width: 25px;
+  }
   #locationselectwindow #location-button-wrapper {
     display: flex;
     flex-direction: row;
@@ -3392,8 +3454,8 @@ header #navlogo img {
   #locationselectwindow #location-button-wrapper #location-initiate-button {
     border-radius: 8px;
     width: 50%;
-    padding: 8px;
-    font-size: 14px;
+    padding: 1px;
+    font-size: 24px;
     font-weight: bold;
     color: white;
     background-color: #555;
@@ -3405,8 +3467,8 @@ header #navlogo img {
   #locationselectwindow #location-button-wrapper #location-city-button {
     border-radius: 8px;
     width: 50%;
-    padding: 8px;
-    font-size: 14px;
+    padding: 10px;
+    font-size: 24px;
     font-weight: bold;
     color: white;
     background-color: #708090;
@@ -3506,6 +3568,124 @@ header #navlogo img {
     opacity: 0.8;
   }
 }
+@media (max-width: 875px) {
+  #index-firstpicture {
+    width: 90%;
+  }
+
+  header {
+    background-color: #333;
+    color: white;
+    width: 100% !important;
+    padding-bottom: 14px;
+    padding-top: 5px;
+    border-bottom: #708090 3px solid;
+    position: fixed;
+    z-index: 10;
+  }
+  header a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    float: right;
+    font-size: 16px;
+  }
+  header li {
+    float: right;
+    display: inline;
+    padding: 3px 20px 0 20px;
+  }
+  header .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 25px;
+    margin-right: 50px;
+  }
+  header .container .navbar {
+    height: 70px;
+    width: 70px;
+    background-image: url("/public_html/assets/images/round-white.svg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  header .container .navbar #cross-black {
+    display: none;
+  }
+  header .container #navlogo {
+    float: left;
+    margin-top: 15px;
+  }
+  header .container #navlogo #navlogo-link .logo {
+    margin: 0;
+    height: 50px;
+    width: 250px;
+  }
+  header .container nav {
+    margin-top: 10px;
+  }
+  header .container nav .open-slide a {
+    /*
+    #hamburgermenu{
+        height: 40px;
+        width: 80px;
+    }
+    */
+  }
+
+  .navbarselector li {
+    margin: 0;
+  }
+  .navbarselector a:hover {
+    color: slategray;
+  }
+
+  .side-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 10;
+    top: 100px;
+    right: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+  }
+  .side-nav a {
+    text-decoration: none;
+    font-size: 40px;
+    display: block;
+    transition: 0.5s;
+    padding: 0.4em 1em;
+  }
+  .side-nav a:hover {
+    color: #515155;
+    transition: 0.3s;
+  }
+  .side-nav .btn-close {
+    position: absolute;
+    top: 0;
+    right: 22px;
+    font-size: 36px;
+    margin-left: 50px;
+    text-align: right;
+  }
+}
+@media (max-width: 750px) {
+  .navbarselector {
+    display: none;
+  }
+}
+#loggedInTrue {
+  display: none;
+}
+
 /* MOBILE CSS */
 /* terms of use PAGE START*/
 .containercentretou {

@@ -1,60 +1,64 @@
 /* START NAVBAR */
-header{
-    background-color: #333;
-    color: white;
-    width: 100% !important;
-    margin: auto;
-    padding-bottom: 10px;
-    border-bottom: #708090 3px solid;
-    position: fixed;
-    z-index: 10;
-    a{    
+@media(min-width:875px){
+    header{
+        background-color: #333;
         color: white;
-        text-decoration: none;
-        text-transform: uppercase;
-        float: right;
-        font-size: 16px;}
-    li{float: right;display: inline;padding: 3px 20px 0 20px;}
-    nav{margin-top: 10px;}
-    #navlogo{float: left;margin-top: 15px;
-    img{margin: 0;}}
-}
-.navbarselector {
-    li{margin: 0;}
-    a:hover{color: slategray;}}
-.side-nav{
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    right: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.5s;
-    display: flex;
-    flex-direction: column;
-    a {
-        text-decoration: none;
-        font-size: 22px;
-        display: block;
+        width: 100% !important;
+        margin: auto;
+        padding-bottom: 10px;
+        border-bottom: #708090 3px solid;
+        position: fixed;
+        z-index: 10;
+        overflow: hidden;
+        a{    
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            float: right;
+            font-size: 16px;}
+        li{float: right;display: inline;padding: 3px 20px 0 20px;}
+        nav{margin-top: 10px;}
+        #navlogo{float: left;margin-top: 15px;
+        img{margin: 0;}}
+    }
+    .navbarselector {
+        li{margin: 0;}
+        a:hover{color: slategray;}}
+    .side-nav{
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 60px;
         transition: 0.5s;
-        padding: 0.4em 0.5em;
-        &:hover{
-            color: $dark-mode-hover;
-            transition: 0.3s;
+        display: flex;
+        flex-direction: column;
+        a {
+            text-decoration: none;
+            font-size: 22px;
+            display: block;
+            transition: 0.5s;
+            padding: 0.4em 0.5em;
+            &:hover{
+                color: $dark-mode-hover;
+                transition: 0.3s;
+            }
+        }
+        .btn-close {
+            position: absolute;
+            top: 0;
+            right: 22px;
+            font-size: 36px;
+            margin-left: 50px;  
+            text-align: right; 
         }
     }
-    .btn-close {
-        position: absolute;
-        top: 0;
-        right: 22px;
-        font-size: 36px;
-        margin-left: 50px;  
-        text-align: right; 
-    }
 }
+
 @media(max-width:750px){.navbarselector{display: none;}}
 @media(min-width:750px){.open-slide{display: none;}}
 

@@ -1,0 +1,202 @@
+@media(max-width:875px){
+    main{
+        width: 100vh;
+        #firstpage-background{
+            margin-top: -8px;
+            background-image: url("/public_html/images/Showcase3.jpg");
+            background-position: center;
+            background-size: cover;
+            height: 600px;
+            width: 100vh;
+        }
+    }
+    #indexsearchsection{
+        margin-top: -34px;
+        width: 100%;
+        #indexheaderdiv{
+            padding-top: 10px;
+            h1{
+                padding: 0 20px 0 20px; 
+                width: 100%; 
+                background-size: contain;
+                font-size: 40px;
+            }
+            p{
+                padding: 0 20px 0 20px; 
+                width: 100%;
+                font-size: 30px;
+            }
+        }
+        #indexwrapper{
+            background-color: #d3d1d1;
+            padding: 20px; 
+            margin-top: 20px; 
+            width: 100%;
+            h1{
+                font-size: 40px;
+                margin: 0px;
+            }
+            #tablewrappersearch{
+                display: flex; 
+                flex-direction: column; 
+                gap: 10px;
+                .column1{
+                    .tablesearch{
+                        width: 100%;
+                    }
+                }
+                .column1, .column2{
+                    flex-direction: column;
+                    width: 100%;
+                } 
+                .column1 p, .column2 p{
+                    margin: 20px 0 0 0; 
+                    font-size: 30px;
+                }
+            }
+            .indexhsearchbutton{
+                display: flex; 
+                margin-top: 10px;
+            }
+            #indexsearchbutton{
+                width: 100%; 
+                height: 60px; 
+                font-size: 30px; 
+                padding: 6px;
+                color:white;
+                border-radius: 10px;
+                border-style: none;
+                background-color: $dark-blue; 
+                margin-top: 20px;
+            }
+            #select:invalid{
+                color: gray;
+            }
+        }
+    }
+    .mainindex-search-wrapper{
+        width: 100%;
+        #mainRegionSelect{
+            width: 100%;
+            font-size: 20px;
+            height: 40px;
+        }
+    }
+    #indexSearchCitySelect{
+        width: 100%;
+        font-size: 30px;
+        height: 40px;
+        .mainCitySelect{
+            width: 100%;
+            font-size: 20px;
+            height: 40px;
+        }
+    }
+    #mainRegionSelect, .mainCitySelect, #mainRoleSelect, #mainPurposeSelect{
+        display: flex; 
+        margin-top: 10px;
+    }
+    .arrow-select{
+        position: absolute;
+        margin-right: 10px;
+        border-top: 0.5em solid black;
+        border-right: 0.5em solid transparent;
+        border-left: 0.5em solid transparent;
+    }
+    .column2{
+        .tablesearch{
+            width: 100%;
+            #indexSearchRoleSelect{
+                #mainRoleSelect{
+                    width: 100%;
+                    font-size: 20px;
+                    height: 40px;
+                }
+            }
+            #indexSearchPurposeSelect{
+                #mainPurposeSelect{
+                    width: 100%;
+                    font-size: 20px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+    .mainindex-search-wrapper-wrapper{
+        display: flex;
+        width: 100%;
+        #indexSearchRegionSelect, #indexSearchCitySelect, #indexSearchRoleSelect, #indexSearchPurposeSelect{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            position: relative;
+            justify-content: right;
+            justify-content: flex-end;
+            width: 100%;
+            select{
+                padding-left: 10px;
+            }
+        }
+    }
+    #tablewrappersearch{            /* <div "wrapper"> */
+        display: flex;
+        gap: 10px;
+        select{border-radius: 3px; border-color: #333; 
+            border-width: 1px; appearance: none; margin-top: 0px;}
+    }
+}
+@media(max-width:875px){
+    #company-number-row{
+        text-align: center;
+        h1{font-size: 64px; color: #333; margin-bottom: 10px; 
+        margin-top: 5px;}
+        p{width: 100%;}
+        a{color: blue;
+            &:hover{color: slategray;}
+        }
+    }
+    #index-text-wrapper{
+        .index-text-column{
+            h3{font-size: 20px;}
+            p{line-height: 1rem;}
+        }
+        
+    }
+    #index-text{
+        width: 60%; 
+        margin: auto; 
+        margin-bottom: 50px;
+    }
+    #index-text-wrapper{
+        display: flex; 
+        justify-content: center;
+        .index-text-column{
+            width: 50%; 
+            margin: 0 20px 0 20px;
+        }
+        h3{
+            font-size: 26px; 
+            margin-bottom: 10px;
+        }
+        p{
+            line-height:1.5rem;
+        }
+        a{
+            color: blue;
+            &:hover{
+                color: slategray;
+            }
+        }
+    }
+}
+@media(max-width:875px){ 
+    .containershowcase{display: flex; flex-direction: column; gap: 50px; margin-bottom: 50px; width: 100%;
+    a{width: 100%;overflow: hidden;}
+    p, h3{padding: 0 5px 0 5px;color: #333;}
+    img{width: 100%;height: 300px;object-fit: cover;}
+    }
+    #wallpaint{object-position: center top;}
+    a:hover h3{color: #fdfcfc;}
+    .link-showcase-wrapper{width: 100%;}
+    .link-showcase-wrapper-wrapper{width: 100%;}
+}

@@ -11,17 +11,27 @@ document.getElementById('arrowopen-anchor').onclick = function sideMenuOpen(){
     var arrowClose = document.getElementById('arrowclose-anchor');
     var sideMenu = document.getElementById('searchpage-sidemenu');
     var darkCover = document.getElementById('darkcover');
+    var width = window.screen.width;
 
     arrowClick.style.display = "none";
     document.getElementById('locationselectwindow').style.width = "0px";
     document.getElementById('locationselectwindow-city').style.width = "0px";
     document.getElementById('location-arrow-down').style.display = "block";
     document.getElementById('location-arrow-up').style.display = "none";
-    sideMenu.style.width = "400px";
-    darkCover.style.display = "block"
-    setTimeout(function (){
-        arrowClose.style.display = "block";
-    }, 450);
+    if(width > 875){
+        sideMenu.style.width = "400px";
+        darkCover.style.display = "block"
+        setTimeout(function (){
+            arrowClose.style.display = "block";
+        }, 450);
+    }
+    else{
+        sideMenu.style.width = "80vh";
+        darkCover.style.display = "block"
+        setTimeout(function (){
+            arrowClose.style.display = "block";
+        }, 450);
+    }
 }
 document.getElementById('arrowclose-anchor').onclick = function sideMenuClose(){
     var arrowClick = document.getElementById('arrowopen-anchor');

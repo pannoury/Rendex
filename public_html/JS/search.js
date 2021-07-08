@@ -6,6 +6,7 @@ var purposeSelected = localStorage.getItem('purposeSelected');
 var regionSpanText = document.getElementById('regionspan-text');
 var citySpan = document.getElementById('cityspan-text');
 var regionCityHeader = document.getElementById('regioncityheader');
+var width = window.screen.width;
 
 window.addEventListener('load', function loadRegionCheck(){
     var region = localStorage.getItem("regionSelected");
@@ -133,6 +134,7 @@ function loadRegionCheckV2(regionValue){
             else{
                 var citySelected = citySelected.replace(/"/g, "");
                 citySpan.innerText = `${citySelected}`;
+                regionHeader.innerText = `${citySelected}`;
             }
         }
         else if(citySelected === null || citySelected === undefined){
@@ -169,6 +171,7 @@ function loadRegionCheckV2(regionValue){
             else{
                 var citySelected = citySelected.replace(/"/g, "");
                 citySpan.innerText = `${citySelected}`;
+                regionHeader.innerText = `${citySelected}`;
             }
         }
         else if(citySelected === null || citySelected === undefined){
