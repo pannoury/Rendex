@@ -24,6 +24,12 @@
         color: white;
         margin-bottom: 50px;
     }
+    #close-searchpage-sidemenu{
+        display: none;
+    }
+    #top-button-wrapper{
+        display: none;
+    }
 }
 @media(max-width:875px){
     .page-nav-searchpage-wrapper{

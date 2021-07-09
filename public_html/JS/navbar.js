@@ -6,7 +6,7 @@ document.getElementById('hamburgermenu-btn').addEventListener('click', function(
         document.getElementById('hamburgermenu').style.display = "block";
     }
     else{
-        document.getElementById('side-menu').style.width='100%';
+        document.getElementById('side-menu').style.width='100vw';
         document.getElementById('hamburgermenu').style.display = "none";
         document.getElementById('cross-black').style.display = "block";
     }

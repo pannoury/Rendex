@@ -3,6 +3,7 @@ $rendex-orange: #f07900;
 $rendex-orange1: #e07900;
 $rendex-orange2: #d07900;
 $rendex-orange3: #c07900;
+$rendex-orange4: #f1a355;
 $rendex-black: #333;
 $rendex-black1: #444;
 $rendex-black2: #555;
@@ -41,6 +42,11 @@ h1, h2{width: 100%;}
 /* GLOBAL SETTINGS */
 
 /* COOKIES WINDOW */
+@media(min-width:875px){
+    #cookiewindowpopupwrapper{
+        padding: 20px 40px 20px 40px;
+    }
+}
 #cookiewindowpopupwrapper{
     display: block;
     z-index: 2;
@@ -48,17 +54,10 @@ h1, h2{width: 100%;}
     right: 0px;
     left: 0px;
     bottom: 0px;
-    width: 100%;
+    width: 100vw;
     background-color: $dark-blue-hover;
-    padding: 20px 40px 20px 40px;
     #cookiewindowpopup{
-        width: 90%;
         #cookiewindowpopup-column1{
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
             p{
                 font-size: 16px;
                 color: white;
@@ -70,21 +69,65 @@ h1, h2{width: 100%;}
                    color:$hover-dark;
                } 
             }
+        }
+    }
+}
+@media(max-width: 875px){
+    #cookiewindowpopup{
+        width: 100vw;
+        #cookiewindowpopup-column1{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: auto;
+            p{
+                margin: auto;
+                font-size: 12px;
+                #cookietext-firstrow{
+                    display: none;
+                }
+                margin-bottom: 10px;
+            }
             #cookiebtn{
-                border-radius: 50px;
+                border-radius: 8px;
                 padding-left: 30px;
                 padding-right: 30px;
                 border-width: 0;
-                font-weight: bold;
-                font-size: 14px;
+                font-weight: bolder;
+                font-size: 18px;
                 height: 45px;
                 background-color: $grey-background;
                 color: black;
-                &:hover{
-                    background-color: #888;
-                    color: black;
-                }
+                width: 80vw;
+                margin: auto auto 20px auto;
             }
+        }
+    }
+}
+@media(min-width:875px){
+    #cookiewindowpopup{
+        width: 90%;
+    }
+    #cookiewindowpopup-column1{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #cookiebtn{
+        border-radius: 50px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border-width: 0;
+        font-weight: bold;
+        font-size: 14px;
+        height: 45px;
+        background-color: $grey-background;
+        color: black;
+        &:hover{
+            background-color: #888;
+            color: black;
         }
     }
 }

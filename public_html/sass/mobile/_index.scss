@@ -1,45 +1,52 @@
 @media(max-width:875px){
     main{
-        width: 100vh;
+        width: 100vw;
+        overflow: hidden;
         #firstpage-background{
-            margin-top: -8px;
-            background-image: url("/public_html/images/Showcase3.jpg");
+            margin-top: -12px;
+            background-image: url(../images/Showcase3.jpg);
             background-position: center;
             background-size: cover;
-            height: 600px;
-            width: 100vh;
+            height: 300px;
+            width: 100vw;
         }
     }
     #indexsearchsection{
         margin-top: -34px;
-        width: 100%;
+        width: 100vw;
         #indexheaderdiv{
             padding-top: 10px;
+            padding-left: 10px;
             h1{
-                padding: 0 20px 0 20px; 
+                padding: 0 20px 0 0px; 
                 width: 100%; 
                 background-size: contain;
-                font-size: 40px;
+                font-size: 30px;
+                margin-bottom: 0;
             }
             p{
-                padding: 0 20px 0 20px; 
+                padding: 0 20px 0 0px; 
                 width: 100%;
-                font-size: 30px;
+                font-size: 24px;
+                margin-top: 4px;
             }
         }
         #indexwrapper{
             background-color: #d3d1d1;
-            padding: 20px; 
             margin-top: 20px; 
             width: 100%;
             h1{
-                font-size: 40px;
+                padding-top: 20px;
+                font-size: 26px;
                 margin: 0px;
+                padding-left: 10px;
             }
             #tablewrappersearch{
                 display: flex; 
                 flex-direction: column; 
                 gap: 10px;
+                padding-left: 10px;
+                padding-right: 10px;
                 .column1{
                     .tablesearch{
                         width: 100%;
@@ -51,23 +58,25 @@
                 } 
                 .column1 p, .column2 p{
                     margin: 20px 0 0 0; 
-                    font-size: 30px;
+                    font-size: 20px;
                 }
             }
-            .indexhsearchbutton{
-                display: flex; 
+            .indexsearchbutton{
+                display: flex;
+                justify-content: center;
                 margin-top: 10px;
-            }
-            #indexsearchbutton{
-                width: 100%; 
-                height: 60px; 
-                font-size: 30px; 
-                padding: 6px;
-                color:white;
-                border-radius: 10px;
-                border-style: none;
-                background-color: $dark-blue; 
-                margin-top: 20px;
+                #indexsearchbutton{
+                    width: 90%; 
+                    height: 40px; 
+                    font-size: 20px; 
+                    padding: 6px;
+                    color:white;
+                    border-radius: 10px;
+                    border-style: none;
+                    background-color: $dark-blue; 
+                    margin-top: 20px;
+                    margin-bottom: 10px;
+                }
             }
             #select:invalid{
                 color: gray;
@@ -84,7 +93,6 @@
     }
     #indexSearchCitySelect{
         width: 100%;
-        font-size: 30px;
         height: 40px;
         .mainCitySelect{
             width: 100%;
@@ -98,7 +106,7 @@
     }
     .arrow-select{
         position: absolute;
-        margin-right: 10px;
+        margin-right: 4vw;
         border-top: 0.5em solid black;
         border-right: 0.5em solid transparent;
         border-left: 0.5em solid transparent;
@@ -155,36 +163,37 @@
             &:hover{color: slategray;}
         }
     }
-    #index-text-wrapper{
-        .index-text-column{
-            h3{font-size: 20px;}
-            p{line-height: 1rem;}
-        }
-        
-    }
     #index-text{
-        width: 60%; 
-        margin: auto; 
-        margin-bottom: 50px;
+        display: none;
     }
-    #index-text-wrapper{
-        display: flex; 
-        justify-content: center;
-        .index-text-column{
-            width: 50%; 
-            margin: 0 20px 0 20px;
+    #index-text-mobile{
+        padding: 10px;
+        background-color: $rendex-black;
+        h2{
+            color: white;
+            margin-top: 4px;
         }
-        h3{
-            font-size: 26px; 
-            margin-bottom: 10px;
-        }
-        p{
-            line-height:1.5rem;
-        }
-        a{
-            color: blue;
-            &:hover{
-                color: slategray;
+        #index-text-wrapper-mobile{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            .index-text-row-mobile{
+                background-color: #f4f4f4;
+                padding: 10px;
+                border-radius: 6px;
+                h3{
+                    margin-bottom: 4px;
+                    margin-top: 4px;
+                    color: $dark-blue;
+                }
+                p{
+                    margin-top: 2px;
+                    font-weight: 510;
+                }
+                a{
+                    color: #2c7688;
+                    font-weight: 510;
+                }
             }
         }
     }

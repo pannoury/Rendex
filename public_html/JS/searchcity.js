@@ -9,7 +9,13 @@ var brackets = /\[|\]/g;
 var width = window.screen.width;
 
 /* OPEN REGION WINDOW */
-document.getElementById('searchpage-regioncity-select-wrapper').onclick = function locationSelectButton(){
+document.getElementById('searchpage-regioncity-select-wrapper').addEventListener('click', function(){
+    locationSelectButton();
+});
+document.getElementById('plats-btn').addEventListener('click', function(){
+    locationSelectButton();
+});
+function locationSelectButton(){
     var x = document.getElementsByClassName('regioncheckbox');
     var region = localStorage.getItem("regionSelected");
     var checkedboxes = 0;
@@ -62,16 +68,17 @@ document.getElementById('searchpage-regioncity-select-wrapper').onclick = functi
         }
     }
     windowWidthCheck();
-};
+}
 function windowWidthCheck(){
     var width = window.screen.width;
     if(width > 875){
         document.getElementById('locationselectwindow').style.width = "300px";
     }
-    else if(width < 875){
-        document.getElementById('locationselectwindow').style.width = "90vh";
-        document.getElementById('locationselectwindow').style.marginRight = "5vh";
+    else {
+        document.getElementById('locationselectwindow').style.width = "100vw";
+        document.getElementById('locationselectwindow').style.marginRight = "0vh";
         document.getElementById('locationselectwindow').style.right = "0vh"
+        document.getElementById('locationselectwindow-city').style.top = "0vh";
     }
 
     document.getElementById('location-arrow-down').style.display = "none";
@@ -368,10 +375,10 @@ function cityWindowScript(regionValue){
         document.getElementById('locationselectwindow-city').style.width = "300px";
     }
     else{
-        document.getElementById('locationselectwindow-city').style.width = "90vh";
-        document.getElementById('locationselectwindow-city').style.marginRight = "5vh";
+        document.getElementById('locationselectwindow-city').style.width = "100vw";
+        document.getElementById('locationselectwindow-city').style.marginRight = "0";
         document.getElementById('locationselectwindow-city').style.right = "0vh";
-
+        document.getElementById('locationselectwindow-city').style.top = "0vh";
     }
     
 }

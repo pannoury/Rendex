@@ -6,7 +6,13 @@ function inputQuery(data){
   console.log(theInput.value);
   return theInput.value;
 }
-document.getElementById('arrowopen-anchor').onclick = function sideMenuOpen(){
+document.getElementById('arrowopen-anchor').onclick = function(){
+    sideMenuOpen();
+}
+document.getElementById('category-btn').addEventListener('click', function(){
+    sideMenuOpen();
+});
+function sideMenuOpen(){
     var arrowClick = document.getElementById('arrowopen-anchor');
     var arrowClose = document.getElementById('arrowclose-anchor');
     var sideMenu = document.getElementById('searchpage-sidemenu');
@@ -26,7 +32,7 @@ document.getElementById('arrowopen-anchor').onclick = function sideMenuOpen(){
         }, 450);
     }
     else{
-        sideMenu.style.width = "80vh";
+        sideMenu.style.width = "100vw";
         darkCover.style.display = "block"
         setTimeout(function (){
             arrowClose.style.display = "block";
@@ -34,6 +40,12 @@ document.getElementById('arrowopen-anchor').onclick = function sideMenuOpen(){
     }
 }
 document.getElementById('arrowclose-anchor').onclick = function sideMenuClose(){
+    closeSideMenu();
+}
+document.getElementById('close-searchpage-sidemenu').addEventListener('click', function(){
+    closeSideMenu();
+});
+function closeSideMenu(){
     var arrowClick = document.getElementById('arrowopen-anchor');
     var arrowClose = document.getElementById('arrowclose-anchor');
     var sideMenu = document.getElementById('searchpage-sidemenu');

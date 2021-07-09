@@ -1,6 +1,7 @@
 @media(max-width:875px){
     footer {
-        width: 100vh;
+        overflow: hidden;	
+        width: 100vw;
         background-color: #333;
         color: white;
         ul{
@@ -11,18 +12,18 @@
     .boxtest{
         display: flex;
         flex-wrap: wrap;
-        flex-direction: row;				
-        width: 100vh;
-        padding-left: 20px; 					
-        height: auto; 							
-        h2{font-size: 24px;}
+        flex-direction: column;
+        padding-left: 10px;			
+        width: 100%;					
+        height: auto; 						
+        h2{font-size: 20px;}
         li{list-style-type: none; font-size: 16px;margin-bottom: 6px;}
         #footercolumn1, #footercolumn2, #footercolumn3{
             display: flex;
             flex-direction: column;
-            width: 50vh;
+            width: 50%;
             h2{
-                font-size: 36px;
+                font-size: 30px;
                 margin-bottom: 6px;
             }
             ul{
@@ -36,10 +37,10 @@
     #socialmedia-wrapper{
         display: flex;
         flex-direction: row;
-        gap: 3vh;
+        gap: 6vw;
         .socialmediabadge{
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
         }
     }
     .appbadge{
@@ -48,7 +49,7 @@
         align-items: center;
         justify-content: space-between;
         margin: 50px auto auto auto;
-        width: 90vh;
+        width: 90vw;
         a{
             margin: 0;
         }
@@ -57,7 +58,7 @@
         display: flex;
         flex-wrap: wrap;
         img{
-            width: 40vh;
+            width: 40vw;
             height: 80px;
         }
     }
