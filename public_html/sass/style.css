@@ -586,72 +586,51 @@ h1, h2 {
   }
 }
 @media (min-width: 875px) {
-  .link-showcase {
-    width: 100%;
-  }
-  .link-showcase .link-showcase-wrapper {
+  #index-showcase-offers {
     display: flex;
-    flex-wrap: wrap;
-    width: 100%;
+    flex-direction: column;
     justify-content: center;
-    margin: auto;
-    margin-bottom: 0px;
+    margin-bottom: 30px;
+    width: 100vw;
+    text-align: center;
   }
-  .link-showcase .link-showcase-wrapper .showcase-header {
-    width: 100%;
-    margin: 0;
+  #index-showcase-offers h2 {
+    font-size: 28px;
   }
-
-  .link-showcase-wrapper-wrapper {
+  #index-showcase-offers #index-showcase-offers-wrapper {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 60%;
-  }
-  .link-showcase-wrapper-wrapper h1 {
-    margin-bottom: 0px;
-  }
-
-  .containershowcase {
-    display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: space-between;
-    width: 100%;
-    gap: 0px;
-    margin-bottom: 50px;
+    width: 80%;
+    margin: auto;
   }
-  .containershowcase a {
-    background-color: #d3d1d1;
+  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column {
+    display: flex;
+    flex-direction: column;
     width: 30%;
-    margin-top: 20px;
-    border-radius: 4px;
-    overflow: hidden;
   }
-  .containershowcase p {
-    padding: 0 10px 0 10px;
-    color: #333;
-    margin-top: 5px;
-    font-size: 18px;
+  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column .indexshowcase-img {
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
   }
-  .containershowcase h3 {
-    padding: 0 10px 0 10px;
-    color: #333;
-    margin: 5px 0 2px 0;
-    font-size: 22px;
+  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column h3 {
+    font-size: 24px;
+    margin-bottom: 2px;
   }
-  .containershowcase img {
-    width: 100%;
-    height: 205px;
-    -o-object-fit: cover;
-       object-fit: cover;
+  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column p {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 0px;
+    text-align: center;
   }
-  .containershowcase a:hover h3 {
-    color: #fdfcfc;
+  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column:hover {
+    opacity: 0.8;
+    cursor: pointer;
   }
 
-  #wallpaint {
-    -o-object-position: center top;
-       object-position: center top;
+  #index-text-mobile {
+    display: none;
   }
 }
 #blekingeCitySelect, #dalarnaCitySelect, #gotlandCitySelect, #gävleborgCitySelect, #hallandCitySelect,
@@ -676,11 +655,11 @@ h1, h2 {
   background-color: #e9e9e9;
 }
 
-#login {
-  margin-bottom: 200px;
-}
-
 @media (min-width: 875px) {
+  #login {
+    margin-bottom: 200px;
+  }
+
   .containercentre-wrapper-wrapper {
     display: flex;
     justify-content: center;
@@ -739,6 +718,21 @@ h1, h2 {
 
   .containercentre-wrapper-wrapper-mobile {
     display: none !important;
+  }
+
+  .close-sidehelp-button {
+    width: 50%;
+    margin-left: 20px;
+    margin-top: 16px;
+    border-radius: 20px;
+    border-color: black;
+    border-style: solid;
+    padding: 8px;
+    font-size: 18px;
+  }
+  .close-sidehelp-button:hover {
+    background-color: black;
+    color: white;
   }
 }
 /*LOGIN/ACCOUNT PAGE SETTINGS END*/
@@ -801,20 +795,6 @@ h1, h2 {
 }
 .side-navhelp .close-sidehelp-cross:hover {
   color: #708090;
-}
-.side-navhelp .close-sidehelp-button {
-  width: 50%;
-  margin-left: 20px;
-  margin-top: 16px;
-  border-radius: 20px;
-  border-color: black;
-  border-style: solid;
-  padding: 8px;
-  font-size: 18px;
-}
-.side-navhelp .close-sidehelp-button:hover {
-  background-color: black;
-  color: white;
 }
 
 /* Login page settings */
@@ -925,7 +905,7 @@ h1, h2 {
   padding-left: 10px;
 }
 #createaccountwrapper #createaccount-hero {
-  background-image: url("./assets/images/createaccount-hero-picture.jpg");
+  background-image: url(../assets/images/createaccount-hero-picture.jpg);
   background-size: cover;
   background-position: 40%;
   color: black;
@@ -2419,8 +2399,10 @@ h1, h2 {
   }
 
   #index-text-mobile {
+    margin-top: 16px;
     padding: 10px;
-    background-color: #333;
+    padding-bottom: 20px;
+    background-color: #333333b9;
   }
   #index-text-mobile h2 {
     color: white;
@@ -2429,7 +2411,7 @@ h1, h2 {
   #index-text-mobile #index-text-wrapper-mobile {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
   }
   #index-text-mobile #index-text-wrapper-mobile .index-text-row-mobile {
     background-color: #f4f4f4;
@@ -2451,43 +2433,49 @@ h1, h2 {
   }
 }
 @media (max-width: 875px) {
-  .containershowcase {
+  #index-showcase-offers {
+    background-color: #ffa60052;
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    margin-bottom: 50px;
-    width: 100%;
+    justify-content: center;
+    width: 100vw;
+    text-align: center;
   }
-  .containershowcase a {
-    width: 100%;
-    overflow: hidden;
+  #index-showcase-offers h2 {
+    font-size: 28px;
   }
-  .containershowcase p, .containershowcase h3 {
-    padding: 0 5px 0 5px;
-    color: #333;
+  #index-showcase-offers #index-showcase-offers-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
   }
-  .containershowcase img {
-    width: 100%;
-    height: 300px;
-    -o-object-fit: cover;
-       object-fit: cover;
+  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 90vw;
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
   }
-
-  #wallpaint {
-    -o-object-position: center top;
-       object-position: center top;
+  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column .indexshowcase-img {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
   }
-
-  a:hover h3 {
-    color: #fdfcfc;
+  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column h3 {
+    font-size: 24px;
+    margin-top: 6px;
+    margin-bottom: 2px;
+    text-align: left;
+    padding-left: 10px;
   }
-
-  .link-showcase-wrapper {
-    width: 100%;
-  }
-
-  .link-showcase-wrapper-wrapper {
-    width: 100%;
+  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column p {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 0px;
+    text-align: left;
   }
 }
 @media (max-width: 875px) {
@@ -2846,99 +2834,104 @@ h1, h2 {
   /*********************** Chat CSS ***************************/
 }
 @media (max-width: 875px) {
-  .containercentre-wrapper-wrapper-mobile {
+  #login {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    width: 500px;
-    margin: auto;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  #login .containercentre-wrapper-wrapper-mobile {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
     text-align: center;
     border-radius: 6px;
     background-color: white;
   }
-  .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile {
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  #login .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile {
+    padding: 20px;
   }
-  .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile h1 {
+  #login .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile h1 {
     font-size: 22px;
   }
-  .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile h3 {
+  #login .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile h3 {
     font-size: 16px;
     font-weight: normal;
     line-height: 1.4;
   }
-  .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile {
+  #login .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile {
     display: flex;
     flex-direction: column;
   }
-  .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile #bankid-insurancenumber {
+  #login .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile #bankid-insurancenumber {
     margin: auto;
     margin-bottom: 10px;
     font-size: 18px;
     border-radius: 6px;
     border-style: groove 0.5px;
     padding: 6px 6px 6px 8px;
-    width: 75%;
+    width: 80vw;
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
   }
-  .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile .open-bankid, .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile .bankid-other-devices {
-    width: 80%;
+  #login .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile .open-bankid, #login .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile .bankid-other-devices {
+    width: 80vw;
     border-radius: 20px;
     font-size: 18px;
     padding: 8px;
     margin: auto;
   }
-  .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile .open-bankid {
+  #login .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile .open-bankid {
     background-color: #00006d;
     color: white;
     border-style: none;
   }
-  .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile .open-bankid:hover {
-    background-color: #000042;
-  }
-  .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile .bankid-other-devices {
+  #login .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile .bankid-other-devices {
     border-color: #00006d;
     background-color: white;
   }
-  .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile .bankid-other-devices:hover {
-    background-color: #00006d07;
-  }
-  .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile p {
+  #login .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile p {
     margin: 8px;
     font-size: 18px;
   }
-  .containercentre-wrapper-wrapper-mobile .containercentre-secondrow-mobile {
+  #login .containercentre-wrapper-wrapper-mobile .containercentre-secondrow-mobile {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     border-top: 1px solid #e9e9e9;
     margin-top: 10px;
     margin-bottom: 10px;
+    padding: 10px 20px 10px 20px;
   }
-  .containercentre-wrapper-wrapper-mobile .containercentre-secondrow-mobile a {
-    margin: 20px 40px 10px 40px;
-    font-size: 18px;
+  #login .containercentre-wrapper-wrapper-mobile .containercentre-secondrow-mobile a {
+    font-size: 16px;
     color: #00006d;
     font-weight: bold;
   }
-
-  .company-information-row {
+  #login .company-information-row {
     text-align: center;
     margin-top: 20px;
   }
-  .company-information-row p {
+  #login .company-information-row p {
     margin: 5px;
     font-size: 12px;
     color: #707070;
   }
-
-  .containercentre-wrapper-wrapper {
+  #login .containercentre-wrapper-wrapper {
     display: none;
+  }
+  #login #side-menuhelp #close-sidehelp-button {
+    width: 90vw;
+    margin-left: 20px;
+    margin-top: 16px;
+    border-radius: 8px;
+    border-color: black;
+    border-style: solid;
+    padding: 8px;
+    font-size: 20px;
+    font-weight: 600;
   }
 }
 /********** SEARCH PAGE NAVIGATION ****************/

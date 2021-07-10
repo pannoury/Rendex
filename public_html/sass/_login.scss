@@ -2,10 +2,10 @@
 .body-login{
     background-color: $rendex-black10;
 }
-#login{
-    margin-bottom: 200px;
-}
 @media(min-width:875px){
+    #login{
+        margin-bottom: 200px;
+    }
     .containercentre-wrapper-wrapper{
         display: flex;
         justify-content: center;
@@ -54,6 +54,20 @@
         p{margin: 5px; font-size: 12px; color: #707070;}
     } 
     .containercentre-wrapper-wrapper-mobile{display: none !important;}
+    .close-sidehelp-button{
+        width: 50%;
+        margin-left: 20px;
+        margin-top: 16px;
+        border-radius: 20px;
+        border-color: black;
+        border-style: solid;
+        padding: 8px;
+        font-size: 18px;
+        &:hover{
+            background-color:black; 
+            color: white;
+        }
+    }
 }
 
 /*LOGIN/ACCOUNT PAGE SETTINGS END*/
@@ -110,20 +124,6 @@
         &:hover{
             color: $hover-dark;
         }   
-    }
-    .close-sidehelp-button{
-        width: 50%;
-        margin-left: 20px;
-        margin-top: 16px;
-        border-radius: 20px;
-        border-color: black;
-        border-style: solid;
-        padding: 8px;
-        font-size: 18px;
-        &:hover{
-            background-color:black; 
-            color: white;
-        }
     }
 }
 //***************************** BankID Help window ************************* //

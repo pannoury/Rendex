@@ -21,6 +21,9 @@
   $(function(){
     $("#navbar").load("navbar.html"); 
   });
+  $(function(){
+    $("#cookiewindowpopupwrapper").load("cookieswindow.html");
+  });
   </script>
 </head>
 <body class="body-login">
@@ -30,7 +33,7 @@
 
   <main id="login">
     <div id="side-menuhelp" class="side-navhelp">
-      <a href="#" class="close-sidehelp-cross" onclick="closeSlideHelp()">&times;</a>
+      <a href="#" id="close-sidehelp-cross" class="close-sidehelp-cross">&times;</a>
       <h1>BankID</h1>
       <p>BankID är en elektronisk ID-handling som du använder för att legitimera dig i Rendex eller andra organisationers tjänster.</p>
       <span class="left-shift"><p>1. Öppna BankID-appen på din telefon eller surfplatta</p></span>
@@ -40,7 +43,7 @@
       <h2>Mer hjälp hittar du på</h2>
       <a href="https://support.bankid.com/sv/bankid/mobilt-bankid" target="_blank">Mobilt BankID</a>
       <a href="https://support.bankid.com/sv/bankid/bankid-pa-fil" target="_blank">BankID på fil</a>
-      <button class="close-sidehelp-button" onclick="closeSlideHelp()">Stäng</button>
+      <button id="close-sidehelp-button" class="close-sidehelp-button">Stäng</button>
     </div>
     <div class="containercentre-wrapper-wrapper">
       <div class="containercentre-wrapper">
@@ -54,7 +57,7 @@
       </div>
       <div class="containercentre-secondrow">
         <a href="index.html">Avbryt</a>
-        <a href="#" onclick="bankIdWindow()">Behöver du hjälp?</a>
+        <a href="#" id="bankidwindowwide">Behöver du hjälp?</a>
       </div>
     </div>
     <div class="containercentre-wrapper-wrapper-mobile">
@@ -72,27 +75,18 @@
       </div>
       <div class="containercentre-secondrow-mobile">
         <a href="index.html">Avbryt</a>
-        <a href="#" onclick="bankIdWindow()">Behöver du hjälp?</a>
+        <a href="#" id="bankidwindowmobile">Behöver du hjälp?</a>
       </div>
     </div>
     <div class="company-information-row">
       <p>&#169; Rendex AB 2021</p>
       <p>Denna anslutning är krypterad</p>
     </div>
+    <div id="cookiewindowpopupwrapper"></div>
   </main>
-
-
   <div id="footer"></div>
-  <script>
-    function bankIdWindow(){
-      document.getElementById('side-menuhelp').style.width='400px';
-      document.getElementById('login').style.marginLeft='0px';
-    }
-    function closeSlideHelp(){
-      document.getElementById('side-menuhelp').style.width='0';
-      document.getElementById('login').style.marginLeft='0';
-    }
-  </script>
+  <script src="./JS/login.js"></script>
+  <script src="./JS/cookie.js"></script>
   <!--FOOTER END-->
   </body>
 <html>
