@@ -1,5 +1,9 @@
 /* Main search */
 @media(min-width:875px){
+    #indexmain{
+        overflow-x: hidden;
+        width: 100%;
+    }
     #indexsearchsection{                    /* <Section> */
         background: url('../images/showcase21.jpg');
         background-size: cover;
@@ -110,15 +114,26 @@
     }
 }
 @media(min-width:875px){
+    #firstpage-background{
+        display: none;
+    }
     #index-showcase-offers{
         display: flex;
+        flex-wrap: wrap;
         flex-direction: column;
         justify-content: center;
         margin-bottom: 30px;
         width: 100vw;
         text-align: center;
-        h2{
-            font-size: 28px;
+        overflow: hidden;
+        #index-showcase-offers-header{
+            display: flex;
+            margin: auto;
+            flex-wrap: wrap;
+            text-align: center;
+            h2{
+                font-size: 28px;
+            }
         }
         #index-showcase-offers-wrapper{
             display: flex;

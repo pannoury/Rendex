@@ -10,9 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="sass/style.css" type="text/css">
   <script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous">
+    src="https://code.jquery.com/jquery-3.6.0.min.js">
   </script> 
   <script> 
   $(function(){
@@ -55,6 +53,7 @@
   <main class="search-result-main">
     <div id="top-button-wrapper">
       <button id="category-btn">Kategori</button>
+      <button id="filter-btn">Filtrera</button>
       <button id="plats-btn">Plats</button>
     </div>
     <div class="search-result-topwrapper">
@@ -80,6 +79,9 @@
                         <source type="image/jpeg" srcset="#">
                         <img src="#" alt="img uppdragsgivare">
                       </picture>
+                    </div>
+                    <div class="nameinformation-mobileversion">
+                      <a id="">[FirstName, LastName] </a>&bull;<a> [område]</a>
                     </div>
                   </div>
                   <div class="search-result-articles-information">
@@ -866,5 +868,6 @@
   <script src="./JS/searchcity.js"></script>
   <script src="./JS/search01.js"></script>
   <script src="./JS/searchothers.js"></script>
+  <script src="./JS/searchfilter.js"></script>
 </body>
 <html>

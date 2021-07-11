@@ -10,10 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="sass/style.css" type="text/css">
   <script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous">
-  </script>
+    src="https://code.jquery.com/jquery-3.6.0.min.js">
+  </script> 
   <script>
   $(function(){
     $("#footer").load("footer.html"); 
@@ -30,7 +28,7 @@
   <!--Navigation Bar-->
   <div id="navbar"></div>
   <!--Navigation Bar END-->
-  <main>
+  <main id="indexmain">
     <section id="firstpage-background">
     </section>
     <section id="indexsearchsection">
@@ -578,7 +576,9 @@
       </div>
     </section>
     <section id="index-showcase-offers">
-      <h2>Våra tjänster</h2>
+      <div id="index-showcase-offers-header">
+        <h2>Våra tjänster</h2>
+      </div>
       <div id="index-showcase-offers-wrapper">
         <div class="indexshowcase-offers-column" id="indexshowcase-offers-column1">
           <a id="byggrenoverawrapper-anchor">

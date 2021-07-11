@@ -21,6 +21,9 @@ var classFormWrapper = formWrapper.className;
 /****************************PERSONNUMMER/ORGNUMMER***************************** */
 window.onload = function clear(){
     sessionStorage.clear();
+    document.getElementById('insurancenumber').value = "";
+    document.getElementById('firstnameinput').value = "";
+    document.getElementById('surnameinput').value = "";
     /* setInterval(clear, 600000) */
 }
 document.getElementById('insurancenumber').oninput = function insuranceLengthCheck(){
@@ -40,7 +43,6 @@ document.getElementById('insurancenumber').oninput = function insuranceLengthChe
                 a.style.borderColor = "black";
                 c.style.display = "none";
                 console.log(b, personnummer);
-                sessionStorage.setItem('personnummerValue', `${b}`);
                 sessionStorage.setItem('personnummer', true);
                 return (b, personnummer);
             }
@@ -71,6 +73,8 @@ document.getElementById('next-btn').onclick = function nextSlide(){
     var b = a.value;
     var c = sessionStorage.getItem("slidePage");
     var d = sessionStorage.getItem('personnummer');
+    var firstName = document.getElementById('firstnameinput').value;
+    var lastName = document.getElementById('surnameinput').value;
     if(d = true && d != null){
         arrowBackAddInfo.innerHTML = `${b}`;
         arrowBack.style.display = "flex";
@@ -79,19 +83,26 @@ document.getElementById('next-btn').onclick = function nextSlide(){
         registrationTrackerThree.style.color = "#afafaf";
         insuranceWrapper.style.display = "none";
         fullNameInputWrapper.style.display = "flex";
+        sessionStorage.setItem("personnummer", `${a.value}`);
         sessionStorage.setItem("slidePage", 2);
         return ("slideTwo");
     }
     else if(c == 2 && c != null){
-        registrationTrackerOne.style.color = "#afafaf";
-        registrationTrackerTwo.style.color = "#afafaf";
-        registrationTrackerThree.style.color = "#616161";
-        insuranceWrapper.style.display = "none";
-        fullNameInputWrapper.style.display = "none";
-        accountRegionSelect.style.display = "flex";
-        return ("slideThree");
+        alert("it works!")
+        if(firstName !== null && firstName.isNaN == true){
+            sessionStorage.setItem("firstName", `${firstName}`);
+            sessionStorage.setItem("lastName", `${lastName}`);
+            registrationTrackerOne.style.color = "#afafaf";
+            registrationTrackerTwo.style.color = "#afafaf";
+            registrationTrackerThree.style.color = "#616161";
+            insuranceWrapper.style.display = "none";
+            fullNameInputWrapper.style.display = "none";
+            accountRegionSelect.style.display = "flex";
+            return ("slideThree");
+        }
     }
     else{
+        alert("else");
     }
 };
 
@@ -197,5 +208,3 @@ document.getElementById('emailinputrepeat').onblur = function(){
         return d;
     }
 }
-
-

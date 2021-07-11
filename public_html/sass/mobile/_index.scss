@@ -146,11 +146,16 @@
             }
         }
     }
-    #tablewrappersearch{            /* <div "wrapper"> */
+    #tablewrappersearch{
         display: flex;
         gap: 10px;
-        select{border-radius: 3px; border-color: #333; 
-            border-width: 1px; appearance: none; margin-top: 0px;}
+        select{
+            border-radius: 3px; 
+            border-color: #333; 
+            border-width: 1px; 
+            appearance: none; 
+            margin-top: 0px;
+        }
     }
 }
 @media(max-width:875px){
@@ -202,7 +207,7 @@
 }
 @media(max-width:875px){ 
     #index-showcase-offers{
-        background-color: #ffa60052;
+        background-color: #ffa6003b;
         display: flex;
         flex-direction: column;
         justify-content: center;

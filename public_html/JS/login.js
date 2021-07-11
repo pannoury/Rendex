@@ -26,3 +26,8 @@ function closeSlideHelp(){
     document.getElementById('side-menuhelp').style.width='0';
     document.getElementById('login').style.marginLeft='0';
 }
+
+
+var användarNamn = document.getElementById('användarnamnlogin').value;
+var password = document.getElementById('lösenordlogin').value;
+var loginButton = document.getElementById('login-btn');

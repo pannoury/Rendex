@@ -68,6 +68,37 @@
             color: white;
         }
     }
+    #alternative-login-wrapper-wrapper{
+        margin: auto;
+        width: 100%;
+        #alternative-login-wrapper{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            margin: auto;
+            width: 80%;
+            padding: 20px;
+            gap: 20px;
+            #användarnamnlogin, #lösenordlogin{
+                width: 90%;
+                height: 34px;
+                border-radius: 6px;
+                padding-left: 10px;
+                margin: auto;
+            }
+            #login-btn{
+                margin: auto;
+                width: 95%;
+                font-size: 18px;
+                padding: 14px;
+                border-radius: 6px;
+                border-style: none;
+                font-weight: bolder;
+                background-color: $dark-blue;
+                color: white;
+            }
+        }
+    }
 }
 
 /*LOGIN/ACCOUNT PAGE SETTINGS END*/

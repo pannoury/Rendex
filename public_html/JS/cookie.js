@@ -2,7 +2,8 @@ function createCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    var sameSite = "SameSite=None; Secure"
+    document.cookie = `${cname}=${cvalue}; SameSite=None; Secure; ${expires};path=/;`;
 }
 function getCookie(cname) {
     var name = cname + "=";
@@ -26,15 +27,15 @@ function eraseCookie(name) {
 window.addEventListener('load', function checkCookie(){
   var user=getCookie("cookieconsent");
   if (user != "") {
-    document.getElementById('cookiewindowpopupwrapper').style.visibility = "hidden";
+    document.getElementById('cookiewindowpopupwrapper').style.display = "none";
   } else {
-    document.getElementById('cookiewindowpopupwrapper').style.visibility = "visible";
+    document.getElementById('cookiewindowpopupwrapper').style.display = "block";
     if (user != "" && user != null) {
       setCookie("cookieconsent", user, 30);
     }
   }
 });
 function consentClicked(){
-    document.cookie = "cookieconsent=true";
-    document.getElementById('cookiewindowpopupwrapper').style.visibility = "hidden";
-}
+  createCookie("cookieconsent", "true", "365");
+  document.getElementById('cookiewindowpopupwrapper').style.display = "block";
+};
