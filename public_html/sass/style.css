@@ -761,9 +761,43 @@ main {
     padding: 20px;
     gap: 20px;
   }
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    margin-right: 40px;
+    border-radius: 50%;
+  }
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername #clearusername-btn, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername #clearpassword-btn, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword #clearusername-btn, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword #clearpassword-btn, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername #clearusername-btn, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername #clearpassword-btn, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword #clearusername-btn, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword #clearpassword-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: gray;
+    border-style: none;
+    margin: 0;
+    padding: 6px;
+  }
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername #clearusername-btn:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername #clearpassword-btn:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword #clearusername-btn:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword #clearpassword-btn:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername #clearusername-btn:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername #clearpassword-btn:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword #clearusername-btn:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword #clearpassword-btn:hover {
+    cursor: pointer;
+  }
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword:hover {
+    background-color: rgba(128, 128, 128, 0.137);
+  }
   #alternative-login-wrapper-wrapper #alternative-login-wrapper #användarnamnlogin, #alternative-login-wrapper-wrapper #alternative-login-wrapper #lösenordlogin {
     width: 90%;
-    height: 34px;
+    height: 40px;
     border-radius: 6px;
     padding-left: 10px;
     margin: auto;
@@ -778,6 +812,10 @@ main {
     font-weight: bolder;
     background-color: #00006d;
     color: white;
+  }
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #login-btn:hover {
+    background-color: #000041;
+    cursor: pointer;
   }
 }
 /*LOGIN/ACCOUNT PAGE SETTINGS END*/

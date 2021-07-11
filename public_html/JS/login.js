@@ -28,6 +28,46 @@ function closeSlideHelp(){
 }
 
 
-var användarNamn = document.getElementById('användarnamnlogin').value;
-var password = document.getElementById('lösenordlogin').value;
+var användarNamn = document.getElementById('användarnamnlogin');
+var password = document.getElementById('lösenordlogin');
 var loginButton = document.getElementById('login-btn');
+
+document.getElementById('användarnamnlogin').oninput = function(){
+    if(användarNamn.value.length >= 1){
+        document.getElementById('clearusername').style.display = "flex";
+    }
+    else{
+        document.getElementById('clearusername').style.display = "none";
+    }
+};
+document.getElementById('lösenordlogin').oninput = function(){
+    if(password.value.length >= 1){
+        document.getElementById('clearpassword').style.display = "flex";
+    }
+    else{
+        document.getElementById('clearpassword').style.display = "none";
+    }
+};
+document.getElementById('clearusername-btn').onclick = function(){
+    användarNamn.value = "";
+    document.getElementById('clearusername').style.display = "none";
+};
+document.getElementById('clearpassword-btn').onclick = function(){
+    password.value = "";
+    document.getElementById('clearpassword').style.display = "none";
+};
+
+document.getElementById('login-btn').onclick = function(){
+    var usernameinput = användarNamn.value;
+    var passwordinput = password.value;
+    /*
+    if(password.value.length > 10 && password.value.length > 5){
+        $.ajax({
+            type: "POST",
+            url: "login.php",
+            data: {}
+    
+        })
+    }
+    */
+};

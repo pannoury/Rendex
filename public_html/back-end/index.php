@@ -1,10 +1,10 @@
 <?php
-function testish() {
-    echo "Hello World";
-}
 
-testish();
+$servername = "mysql44.unoeuro.com";
+$port = "3306"
+$username = "rendex_se";
+$password = "3411bRendex";
+$dbname = "Accounts";
 
-
-$firstName = "x";
+$conn = mysqli_connect($servername, $username, $password, $dbname)
 ?>

@@ -37,5 +37,5 @@ window.addEventListener('load', function checkCookie(){
 });
 function consentClicked(){
   createCookie("cookieconsent", "true", "365");
-  document.getElementById('cookiewindowpopupwrapper').style.display = "block";
+  document.getElementById('cookiewindowpopupwrapper').style.display = "none";
 };

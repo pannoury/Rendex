@@ -79,9 +79,43 @@
             width: 80%;
             padding: 20px;
             gap: 20px;
+            #username-wrapper, #password-wrapper{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                #clearusername, #clearpassword{
+                    display: none;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 40px;
+                    border-radius: 50%;
+                    #clearusername-btn, #clearpassword-btn{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 20px;
+                        width: 20px;
+                        border-radius: 50%;
+                        background-color: gray;
+                        border-style: none;
+                        margin: 0;
+                        padding: 6px;
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+                    &:hover{
+                        background-color: rgba(128, 128, 128, 0.137);
+                    }
+                }
+            }
             #användarnamnlogin, #lösenordlogin{
                 width: 90%;
-                height: 34px;
+                height: 40px;
                 border-radius: 6px;
                 padding-left: 10px;
                 margin: auto;
@@ -96,6 +130,10 @@
                 font-weight: bolder;
                 background-color: $dark-blue;
                 color: white;
+                &:hover{
+                    background-color: #000041;
+                    cursor: pointer;
+                }
             }
         }
     }
