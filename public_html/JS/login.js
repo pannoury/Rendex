@@ -1,4 +1,7 @@
 var width = window.screen.width;
+var användarNamn = document.getElementById('användarnamnlogin');
+var password = document.getElementById('lösenordlogin');
+var loginButton = document.getElementById('login-btn');
 
 document.getElementById('bankidwindowwide').addEventListener('click', function(){
     bankIdWindow();
@@ -26,11 +29,9 @@ function closeSlideHelp(){
     document.getElementById('side-menuhelp').style.width='0';
     document.getElementById('login').style.marginLeft='0';
 }
-
-
-var användarNamn = document.getElementById('användarnamnlogin');
-var password = document.getElementById('lösenordlogin');
-var loginButton = document.getElementById('login-btn');
+document.getElementById('bankid-initatebutton').onclick = function(){
+    document.getElementById('containercentre-firstrow-desktop').style.display = "block";
+};
 
 document.getElementById('användarnamnlogin').oninput = function(){
     if(användarNamn.value.length >= 1){
@@ -58,16 +59,27 @@ document.getElementById('clearpassword-btn').onclick = function(){
 };
 
 document.getElementById('login-btn').onclick = function(){
-    var usernameinput = användarNamn.value;
-    var passwordinput = password.value;
-    /*
-    if(password.value.length > 10 && password.value.length > 5){
-        $.ajax({
-            type: "POST",
-            url: "login.php",
-            data: {}
-    
-        })
+    var usernameinput = document.getElementById('användarnamnlogin').value;
+    var passwordinput = document.getElementById('lösenordlogin').value;
+    if(usernameinput !== "" && passwordinput !== ""){
+        $.ajax(
+            {
+                url: './PHP/login.php',
+                dataType: 'text',
+                method: 'POST',
+                data: {
+                    login: 1,
+                    email: usernameinput,
+                    password: passwordinput,
+                },
+                success: function (response){
+                    console.log(response);
+                },
+            }
+        );
     }
-    */
+    else{
+
+    }
+    var xmlhttp = new XMLHttpRequest();
 };

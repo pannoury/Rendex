@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="sv" style="display:flex;width:100%">
+<head>
+  <title>Rendex</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Hitta renoverare">
+  <meta name="keywords" content="arbete, bygg, renovering, elektriker, offert, hitta renoverare, hitta arbetare, hitta elektriker, golv, lägga golv, VVS, Rendex, Rendex AB">
+  <meta name="author" content="Patrick Tannoury">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="sass/style.css" type="text/css">
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js">
+  </script> 
+  <script>
+  $(function(){
+    $("#footer").load("footer.html"); 
+  });
+  $(function(){
+    $("#navbar").load("navbar.html"); 
+  });
+  $(function(){
+    $("#cookiewindowpopupwrapper").load("cookieswindow.html");
+  });
+  </script>
+</head>
+<body>
+  <!--Navigation Bar-->
+  <div id="navbar"></div>
+  <!--Navigation Bar END-->
+  <main id="indexmain">
+    <section id="firstpage-background">
+    </section>
+    <section id="indexsearchsection">
+      <div id="indexheaderdiv">
+        <h1>Upptäck Sveriges ledande entreprenörer för din drömrenovering</h1>
+        <p>Rendex är den ledande plattformen som knyter entreprenörer samt individer som erbjuder och söker tjänster för renoveringar</p>
+      </div>
+      <div id="indexwrapper">
+          <h1 id="h1search">Hitta det du söker</h1>
+          <div id="tablewrappersearch">
+            <div class="column1">
+              <table class="tablesearch">
+                <tr> <!--Row 1 (1)-->
+                  <td class="tdselect">
+                    <p class="td-text">Region</p>
+                  </td>
+                </tr>
+                <tr> <!--Row 2 (1)-->
+                  <td>
+                      <div class="mainindex-search-wrapper-wrapper">
+                        <div class="mainindex-search-wrapper">
+                          <form id="indexSearchRegionSelect">
+                            <select id="mainRegionSelect" placeholder="Region"> 
+                              <option value="" disabled selected id="disabledselect">Välj Region</option>
+                              <option value="Hela Sverige" selected="helaSverige">Hela Sverige</option>
+                              <option value="Blekinge" selected="blekinge">Blekinge</option>
+                              <option value="Dalarna">Dalarna</option>
+                              <option value="Gotland">Gotland</option>
+                              <option value="Gävleborg">Gävleborg</option>
+                              <option value="Halland">Halland</option>
+                              <option value="Jämtland">Jämtland</option>
+                              <option value="Jönköping">Jönköping</option>
+                              <option value="Kalmar">Kalmar</option>
+                              <option value="Kronoberg">Kronoberg</option>
+                              <option value="Norrbotten">Norrbotten</option>
+                              <option value="Örebro">Örebro</option>
+                              <option value="Östergötland">Östergötland</option>
+                              <option value="Skåne">Skåne</option>
+                              <option value="Sörmland">Sörmland</option>
+                              <option value="Stockholm" selected="stockholm">Stockholm</option>
+                              <option value="Uppsala">Uppsala</option>
+                              <option value="Värmland">Värmland</option>
+                              <option value="Västerbotten">Västerbotten</option>
+                              <option value="Västernorrland">Västernorrland</option>
+                              <option value="Västmanland">Västmanland</option>
+                              <option value="Västra Götaland">Västra Götaland</option>
+                            </select>
+                            <span class="arrow-select"></span>
+                          </form>
+                        </div>
+                        <div class="mainindex-search-svg-wrapper">
+                        </div>
+                      </div>
+                  </td>
+                </tr>
+                <tr> <!--Row 3 (1)-->
+                  <td>
+                    <p class="td-text">Stad</p>
+                  </td>
+                </tr>
+                <tr> <!--Row 4 (1)-->
+                  <td>
+                    <div class="mainindex-search-wrapper-wrapper">
+                      <div class="mainindex-search-wrapper">
+                        <form id="indexSearchCitySelect">
+                          <select class="mainCitySelect" id="defualtCitySelect" aria-placeholder="Välj Stad">
+                            <option value="" disabled selected id="disabledselect">Hela Sverige</option>
+                          </select>
+                          <span class="arrow-select"></span>
+                      </form>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+          </div>
+
+          <div class="column2"> 
+            <table class="tablesearch">
+              <tr> <!--Row 1 (2)-->
+                <td class="tdselect">
+                  <p class="td-text">Behov</p>
+                </td>
+              </tr>
+              <tr> <!--Row 2 (2)-->
+                <td>
+                  <div class="mainindex-search-wrapper-wrapper">
+                    <div class="mainindex-search-wrapper">
+                      <form id="indexSearchRoleSelect">
+                        <select id="mainRoleSelect">
+                          <option value="" disabled selected id="disabledselect">Välj Behov</option>
+                          <option value="Uppdragsgivare">Uppdragsgivare</option>
+                          <option value="Uppdragstagare">Uppdragstagare</option>
+                        </select>
+                        <span class="arrow-select"></span>
+                      </form>
+                      <p id="error-message-role">* Välj ett behov</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr> <!--Row 3 (2)-->
+                <td>
+                  <p class="td-text">Arbete</p>
+                </td>
+              </tr>
+              <tr>
+                <td> <!--Row 4 (2)-->
+                  <div class="mainindex-search-wrapper-wrapper">
+                    <div class="mainindex-search-wrapper">
+                      <form id="indexSearchPurposeSelect">
+                        <select id="mainPurposeSelect">
+                          <option value="" disabled selected id="disabledselect">Välj typ av arbete</option>
+                          <option value="Bygga & Renovera">Bygga & Renovera</option>
+                          <option value="Flytt & Transport">Flytt & Transport</option>
+                          <option value="Städning">Städning</option>
+                        </select>
+                        <span class="arrow-select"></span>
+                      </form>
+                      <p id="error-message-purpose">* Välj ett arbete</p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="indexsearchbutton">
+        <button type="submit" id="indexsearchbutton" onclick="regionCityCheck(); rolePurposeCheck();">Hitta</button>
+        </div>
+      </div>
+    </section>
+    <div id="cookiewindowpopupwrapper"></div>
+  </main>
+  <!--FOOTER START-->
+  <div id="footer"></div>
+  <!--FOOTER END-->
+  <script src="./JS/cityarray.js"></script>
+  <script src="./JS/cookie.js"></script>
+</body>
+<html>

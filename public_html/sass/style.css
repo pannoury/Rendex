@@ -689,10 +689,13 @@ main {
     margin-top: 10px;
     margin-bottom: 10px;
   }
-  .containercentre-wrapper-wrapper .containercentre-wrapper .containercentre-firstrow h1 {
+  .containercentre-wrapper-wrapper .containercentre-wrapper #containercentre-firstrow-desktop {
+    display: none;
+  }
+  .containercentre-wrapper-wrapper .containercentre-wrapper #containercentre-firstrow-desktop h1 {
     font-size: 22px;
   }
-  .containercentre-wrapper-wrapper .containercentre-wrapper .containercentre-firstrow h3 {
+  .containercentre-wrapper-wrapper .containercentre-wrapper #containercentre-firstrow-desktop h3 {
     font-size: 16px;
     font-weight: normal;
     line-height: 1.4;
@@ -717,6 +720,30 @@ main {
   .bankID-QR img {
     width: 50%;
     height: 50%;
+  }
+
+  #bankid-initatebutton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 95%;
+    font-size: 18px;
+    padding: 14px;
+    border-radius: 6px;
+    border-style: none;
+    font-weight: bolder;
+    background-color: #00006d;
+    color: white;
+  }
+  #bankid-initatebutton:hover {
+    background-color: #000041;
+    cursor: pointer;
+  }
+  #bankid-initatebutton img {
+    width: 25px;
+    height: 25px;
+    margin-left: 30px;
   }
 
   .company-information-row {
@@ -781,6 +808,11 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    pointer-events: none;
     height: 20px;
     width: 20px;
     border-radius: 50%;
@@ -2496,7 +2528,7 @@ main {
   #index-text-mobile #index-text-wrapper-mobile {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 4vh;
   }
   #index-text-mobile #index-text-wrapper-mobile .index-text-row-mobile {
     background-color: #f4f4f4;
