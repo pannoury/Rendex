@@ -57,7 +57,18 @@
       </div>
       <div id="alternative-login-wrapper-wrapper">
         <div id="alternative-login-wrapper">
-          <button id="bankid-initatebutton">Logga in med <img src="./assets/images/bankid-white.svg"></button>
+          <div id="bankid-button-wrapper">
+            <button id="bankid-initatebutton">Logga in med <img src="./assets/images/bankid-white.svg"></button>
+          </div>
+          <div id="error-message-login-wrapper">
+            <div id="error-message-login">
+              <img src="./assets/images/warning-black.svg" id="error-message-warningsymbol">
+              <div id="error-message-text">
+                <p>Felaktigt användarnamn eller lösenord.</p>
+                <p>Vänligen försök igen.</p>
+              </div>
+            </div>
+          </div>
           <div id="username-wrapper">
             <input type="text" placeholder="Användarnamn" id="användarnamnlogin">
             <div id="clearusername" class="textinput-clearbutton">
@@ -71,6 +82,7 @@
             </div>
           </div>
           <button id="login-btn">Logga in</button>
+          <a href="#" id="forgot-password">Glömt lösenord?</a>
         </div>
       </div>
       <div class="containercentre-secondrow">

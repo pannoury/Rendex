@@ -25,6 +25,9 @@ function eraseCookie(name) {
 }
 /*********************** GLOBAL COOKIE SETTINGS **********************************/
 window.addEventListener('load', function checkCookie(){
+  cookieConsentLoad();
+});
+function cookieConsentLoad(){
   var user=getCookie("cookieconsent");
   if (user != "") {
     document.getElementById('cookiewindowpopupwrapper').style.display = "none";
@@ -34,7 +37,7 @@ window.addEventListener('load', function checkCookie(){
       setCookie("cookieconsent", user, 30);
     }
   }
-});
+};
 function consentClicked(){
   createCookie("cookieconsent", "true", "365");
   document.getElementById('cookiewindowpopupwrapper').style.display = "none";

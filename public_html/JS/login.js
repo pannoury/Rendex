@@ -50,18 +50,20 @@ document.getElementById('lösenordlogin').oninput = function(){
     }
 };
 document.getElementById('clearusername-btn').onclick = function(){
-    användarNamn.value = "";
+    document.getElementById('användarnamnlogin').value = "";
     document.getElementById('clearusername').style.display = "none";
 };
 document.getElementById('clearpassword-btn').onclick = function(){
-    password.value = "";
+    document.getElementById('lösenordlogin').value = "";
     document.getElementById('clearpassword').style.display = "none";
 };
 
 document.getElementById('login-btn').onclick = function(){
-    var usernameinput = document.getElementById('användarnamnlogin').value;
-    var passwordinput = document.getElementById('lösenordlogin').value;
-    if(usernameinput !== "" && passwordinput !== ""){
+    var username = document.getElementById('användarnamnlogin').value;
+    var password = document.getElementById('lösenordlogin').value;
+    if(username !== "" && password !== ""){
+        document.getElementById('användarnamnlogin').style.borderColor = "black";
+        document.getElementById('lösenordlogin').style.borderColor = "black";
         $.ajax(
             {
                 url: './PHP/login.php',
@@ -69,17 +71,29 @@ document.getElementById('login-btn').onclick = function(){
                 method: 'POST',
                 data: {
                     login: 1,
-                    email: usernameinput,
-                    password: passwordinput,
+                    username: username,
+                    password: password,
                 },
-                success: function (response){
-                    console.log(response);
+                success: function(response){
+                    var response = JSON.parse(response);
+                    if(response[0] == 1){
+                        sessionStorage.setItem("accountId",`${response[1]}`);
+                        sessionStorage.setItem("username",`${response[2]}`);
+                        var userArray = [];
+                        userArray.push(response[1], response[4]);
+                        createCookie("a_user", `${userArray}`, "365");
+                        window.location = './myaccount.html';
+                    }
+                    else{
+                        document.getElementById('error-message-login-wrapper').style.display = "block";
+                    }
+
                 },
             }
         );
     }
     else{
-
+        document.getElementById('användarnamnlogin').style.borderColor = "red";
+        document.getElementById('lösenordlogin').style.borderColor = "red";
     }
-    var xmlhttp = new XMLHttpRequest();
 };

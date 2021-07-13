@@ -102,6 +102,33 @@
             width: 80%;
             padding: 20px;
             gap: 20px;
+            #bankid-button-wrapper{
+                display: flex;
+            }
+            #error-message-login-wrapper{
+                display: none;
+                padding: 20px;
+                #error-message-login{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #ff000021;
+                    padding: 10px;
+                    border-radius: 8px;
+                    #error-message-text{
+                        margin-left: 20px;
+                        text-align: left;
+                        p{
+                            margin: 0;
+                        }
+                    }
+                }
+                #error-message-warningsymbol{
+                    height: 40px;
+                    width: 40px;
+                }
+            }
             #username-wrapper, #password-wrapper{
                 display: flex;
                 flex-direction: row;
@@ -158,6 +185,16 @@
                 &:hover{
                     background-color: #000041;
                     cursor: pointer;
+                }
+            }
+            #forgot-password{
+                font-size: 18px;
+                color: $dark-blue;
+                margin-left: 12px;
+                text-align: left;
+                &:hover{
+                    opacity: 0.8;
+                    cursor:pointer;
                 }
             }
         }

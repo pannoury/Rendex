@@ -1,40 +1,37 @@
 <?php
+    include "config.php";
 
-    if(isset($_POST['login'])){
-        $conn = new mysqli(
-            'mysql44.unoeuro.com', 
-            '3306',
-            'rendex_se', 
-            '3411bRendex', 
-            'rendex_se_db',
+    $username = $conn->real_escape_string($_POST['username']);
+    $password = $conn->real_escape_string($_POST['password']);
+
+    $sql = "SELECT * FROM Accounts WHERE username='$username' AND password='$password'";
+    $result = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_array($result);
+
+    if(mysqli_num_rows($result) == 1){
+        $id = $row['accountId'];
+        $role = $row['role'];
+        $_SESSION['id'] = $id;
+        $matchid = 1;
+        $results = array(
+            0 => $matchid,
+            1 => $id,
+            2 => $username,
+            3 => $password,
+            4 => $role,
         );
-
-        $email = $conn->real_escape_string($_POST['email']);
-        $password = $conn->real_escape_string($_POST['password']);
-
-        $data = $conn->query("SELECT account_id FROM Accounts WHERE username='$email' AND password='$password'");
-        if ($data->num_rows > 0){
-            $_SESSION['loggedIN'] = '1';
-            $_SESSION['email'] = $email;
-            exit;
-        } else {
-            exit('failed to find');
-        }
+        echo (json_encode($results));
     }
-/*
-    require('config.php');
+    else{
+        $matchid = 0;
+        $results = array(
+            0 => $matchid,
+            1 => $id,
+            2 => $username,
+            3 => $password,
+        );
+        echo (json_encode($results));
+    }
 
-    // Get results
-    $query = 'SELECT * FROM Accounts';
-    $results = mysqli_query($conn, $query);
-
-    //fetch data
-    $posts = mysqli_fetch_all($results, MYSQLI_ASSOC);
-
-    //free results
-    mysqli_free_result($results);
-
-    //close Connection
     mysqli_close($conn);
-    */
 ?>

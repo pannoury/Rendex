@@ -177,6 +177,7 @@ main {
 
   .navbarselector li {
     margin: 0;
+    cursor: pointer;
   }
   .navbarselector a:hover {
     color: slategray;
@@ -788,6 +789,33 @@ main {
     padding: 20px;
     gap: 20px;
   }
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #bankid-button-wrapper {
+    display: flex;
+  }
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #error-message-login-wrapper {
+    display: none;
+    padding: 20px;
+  }
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #error-message-login-wrapper #error-message-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff000021;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #error-message-login-wrapper #error-message-login #error-message-text {
+    margin-left: 20px;
+    text-align: left;
+  }
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #error-message-login-wrapper #error-message-login #error-message-text p {
+    margin: 0;
+  }
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #error-message-login-wrapper #error-message-warningsymbol {
+    height: 40px;
+    width: 40px;
+  }
   #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper {
     display: flex;
     flex-direction: row;
@@ -847,6 +875,16 @@ main {
   }
   #alternative-login-wrapper-wrapper #alternative-login-wrapper #login-btn:hover {
     background-color: #000041;
+    cursor: pointer;
+  }
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #forgot-password {
+    font-size: 18px;
+    color: #00006d;
+    margin-left: 12px;
+    text-align: left;
+  }
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #forgot-password:hover {
+    opacity: 0.8;
     cursor: pointer;
   }
 }
@@ -3861,6 +3899,9 @@ main {
     font-size: 36px;
     margin-left: 50px;
     text-align: right;
+  }
+  .side-nav #myaccountsidemenu {
+    display: none;
   }
 }
 @media (max-width: 750px) {

@@ -21,20 +21,22 @@
             <ul class="navbarselector">
               <li><a href="searchpage.html">Sök</a></li>
               <li><a href="inbox.html">Inkorg</a></li>
-              <li id="loggedInFalse"><a href="create_account.html">Bli Medlem</a></li>
-              <li id="loggedInTrue"><a href="">Min Profil</a></li>
-              <li><a href="login.html">Logga In</a></li>
+              <li id="loggedInFalse"><a href="create_account.html" id="loggedInFalseAnchor">Bli Medlem</a></li>
+              <li id="loggedInTrue"><a href="./myaccount.html" id="loggedInTrueAnchor">Min Profil</a></li>
+              <li id="loginlist"><a id="loginanchor">Logga In</a></li>
             </ul>  
       </nav>
     </div>
     <div id="side-menu" class="side-nav">      
       <a href="index.html">Hem</a>
-      <a href="login.html">Logga in</a>
-      <a href="create_account.html">Bli Medlem</a>
+      <a href="login.html" id="loginsidemenu">Logga in</a>
+      <a href="create_account.html" id="createaccountsidemenu">Bli Medlem</a>
+      <a href="./myaccount.html" id="myaccountsidemenu"></a>
       <a href="inbox.html">Inkorg</a>
       <a href="searchpage.html">Sök</a>
     </div>
     <script src="./JS/navbar.js"></script>
+    <script src="./JS/cookie.js"></script>
   </header>
 </body>
 </html>
