@@ -1,14 +1,48 @@
 /******************************* Index Search *************************************/
+window.addEventListener('load', function(){
+    indexNumberCount();
+});
 document.getElementById('indexsearchbutton').addEventListener('click', function(){
     regionCityCheck();
     rolePurposeCheck();
 });
+function indexNumberCount(){
+    $.ajax(
+        {
+            url: './PHP/orgcount.php',
+            dataType: 'text',
+            method: 'POST',
+            success: function(response){
+                console.log(response);
+                var response = JSON.parse(response);
+                if(response[0] == 1){
+                    if(response[1] > 999){
+                        var numberCount = (response[1]/1000);
+                        document.getElementById('numberofuppdragstagare').innerText = `${numberCount}`;
+                        document.getElementById('thousandsspan1').style.display = "block";
+                        document.getElementById('thousandsspan1').innerText = "K";
+                    }
+                    else{
+                        document.getElementById('numberofuppdragstagare').innerText = `${response[1]}`;
+                        document.getElementById('thousandsspan1').style.display = "none";
+                    }
+                }
+                else{
+                    var numberCount = 0;
+                    document.getElementById('numberofuppdragstagare').innerText = `${numberCount}`;
+                    document.getElementById('thousandsspan1').style.display = "none";
+                }
+
+            },
+        }
+    );
+}
 
 function regionCityCheck(){
     var regionSelected = document.getElementById('mainRegionSelect').value;
     var citySelected = document.getElementById('defualtCitySelect').value;
-    console.log(regionSelected, citySelected);
     localStorage.setItem("regionSelected", `${regionSelected}`);
+    localStorage.setItem("citySelected", `${citySelected}`);
     return (regionSelected, citySelected);
 }
 function rolePurposeCheck(){
@@ -39,10 +73,15 @@ function rolePurposeCheck(){
         }
     }
     else if(roleSelected.value != null && purposeSelected.value !=null && roleSelected.value == "Uppdragstagare"){
-        var loggedinCookie = getCookie("c_user");
-        var typeofAccount = getCookie("typeofAccount");
-        if(loggedinCookie != null && typeofAccount == "uppdragstagare"){
-
+        var loggedinCookie = getCookie("a_user");
+        if(loggedinCookie != null){
+            var loggedinCookie = loggedinCookie.split(',');
+            if(loggedinCookie[1] == 1){
+                window.location.href= "searchpage.html";
+            }
+            else if(loggedinCookie[1] == 2 || loggedinCookie[1] == 3){
+                window.location.href= "searchpage.html";
+            }
         }
         else{
             window.location.href= "login.html";
@@ -56,6 +95,7 @@ function rolePurposeCheck(){
     return (roleSelected.value, purposeSelected.value)
 }
 /***************************Dynamic Search City************************************/
+/* ARCHAIC CODE
 document.getElementById('mainRegionSelect').onchange = function(){
     var regionSelected = document.getElementById('mainRegionSelect').value;
     var defaultCitySelection = document.getElementById('defualtCitySelect');
@@ -81,4 +121,5 @@ document.getElementById('mainRegionSelect').onchange = function(){
     var örebroSelection = document.getElementById('örebroCitySelect');
     var östergötlandSelection = document.getElementById('östergötlandCitySelect');
 }
+*/
 /***************************Dynamic Search City************************************/

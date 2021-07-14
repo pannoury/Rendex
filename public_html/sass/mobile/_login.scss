@@ -9,13 +9,15 @@
             flex-direction: column;
             width: 100vw;
             text-align: center;
-            border-radius: 6px;
-            background-color: white;
             .containercentre-wrapper-mobile{
+                display: none;
+                margin-left: 10px;
+                margin-right: 10px;
+                background-color: white;
                 .containercentre-firstrow-mobile{
                     padding: 20px;
                     h1{font-size: 22px;}
-                    h3{font-size: 16px; font-weight: normal; line-height: 1.4;}
+                    h3{font-size: 16px; font-weight: normal; line-height: 1.4; margin-top: 0px;}
                     .bankID-mobile{
                         display: flex;
                         flex-direction: column;
@@ -49,6 +51,20 @@
                             margin: 8px; 
                             font-size: 18px;
                         }
+                        #credentials-login-btn{
+                            margin: 30px auto 0px auto;
+                            font-size: 18px;
+                            border-radius: 6px;
+                            border-style: groove 0.5px;
+                            width: 80vw;
+                            background-color: $dark-blue;
+                            color: white;
+                            border-style: none;
+                            padding: 14px;
+                            border-radius: 6px;
+                            border-style: none;
+                            font-weight: bolder;
+                        }
                     }
         
                 }
@@ -58,9 +74,11 @@
                 flex-direction: row;
                 justify-content: space-between;
                 border-top: 1px solid $rendex-black10;
-                margin-top: 10px;
-                margin-bottom: 10px;
+                margin: 0px 10px 10px 10px;
                 padding: 10px 20px 10px 20px;
+                background-color: white;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
                 a{
                     font-size: 16px; 
                     color: #00006d; 
@@ -73,7 +91,6 @@
             margin-top: 20px;
             p{margin: 5px; font-size: 12px; color: #707070;}
         } 
-        .containercentre-wrapper-wrapper{display: none;}
         #side-menuhelp{
             #close-sidehelp-button{
                 width: 90vw;
@@ -85,6 +102,125 @@
                 padding: 8px;
                 font-size: 20px;
                 font-weight: 600;
+            }
+        }
+        .containercentre-wrapper-wrapper{
+            background-color: white;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 20px;
+            .containercentre-secondrow{
+                display: none;
+            }
+            .containercentre-wrapper{
+                h1{
+                    text-align: center;
+                    margin-bottom: 0px;
+                }
+                #containercentre-firstrow-desktop{
+                    display: none;
+                } 
+            }
+            #alternative-login-wrapper-wrapper{
+                margin: auto;
+                width: 100%;
+                #alternative-login-wrapper{
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    margin: auto;
+                    width: 80%;
+                    padding: 20px;
+                    gap: 20px;
+                    #bankid-button-wrapper{
+                        display: flex;
+                        #bankid-initatebutton{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin: auto;
+                            width: 95%;
+                            font-size: 18px;
+                            padding: 14px;
+                            border-radius: 6px;
+                            border-style: none;
+                            font-weight: bolder;
+                            background-color: $dark-blue;
+                            color: white;
+                            &:hover{
+                                background-color: #000041;
+                                cursor: pointer;
+                            }
+                            img{
+                                width: 25px;
+                                height: 25px;
+                                margin-left: 30px;
+                            }
+                        }
+                    }
+                    #error-message-login-wrapper{
+                        display: none;
+                        padding: 20px;
+                        #error-message-login{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: #ff000021;
+                            padding: 10px;
+                            border-radius: 8px;
+                            #error-message-text{
+                                margin-left: 20px;
+                                text-align: left;
+                                p{
+                                    margin: 0;
+                                }
+                            }
+                        }
+                        #error-message-warningsymbol{
+                            height: 40px;
+                            width: 40px;
+                        }
+                    }
+                    #username-wrapper, #password-wrapper{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-end;
+                        #clearusername, #clearpassword{
+                            display: none;
+                            #clearusername-btn, #clearpassword-btn{
+                                display: none;
+                            }
+                        }
+                    }
+                    #användarnamnlogin, #lösenordlogin{
+                        width: 90%;
+                        height: 40px;
+                        border-radius: 6px;
+                        padding-left: 10px;
+                        margin: auto;
+                    }
+                    #login-btn{
+                        margin: auto;
+                        width: 95%;
+                        font-size: 18px;
+                        padding: 14px;
+                        border-radius: 6px;
+                        border-style: none;
+                        font-weight: bolder;
+                        background-color: $dark-blue;
+                        color: white;
+                    }
+                    #forgot-password{
+                        font-size: 18px;
+                        color: $dark-blue;
+                        margin-left: 12px;
+                        text-align: left;
+                    }
+                }
             }
         }
     }

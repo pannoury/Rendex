@@ -8,6 +8,60 @@ var month = today.getMonth();
 var hours = today.getHours();
 var minutes = today.getMinutes();
 var fullYear = today.getFullYear();
+var loginId = getCookie("a_user");
+var newArrayLoginId = loginId.split(',');
+
+window.addEventListener('load', function conversationCount(){
+    cssChatList();
+    populateChatList();
+    selectSpecificChatList();
+}); 
+
+// $('<li>', {'class': 'chat-item'}, {'id': 'text-sent'}).appendTo('#chat-list');
+function populateChatList(){
+    var accountid = newArrayLoginId[0];
+    /*
+    $.ajax(
+        {
+            url: './PHP/individuals.php',
+            dataType: 'text',
+            method: 'GET',
+            data: {
+                userid: accountid,
+                email: email,
+                role: role,
+            },
+            success: function(response){
+                var response = JSON.parse(response);
+                if(response[0] == 1){
+                    var width = window.screen.width;
+                    if(width > 875){
+                        document.getElementById('loginanchor').innerText = `${response[1]}`;
+                    }
+                    else if(width < 875){
+                        document.getElementById('loginsidemenu').innerText = `${response[1]}`;
+                        document.getElementById('createaccountsidemenu').style.display = "none";
+                    }
+                }
+                else{
+                    console.log("Failed to fetch data from server");
+                }
+
+            },
+        }
+    );
+    */
+};
+function selectSpecificChatList(){
+
+}
+
+function cssChatList(){
+    var a = $(".conversation-selection").lenght;
+    if (a > 7){
+        $(".inbox-separator").last().css("display", "none");
+    }
+};
 
 window.addEventListener('click', function(e){
     var select = e.target;
@@ -25,16 +79,6 @@ window.addEventListener('click', function(e){
         chatOptionsWindow.style.display = "none";
     }
 });
-
-window.addEventListener('load', function conversationCount(){
-    var a = $(".conversation-selection").lenght;
-    if (a > 7){
-        $(".inbox-separator").last().css("display", "none");
-    }
-}); 
-
-// $('<li>', {'class': 'chat-item'}, {'id': 'text-sent'}).appendTo('#chat-list');
-
 
 document.getElementById('imginputlink').addEventListener('click', () => {
     document.getElementById('imginput').click();

@@ -14,26 +14,26 @@ async function loggedInControl(){
                 {
                     url: './PHP/individuals.php',
                     dataType: 'text',
-                    method: 'POST',
+                    method: 'GET',
                     data: {
-                        userId: accountid,
+                        userid: accountid,
                         email: email,
                         role: role,
                     },
                     success: function(response){
-                        //var response = JSON.parse(response);
-                        console.log(response);
+                        var response = JSON.parse(response);
                         if(response[0] == 1){
-                            sessionStorage.setItem("accountId",`${response[1]}`);
-                            sessionStorage.setItem("username",`${response[2]}`);
-                            var userArray = [];
-                            userArray.push(response[1], response[4]);
-                            //createCookie("a_user", `${userArray}`, "365");
-                            //window.location = './myaccount.html';
-                            //document.getElementById('loginanchor').innerText = `${username}`;
+                            var width = window.screen.width;
+                            if(width > 875){
+                                document.getElementById('loginanchor').innerText = `${response[1]}`;
+                            }
+                            else if(width < 875){
+                                document.getElementById('loginsidemenu').innerText = `${response[1]}`;
+                                document.getElementById('createaccountsidemenu').style.display = "none";
+                            }
                         }
                         else{
-                            alert("else triggered");
+                            console.log("Failed to fetch data from server");
                         }
     
                     },
@@ -43,16 +43,6 @@ async function loggedInControl(){
         else if(newArrayLoginId[0] == 2){
 
         }
-
-
-        /*
-      document.getElementById('loggedInFalse').style.display = "none";
-      document.getElementById('loginanchor').style.display = "none";
-      document.getElementById('createaccountsidemenu').style.display = "none";
-      document.getElementById('loginsidemenu').style.display = "none";
-      document.getElementById('loggedInTrue').style.display = "block";
-      document.getElementById('myaccountsidemenu').style.display = "block";
-      */
     }
     else{
         document.getElementById('loginanchor').textContent = "Logga In";
@@ -66,6 +56,14 @@ document.getElementById('loginanchor').onclick = function(){
         window.location = './login.html';
     }
 };
+document.getElementById('loginsidemenu').onclick = function(){
+    if(newArrayLoginId[0] == 1){
+        window.location = './myaccount.html';
+    }
+    else{
+        window.location = './login.html';
+    }
+}
 
 document.getElementById('hamburgermenu-btn').addEventListener('click', function(){
     var sideMenu = document.getElementById('side-menu').offsetWidth;

@@ -30,7 +30,18 @@ function closeSlideHelp(){
     document.getElementById('login').style.marginLeft='0';
 }
 document.getElementById('bankid-initatebutton').onclick = function(){
-    document.getElementById('containercentre-firstrow-desktop').style.display = "block";
+    if(width > 875){
+        document.getElementById('containercentre-firstrow-desktop').style.display = "block";
+    }
+    else{
+        document.getElementById('bankidlogin-mobile').style.display = "block";
+        document.getElementById('alternative-login-wrapper-wrapper').style.display = "none";
+    }
+    
+};
+document.getElementById('credentials-login-btn').onclick = function(){
+    document.getElementById('bankidlogin-mobile').style.display = "none";
+    document.getElementById('alternative-login-wrapper-wrapper').style.display = "block";
 };
 
 document.getElementById('användarnamnlogin').oninput = function(){

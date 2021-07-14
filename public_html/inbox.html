@@ -14,12 +14,15 @@
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous">
   </script> 
-  <script> 
+  <script>
+  $(function(){
+    $("#navbar").load("navbar.html"); 
+  });
   $(function(){
     $("#footer").load("footer.html"); 
   });
   $(function(){
-    $("#navbar").load("navbar.html"); 
+    $("#cookiewindowpopupwrapper").load("cookieswindow.html");
   });
   </script>
 </head>
@@ -321,6 +324,7 @@
         </div>
       </div>
     </div>
+    <div id="cookiewindowpopupwrapper"></div>
   </main>
 
   <!--FOOTER START-->
@@ -336,7 +340,7 @@
       var conversationClicked = true; 
     }
   </script>
-  <script src="/public_html/JS/inbox.js"></script>
-  <script src="/public_html/JS/main.js"></script>
+  <script src="./JS/inbox.js"></script>
+  <script src="./JS/cookie.js"></script>
 </body>
 <html>

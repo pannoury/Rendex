@@ -2367,6 +2367,46 @@ main {
   /*********************** Chat CSS ***************************/
 }
 /* Inbox Page */
+#myaccountmain #myaccount-wrapper-wrapper {
+  padding: 20px;
+}
+#myaccountmain #myaccount-wrapper-wrapper #profile-header {
+  display: flex;
+  flex-direction: column;
+}
+#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 {
+  display: flex;
+  flex-direction: row;
+}
+#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profilepicture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 15%;
+}
+#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profilepicture #myaccount-profilepicture {
+  width: 60px;
+  height: 60px;
+}
+#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-name-wrapper {
+  margin: 0px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 #showpublicprofile-btn {
+  padding: 6px 12px 6px 12px;
+  background-color: white;
+  font-weight: bolder;
+  border-radius: 4px;
+  border: black 1px solid;
+}
+#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 #showpublicprofile-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
 @media (max-width: 875px) {
   main {
     width: 100vw;
@@ -2566,12 +2606,12 @@ main {
   #index-text-mobile #index-text-wrapper-mobile {
     display: flex;
     flex-direction: column;
-    gap: 4vh;
   }
   #index-text-mobile #index-text-wrapper-mobile .index-text-row-mobile {
     background-color: #f4f4f4;
     padding: 10px;
     border-radius: 6px;
+    margin-bottom: 2vh;
   }
   #index-text-mobile #index-text-wrapper-mobile .index-text-row-mobile h3 {
     margin-bottom: 4px;
@@ -2664,7 +2704,7 @@ main {
   .boxtest #footercolumn1, .boxtest #footercolumn2, .boxtest #footercolumn3 {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 90%;
   }
   .boxtest #footercolumn1 h2, .boxtest #footercolumn2 h2, .boxtest #footercolumn3 h2 {
     font-size: 30px;
@@ -2678,7 +2718,10 @@ main {
   #socialmedia-wrapper {
     display: flex;
     flex-direction: row;
-    gap: 6vw;
+  }
+  #socialmedia-wrapper a:nth-child(2) {
+    margin-left: 6vw;
+    margin-right: 6vw;
   }
   #socialmedia-wrapper .socialmediabadge {
     width: 40px;
@@ -3000,7 +3043,11 @@ main {
     flex-direction: column;
     width: 100vw;
     text-align: center;
-    border-radius: 6px;
+  }
+  #login .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile {
+    display: none;
+    margin-left: 10px;
+    margin-right: 10px;
     background-color: white;
   }
   #login .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile {
@@ -3013,6 +3060,7 @@ main {
     font-size: 16px;
     font-weight: normal;
     line-height: 1.4;
+    margin-top: 0px;
   }
   #login .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile {
     display: flex;
@@ -3051,14 +3099,30 @@ main {
     margin: 8px;
     font-size: 18px;
   }
+  #login .containercentre-wrapper-wrapper-mobile .containercentre-wrapper-mobile .containercentre-firstrow-mobile .bankID-mobile #credentials-login-btn {
+    margin: 30px auto 0px auto;
+    font-size: 18px;
+    border-radius: 6px;
+    border-style: groove 0.5px;
+    width: 80vw;
+    background-color: #00006d;
+    color: white;
+    border-style: none;
+    padding: 14px;
+    border-radius: 6px;
+    border-style: none;
+    font-weight: bolder;
+  }
   #login .containercentre-wrapper-wrapper-mobile .containercentre-secondrow-mobile {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     border-top: 1px solid #e9e9e9;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 0px 10px 10px 10px;
     padding: 10px 20px 10px 20px;
+    background-color: white;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
   }
   #login .containercentre-wrapper-wrapper-mobile .containercentre-secondrow-mobile a {
     font-size: 16px;
@@ -3074,9 +3138,6 @@ main {
     font-size: 12px;
     color: #707070;
   }
-  #login .containercentre-wrapper-wrapper {
-    display: none;
-  }
   #login #side-menuhelp #close-sidehelp-button {
     width: 90vw;
     margin-left: 20px;
@@ -3087,6 +3148,123 @@ main {
     padding: 8px;
     font-size: 20px;
     font-weight: 600;
+  }
+  #login .containercentre-wrapper-wrapper {
+    background-color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+  }
+  #login .containercentre-wrapper-wrapper .containercentre-secondrow {
+    display: none;
+  }
+  #login .containercentre-wrapper-wrapper .containercentre-wrapper h1 {
+    text-align: center;
+    margin-bottom: 0px;
+  }
+  #login .containercentre-wrapper-wrapper .containercentre-wrapper #containercentre-firstrow-desktop {
+    display: none;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper {
+    margin: auto;
+    width: 100%;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 80%;
+    padding: 20px;
+    gap: 20px;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #bankid-button-wrapper {
+    display: flex;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #bankid-button-wrapper #bankid-initatebutton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 95%;
+    font-size: 18px;
+    padding: 14px;
+    border-radius: 6px;
+    border-style: none;
+    font-weight: bolder;
+    background-color: #00006d;
+    color: white;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #bankid-button-wrapper #bankid-initatebutton:hover {
+    background-color: #000041;
+    cursor: pointer;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #bankid-button-wrapper #bankid-initatebutton img {
+    width: 25px;
+    height: 25px;
+    margin-left: 30px;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #error-message-login-wrapper {
+    display: none;
+    padding: 20px;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #error-message-login-wrapper #error-message-login {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff000021;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #error-message-login-wrapper #error-message-login #error-message-text {
+    margin-left: 20px;
+    text-align: left;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #error-message-login-wrapper #error-message-login #error-message-text p {
+    margin: 0;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #error-message-login-wrapper #error-message-warningsymbol {
+    height: 40px;
+    width: 40px;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword {
+    display: none;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername #clearusername-btn, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername #clearpassword-btn, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword #clearusername-btn, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword #clearpassword-btn, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername #clearusername-btn, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername #clearpassword-btn, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword #clearusername-btn, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword #clearpassword-btn {
+    display: none;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #användarnamnlogin, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #lösenordlogin {
+    width: 90%;
+    height: 40px;
+    border-radius: 6px;
+    padding-left: 10px;
+    margin: auto;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #login-btn {
+    margin: auto;
+    width: 95%;
+    font-size: 18px;
+    padding: 14px;
+    border-radius: 6px;
+    border-style: none;
+    font-weight: bolder;
+    background-color: #00006d;
+    color: white;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #forgot-password {
+    font-size: 18px;
+    color: #00006d;
+    margin-left: 12px;
+    text-align: left;
   }
 }
 /********** SEARCH PAGE NAVIGATION ****************/
