@@ -5,11 +5,10 @@ $(document).ready(function(){
     loggedInControl();
 });
 async function loggedInControl(){
-    if(newArrayLoginId[0] == 1){
-        if(newArrayLoginId[1] == 1){
+    if(newArrayLoginId[0] > 0){
+        if(newArrayLoginId[1] == 1){ //Individual
             var role = newArrayLoginId[1];
             var accountid = newArrayLoginId[0];
-            var email = sessionStorage.getItem("username");
             $.ajax(
                 {
                     url: './PHP/individuals.php',
@@ -17,7 +16,6 @@ async function loggedInControl(){
                     method: 'GET',
                     data: {
                         userid: accountid,
-                        email: email,
                         role: role,
                     },
                     success: function(response){
@@ -40,7 +38,7 @@ async function loggedInControl(){
                 }
             );
         }
-        else if(newArrayLoginId[0] == 2){
+        else if(newArrayLoginId[1] == 2){ //Organisation
 
         }
     }
@@ -49,7 +47,7 @@ async function loggedInControl(){
     }
 };
 document.getElementById('loginanchor').onclick = function(){
-    if(newArrayLoginId[0] == 1){
+    if(newArrayLoginId[0] >= 1){
         window.location = './myaccount.html';
     }
     else{
@@ -57,7 +55,7 @@ document.getElementById('loginanchor').onclick = function(){
     }
 };
 document.getElementById('loginsidemenu').onclick = function(){
-    if(newArrayLoginId[0] == 1){
+    if(newArrayLoginId[0] >= 1){
         window.location = './myaccount.html';
     }
     else{
@@ -76,5 +74,25 @@ document.getElementById('hamburgermenu-btn').addEventListener('click', function(
         document.getElementById('side-menu').style.width='100vw';
         document.getElementById('hamburgermenu').style.display = "none";
         document.getElementById('cross-black').style.display = "block";
+    }
+});
+document.getElementById('inboxlink1').onclick = function(){
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
+    if(newArrayLoginId[0] >= 1){
+        document.getElementById('inboxlink1').href = "./inbox.html";
+    }
+    else{
+        window.location = './login.html';
+    }
+};
+document.getElementById('inboxlink2').addEventListener('click',function(){
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
+    if(newArrayLoginId[0] >= 1){
+        window.location = './inbox.html';
+    }
+    else{
+        window.location = './login.html';
     }
 });

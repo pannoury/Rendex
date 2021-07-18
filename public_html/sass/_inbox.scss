@@ -18,6 +18,10 @@
                 border-top-left-radius: 8px;
                 border-bottom-left-radius: 8px;
                 overflow: hidden;
+                #noconversations{
+                    display: none;
+                    text-align: center;
+                }
                 h1{
                     font-size: 24px; 
                     margin-bottom: 0;
@@ -71,10 +75,13 @@
                                     margin-top: 0; font-size: 14px;
                                 }
                                 .conversation-date{
+                                    font-weight: bold;
                                     font-size: 12px;
                                 }
                             }
                             .message-cue{
+                                display: flex;
+                                flex-direction: row;
                                 margin-top: 16px;
                                 margin-bottom: 0;
                                 p{margin: 0; font-size: 12px;}
@@ -101,7 +108,11 @@
                     align-items: center;
                     padding-left: 10px;
                     padding-right: 20px;
+                    #conversation-header-information-text{
+                        display: none;
+                    }
                     #conversation-options{
+                        display: none;
                         font-size: 16px;
                         user-select: none;
                     }
@@ -126,6 +137,9 @@
                 }
                 .conversation-topic-clue{
                     padding-left: 10px;
+                    #conversation-topic-p{
+                        display: none;
+                    }
                 }
                 .chat-display-window{
                     height: 650px;
@@ -152,6 +166,7 @@
                     display: flex;
                     overflow: visible;
                     .insert-button-chat{
+                        display: none;
                         margin: auto;
                         margin-right: -5px;
                         height: 20px;
@@ -163,7 +178,7 @@
                     }
                     .chat-input{
                         margin: auto;
-                        display: flex;
+                        display: none;
                         width: 90%;
                         #chat-input{
                             background-color: #434347;
@@ -176,6 +191,14 @@
                             font-size: 14px;
                             &:focus{
                                 outline: none;
+                            }
+                        }
+                        #chatinput-sendbtn{
+                            background-color: #434347;
+                            position: absolute;
+                            img{
+                                width: 10px;
+                                height: 10px;
                             }
                         }
     

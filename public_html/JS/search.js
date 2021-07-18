@@ -88,7 +88,7 @@ window.addEventListener('load', function loadRegionCheck(){
             else if(region == 'Västmanland'){
                 loadRegionCheckV2("Västmanland");
             }
-            else if(region == 'Götaland'){
+            else if(region == 'Västra Götaland'){
                 loadRegionCheckV2("Västra Götaland");
             }
         }
@@ -116,13 +116,11 @@ function loadRegionCheckV2(regionValue){
         document.getElementById(`${regionValue}`).checked = true;
 
         var citySelected = this.localStorage.getItem("citySelected");
-        console.log(citySelected);
         if (citySelected !== null && citySelected !== undefined){
             if (citySelected.includes(',')){
                 var citySelected = citySelected.replace(/"/g, "");
                 var citySelected = citySelected.split(',');
                 citySpan.innerText = "Flera Områden";
-                console.log(citySelected);
                 if(citySelected.length === 1 && citySelected.includes('Alla Städer') === false){
                     var citySelected = citySelected.toString();
                     citySpan.innerText = `${citySelected}`;
@@ -146,20 +144,17 @@ function loadRegionCheckV2(regionValue){
         }
     }
     else{
-        console.log(regionValue);
         document.getElementById('helasverigecheckbox').checked = false;
         document.getElementById(`${regionValue}`).checked = true;
 
     
     
         var citySelected = this.localStorage.getItem("citySelected");
-        console.log(citySelected);
         if (citySelected !== null && citySelected !== undefined){
             if (citySelected.includes(',')){
                 var citySelected = citySelected.replace(/"/g, "");
                 var citySelected = citySelected.split(',');
                 citySpan.innerText = "Flera Områden";
-                console.log(citySelected);
                 if(citySelected.length === 1 && citySelected.includes('Alla Städer') === false){
                     var citySelected = citySelected.toString();
                     citySpan.innerText = `${citySelected}`;

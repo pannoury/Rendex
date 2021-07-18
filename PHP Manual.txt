@@ -1,0 +1,11 @@
+PHP Manual
+
+
+MATCH ID:
+1 = A match is found;
+2 = A match was not found;
+
+
+MYSQL_NUM = Tells PHP to return the number of Hits!
+
+while ($row = mysql_fetch_array($result, MYSQL_NUM)

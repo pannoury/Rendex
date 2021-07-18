@@ -357,6 +357,9 @@ function cityWindowScript(regionValue){
                     document.getElementById('allaområdencheckbox').checked = false;
                 }
             }
+            else if(citySelected = `Hela + ${regionValue}`){
+                document.getElementById('allaområdencheckbox').checked = true;
+            }
             else{
                 console.log(citySelected);
                 var citySelected = citySelected.replace(/"/g, "");

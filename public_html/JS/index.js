@@ -1,7 +1,10 @@
 /******************************* Index Search *************************************/
 window.addEventListener('load', function(){
     indexNumberCount();
+    cityOptionMain();
+    localStorage.clear();
 });
+
 document.getElementById('indexsearchbutton').addEventListener('click', function(){
     regionCityCheck();
     rolePurposeCheck();
@@ -13,7 +16,6 @@ function indexNumberCount(){
             dataType: 'text',
             method: 'POST',
             success: function(response){
-                console.log(response);
                 var response = JSON.parse(response);
                 if(response[0] == 1){
                     if(response[1] > 999){
@@ -93,6 +95,30 @@ function rolePurposeCheck(){
     localStorage.setItem("roleSelected", `${roleSelected.value}`);
     localStorage.setItem("purposeSelected", `${purposeSelected.value}`);
     return (roleSelected.value, purposeSelected.value)
+}
+document.getElementById('mainRegionSelect').onchange = function(){
+    cityOptionMain();
+};
+function cityOptionMain(){
+    clearCityOptions();
+    var regionSelected = document.getElementById('mainRegionSelect').value;
+    var regionSelected = regionSelected.replace(/ /g, "");
+    var array = window[`${regionSelected}CityArray`];
+    generateCityOptions(array);
+}
+
+function generateCityOptions(array){
+    var cityOptions = document.getElementById('defualtCitySelect');
+    for(i = 0; i < array.length; i++) {
+        var option = document.createElement('option');
+        option.setAttribute('value', array[i]);
+        $('#disabledselect').remove();
+        cityOptions.appendChild(option);
+        option.innerText = `${array[i]}`;
+    };
+}
+function clearCityOptions(){
+    $('#defualtCitySelect').find('option').remove();
 }
 /***************************Dynamic Search City************************************/
 /* ARCHAIC CODE

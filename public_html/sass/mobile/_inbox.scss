@@ -1,6 +1,6 @@
 @media(max-width:875px){
     #main-inbox{
-        margin-top: 20px;
+        margin-top: 40px;
         padding-top: 50px;
         padding-bottom: 20px;
         background-color: #e9e9e9;
@@ -10,19 +10,18 @@
         margin: auto;
         .inbox-wrapper{
             display: flex;
-            height: 800px;
+            max-height: 800px;
             .conversation-inbox-list{
                 background-color: #38383D;
-                width: 30%;
+                width: 100vw;
                 color: white;
-                border-top-left-radius: 8px;
-                border-bottom-left-radius: 8px;
                 overflow: hidden;
                 h1{
                     font-size: 24px; 
-                    margin-bottom: 0;
+                    margin-top: 6px;
                     padding-left: 10px;
                     margin-bottom: 6px;
+                    text-align: center;
                 }
                 .inbox-separator{
                     height: 1px;
@@ -32,10 +31,15 @@
                     display: flex;
                     flex-direction: column;
                     overflow-y: scroll;
-                    height: 750px;
+                    min-height: 30px;
+                    max-height: 750px !important;
                     padding-bottom: 1px;
                     &:nth-last-child(1){
                         border-bottom-left-radius: 8px;
+                    }
+                    #noconversations{
+                        display: none;
+                        text-align: center;
                     }
                 }
                 .conversation-selection{
@@ -75,9 +79,14 @@
                                 }
                             }
                             .message-cue{
+                                display: flex;
+                                flex-direction: row;
                                 margin-top: 16px;
                                 margin-bottom: 0;
                                 p{margin: 0; font-size: 12px;}
+                                .conversation-date{
+                                    margin-left: 30vw;
+                                }
                             }
                         }
                     }
@@ -85,12 +94,11 @@
     
             }
             .conversation-display{
-                width: 70%;
+                display: none;
+                width: 100%;
                 background-color: #2A2A2E;
                 border-left: groove 1px;
                 color: white;
-                border-top-right-radius: 8px;
-                border-bottom-right-radius: 8px;
                 overflow: hidden;
                 #conversation-header{
                     height: 95px;

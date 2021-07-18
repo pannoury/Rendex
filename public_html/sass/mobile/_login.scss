@@ -133,7 +133,6 @@
                     margin: auto;
                     width: 80%;
                     padding: 20px;
-                    gap: 20px;
                     #bankid-button-wrapper{
                         display: flex;
                         #bankid-initatebutton{
@@ -141,6 +140,7 @@
                             align-items: center;
                             justify-content: center;
                             margin: auto;
+                            margin-bottom: 20px;
                             width: 95%;
                             font-size: 18px;
                             padding: 14px;
@@ -163,6 +163,7 @@
                     #error-message-login-wrapper{
                         display: none;
                         padding: 20px;
+                        margin-bottom: 20px;
                         #error-message-login{
                             display: flex;
                             flex-direction: row;
@@ -189,6 +190,7 @@
                         flex-direction: row;
                         align-items: center;
                         justify-content: flex-end;
+                        margin-bottom: 20px;
                         #clearusername, #clearpassword{
                             display: none;
                             #clearusername-btn, #clearpassword-btn{
@@ -213,6 +215,7 @@
                         font-weight: bolder;
                         background-color: $dark-blue;
                         color: white;
+                        margin-bottom: 20px;
                     }
                     #forgot-password{
                         font-size: 18px;

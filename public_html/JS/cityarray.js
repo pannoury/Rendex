@@ -31,33 +31,3 @@ var cityArray = [
     ['Jämtland', "Berg", "Bräcke", "Härjedalen", "Krokom", "Ragunda", "Strömsund", "Åre", "Östersund"],
     ['Jönköping', "Aneby", "Eksjö", "Gislaved",  "Gnosjö", "Habo", "Jönköping", "Mullsjö", "Nässjö", "Sävsjö", "Tranås", "Vaggeryd", "Vetlanda",  "Värnamo"],
 ];
-
-document.getElementById('mainRegionSelect').onchange = function(){
-    cityOptionMain();
-};
-window.onload = function(){
-    cityOptionMain();
-    localStorage.clear();
-}
-
-function cityOptionMain(){
-    clearCityOptions();
-    var regionSelected = document.getElementById('mainRegionSelect').value;
-    var regionSelected = regionSelected.replace(/ /g, "");
-    var array = window[`${regionSelected}CityArray`];
-    generateCityOptions(array);
-}
-
-function generateCityOptions(array){
-    var cityOptions = document.getElementById('defualtCitySelect');
-    for(i = 0; i < array.length; i++) {
-        var option = document.createElement('option');
-        option.setAttribute('value', array[i]);
-        $('#disabledselect').remove();
-        cityOptions.appendChild(option);
-        option.innerText = `${array[i]}`;
-    };
-}
-function clearCityOptions(){
-    $('#defualtCitySelect').find('option').remove();
-}
