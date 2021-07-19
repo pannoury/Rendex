@@ -5,13 +5,29 @@
                 "authProtocol": "default"
             },
             "previewLimit": 50,
+            "host": "*",
             "server": "mysql44.unoeuro.com",
             "port": 3306,
             "driver": "MySQL",
             "name": "MySQL",
             "password": "3411bRendex",
             "username": "rendex_se",
-            "database": "rendex_se_db"
+            "database": "rendex_se_db",
+            "insecureAuth": "true"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "127.0.0.1",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "localhost",
+            "group": "XAAMP",
+            "database": "rendex",
+            "username": "root",
+            "password": ""
         }
     ]
 }

@@ -1,27 +1,56 @@
-{
-    "remotePath": "./",
-    "host": "linux162.unoeuro.com",
-    "username": "rendex.se",
-    "password": "3411bRendex",
-    "port": 21,
-    "secure": false,
-    "protocol": "ftp",
-    "uploadOnSave": true,
-    "passive": false,
-    "debug": false,
-    "privateKeyPath": null,
-    "passphrase": null,
-    "agent": null,
-    "allow": [],
-    "ignore": [
-        "\\.vscode",
-        "\\.git",
-        "\\.DS_Store"
-    ],
-    "generatedFiles": {
-        "extensionsToInclude": [
-            ".php, .js, .css, .html, .svg, .jpg, .png, .jpeg, .scss"
+[
+    {
+        "remotePath": "./",
+        "host": "linux162.unoeuro.com",
+        "username": "rendex.se",
+        "password": "3411bRendex",
+        "port": 21,
+        "secure": false,
+        "protocol": "ftp",
+        "uploadOnSave": true,
+        "passive": false,
+        "debug": false,
+        "privateKeyPath": null,
+        "passphrase": null,
+        "agent": null,
+        "allow": [],
+        "ignore": [
+            "\\.vscode",
+            "\\.git",
+            "\\.DS_Store"
         ],
-        "path": ""
+        "generatedFiles": {
+            "extensionsToInclude": [
+                ".php, .js, .css, .html, .svg, .jpg, .png, .jpeg, .scss"
+            ],
+            "path": ""
+        }
+    },
+    {
+        "remotePath": "FileZilla/",
+        "host": "127.0.0.1",
+        "username": "",
+        "password": "",
+        "port": 14147,
+        "secure": false,
+        "protocol": "ftp",
+        "uploadOnSave": true,
+        "passive": false,
+        "debug": false,
+        "privateKeyPath": null,
+        "passphrase": null,
+        "agent": null,
+        "allow": [],
+        "ignore": [
+            "\\.vscode",
+            "\\.git",
+            "\\.DS_Store"
+        ],
+        "generatedFiles": {
+            "extensionsToInclude": [
+                ".php, .js, .css, .html, .svg, .jpg, .png, .jpeg, .scss"
+            ],
+            "path": ""
+        }
     }
-}
+]

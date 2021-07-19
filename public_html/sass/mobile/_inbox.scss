@@ -31,7 +31,7 @@
                     display: flex;
                     flex-direction: column;
                     overflow-y: scroll;
-                    min-height: 30px;
+                    min-height: 100px;
                     max-height: 750px !important;
                     padding-bottom: 1px;
                     &:nth-last-child(1){
@@ -95,7 +95,7 @@
             }
             .conversation-display{
                 display: none;
-                width: 100%;
+                width: 100vw;
                 background-color: #2A2A2E;
                 border-left: groove 1px;
                 color: white;
@@ -109,6 +109,15 @@
                     align-items: center;
                     padding-left: 10px;
                     padding-right: 20px;
+                    #nameheader-div{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        #conversationheader-arrowleft{
+                            display: block;
+                            margin-right: 10px;
+                        }
+                    }
                     #conversation-options{
                         font-size: 16px;
                         user-select: none;
@@ -184,6 +193,16 @@
                             font-size: 14px;
                             &:focus{
                                 outline: none;
+                            }
+                        }
+                        #chatinput-sendbtn{
+                            display: none;
+                            background-color: #2A2A2E;
+                            border-style: none;
+                            margin-left: 10px;
+                            img{
+                                width: 20px;
+                                height: 20px;
                             }
                         }
     

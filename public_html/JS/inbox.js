@@ -14,6 +14,7 @@ window.addEventListener('load', function conversationCount(){
     populateChatList();
     selectSpecificChatList();
     document.getElementById('chat-input').value = "";
+    const url = new URL('https://rendex.se/inbox');
 }); 
 
 
@@ -23,7 +24,7 @@ function populateChatList(){
     var accountid = newArrayLoginId[0];
     $.ajax(
         {
-            url: './PHP/getconvolistcopy.php',
+            url: './PHP/inbox.php',
             dataType: 'text',
             method: 'GET',
             data: {
@@ -36,7 +37,7 @@ function populateChatList(){
                 if(response.length == 1){ //single chatbox
                     $.ajax(
                         {
-                            url: './PHP/getconvolistcopy.php',
+                            url: './PHP/inbox.php',
                             dataType: 'text',
                             method: 'GET',
                             data: {
@@ -85,7 +86,7 @@ function populateChatList(){
                                 if(query[0] != accountid){ // you recieved latest msg
                                     $.ajax(
                                         {
-                                            url: './PHP/getconvolistcopy.php',
+                                            url: './PHP/inbox.php',
                                             dataType: 'text',
                                             method: 'GET',
                                             data: {
@@ -110,7 +111,7 @@ function populateChatList(){
                                 else if(query[0] = accountid){ //you sent latest msg
                                     $.ajax(
                                         {
-                                            url: './PHP/getconvolistcopy.php',
+                                            url: './PHP/inbox.php',
                                             dataType: 'text',
                                             method: 'GET',
                                             data: {
@@ -153,7 +154,7 @@ function populateChatList(){
 function iterateChatId(chatId){
     $.ajax(
         {
-            url: './PHP/getconvolistcopy.php',
+            url: './PHP/inbox.php',
             dataType: 'text',
             method: 'GET',
             data: {
@@ -205,6 +206,7 @@ document.getElementById('fileinputlink').addEventListener('click', () => {
 });
 
 function conversationSelect(id){
+    var width = window.screen.width;
     var element = document.getElementById(`${id}`).style.backgroundColor;
     var compare = document.getElementById('conversation-list').style.backgroundColor;
     if(element != compare){ //är den redan vald ska den inte populera mer
@@ -222,7 +224,7 @@ function conversationSelect(id){
         sessionStorage.setItem("chatid", `${id}`);
         $.ajax(
             {
-                url: './PHP/getconvolistcopy.php',
+                url: './PHP/inbox.php',
                 dataType: 'text',
                 method: 'GET',
                 data: {
@@ -282,6 +284,15 @@ function conversationSelect(id){
                     document.getElementById('insert-button-chat-wrapper').style.display = "block";
                     document.getElementById('chat-input-wrapper-wrapper').style.display = "flex";
                     populateChatHeader(queryChat);
+                    if(width > 875){ //mobile settings;
+
+                    }
+                    else if(width < 875){ //not mobile, do nothing
+                        document.getElementById('conversation-inbox-list').style.display = "none";
+                        document.getElementById('conversation-display').style.display = "block";
+                        document.getElementById('conversation-display').style.width = "100vw";
+                        document.getElementById('chat-list').style.height = "10vh";
+                    }
                 },
             }
         );
@@ -295,7 +306,7 @@ function populateChatHeader(chatArray){
     if(accountid == chatArray[0][1]){ //you're the sender
         $.ajax(
             {
-                url: './PHP/getconvolistcopy.php',
+                url: './PHP/inbox.php',
                 dataType: 'text',
                 method: 'GET',
                 data: {
@@ -305,15 +316,16 @@ function populateChatHeader(chatArray){
                 success: function(response){
                     response = JSON.parse(response);
                     document.getElementById('conversation-header-information-text').innerText = `${response[1]}, ${response[2]}`;
+                    sessionStorage.setItem("counterpart", `${chatArray[0][2]}`); //store the counterpart
                 },
             }
         );
     }
     else if(accountid != chatArray[0][1]){ //you're the reciever
-        sessionStorage.setItem("counterpart", `${chatArray[0][1]}`);
+        sessionStorage.setItem("counterpart", `${chatArray[0][1]}`); //store the counterpart
         $.ajax(
             {
-                url: './PHP/getconvolistcopy.php',
+                url: './PHP/inbox.php',
                 dataType: 'text',
                 method: 'GET',
                 data: {
@@ -331,6 +343,16 @@ function populateChatHeader(chatArray){
     document.getElementById('conversation-topic-p').style.display = "block";
     document.getElementById('conversation-header-information-text').style.display = "block";
 };
+''
+document.getElementById('chat-input').oninput = function(){
+    var inputValue = document.getElementById('chat-input').value;
+    if(inputValue.length >= 1){
+        document.getElementById('chatinput-sendbtn').style.display = "block";
+    }
+    else{
+        document.getElementById('chatinput-sendbtn').style.display = "none";
+    }
+};
 
 document.getElementById('chatinput-sendbtn').addEventListener('click', function (){
     var loginId = getCookie("a_user");
@@ -345,11 +367,11 @@ document.getElementById('chatinput-sendbtn').addEventListener('click', function 
     if(text.length >= 1){
         $.ajax(
             {
-                url: './PHP/getconvolistcopy.php',
+                url: './PHP/inbox.php',
                 dataType: 'text',
                 method: 'POST',
                 data: {
-                    requestid: 4,
+                    requestid: 5,
                     sender: accountid,
                     reciever: sessionStorage.getItem("counterpart"),
                     chatid: sessionStorage.getItem("chatid"),
@@ -357,6 +379,9 @@ document.getElementById('chatinput-sendbtn').addEventListener('click', function 
                     date: date,
                 },
                 success: function(response){
+                    if(response = 1){
+                        location.reload();
+                    }
                 },
             }
         );

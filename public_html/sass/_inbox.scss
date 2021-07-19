@@ -108,6 +108,14 @@
                     align-items: center;
                     padding-left: 10px;
                     padding-right: 20px;
+                    #nameheader-div{
+                        display: none;
+                        flex-direction: row;
+                        #conversationheader-arrowleft{
+                            display: none;
+                            margin-right: 10px;
+                        }
+                    }
                     #conversation-header-information-text{
                         display: none;
                     }
@@ -157,7 +165,6 @@
                         border-radius: 6px;
                         z-index: 10;
                         user-select: none;
-                        display: none;
                     }
                 }
                 .chat-input-wrapper{
@@ -166,7 +173,7 @@
                     display: flex;
                     overflow: visible;
                     .insert-button-chat{
-                        display: none;
+                        display: block;
                         margin: auto;
                         margin-right: -5px;
                         height: 20px;
@@ -178,7 +185,9 @@
                     }
                     .chat-input{
                         margin: auto;
-                        display: none;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
                         width: 90%;
                         #chat-input{
                             background-color: #434347;
@@ -186,19 +195,22 @@
                             border-radius: 20px;
                             border-style: none;
                             height: 35px;
-                            width: 530px;
+                            width: 500px;
                             padding-left: 20px;
+                            padding-right: 10px;
                             font-size: 14px;
                             &:focus{
                                 outline: none;
                             }
                         }
                         #chatinput-sendbtn{
-                            background-color: #434347;
-                            position: absolute;
+                            display: none;
+                            background-color: #2A2A2E;
+                            border-style: none;
+                            margin-left: 10px;
                             img{
-                                width: 10px;
-                                height: 10px;
+                                width: 20px;
+                                height: 20px;
                             }
                         }
     

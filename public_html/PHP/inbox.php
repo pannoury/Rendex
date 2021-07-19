@@ -163,10 +163,11 @@
         $reciever = $conn->real_escape_string($_POST['reciever']);
         $text = $conn->real_escape_string($_POST['text']);
         $date = $conn->real_escape_string($_POST['date']);
+        $text = utf8_decode($text);
         $sql = "INSERT INTO chatdb (account_id,chat_time,counterpart,text,chat_id) VALUES ('$sender','$date','$reciever','$text','$chatid')";
         $result = mysqli_query($conn, $sql);
         if ($result) {
-            echo json_encode("New record created successfully");
+            echo json_encode("1");
         } 
         else {
             echo json_encode("Unsuccessful request");

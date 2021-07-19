@@ -33,17 +33,20 @@
   <main id="main-inbox">
     <div class="inbox-wrapper-wrapper">
       <div class="inbox-wrapper">
-        <div class="conversation-inbox-list">
+        <div class="conversation-inbox-list" id="conversation-inbox-list">
           <h1>Meddelanden</h1>
           <div class="inbox-separator"></div>
           <div id="conversation-list">
             <h1 id="noconversations"></h1>
           </div>
         </div>
-        <div class="conversation-display">
+        <div class="conversation-display" id="conversation-display">
           <div id="conversation-header">
             <div class="conversation-header-information">
-              <p><span class="bold" id="conversation-header-information-text">[FirstName, SurName]</span></p>
+              <div id="nameheader-div">
+                <img src="./assets/images/arrow-left.svg" id="conversationheader-arrowleft" width="20px" height="20px">
+                <p><span class="bold" id="conversation-header-information-text">[FirstName, SurName]</span></p>
+              </div>
               <a id="conversation-options">&bull; &bull; &bull;</a>
               <div id="conversation-options-window">
                 <a>Blockera användare</a>
@@ -72,7 +75,7 @@
             </div>
             <div class="chat-input" id="chat-input-wrapper-wrapper">
               <input type="text" id="chat-input" placeholder="Skriv ett meddelande...">
-              <button id="chatinput-sendbtn"><img src="./assets/images/send.svg"></button>
+              <button id="chatinput-sendbtn"><img src="./assets/images/send-white.svg"></button>
             </div>
           </div>
         </div>
