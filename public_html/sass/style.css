@@ -141,7 +141,6 @@ main {
     width: 100%;
     margin: auto;
     padding-bottom: 10px;
-    border-bottom: #708090 3px solid;
     position: fixed;
     z-index: 10;
     overflow: hidden;
@@ -170,7 +169,7 @@ main {
     margin: 0;
   }
   header .container {
-    width: 80%;
+    width: 60%;
     margin: auto;
     overflow: hidden;
   }
@@ -560,14 +559,16 @@ main {
   }
 
   #index-text {
-    width: 60%;
+    width: 100%;
     margin: auto;
-    margin-bottom: 50px;
+    background-color: #fff;
   }
 
   #index-text-wrapper {
+    width: 60%;
     display: flex;
     justify-content: center;
+    margin: auto;
   }
   #index-text-wrapper .index-text-column {
     width: 50%;
@@ -609,7 +610,8 @@ main {
     text-align: center;
   }
   #index-showcase-offers #index-showcase-offers-header h2 {
-    font-size: 28px;
+    font-size: 34px;
+    margin-bottom: 50px;
   }
   #index-showcase-offers #index-showcase-offers-wrapper {
     display: flex;
@@ -1344,7 +1346,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     flex-flow: row;
-    margin-top: 52px;
+    margin-top: 48px;
     padding-top: 5px;
     padding-bottom: 5px;
     width: 100%;
@@ -2132,7 +2134,7 @@ main {
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-inbox-list h1 {
     font-size: 24px;
     margin-bottom: 0;
-    padding-left: 10px;
+    padding-left: 20px;
     margin-bottom: 6px;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-inbox-list .inbox-separator {
@@ -2142,7 +2144,6 @@ main {
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-inbox-list #conversation-list {
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
     height: 750px;
     padding-bottom: 1px;
   }
@@ -2175,6 +2176,7 @@ main {
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-inbox-list .conversation-selection .conversation .conversation-list-information {
     width: 80%;
+    padding-left: 10px;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-inbox-list .conversation-selection .conversation .conversation-list-information .name-and-date {
     display: flex;
@@ -2193,7 +2195,6 @@ main {
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-inbox-list .conversation-selection .conversation .conversation-list-information .message-cue {
     display: flex;
     flex-direction: row;
-    margin-top: 16px;
     margin-bottom: 0;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-inbox-list .conversation-selection .conversation .conversation-list-information .message-cue p {
@@ -2223,7 +2224,7 @@ main {
     display: flex;
     flex-direction: row;
   }
-  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #nameheader-div #conversationheader-arrowleft {
+  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #nameheader-div #leaveconversation-anchor {
     display: none;
     margin-right: 10px;
   }
@@ -2268,7 +2269,7 @@ main {
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-display-window {
     height: 650px;
     margin-top: 0.5px;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-display-window #insert-window {
     background-color: #434347;
@@ -2289,7 +2290,7 @@ main {
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper {
     height: 50px;
     margin: auto;
-    display: flex;
+    display: none;
     overflow: visible;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .insert-button-chat {
@@ -2344,13 +2345,15 @@ main {
     text-align: right;
   }
   #text-sent .chat-text {
+    display: flex;
+    justify-content: right;
     text-align: right;
     margin-bottom: 10px;
   }
   #text-sent .chat-text p {
     background-color: #1f4ece;
     border-radius: 20px;
-    padding: 10px 10px 10px 20px;
+    padding: 10px 15px 10px 15px;
     text-align: left;
   }
 
@@ -2363,17 +2366,13 @@ main {
   #text-recieved .chat-text {
     text-align: left;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: left;
   }
   #text-recieved .chat-text p {
     background-color: gray;
     border-radius: 20px;
-    padding: 10px 20px 10px 20px;
-  }
-
-  .testish {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    padding: 10px 15px 10px 15px;
   }
 
   #chat-list {
@@ -2405,6 +2404,11 @@ main {
   /*********************** Chat CSS ***************************/
 }
 /* Inbox Page */
+#myaccountmain {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+}
 #myaccountmain #myaccount-wrapper-wrapper {
   padding: 20px;
 }
@@ -2426,13 +2430,22 @@ main {
   border-radius: 15%;
 }
 #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profilepicture #myaccount-profilepicture {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
 }
-#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-name-wrapper {
-  margin: 0px;
+#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profileinfo #myaccount-name-wrapper {
+  margin: 0px 0px 0px 20px;
   font-size: 20px;
   font-weight: bolder;
+}
+#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profileinfo #myaccount-email {
+  margin: 0px 0px 0px 20px;
+  font-size: 20px;
+}
+#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
 }
 #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 #showpublicprofile-btn {
   padding: 6px 12px 6px 12px;
@@ -2440,11 +2453,79 @@ main {
   font-weight: bolder;
   border-radius: 4px;
   border: black 1px solid;
+  margin-right: 10px;
 }
 #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 #showpublicprofile-btn:hover {
   opacity: 0.8;
   cursor: pointer;
 }
+#myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper {
+  margin-top: 20px;
+}
+#myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row {
+  display: flex;
+  flex-direction: row;
+}
+#myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row .option-div {
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px;
+  width: 300px;
+  height: 125px;
+  margin-bottom: 20px;
+}
+#myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row .option-div h4 {
+  margin-top: 0px;
+}
+#myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row .option-div:nth-child(1) {
+  margin-right: 20px;
+}
+#myaccountmain #myaccount-wrapper-wrapper #logout, #myaccountmain #myaccount-wrapper-wrapper #account-settings {
+  padding: 6px 12px 6px 12px;
+  background-color: white;
+  font-weight: bolder;
+  border-radius: 4px;
+  border: black 1px solid;
+}
+#myaccountmain #myaccount-wrapper-wrapper #logout:hover, #myaccountmain #myaccount-wrapper-wrapper #account-settings:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+#myaccountmain #myaccount-wrapper-wrapper #logout {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+#settings-window {
+  height: 50vh;
+  width: 0px;
+  position: fixed;
+  z-index: 10;
+  top: 25vh;
+  right: 50%;
+  background-color: #0F1419;
+  overflow-x: hidden;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  border-radius: 6px;
+  box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+}
+#settings-window #settings-window-header {
+  display: flex;
+  flex-direction: row;
+}
+#settings-window #settings-window-header #settings-closeanchor {
+  display: flex;
+  flex-direction: row;
+}
+
 @media (max-width: 875px) {
   main {
     width: 100vw;
@@ -2481,7 +2562,7 @@ main {
     margin-top: 4px;
   }
   #indexsearchsection #indexwrapper {
-    background-color: #d3d1d1;
+    background-color: #fff;
     margin-top: 20px;
     width: 100%;
   }
@@ -2524,7 +2605,7 @@ main {
     border-style: none;
     background-color: #00006d;
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
   #indexsearchsection #indexwrapper #select:invalid {
     color: gray;
@@ -2552,6 +2633,7 @@ main {
   #mainRegionSelect, .mainCitySelect, #mainRoleSelect, #mainPurposeSelect {
     display: flex;
     margin-top: 10px;
+    background-color: #f4f4f4;
   }
 
   .arrow-select {
@@ -2635,10 +2717,10 @@ main {
     margin-top: 16px;
     padding: 10px;
     padding-bottom: 20px;
-    background-color: #333333b9;
+    background-color: #fff;
   }
   #index-text-mobile h2 {
-    color: white;
+    color: black;
     margin-top: 4px;
   }
   #index-text-mobile #index-text-wrapper-mobile {
@@ -2654,11 +2736,11 @@ main {
   #index-text-mobile #index-text-wrapper-mobile .index-text-row-mobile h3 {
     margin-bottom: 4px;
     margin-top: 4px;
-    color: #00006d;
+    color: black;
   }
   #index-text-mobile #index-text-wrapper-mobile .index-text-row-mobile p {
     margin-top: 2px;
-    font-weight: 510;
+    font-weight: 400;
   }
   #index-text-mobile #index-text-wrapper-mobile .index-text-row-mobile a {
     color: #2c7688;
@@ -2667,7 +2749,7 @@ main {
 }
 @media (max-width: 875px) {
   #index-showcase-offers {
-    background-color: #ffa6003b;
+    background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -2687,7 +2769,7 @@ main {
     flex-direction: column;
     margin: auto;
     width: 90vw;
-    background-color: #f4f4f4;
+    background-color: #fff;
     padding: 10px;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -2888,11 +2970,12 @@ main {
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-inbox-list .conversation-selection .conversation .conversation-list-information .name-and-date .conversation-date {
     font-size: 12px;
+    font-weight: bold;
+    margin-left: 4px;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-inbox-list .conversation-selection .conversation .conversation-list-information .message-cue {
     display: flex;
     flex-direction: row;
-    margin-top: 16px;
     margin-bottom: 0;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-inbox-list .conversation-selection .conversation .conversation-list-information .message-cue p {
@@ -2921,12 +3004,13 @@ main {
     padding-right: 20px;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #nameheader-div {
-    display: flex;
+    display: none;
     flex-direction: row;
     align-items: center;
   }
-  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #nameheader-div #conversationheader-arrowleft {
-    display: block;
+  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #nameheader-div #leaveconversation-anchor {
+    display: flex;
+    align-items: center;
     margin-right: 10px;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #conversation-options {
@@ -2999,7 +3083,7 @@ main {
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .chat-input {
     margin: auto;
     display: flex;
-    width: 90%;
+    width: 85%;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .chat-input #chat-input {
     background-color: #434347;
@@ -3036,13 +3120,15 @@ main {
     text-align: right;
   }
   #text-sent .chat-text {
+    display: flex;
+    justify-content: right;
     text-align: right;
     margin-bottom: 10px;
   }
   #text-sent .chat-text p {
     background-color: #1f4ece;
     border-radius: 20px;
-    padding: 10px 10px 10px 20px;
+    padding: 10px 20px 10px 20px;
     text-align: left;
   }
 
@@ -3055,6 +3141,8 @@ main {
   #text-recieved .chat-text {
     text-align: left;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: left;
   }
   #text-recieved .chat-text p {
     background-color: gray;

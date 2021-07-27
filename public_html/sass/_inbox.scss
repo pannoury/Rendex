@@ -25,7 +25,7 @@
                 h1{
                     font-size: 24px; 
                     margin-bottom: 0;
-                    padding-left: 10px;
+                    padding-left: 20px;
                     margin-bottom: 6px;
                 }
                 .inbox-separator{
@@ -35,7 +35,6 @@
                 #conversation-list{
                     display: flex;
                     flex-direction: column;
-                    overflow-y: scroll;
                     height: 750px;
                     padding-bottom: 1px;
                     &:nth-last-child(1){
@@ -66,6 +65,7 @@
                         }
                         .conversation-list-information{
                             width: 80%;
+                            padding-left: 10px;
                             .name-and-date{
                                 display: flex;
                                 justify-content: space-between;
@@ -82,14 +82,12 @@
                             .message-cue{
                                 display: flex;
                                 flex-direction: row;
-                                margin-top: 16px;
                                 margin-bottom: 0;
                                 p{margin: 0; font-size: 12px;}
                             }
                         }
                     }
                 }
-    
             }
             .conversation-display{
                 width: 70%;
@@ -109,9 +107,9 @@
                     padding-left: 10px;
                     padding-right: 20px;
                     #nameheader-div{
-                        display: none;
+                        display: flex;
                         flex-direction: row;
-                        #conversationheader-arrowleft{
+                        #leaveconversation-anchor{
                             display: none;
                             margin-right: 10px;
                         }
@@ -152,7 +150,7 @@
                 .chat-display-window{
                     height: 650px;
                     margin-top: 0.5px;
-                    overflow-y: scroll;
+                    overflow-y: auto;
                     #insert-window{
                         background-color: #434347;
                         position: absolute;
@@ -170,7 +168,7 @@
                 .chat-input-wrapper{
                     height: 50px;
                     margin: auto;
-                    display: flex;
+                    display: none;
                     overflow: visible;
                     .insert-button-chat{
                         display: block;
@@ -230,12 +228,14 @@
             text-align: right;
         }
         .chat-text{
+            display: flex;
+            justify-content: right;
             text-align: right;
             margin-bottom: 10px;
             p{
                 background-color: #1f4ece;
                 border-radius: 20px;
-                padding: 10px 10px 10px 20px;
+                padding: 10px 15px 10px 15px;
                 text-align: left;
             }
         }
@@ -248,17 +248,14 @@
         .chat-text{
             text-align: left;
             margin-bottom: 10px;
+            display: flex;
+            justify-content: left;
             p{
                 background-color: gray;
                 border-radius: 20px;
-                padding: 10px 20px 10px 20px;
+                padding: 10px 15px 10px 15px;
             }
         }
-    }
-    .testish{
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
     }
     #chat-list{
         list-style-position: none;

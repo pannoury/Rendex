@@ -76,12 +76,13 @@
                                 }
                                 .conversation-date{
                                     font-size: 12px;
+                                    font-weight: bold;
+                                    margin-left: 4px;
                                 }
                             }
                             .message-cue{
                                 display: flex;
                                 flex-direction: row;
-                                margin-top: 16px;
                                 margin-bottom: 0;
                                 p{margin: 0; font-size: 12px;}
                                 .conversation-date{
@@ -110,11 +111,12 @@
                     padding-left: 10px;
                     padding-right: 20px;
                     #nameheader-div{
-                        display: flex;
+                        display: none;
                         flex-direction: row;
                         align-items: center;
-                        #conversationheader-arrowleft{
-                            display: block;
+                        #leaveconversation-anchor{
+                            display: flex;
+                            align-items: center;
                             margin-right: 10px;
                         }
                     }
@@ -181,7 +183,7 @@
                     .chat-input{
                         margin: auto;
                         display: flex;
-                        width: 90%;
+                        width: 85%;
                         #chat-input{
                             background-color: #434347;
                             color: white;
@@ -222,12 +224,14 @@
             text-align: right;
         }
         .chat-text{
+            display: flex;
+            justify-content: right;
             text-align: right;
             margin-bottom: 10px;
             p{
                 background-color: #1f4ece;
                 border-radius: 20px;
-                padding: 10px 10px 10px 20px;
+                padding: 10px 20px 10px 20px;
                 text-align: left;
             }
         }
@@ -240,6 +244,8 @@
         .chat-text{
             text-align: left;
             margin-bottom: 10px;
+            display: flex;
+            justify-content: left;
             p{
                 background-color: gray;
                 border-radius: 20px;

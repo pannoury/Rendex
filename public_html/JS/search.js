@@ -178,8 +178,3 @@ function loadRegionCheckV2(regionValue){
         }
     }
 };
-/*
-document.getElementById('closelocationselectwindow').addEventListener('click', function(){
-    clearRegionsV2();
-});
-*/

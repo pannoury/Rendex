@@ -9,11 +9,8 @@
   <meta name="author" content="Patrick Tannoury">
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="sass/style.css" type="text/css">
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous">
-  </script> 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   <script> 
   $(function(){
     $("#navbar").load("navbar.html"); 
@@ -32,31 +29,53 @@
   <!--END-Navigation Bar-->
   <main id="myaccountmain">
     <div id="myaccount-wrapper-wrapper">
+      <h1>Hej, <span id="h1header-myaccount"></span></h1>
       <div id="profile-header">
         <div id="profileheader-row1">
           <div id="myaccount-profilepicture">
           </div>
-          <p id="myaccount-name-wrapper">[name]</p>
+          <div id="myaccount-profileinfo">
+            <p id="myaccount-name-wrapper">[name]</p>
+            <p id="myaccount-email">[email]</p>
+          </div>
+          
         </div>
         <div id="profileheader-row2">
           <button id="showpublicprofile-btn">Visa publik profil</button>
+          <button id="account-settings">Inställningar</button>
+          <button id="logout">Logga ut</button>
         </div>
       </div>
       <div id="myaccount-options-wrapper">
-
+        <div id="options-wrapper-row1" class="options-wrapper-row">
+          <div id="savedarticles" class="option-div">
+            <h4>Sparade Annonser</h4>
+            <p>Se och hantera sparade annonser</p>
+          </div>
+          <div class="option-div">
+            <p></p>
+            <p></p>
+          </div>
+        </div>
+        <div id="options-wrapper-row2" class="options-wrapper-row">
+          <div id="myarticles" class="option-div">
+            <h4>Mina annonser</h4>
+            <p>Se och hantera dina annonser</p>
+          </div>
+          <div id="your-rating" class="option-div">
+            <h4>Mitt omdöme</h4>
+          </div>
+        </div>
       </div>
-      <h1>Välkommen!</h1>
     </div>
-      
-
-
-
-
-      <button id="logout">Logga ut</button>
       <div id="cookiewindowpopupwrapper"></div>
   </main>
-
-  
+  <div id="settings-window">
+    <div id="settings-window-header">
+      <h3>Inställningar</h3>
+      <a id="settings-closeanchor"><p>Stäng</p><img src="./assets/images/cross-black.svg" width="20px" height="20px"></a>
+    </div>
+  </div>
 <div id="footer"></div>
 <script src="./JS/myaccount.js"></script>
 <script src="./JS/cookie.js"></script>

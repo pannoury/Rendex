@@ -24,6 +24,7 @@ async function loggedInControl(){
                             var width = window.screen.width;
                             if(width > 875){
                                 document.getElementById('loginanchor').innerText = `${response[1]}`;
+                                document.getElementById('loggedInFalse').style.display = "none";
                             }
                             else if(width < 875){
                                 document.getElementById('loginsidemenu').innerText = `${response[1]}`;
@@ -62,7 +63,6 @@ document.getElementById('loginsidemenu').onclick = function(){
         window.location = './login.html';
     }
 }
-
 document.getElementById('hamburgermenu-btn').addEventListener('click', function(){
     var sideMenu = document.getElementById('side-menu').offsetWidth;
     if(sideMenu !== 0){
@@ -80,10 +80,10 @@ document.getElementById('inboxlink1').onclick = function(){
     var loginId = getCookie("a_user");
     var newArrayLoginId = loginId.split(',');
     if(newArrayLoginId[0] >= 1){
-        document.getElementById('inboxlink1').href = "./inbox.html";
+        document.getElementById('inboxlink1').href = "https://rendex.se/inbox";
     }
     else{
-        window.location = './login.html';
+        window.location = 'https://rendex.se/login';
     }
 };
 document.getElementById('inboxlink2').addEventListener('click',function(){
@@ -96,3 +96,16 @@ document.getElementById('inboxlink2').addEventListener('click',function(){
         window.location = './login.html';
     }
 });
+/*
+window.onscroll = function(){
+    var navbar = document.getElementById('header');
+    if(window.screen.width > 875){
+        if(window.pageYOffset >= 1){
+            navbar.style.backgroundColor = "";
+        }
+        else{
+            navbar.style.backgroundColor = "#333";
+        }
+    }
+};
+*/

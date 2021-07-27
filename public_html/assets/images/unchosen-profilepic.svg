@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
 <style type="text/css">
-	.st0{stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
+	.st0{fill:#FFFFFF;}
+	.st1{stroke:#000000;stroke-miterlimit:10;}
 </style>
-<ellipse id="XMLID_2_" cx="50" cy="88.3" rx="50" ry="33.8"/>
-<ellipse id="XMLID_1_" class="st0" cx="50" cy="38.9" rx="22" ry="21"/>
-<rect id="XMLID_3_" y="88.3" width="100" height="24.1"/>
+<g id="Layer_1">
+	<rect id="XMLID_2_" class="st0" width="100" height="100"/>
+</g>
+<g id="Layer_2">
+	<path id="XMLID_1_" class="st1" d="M100,100c0-13.5-26.8-45.4-50-45.4S0,84.9,0,98.4s26.9,7.4,50.1,7.4S100,113.5,100,100z"/>
+	<circle id="XMLID_3_" class="st1" cx="50" cy="32" r="17.5"/>
+</g>
 </svg>

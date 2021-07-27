@@ -2,6 +2,46 @@ var width = window.screen.width;
 var användarNamn = document.getElementById('användarnamnlogin');
 var password = document.getElementById('lösenordlogin');
 var loginButton = document.getElementById('login-btn');
+$(document).ready(function(){
+    loggedInControl2();
+});
+async function loggedInControl2(){
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
+    if(newArrayLoginId[0] > 0){
+        if(newArrayLoginId[1] == 1){ //Individual
+            var role = newArrayLoginId[1];
+            var accountid = newArrayLoginId[0];
+            $.ajax(
+                {
+                    url: './PHP/individuals.php',
+                    dataType: 'text',
+                    method: 'GET',
+                    data: {
+                        userid: accountid,
+                        role: role,
+                    },
+                    success: function(response){
+                        var response = JSON.parse(response);
+                        if(response[0] == 1){
+                            window.location = "https://rendex.se/myaccount";
+                        }
+                        else{
+                            console.log("Failed to fetch data from server");
+                        }
+    
+                    },
+                }
+            );
+        }
+        else if(newArrayLoginId[1] == 2){ //Organisation
+
+        }
+    }
+    else{
+        //do nothing, allow the user to stay in login-page
+    }
+};
 
 document.getElementById('bankidwindowwide').addEventListener('click', function(){
     bankIdWindow();

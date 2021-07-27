@@ -73,9 +73,16 @@
         }
     }
     #company-number-row{
-        display: flex; align-content: stretch;
-        align-items: flex-start; text-align: center; gap: 0px; justify-content: space-evenly;
-        width: 62%; margin: auto; margin-bottom: 20px; padding-top: 20px;
+        display: flex; 
+        align-content: stretch;
+        align-items: flex-start; 
+        text-align: center; 
+        gap: 0px; 
+        justify-content: space-evenly;
+        width: 62%; 
+        margin: auto; 
+        margin-bottom: 20px; 
+        padding-top: 20px;
         div{
             &:nth-child(1){width: 33% !important;}
             &:nth-child(3){width: 33% !important;}
@@ -99,10 +106,16 @@
         padding-left: 10px; 
         padding-right: 10px;
     }
-    #index-text{width: 60%; margin: auto; margin-bottom: 50px;}
+    #index-text{
+        width: 100%; 
+        margin: auto; 
+        background-color: #fff;
+    }
     #index-text-wrapper{
+        width: 60%;
         display: flex; 
         justify-content: center;
+        margin: auto;
         .index-text-column{width: 50%; margin: 0 20px 0 20px;}
         h3{font-size: 26px; margin-bottom: 10px;}
         p{line-height:1.5rem;}
@@ -132,7 +145,8 @@
             flex-wrap: wrap;
             text-align: center;
             h2{
-                font-size: 28px;
+                font-size: 34px;
+                margin-bottom: 50px;
             }
         }
         #index-showcase-offers-wrapper{
