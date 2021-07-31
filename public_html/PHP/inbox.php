@@ -227,35 +227,13 @@
             echo json_encode("Unsuccessful request");
         }
     }
-    else if($requestId == 6){ //update and include latest text
+    else if($requestId == 6){ //update and include latest text (When you send a text)
         $chatid = $conn->real_escape_string($_GET['chatid']);
         $sender = $conn->real_escape_string($_GET['sender']);
         $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' ORDER BY chat_time DESC LIMIT 1";
         $result = mysqli_query($conn,$sql);  
         $rows = mysqli_num_rows($result);
-        if(mysqli_num_rows($result) > 1){
-            for($i=0; $i < $rows; $i++){
-                $rs=mysqli_fetch_array($result);
-                $sender = $rs['account_id'];
-                $reciever = $rs['counterpart'];
-                $chattime = $rs['chat_time'];
-                $text = $rs['text'];
-                $chatid = $rs['chat_id'];
-                $sender = utf8_encode($sender);
-                $reciever = utf8_encode($reciever);
-                $chattime = utf8_encode($chattime);
-                $text = utf8_encode($text);
-                $chatid = utf8_encode($chatid);
-                $matchid = 1;
-                $points[$i][0]=($matchid);
-                $points[$i][1]=($sender);
-                $points[$i][2]=($reciever);
-                $points[$i][3]=($chattime);
-                $points[$i][4]=($text);
-            }
-            echo (json_encode($points));
-        }
-        else if(mysqli_num_rows($result) == 1){
+        if(mysqli_num_rows($result) == 1){
             $rs=mysqli_fetch_array($result);
             $sender = $rs['account_id'];
             $reciever = $rs['counterpart'];
@@ -282,7 +260,7 @@
         $chatid = $conn->real_escape_string($_GET['chatid']);
         $sender = $conn->real_escape_string($_GET['sender']);
         $chatRows = $conn->real_escape_string($_GET['chatRows']);
-        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' ORDER BY chat_time DESC";
+        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' AND account_id=$sender ORDER BY chat_time DESC";
         $result = mysqli_query($conn,$sql);  
         $rows = mysqli_num_rows($result);
         if(mysqli_num_rows($result) > $chatRows){
@@ -292,36 +270,18 @@
         else if(mysqli_num_rows($result) == $chatRows){ //no new chats
             echo (json_encode("0"));
         }
+        else if(mysqli_num_rows($result) < $chatRows){
+            echo (json_encode("0"));
+        }
     }
     else if($requestId == 8){ //update and include latest text sent by someone else (only one)
         $chatid = $conn->real_escape_string($_GET['chatid']);
         $limit = $conn->real_escape_string($_GET['limit']);
-        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' ORDER BY chat_time DESC LIMIT $limit";
+        $sender = $conn->real_escape_string($_GET['sender']);
+        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' AND account_id=$sender ORDER BY chat_time DESC LIMIT $limit";
         $result = mysqli_query($conn,$sql);  
         $rows = mysqli_num_rows($result);
-        if(mysqli_num_rows($result) > 1){
-            for($i=0; $i < $rows; $i++){
-                $rs=mysqli_fetch_array($result);
-                $sender = $rs['account_id'];
-                $reciever = $rs['counterpart'];
-                $chattime = $rs['chat_time'];
-                $text = $rs['text'];
-                $chatid = $rs['chat_id'];
-                $sender = utf8_encode($sender);
-                $reciever = utf8_encode($reciever);
-                $chattime = utf8_encode($chattime);
-                $text = utf8_encode($text);
-                $chatid = utf8_encode($chatid);
-                $matchid = 1;
-                $points[$i][0]=($matchid);
-                $points[$i][1]=($sender);
-                $points[$i][2]=($reciever);
-                $points[$i][3]=($chattime);
-                $points[$i][4]=($text);
-            }
-            echo (json_encode($points));
-        }
-        else if(mysqli_num_rows($result) == 1){
+        if(mysqli_num_rows($result) > 0){
             $rs=mysqli_fetch_array($result);
             $sender = $rs['account_id'];
             $reciever = $rs['counterpart'];
@@ -345,6 +305,7 @@
             echo (json_encode("2"));
         }
     }
+    /*************Archaic Code */
     else if($requestId == 9){ //multiple chats has been written
         $chatid = $conn->real_escape_string($_GET['chatid']);
         $limit = $conn->real_escape_string($_GET['limit']);

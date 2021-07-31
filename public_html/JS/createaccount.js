@@ -2,8 +2,7 @@ var insuranceWrapper = document.getElementById('insurance-wrapper');
 var fullNameInputWrapper = document.getElementById('fullname-input-wrapper');
 var accountRoleSelect = document.getElementById('account-role-select');
 var accountRegionSelect = document.getElementById('account-region-select');
-var accountEmail = document.getElementById('account-postalcode');
-var accountEmailRepeat = document.getElementById('account-emailrepeat');
+var accountEmail = document.getElementById('account-emailrepeat');
 var accountPhoneNumber = document.getElementById('account-phonenumber');
 var accountCheckboxDiv = document.getElementById('checkboxdiv');
 var accountFinalCreateAccount = document.getElementById('finalcreateaccount');
@@ -30,6 +29,9 @@ window.onload = function clear(){
     document.getElementById('insurancenumber').value = "";
     document.getElementById('firstnameinput').value = "";
     document.getElementById('surnameinput').value = "";
+
+    document.getElementById('account-adress').style.display = "none";
+    document.getElementById('account-password').style.display = "none";
     /* setInterval(clear, 600000) */
 }
 document.getElementById('insurancenumber').oninput = function insuranceLengthCheck(){
@@ -163,7 +165,7 @@ document.getElementById('next-btn').onclick = function nextSlide(){
     }
     else if(c == 2 && c != null){
         var email = document.getElementById('emailinput');
-        var phonenumber = document.getElementById('phonenumberinput');
+        var emailInput = email.value;
         if(firstName !== null && isNaN(firstName) == true
             && lastName !== null && isNaN(lastName) == true
             && firstName.length >= 2 && lastName.length >= 2){
@@ -175,12 +177,13 @@ document.getElementById('next-btn').onclick = function nextSlide(){
                             method: 'GET',
                             data: {
                                 requestid: 2,
-                                username: email,
+                                username: emailInput,
                             },
                             success: function(response){
                                 var senderQuery = JSON.parse(response);
                                 console.log(senderQuery);
-                                if(senderQuery[0] == 0){
+                                if(senderQuery[0] == 0 || senderQuery[0] == null){
+                                    var phonenumber = document.getElementById('phonenumberinput');
                                     if(phonenumber.value.length <= 13){
                                         if(phonenumber.value.substring(0,2) == 08){
                                             if(phonenumber.value.length == 9){
@@ -194,6 +197,16 @@ document.getElementById('next-btn').onclick = function nextSlide(){
                                                 fullNameInputWrapper.style.display = "none";
                                                 accountPhoneNumber.style.display = "none";
                                                 accountEmail.style.display = "none";
+                                                document.getElementById('account-adress').style.display = "flex";
+                                                document.getElementById('account-password').style.display = "flex";
+                                                document.getElementById('password-input-wrapper').style.display = "flex";
+                                                document.getElementById('password-input-wrapper').style.flexDirection = "row";
+                                                document.getElementById('password-input-wrapper').style.justifyContent = "space-between";
+                                                document.getElementById('password1').style.width = "45%";
+                                                document.getElementById('password-repeat').style.width = "45%";
+                                                document.getElementById('account-adress').style.flexDirection = "column";
+                                                document.getElementById('account-password').style.flexDirection = "column";
+                                                document.getElementById('streetadressinput').style.marginBottom = "10px";
                                                 accountRegionSelect.style.display = "flex";
                                             }
                                             else{
@@ -203,6 +216,7 @@ document.getElementById('next-btn').onclick = function nextSlide(){
                                         else if(phonenumber.value.substring(0,1) == 0){
                                             if(phonenumber.value.length == 10){
                                                 var phonenumber = phonenumber.value;
+                                                var email = document.getElementById('emailinput');
                                                 var email = email.value;
                                                 sessionStorage.setItem("firstName", `${firstName}`);
                                                 sessionStorage.setItem("lastName", `${lastName}`);
@@ -216,6 +230,16 @@ document.getElementById('next-btn').onclick = function nextSlide(){
                                                 fullNameInputWrapper.style.display = "none";
                                                 accountPhoneNumber.style.display = "none";
                                                 accountEmail.style.display = "none";
+                                                document.getElementById('account-adress').style.display = "flex";
+                                                document.getElementById('account-adress').style.flexDirection = "column";
+                                                document.getElementById('password-input-wrapper').style.display = "flex";
+                                                document.getElementById('password-input-wrapper').style.flexDirection = "row";
+                                                document.getElementById('password-input-wrapper').style.justifyContent = "space-between";
+                                                document.getElementById('account-password').style.display = "flex";
+                                                document.getElementById('password1').style.width = "45%";
+                                                document.getElementById('password-repeat').style.width = "45%";
+                                                document.getElementById('account-password').style.flexDirection = "column";
+                                                document.getElementById('streetadressinput').style.marginBottom = "10px";
                                                 accountRegionSelect.style.display = "flex";
                                             }
                                             else{
@@ -237,8 +261,14 @@ document.getElementById('next-btn').onclick = function nextSlide(){
         }
     }
     else if(c == 3 && c != null){
-        var region = document.getElementById('regioninput').value;
-        sessionStorage.setItem("region", `${region}`);
+        var streetadress = document.getElementById('streetadressinput');
+        var zipcode = document.getElementById('zipcodeinput');
+        var region = document.getElementById('regioninput');
+        if(streetadress.value != null && streetadress.value.length > 8 && zipcode.value.length == 5 && isNaN(zipcode.value) == false)
+
+        sessionStorage.setItem("streetadress", `${streetadress.value}`);
+        sessionStorage.setItem("zipcode", `${zipcode.value}`);
+        sessionStorage.setItem("region", `${region.value}`);
     }
     else{
         console.log("else");
@@ -259,6 +289,8 @@ document.getElementById('arrow-back').onclick = function backClick(){
         fullNameInputWrapper.style.display = "none";
         accountPhoneNumber.style.display = "none";
         accountEmail.style.display = "none";
+        document.getElementById('account-adress').style.display = "none";
+        document.getElementById('account-password').style.display = "none";
         sessionStorage.clear();
     }
     else if(page == 3){
@@ -269,6 +301,8 @@ document.getElementById('arrow-back').onclick = function backClick(){
         accountPhoneNumber.style.display = "flex";
         accountEmail.style.display = "flex";
         accountRegionSelect.style.display = "none";
+        document.getElementById('account-adress').style.display = "none";
+        document.getElementById('account-password').style.display = "none";
         sessionStorage.setItem("slidePage", "2");
         sessionStorage.removeItem("firstName");
         sessionStorage.removeItem("lastName");
@@ -276,7 +310,7 @@ document.getElementById('arrow-back').onclick = function backClick(){
         sessionStorage.removeItem("email");
     }
     else{
-        alert("test");
+
     }
 };
 /****************************PERSONNUMMER/ORGNUMMER***************************** */
@@ -349,22 +383,6 @@ document.getElementById('phonenumberinput').oninput = function(){
     }
 }
 /****************************Phone number ***********************************/
-document.getElementById('emailinputrepeat').onblur = function(){
-    var a = document.getElementById('emailinputrepeat');
-    var b = document.getElementById('emailinput');
-    var c = document.getElementById('wrongemailrepeat');
-    var d = a.value
-
-    if(d.length < 1){
-        a.style.borderColor = "black";
-        c.style.display = "none"
-    }
-    else{
-        a.style.borderColor = "black";
-        c.style.display = "none"
-        return d;
-    }
-}
 document.getElementById('firstnameinput').oninput = function(){
     var firstname = document.getElementById('firstnameinput').value;
     console.log(isNaN(firstname));

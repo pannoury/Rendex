@@ -8,9 +8,7 @@
   <meta name="keywords" content="arbete, bygg, renovering, elektriker, offert, hitta renoverare, hitta arbetare, hitta elektriker, golv, lägga golv, VVS, Rendex, Rendex AB">
   <meta name="author" content="Patrick Tannoury">
   <link rel="stylesheet" href="sass/style.css" type="text/css">
-  <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js">
-  </script> 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script> 
   $(function(){
     $("#footer").load("footer.html"); 
@@ -73,6 +71,11 @@
               <option value="Uppdragstagere">Uppdragstagare</option>
             </select>
           </div>
+          <div id="account-adress">
+            <p><span class="bold">Adress</span><span class="redasterix">*</span></p>
+            <input type="text" placeholder="Stockholmsgatan 77" id="streetadressinput" required="">
+            <input type="text" placeholder="17171" id="zipcodeinput" required="">
+          </div>
           <div id="account-region-select">
             <p><span class="bold">Region</span><span class="redasterix">*</span></p>
             <select id="regioninput" required="">
@@ -100,13 +103,16 @@
               <option value="Västra Götaland">Västra Götaland</option> 
             </select>
           </div>
-          <div id="account-postalcode">
-            <p><span class="bold">E-mailadress</span><span class="redasterix">*</span></p>
-            <input type="email" placeholder="rendex@test.com" id="emailinput" required="">
+          <div id="account-password">
+            <p><span class="bold">Lösenord</span><span class="redasterix">*</span></p>
+            <div id="password-input-wrapper">
+              <input type="password" placeholder="" id="password1" required="">
+              <input type="password" placeholder="" id="password-repeat" required="">
+            </div>
           </div>
           <div id="account-emailrepeat">
-            <p><span class="bold">Bekfräfta E-mailadress</span><span class="redasterix">*</span></p>
-            <input type="email" placeholder="rendex@test.com" required="" id="emailinputrepeat">
+            <p><span class="bold">E-mailadress</span><span class="redasterix">*</span></p>
+            <input type="email" placeholder="rendex@test.com" required="" id="emailinput">
             <span id="wrongemailrepeat">E-mailadresserna matchar inte</span>
           </div>
           <div id="account-phonenumber">

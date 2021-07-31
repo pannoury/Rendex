@@ -3,6 +3,7 @@ window.addEventListener('load', function(){
     indexNumberCount();
     cityOptionMain();
     localStorage.clear();
+    document.getElementById('index-subscription-checkbox').checked = false;
 });
 
 document.getElementById('indexsearchbutton').addEventListener('click', function(){
@@ -119,6 +120,23 @@ function generateCityOptions(array){
 }
 function clearCityOptions(){
     $('#defualtCitySelect').find('option').remove();
+}
+document.getElementById('index-subscription-checkbox').onchange = function indexButtonSlider(){
+    var checkbox = document.getElementById('index-subscription-checkbox');
+    if(checkbox.checked == true){
+        var priceBox = document.getElementsByClassName('subscription-price');
+        console.log(priceBox);
+        for(i=0; i<priceBox.length; i++){
+            priceBox[i].innerText = "1200 SEK";
+        }
+    }
+    else{
+        var priceBox = document.getElementsByClassName('subscription-price');
+        console.log(priceBox);
+        for(i=0; i<priceBox.length; i++){
+            priceBox[i].innerText = "100 SEK";
+        }
+    }
 }
 /***************************Dynamic Search City************************************/
 /* ARCHAIC CODE

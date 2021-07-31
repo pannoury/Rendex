@@ -29,7 +29,6 @@ async function loggedInControl2(){
                         else{
                             console.log("Failed to fetch data from server");
                         }
-    
                     },
                 }
             );

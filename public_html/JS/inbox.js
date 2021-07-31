@@ -13,15 +13,20 @@ window.addEventListener('load', function conversationCount(){
     cssChatList();
     populateChatList();
     sessionStorage.clear();
-
     document.getElementById('chat-input').value = "";
     $(".conversation-selection").each(function (){
         $(this).setAttribute('aria-label', "diselected");
     });
     document.getElementById('insert-window').style.display = "none";
     $('.text-sent-wrapper').css("justify-content", "flex-start");
-
+    reload();
 }); 
+
+function reload(){
+    setTimeout(function(){
+        location.reload()
+    }, 1200000); //reload the page every 20 minutes so the loop does not break.
+};
 
 /**********CHAT LIST IS THE PREVIEW, SHOWS ALL YOUR CONVERSATIONS********* */
 function populateChatList(){
@@ -553,13 +558,13 @@ function conversationSelect(id){
 /*************ONCE A CONVO HAS BEEN SELECTED, THIS FUNCTION IS 
 INITATED TO POPULATE ALL TEXT THAT HAS BEEN SENT/RECIEVED************* */
 function populateConvoList(id){
+    clearInterval(reactiveTextLoading);
     var width = window.screen.width;
     var selectedElement = document.getElementById(`${id}`);
     selectedElement.setAttribute('aria-label', "selected");
     var loginId = getCookie("a_user");
     var newArrayLoginId = loginId.split(',');
     var accountid = newArrayLoginId[0];
-    reactiveTextLoading();
     $(".conversation-selection").each(function (){
         $(this).css("backgroundColor", "#38383D");
     });
@@ -691,6 +696,7 @@ function populateConvoList(id){
                     document.getElementById('chat-display-window').style.height = "50vh";
                     document.getElementById('conversation-display').style.marginLeft = "-1px";
                 }
+                reactiveTextLoading();
             },
         }
     );
@@ -897,6 +903,21 @@ function reactiveTexting(){
                     p2.innerText = `${queryChat[3]}`;
 
                     document.getElementById('chat-list').appendChild(li);
+
+                    /*****UPDATE CHAT CUE IN CONVOLIST */
+                    var text = queryChat[3];
+                    var chatId = sessionStorage.getItem("chatid");
+                    var textWrapper = document.getElementById(`conversation-${chatId}`).getElementsByClassName('message-cue')[0];
+                    var textCue = textWrapper.getElementsByTagName("p")[0];
+                    var timeCue = textWrapper.getElementsByTagName("p")[1];
+                    timeCue.innerText = `${queryChat[2].substring(0,10)}`;
+                    setDate(timeCue, queryChat[2]);
+                    if(text.length > 20){
+                        textCue.innerText = `You: ${text.substring(0,20)}...`;
+                    }
+                    else{
+                        textCue.innerText = `You: ${text}`;
+                    }
                 }
                 document.getElementById('chat-input').value = ""; //removes the text after you hit send
                 document.getElementById('chatinput-sendbtn').style.display = "none";
@@ -909,7 +930,9 @@ function reactiveTextLoading(){
     var loginId = getCookie("a_user");
     var newArrayLoginId = loginId.split(',');
     var accountid = newArrayLoginId[0];
-    var chatRows = $('#chat-list').children().length;
+    var id = sessionStorage.getItem("chatid");
+    var chatRows = $('.text-recieved-wrapper').length;
+    var sender = sessionStorage.getItem("counterpart");
     $.ajax(
         {
             url: './PHP/inbox.php',
@@ -918,12 +941,13 @@ function reactiveTextLoading(){
             data: {
                 requestid: 7,
                 chatRows: chatRows,
+                sender: sender,
                 chatid: sessionStorage.getItem("chatid"),
             },
             success: function(response){
                 var queryChat = JSON.parse(response);
                 var number = queryChat.toString();
-                if(queryChat >= 1){
+                if(number >= 1 && id != null){
                     $.ajax(
                         {
                             url: './PHP/inbox.php',
@@ -931,78 +955,61 @@ function reactiveTextLoading(){
                             method: 'GET',
                             data: {
                                 requestid: 8,
+                                chatid: id,
                                 limit: number,
-                                chatid: sessionStorage.getItem("chatid"),
+                                sender: sender,
                             },
                             success: function(response){
                                 var queryChat = JSON.parse(response);
                                 if(queryChat[0].constructor === Array){ //Multiple texts has been sent
-                                    var x = (chatRows)
-                                    var difference = x.toString();
-                                    $.ajax(
-                                        {
-                                            url: './PHP/inbox.php',
-                                            dataType: 'text',
-                                            method: 'GET',
-                                            data: {
-                                                requestid: 9,
-                                                limit: number,
-                                                offset: difference,
-                                                chatid: sessionStorage.getItem("chatid"),
-                                            },
-                                            success: function(response){
-                                                var queryChat = JSON.parse(response);
-                                                for(i=0; i < queryChat.length; i++){
-                                                    if(queryChat[i][1] != accountid[0]){ //grey text AKA recieved text
-                                                        var li = document.createElement('li');
-                                                        li.setAttribute('class', 'chat-item');
-                                                        li.setAttribute('id', 'text-recieved');
-                                                        var div1 = document.createElement('div');
-                                                        div1.setAttribute('class', 'text-recieved-wrapper');
-                                                        li.appendChild(div1);
-                                                        var div2 = document.createElement('div');
-                                                        div2.setAttribute('class', 'chat-time-stamp');
-                                                        div1.appendChild(div2);
-                                                        var p1 = document.createElement('p');
-                                                        div2.appendChild(p1);
-                                                        var div3 = document.createElement('div');
-                                                        div3.setAttribute('class', 'chat-text');
-                                                        div1.appendChild(div3);
-                                                        var p2 = document.createElement('p');
-                                                        div3.appendChild(p2);
-                                
-                                                        p1.innerText = `${queryChat[i][3].substring(0,16)}`;
-                                                        p2.innerText = `${queryChat[i][4]}`;
-                                
-                                                        document.getElementById('chat-list').appendChild(li);
-                                                    }
-                                                    else if(queryChat[i][1] == accountid[0]){ //blue text AKA your text
-                                                        var li = document.createElement('li');
-                                                        li.setAttribute('class', 'chat-item');
-                                                        li.setAttribute('id', 'text-sent');
-                                                        var div1 = document.createElement('div');
-                                                        div1.setAttribute('class', 'text-sent-wrapper');
-                                                        li.appendChild(div1);
-                                                        var div2 = document.createElement('div');
-                                                        div2.setAttribute('class', 'chat-time-stamp');
-                                                        div1.appendChild(div2);
-                                                        var p1 = document.createElement('p');
-                                                        div2.appendChild(p1);
-                                                        var div3 = document.createElement('div');
-                                                        div3.setAttribute('class', 'chat-text');
-                                                        div1.appendChild(div3);
-                                                        var p2 = document.createElement('p');
-                                                        div3.appendChild(p2);
-                                
-                                                        p1.innerText = `${queryChat[i][3].substring(0,16)}`;
-                                                        p2.innerText = `${queryChat[i][4]}`;
-                                
-                                                        document.getElementById('chat-list').appendChild(li);
-                                                    }
-                                                }
-                                            }
-                                        }   
-                                    )
+                                    for(i=0; i < queryChat.length; i++){
+                                        if(queryChat[i][1] != accountid[0]){ //grey text AKA recieved text
+                                            var li = document.createElement('li');
+                                            li.setAttribute('class', 'chat-item');
+                                            li.setAttribute('id', 'text-recieved');
+                                            var div1 = document.createElement('div');
+                                            div1.setAttribute('class', 'text-recieved-wrapper');
+                                            li.appendChild(div1);
+                                            var div2 = document.createElement('div');
+                                            div2.setAttribute('class', 'chat-time-stamp');
+                                            div1.appendChild(div2);
+                                            var p1 = document.createElement('p');
+                                            div2.appendChild(p1);
+                                            var div3 = document.createElement('div');
+                                            div3.setAttribute('class', 'chat-text');
+                                            div1.appendChild(div3);
+                                            var p2 = document.createElement('p');
+                                            div3.appendChild(p2);
+                    
+                                            p1.innerText = `${queryChat[i][3].substring(0,16)}`;
+                                            p2.innerText = `${queryChat[i][4]}`;
+                    
+                                            document.getElementById('chat-list').appendChild(li);
+                                        }
+                                        else if(queryChat[i][1] == accountid[0]){ //blue text AKA your text
+                                            var li = document.createElement('li');
+                                            li.setAttribute('class', 'chat-item');
+                                            li.setAttribute('id', 'text-sent');
+                                            var div1 = document.createElement('div');
+                                            div1.setAttribute('class', 'text-sent-wrapper');
+                                            li.appendChild(div1);
+                                            var div2 = document.createElement('div');
+                                            div2.setAttribute('class', 'chat-time-stamp');
+                                            div1.appendChild(div2);
+                                            var p1 = document.createElement('p');
+                                            div2.appendChild(p1);
+                                            var div3 = document.createElement('div');
+                                            div3.setAttribute('class', 'chat-text');
+                                            div1.appendChild(div3);
+                                            var p2 = document.createElement('p');
+                                            div3.appendChild(p2);
+                    
+                                            p1.innerText = `${queryChat[i][3].substring(0,16)}`;
+                                            p2.innerText = `${queryChat[i][4]}`;
+                    
+                                            document.getElementById('chat-list').appendChild(li);
+                                        }
+                                    }
                                 }
                                 else{
                                     if(queryChat[0] != accountid[0]){ //grey text AKA recieved text
@@ -1052,16 +1059,17 @@ function reactiveTextLoading(){
                                         document.getElementById('chat-list').appendChild(li);
                                     }
                                 }
-                            }
+                                populateChatList();
+                            },
                         }
-                    )
+                    );
                 }
                 else{ //no new chats 
                 }
             }
         },
     );
-    setTimeout(reactiveTextLoading, 10000);
+    setTimeout(reactiveTextLoading, 2000);
 }
 reactiveTextLoading();
 /*

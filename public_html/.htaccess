@@ -4,4 +4,5 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html [NC,L]
 RewriteRule ^inbox/([0-9a-zA-Z]+) inbox.html?cid=$1 [NC,L]
+RewriteRule ^myaccount/$ /mitt-konto [R=301,L]
 DirectoryIndex index.html index.html index.htm index.php

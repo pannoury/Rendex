@@ -178,3 +178,7 @@ function loadRegionCheckV2(regionValue){
         }
     }
 };
+
+function loadArticles(){
+
+};

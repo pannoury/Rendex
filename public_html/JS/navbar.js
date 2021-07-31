@@ -4,6 +4,7 @@ var newArrayLoginId = loginId.split(',');
 $(document).ready(function(){
     loggedInControl();
 });
+
 async function loggedInControl(){
     if(newArrayLoginId[0] > 0){
         if(newArrayLoginId[1] == 1){ //Individual
@@ -49,18 +50,18 @@ async function loggedInControl(){
 };
 document.getElementById('loginanchor').onclick = function(){
     if(newArrayLoginId[0] >= 1){
-        window.location = './myaccount.html';
+        window.location = 'https://rendex.se/myaccount';
     }
     else{
-        window.location = './login.html';
+        window.location = 'https://rendex.se/login';
     }
 };
 document.getElementById('loginsidemenu').onclick = function(){
     if(newArrayLoginId[0] >= 1){
-        window.location = './myaccount.html';
+        window.location = 'https://rendex.se/myaccount';
     }
     else{
-        window.location = './login.html';
+        window.location = 'https://rendex.se/login';
     }
 }
 document.getElementById('hamburgermenu-btn').addEventListener('click', function(){
@@ -90,22 +91,82 @@ document.getElementById('inboxlink2').addEventListener('click',function(){
     var loginId = getCookie("a_user");
     var newArrayLoginId = loginId.split(',');
     if(newArrayLoginId[0] >= 1){
-        window.location = './inbox.html';
+        window.location = 'https://rendex.se/inbox';
     }
     else{
-        window.location = './login.html';
+        window.location = 'https://rendex.se/login';
     }
 });
-/*
+document.getElementById('languageanchor').onclick = function(){
+    var ul = document.getElementById('languageanchor');
+    ulAriaLabel = ul.getAttribute('aria-label');
+    if(ulAriaLabel == null || ulAriaLabel == undefined || ulAriaLabel == "not displayed"){
+        document.getElementById('language-options').style.display = "flex";
+        ul.setAttribute('aria-label', "displayed");
+    }
+    else if(ulAriaLabel == "displayed"){
+        document.getElementById('language-options').style.display = "none";
+        ul.setAttribute('aria-label', "not displayed");
+    }
+    
+}
 window.onscroll = function(){
     var navbar = document.getElementById('header');
-    if(window.screen.width > 875){
+    if(window.innerWidth > 1080){
         if(window.pageYOffset >= 1){
-            navbar.style.backgroundColor = "";
+            navbar.style.backgroundColor = "#333";
+            var list = document.querySelectorAll('.navbarselector li a');
+            for(i=0; i < list.length; i++){
+                list[i].style.color = "white";
+            }
+            document.getElementById('language-selected').style.color = "white";
+            document.getElementById('globeicon').setAttribute('src', './assets/images/globe.svg');
+            document.getElementsByClassName('logo')[0].setAttribute('src', './assets/images/rendex_white.svg');
         }
         else{
-            navbar.style.backgroundColor = "#333";
+            navbar.style.backgroundColor = "#ffffff";
+            var list = document.querySelectorAll('.navbarselector li a');
+            for(i=0; i < list.length; i++){
+                list[i].style.color = "black";
+            }
+            document.getElementById('language-selected').style.color = "black";
+            document.getElementById('globeicon').setAttribute('src', './assets/images/globe-black.svg');
+            document.getElementsByClassName('logo')[0].setAttribute('src', './assets/images/rendex_black.svg');
         }
     }
 };
-*/
+document.getElementById('swedish-selected').onclick = function(){
+    if(lang = undefined || lang == null){
+        createCookie("lang", "SE", 365);
+    }
+    else if(lang = "ENG"){
+        createCookie("lang", "SE", 365);
+    }
+    else if(lang = "SE"){
+    }
+};
+
+/***************LANGUAGE SETTINGS *************/
+$(document).ready(function(){
+    var lang = getCookie("lang");
+    console.log(lang);
+    if(lang = undefined || lang == null){
+        console.log("no language cookie");
+    }
+    else if(lang = "SE"){
+    }
+    else if(lang = "ENG"){
+    }
+});
+document.getElementById('english-selected').onclick = function(){
+        if(lang = undefined || lang == null){
+        createCookie("lang", "ENG", 365);
+    }
+    else if(lang = "ENG"){
+        createCookie("lang", "ENG", 365);
+    }
+    else if(lang = "SE"){
+        
+    }
+};
+/***************LANGUAGE SETTINGS *************/

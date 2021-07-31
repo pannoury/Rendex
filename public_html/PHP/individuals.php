@@ -4,7 +4,7 @@
     $id = $conn->real_escape_string($_GET['userid']);
     $role = $conn->real_escape_string($_GET['role']);
     
-    if($role1 = 1){
+    if($role1 = 1){ //Individuals
         $sql = "SELECT * FROM Individuals WHERE accountId='$id'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_array($result);
@@ -88,7 +88,7 @@
             echo (json_encode($results));
         }
     }
-    else if($role1 = 2){
+    else if($role1 = 2){ // Organisation
         $sql = "SELECT * FROM organisations WHERE accountId='$id'";
         $firstName = $row['firstname'];
         $lastName = $row['lastname'];

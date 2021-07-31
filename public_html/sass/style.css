@@ -134,7 +134,7 @@ main {
   }
 }
 /* START NAVBAR */
-@media (min-width: 875px) {
+@media (min-width: 1081px) {
   header {
     background-color: #333;
     color: white;
@@ -143,8 +143,8 @@ main {
     padding-bottom: 10px;
     position: fixed;
     z-index: 10;
-    overflow: hidden;
     display: flex;
+    transition: 250ms;
   }
   header a {
     color: white;
@@ -177,6 +177,15 @@ main {
   .navbarselector li {
     margin: 0;
     cursor: pointer;
+  }
+  .navbarselector #languageanchor {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .navbarselector #languageanchor p {
+    margin: 0px;
+    margin-left: 4px;
   }
   .navbarselector a:hover {
     color: slategray;
@@ -216,7 +225,38 @@ main {
     text-align: right;
   }
 }
-@media (min-width: 750px) {
+@media (min-width: 1080px) {
+  #language-options {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: #f4f4f4;
+    top: 100%;
+    z-index: 10;
+    overflow: visible;
+    color: black;
+    border-radius: 8px;
+    padding: 0px;
+    box-shadow: #9a9999 0px 2px 8px 0px;
+  }
+  #language-options li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 20px 10px 20px;
+  }
+  #language-options li:nth-child(1) {
+    margin-bottom: 10px;
+  }
+  #language-options li:hover {
+    background-color: #d8d8d8;
+  }
+  #language-options li img {
+    height: 20px;
+    margin-right: 10px;
+  }
+}
+@media (min-width: 1080px) {
   .open-slide {
     display: none;
   }
@@ -380,46 +420,111 @@ main {
 
   #indexsearchsection {
     /* <Section> */
-    background: url("../images/showcase21.jpg");
+    background-color: #fff;
     background-size: cover;
     background-position: 10% 65%;
     width: 100%;
     float: left;
     margin-top: -80px;
   }
-
-  #indexheaderdiv {
-    padding-top: 20px;
-    padding-left: 40px;
-    margin-top: 30px;
+  #indexsearchsection #indexsearchsection-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
   }
-  #indexheaderdiv h1 {
-    font-size: 40px;
-    width: 65%;
-    color: white;
+  #indexsearchsection #indexsearchsection-wrapper #indexheaderdiv {
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-top: 50px;
+    width: 60%;
+  }
+  #indexsearchsection #indexsearchsection-wrapper #indexheaderdiv h1 {
+    font-size: 2.5vw;
+    color: black;
     margin-bottom: 10px;
+    margin-top: 0px;
+    width: 80%;
   }
-  #indexheaderdiv p {
-    font-size: 30px;
-    width: 55%;
-    color: white;
-    margin-top: 0;
+  #indexsearchsection #indexsearchsection-wrapper #indexheaderdiv h1 .orange {
+    color: #f07900;
+  }
+  #indexsearchsection #indexsearchsection-wrapper #indexheaderdiv ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #indexsearchsection #indexsearchsection-wrapper #indexheaderdiv ul li {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  #indexsearchsection #indexsearchsection-wrapper #indexheaderdiv ul li .orange {
+    color: #f07900;
+  }
+  #indexsearchsection #indexsearchsection-wrapper #hero-background {
+    width: 40%;
+  }
+  #indexsearchsection #indexsearchsection-wrapper #hero-background img {
+    max-height: 45vh;
+    max-width: 100%;
   }
 
-  #indexwrapper {
-    background-color: #d3d1d1;
+  #testish {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+  }
+  #testish h1 {
+    text-align: center;
+    margin-top: 0px;
+    font-size: 34px;
+    margin-bottom: 6px;
+  }
+  #testish #indexwrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
     max-width: 660px;
-    padding: 20px 0 20px 20px;
+    padding: 20px;
     margin: 50px 20px 20px 20px;
     border-radius: 8px;
+    width: 60%;
+    margin: auto;
   }
-
-  #tablewrappersearch {
+  #testish #indexwrapper #h1search {
+    margin-bottom: 0px;
+    margin: auto;
+  }
+  #testish #indexwrapper #tablewrappersearch {
     /* <div "wrapper"> */
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 10px;
   }
-  #tablewrappersearch select {
+  #testish #indexwrapper #tablewrappersearch .indexwrapper-column {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+  }
+  #testish #indexwrapper #tablewrappersearch .indexwrapper-column .indexwrapper-inputwrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  #testish #indexwrapper #tablewrappersearch .indexwrapper-column .indexwrapper-inputwrapper h3 {
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+  }
+  #testish #indexwrapper #tablewrappersearch .indexwrapper-column .indexwrapper-inputwrapper .indexwrapper-input-div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  #testish #indexwrapper #tablewrappersearch .indexwrapper-column .indexwrapper-inputwrapper .indexwrapper-input-div select {
     border-radius: 3px;
     border-color: #333;
     border-width: 1px;
@@ -427,86 +532,42 @@ main {
        -moz-appearance: none;
             appearance: none;
     margin-top: 0px;
-  }
-
-  .column1 {
-    flex-direction: column;
-    float: left;
-  }
-  .column1 p {
-    margin: 20px 0 0 0;
-    font-size: 18px;
-  }
-
-  .column2 {
-    flex-direction: column;
-    float: right;
-  }
-  .column2 p {
-    margin: 20px 0 0 0;
-    font-size: 18px;
-  }
-
-  #h1search {
-    text-align: left;
-    margin: 0;
-  }
-
-  #mainRegionSelect, .mainCitySelect, #mainRoleSelect, #mainPurposeSelect {
-    display: flex;
-    margin-top: 10px;
-    width: 300px;
-    height: 30px;
-    font-size: 18px;
-  }
-
-  .indexsearchbutton {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-
-  #indexsearchbutton {
-    width: 150px;
-    height: 40px;
-    font-size: 18px;
-    color: #ffffff;
-    background-color: #00006d;
-    border-radius: 20px;
-    border-style: none;
-  }
-  #indexsearchbutton:hover {
-    background-color: #000042;
-  }
-
-  select:invalid {
-    color: gray;
-  }
-
-  .mainindex-search-wrapper-wrapper {
-    display: flex;
     width: 100%;
+    height: 30px;
+    font-size: 16px;
+    padding-left: 8px;
   }
-  .mainindex-search-wrapper-wrapper #indexSearchRegionSelect, .mainindex-search-wrapper-wrapper #indexSearchCitySelect, .mainindex-search-wrapper-wrapper #indexSearchRoleSelect, .mainindex-search-wrapper-wrapper #indexSearchPurposeSelect {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    position: relative;
-    justify-content: right;
-    justify-content: flex-end;
-  }
-  .mainindex-search-wrapper-wrapper #indexSearchRegionSelect select, .mainindex-search-wrapper-wrapper #indexSearchCitySelect select, .mainindex-search-wrapper-wrapper #indexSearchRoleSelect select, .mainindex-search-wrapper-wrapper #indexSearchPurposeSelect select {
-    padding-left: 10px;
-  }
-  .mainindex-search-wrapper-wrapper #indexSearchRegionSelect .arrow-select, .mainindex-search-wrapper-wrapper #indexSearchCitySelect .arrow-select, .mainindex-search-wrapper-wrapper #indexSearchRoleSelect .arrow-select, .mainindex-search-wrapper-wrapper #indexSearchPurposeSelect .arrow-select {
+  #testish #indexwrapper #tablewrappersearch .indexwrapper-column .indexwrapper-inputwrapper .indexwrapper-input-div .arrow-select {
     position: absolute;
-    margin-right: 10px;
+    margin-right: 8px;
     border-top: 0.5em solid black;
     border-right: 0.5em solid transparent;
     border-left: 0.5em solid transparent;
   }
+  #testish #indexwrapper .indexsearchbutton {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  #testish #indexwrapper .indexsearchbutton #indexsearchbutton {
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bolder;
+    color: black;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    border-style: none;
+  }
+  #testish #indexwrapper .indexsearchbutton #indexsearchbutton:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
 
-  #company-number-row {
+  #company-number-wrapper {
+    background-color: #333;
+  }
+  #company-number-wrapper #company-number-row {
     display: flex;
     align-content: stretch;
     align-items: flex-start;
@@ -515,47 +576,34 @@ main {
     justify-content: space-evenly;
     width: 62%;
     margin: auto;
-    margin-bottom: 20px;
-    padding-top: 20px;
+    padding: 20px;
   }
-  #company-number-row div:nth-child(1) {
+  #company-number-wrapper #company-number-row div:nth-child(1) {
     width: 33% !important;
   }
-  #company-number-row div:nth-child(3) {
+  #company-number-wrapper #company-number-row div:nth-child(3) {
     width: 33% !important;
   }
-  #company-number-row div:nth-child(5) {
+  #company-number-wrapper #company-number-row div:nth-child(5) {
     width: 33% !important;
   }
-  #company-number-row div .line-separator {
+  #company-number-wrapper #company-number-row div .line-separator {
     width: 1px;
   }
-  #company-number-row h1 {
-    font-size: 64px;
-    color: #333;
-    margin-bottom: 10px;
-    margin-top: 5px;
-  }
-  #company-number-row p {
-    width: 100%;
-  }
-  #company-number-row a {
-    color: blue;
-  }
-  #company-number-row a:hover {
-    color: slategray;
-  }
-  #company-number-row .line-separator {
-    border-left: 1px solid black;
-    opacity: 0.3;
-    margin: 38px 5px 38px 5px;
-    height: 150px;
-  }
-
-  .company-stats-container {
+  #company-number-wrapper #company-number-row .company-stats-container {
     width: 33%;
     padding-left: 10px;
     padding-right: 10px;
+  }
+  #company-number-wrapper #company-number-row .company-stats-container h1 {
+    font-size: 64px;
+    color: white;
+    margin: 0px;
+  }
+  #company-number-wrapper #company-number-row .company-stats-container p {
+    width: 100%;
+    color: white;
+    margin: 0px;
   }
 
   #index-text {
@@ -563,28 +611,81 @@ main {
     margin: auto;
     background-color: #fff;
   }
-
-  #index-text-wrapper {
-    width: 60%;
+  #index-text #index-text-wrapper-wrapper {
+    width: 80%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     margin: auto;
+    padding: 20px;
   }
-  #index-text-wrapper .index-text-column {
-    width: 50%;
-    margin: 0 20px 0 20px;
-  }
-  #index-text-wrapper h3 {
-    font-size: 26px;
+  #index-text #index-text-wrapper-wrapper #index-text-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    padding: 12px;
+    margin: auto;
     margin-bottom: 10px;
   }
-  #index-text-wrapper p {
-    line-height: 1.5rem;
+  #index-text #index-text-wrapper-wrapper #index-text-header h3 {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 2px;
+    margin-top: 0px;
   }
-  #index-text-wrapper a {
+  #index-text #index-text-wrapper-wrapper #index-text-header p {
+    font-size: 20px;
+    text-align: center;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-header #index-text-btn {
+    background-color: #f07900;
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bolder;
+    border-radius: 8px;
+    border-style: none;
+    margin: auto;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-header #index-text-btn:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper .index-text-column {
+    width: 24%;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+    padding: 12px;
+    margin: 0 20px 20px 20px;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper .index-text-column .index-text-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper .index-text-column .index-text-header img {
+    height: 30px;
+    margin-right: 6px;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper .index-text-column .index-text-header h3 {
+    font-size: 20px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper .index-text-column p {
+    line-height: 1.5rem;
+    font-size: 18px;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper .index-text-column a {
     color: blue;
   }
-  #index-text-wrapper a:hover {
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper .index-text-column a:hover {
     color: slategray;
   }
 }
@@ -605,64 +706,239 @@ main {
   }
   #index-showcase-offers #index-showcase-offers-header {
     display: flex;
+    flex-direction: column;
     margin: auto;
-    flex-wrap: wrap;
+    justify-content: center;
     text-align: center;
   }
   #index-showcase-offers #index-showcase-offers-header h2 {
     font-size: 34px;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
+    margin: 20px auto 0px auto;
+    width: 70%;
+    text-align: center;
+  }
+  #index-showcase-offers #index-showcase-offers-header p {
+    font-size: 20px;
   }
   #index-showcase-offers #index-showcase-offers-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
     width: 80%;
     margin: auto;
   }
-  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column {
+  #index-showcase-offers #index-showcase-offers-wrapper .index-showcase-wrapper {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+  }
+  #index-showcase-offers #index-showcase-offers-wrapper .index-showcase-wrapper .index-showcase-header {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    text-align: left;
   }
-  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column .indexshowcase-img {
-    width: 225px;
-    height: 225px;
-    border-radius: 50%;
-  }
-  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column h3 {
-    font-size: 24px;
-    margin-bottom: 2px;
-  }
-  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column p {
-    padding: 10px;
-    font-size: 16px;
+  #index-showcase-offers #index-showcase-offers-wrapper .index-showcase-wrapper .index-showcase-header h3 {
+    font-size: 34px;
+    margin-bottom: 4px;
     margin-top: 0px;
-    text-align: center;
   }
-  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column:hover {
+  #index-showcase-offers #index-showcase-offers-wrapper .index-showcase-wrapper .index-showcase-header p {
+    font-size: 20px;
+    margin: 0px;
+  }
+  #index-showcase-offers #index-showcase-offers-wrapper .index-showcase-wrapper .index-showcase-job {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #index-contact-us {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 40px 0px 40px 0px;
+  }
+  #index-contact-us h3 {
+    width: 80%;
+    font-size: 30px;
+    margin: auto;
+  }
+  #index-contact-us p {
+    font-size: 20px;
+  }
+  #index-contact-us #index-offert-btn {
+    height: 40px;
+    font-size: 18px;
+    font-weight: bolder;
+    color: black;
+    background-color: #f07900;
+    border-radius: 8px;
+    border-style: none;
+    padding: 10px 20px 10px 20px;
+  }
+  #index-contact-us #index-offert-btn:hover {
     opacity: 0.8;
     cursor: pointer;
   }
 
-  #index-text-mobile {
-    display: none;
+  #index-subscription {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+  }
+  #index-subscription h3 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 0px;
+  }
+  #index-subscription #index-subscription-top-btn {
+    width: 30%;
+    margin: auto;
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper p {
+    font-size: 18px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper p:nth-last-child(1) {
+    font-weight: bolder;
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper .button-slider {
+    margin-top: 40px;
+    margin-left: 60px;
+    transform: translate(-50%, -50%);
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper .button-slider input {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    -moz-appearance: none;
+         appearance: none;
+    -webkit-appearance: none;
+    background-color: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper .button-slider input:checked {
+    background: #35a848;
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper .button-slider input::before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 20px;
+    top: 3px;
+    left: 4px;
+    background: #fff;
+    transition: 0.5s;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper .button-slider input:checked::before {
+    left: 33px;
+  }
+  #index-subscription #index-subscription-plan-options {
+    margin: auto;
+    width: 56%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option {
+    width: 26%;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    padding-bottom: 20px;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option h4 {
+    font-weight: bolder;
+    font-size: 22px;
+    margin-bottom: 0px;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option p {
+    margin-top: 4px;
+    font-size: 14px;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-price p .bold {
+    font-size: 24px;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-info ul {
+    list-style: none;
+    padding-left: 0px;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-info ul li {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-info ul li .orange {
+    margin-right: 8px;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-btn {
+    display: flex;
+    justify-content: center;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-btn button {
+    margin-top: 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    font-weight: bolder;
+    padding: 10px 20px 10px 20px;
+    margin-left: -20px;
+    border-style: none;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-btn button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option #index-subscription-btn-1 {
+    background-color: #7e7979;
+    color: white;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option #index-subscription-btn-2 {
+    background-color: #333;
+    color: white;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option #index-subscription-btn-3 {
+    background-color: #f07900;
+  }
+  #index-subscription #index-subscription-option-1 {
+    border-top: #7e7979;
+    border-top-style: solid;
+    border-width: 6px;
+  }
+  #index-subscription #index-subscription-option-2 {
+    border-top: #333;
+    border-top-style: solid;
+    border-width: 6px;
+  }
+  #index-subscription #index-subscription-option-3 {
+    border-top: #f07900;
+    border-top-style: solid;
+    border-width: 6px;
   }
 }
-#blekingeCitySelect, #dalarnaCitySelect, #gotlandCitySelect, #gävleborgCitySelect, #hallandCitySelect,
-#jämtlandCitySelect, #jönköpingCitySelect, #kalmarCitySelect, #kronobergCitySelect,
-#norrbottenCitySelect, #skåneCitySelect, #södermanlandCitySelect, #stockholmCitySelect,
-#uppsalaCitySelect, #värmlandCitySelect, #västerbottenCitySelect, #västernorrlandCitySelect,
-#västmanlandCitySelect, #västernorrlandCitySelect, #västmanlandCitySelect,
-#västraGötalandCitySelect, #örebroCitySelect, #östergötlandCitySelect {
-  display: none;
+@media (max-width: 1080px) and (min-width: 875px) {
+  #hero-background {
+    margin-top: 30px;
+  }
 }
-
 #error-message-purpose, #error-message-role {
   margin: 0;
   font-size: 14px;
   color: red;
   display: none;
+}
+
+.orange {
+  color: #f07900;
 }
 
 /* Index Page, indexsearch & showcase */
@@ -2531,155 +2807,111 @@ main {
     width: 100vw;
     overflow: hidden;
   }
-  main #firstpage-background {
-    margin-top: -12px;
-    background-image: url(../images/Showcase3.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 300px;
-    width: 100vw;
-  }
 
   #indexsearchsection {
-    margin-top: -34px;
-    width: 100vw;
-  }
-  #indexsearchsection #indexheaderdiv {
-    padding-top: 10px;
-    padding-left: 10px;
-  }
-  #indexsearchsection #indexheaderdiv h1 {
-    padding: 0 20px 0 0px;
-    width: 100%;
-    background-size: contain;
-    font-size: 30px;
-    margin-bottom: 0;
-  }
-  #indexsearchsection #indexheaderdiv p {
-    padding: 0 20px 0 0px;
-    width: 100%;
-    font-size: 24px;
-    margin-top: 4px;
-  }
-  #indexsearchsection #indexwrapper {
+    /* <Section> */
     background-color: #fff;
-    margin-top: 20px;
+    background-size: cover;
+    background-position: 10% 65%;
     width: 100%;
+    float: left;
+    margin-top: -80px;
   }
-  #indexsearchsection #indexwrapper h1 {
-    padding-top: 20px;
-    font-size: 26px;
-    margin: 0px;
-    padding-left: 10px;
-  }
-  #indexsearchsection #indexwrapper #tablewrappersearch {
+  #indexsearchsection #indexsearchsection-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 30px;
   }
-  #indexsearchsection #indexwrapper #tablewrappersearch .column1 .tablesearch {
+  #indexsearchsection #indexsearchsection-wrapper #indexheaderdiv {
+    padding-top: 20px;
+    margin-top: 50px;
     width: 100%;
   }
-  #indexsearchsection #indexwrapper #tablewrappersearch .column1, #indexsearchsection #indexwrapper #tablewrappersearch .column2 {
-    flex-direction: column;
+  #indexsearchsection #indexsearchsection-wrapper #indexheaderdiv h1 {
+    font-size: 36px;
     width: 100%;
+    color: black;
+    margin-bottom: 10px;
+    margin-top: 0px;
   }
-  #indexsearchsection #indexwrapper #tablewrappersearch .column1 p, #indexsearchsection #indexwrapper #tablewrappersearch .column2 p {
-    margin: 20px 0 0 0;
-    font-size: 20px;
+  #indexsearchsection #indexsearchsection-wrapper #indexheaderdiv h1 .orange {
+    color: #f07900;
   }
-  #indexsearchsection #indexwrapper .indexsearchbutton {
+  #indexsearchsection #indexsearchsection-wrapper #indexheaderdiv ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+  #indexsearchsection #indexsearchsection-wrapper #indexheaderdiv ul li {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  #indexsearchsection #indexsearchsection-wrapper #indexheaderdiv ul li .orange {
+    color: #f07900;
+  }
+  #indexsearchsection #indexsearchsection-wrapper #hero-background {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
   }
-  #indexsearchsection #indexwrapper .indexsearchbutton #indexsearchbutton {
-    width: 90%;
-    height: 40px;
-    font-size: 20px;
-    padding: 6px;
+  #indexsearchsection #indexsearchsection-wrapper #hero-background img {
+    margin: auto;
+    height: 35vh;
+  }
+
+  #testish {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+  }
+  #testish h1 {
+    text-align: center;
+    margin-top: 0px;
+    font-size: 34px;
+    margin-bottom: 6px;
     color: white;
-    border-radius: 10px;
-    border-style: none;
-    background-color: #00006d;
-    margin-top: 20px;
-    margin-bottom: 20px;
   }
-  #indexsearchsection #indexwrapper #select:invalid {
-    color: gray;
-  }
-
-  .mainindex-search-wrapper {
-    width: 100%;
-  }
-  .mainindex-search-wrapper #mainRegionSelect {
-    width: 100%;
-    font-size: 20px;
-    height: 40px;
-  }
-
-  #indexSearchCitySelect {
-    width: 100%;
-    height: 40px;
-  }
-  #indexSearchCitySelect .mainCitySelect {
-    width: 100%;
-    font-size: 20px;
-    height: 40px;
-  }
-
-  #mainRegionSelect, .mainCitySelect, #mainRoleSelect, #mainPurposeSelect {
+  #testish #indexwrapper {
     display: flex;
-    margin-top: 10px;
-    background-color: #f4f4f4;
+    flex-direction: column;
+    margin: 50px 20px 20px 20px;
+    border-radius: 8px;
+    width: 90%;
+    margin: auto;
   }
-
-  .arrow-select {
-    position: absolute;
-    margin-right: 4vw;
-    border-top: 0.5em solid black;
-    border-right: 0.5em solid transparent;
-    border-left: 0.5em solid transparent;
+  #testish #indexwrapper #h1search {
+    margin-bottom: 0px;
+    margin: auto;
   }
-
-  .column2 .tablesearch {
-    width: 100%;
-  }
-  .column2 .tablesearch #indexSearchRoleSelect #mainRoleSelect {
-    width: 100%;
-    font-size: 20px;
-    height: 40px;
-  }
-  .column2 .tablesearch #indexSearchPurposeSelect #mainPurposeSelect {
-    width: 100%;
-    font-size: 20px;
-    height: 40px;
-  }
-
-  .mainindex-search-wrapper-wrapper {
+  #testish #indexwrapper #tablewrappersearch {
+    /* <div "wrapper"> */
     display: flex;
-    width: 100%;
-  }
-  .mainindex-search-wrapper-wrapper #indexSearchRegionSelect, .mainindex-search-wrapper-wrapper #indexSearchCitySelect, .mainindex-search-wrapper-wrapper #indexSearchRoleSelect, .mainindex-search-wrapper-wrapper #indexSearchPurposeSelect {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    position: relative;
-    justify-content: right;
-    justify-content: flex-end;
-    width: 100%;
-  }
-  .mainindex-search-wrapper-wrapper #indexSearchRegionSelect select, .mainindex-search-wrapper-wrapper #indexSearchCitySelect select, .mainindex-search-wrapper-wrapper #indexSearchRoleSelect select, .mainindex-search-wrapper-wrapper #indexSearchPurposeSelect select {
-    padding-left: 10px;
-  }
-
-  #tablewrappersearch {
-    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     gap: 10px;
   }
-  #tablewrappersearch select {
+  #testish #indexwrapper #tablewrappersearch .indexwrapper-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  #testish #indexwrapper #tablewrappersearch .indexwrapper-column .indexwrapper-inputwrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  #testish #indexwrapper #tablewrappersearch .indexwrapper-column .indexwrapper-inputwrapper h3 {
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+  }
+  #testish #indexwrapper #tablewrappersearch .indexwrapper-column .indexwrapper-inputwrapper .indexwrapper-input-div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  #testish #indexwrapper #tablewrappersearch .indexwrapper-column .indexwrapper-inputwrapper .indexwrapper-input-div select {
     border-radius: 3px;
     border-color: #333;
     border-width: 1px;
@@ -2687,6 +2919,36 @@ main {
        -moz-appearance: none;
             appearance: none;
     margin-top: 0px;
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    padding: 0px 0px 0px 8px;
+    background-color: #f4f4f4;
+  }
+  #testish #indexwrapper #tablewrappersearch .indexwrapper-column .indexwrapper-inputwrapper .indexwrapper-input-div .arrow-select {
+    position: absolute;
+    margin-right: 18px;
+    border-top: 0.5em solid black;
+    border-right: 0.5em solid transparent;
+    border-left: 0.5em solid transparent;
+  }
+  #testish #indexwrapper .indexsearchbutton {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  #testish #indexwrapper .indexsearchbutton #indexsearchbutton {
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bolder;
+    color: black;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    border-style: none;
+  }
+  #testish #indexwrapper .indexsearchbutton #indexsearchbutton:hover {
+    opacity: 0.8;
   }
 }
 @media (max-width: 875px) {
@@ -2708,46 +2970,85 @@ main {
   #company-number-row a:hover {
     color: slategray;
   }
-
-  #index-text {
-    display: none;
-  }
-
-  #index-text-mobile {
-    margin-top: 16px;
-    padding: 10px;
-    padding-bottom: 20px;
-    background-color: #fff;
-  }
-  #index-text-mobile h2 {
-    color: black;
-    margin-top: 4px;
-  }
-  #index-text-mobile #index-text-wrapper-mobile {
-    display: flex;
-    flex-direction: column;
-  }
-  #index-text-mobile #index-text-wrapper-mobile .index-text-row-mobile {
-    background-color: #f4f4f4;
-    padding: 10px;
-    border-radius: 6px;
-    margin-bottom: 2vh;
-  }
-  #index-text-mobile #index-text-wrapper-mobile .index-text-row-mobile h3 {
-    margin-bottom: 4px;
-    margin-top: 4px;
-    color: black;
-  }
-  #index-text-mobile #index-text-wrapper-mobile .index-text-row-mobile p {
-    margin-top: 2px;
-    font-weight: 400;
-  }
-  #index-text-mobile #index-text-wrapper-mobile .index-text-row-mobile a {
-    color: #2c7688;
-    font-weight: 510;
-  }
 }
 @media (max-width: 875px) {
+  #index-text {
+    background-color: #fff;
+  }
+  #index-text #index-text-wrapper-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 20px;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-header h3 {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 2px;
+    margin-top: 0px;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-header p {
+    font-size: 20px;
+    text-align: center;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-header #index-text-btn {
+    background-color: #f07900;
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bolder;
+    border-radius: 8px;
+    border-style: none;
+    margin: auto;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-header #index-text-btn:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper .index-text-column {
+    width: 90%;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+    padding: 12px;
+    margin-bottom: 20px;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper .index-text-column .index-text-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper .index-text-column .index-text-header img {
+    height: 30px;
+    margin-right: 6px;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper .index-text-column .index-text-header h3 {
+    font-size: 20px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper .index-text-column p {
+    line-height: 1.5rem;
+    font-size: 18px;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper .index-text-column a {
+    color: blue;
+  }
+  #index-text #index-text-wrapper-wrapper #index-text-wrapper .index-text-column a:hover {
+    color: slategray;
+  }
+
   #index-showcase-offers {
     background-color: #f4f4f4;
     display: flex;
@@ -2759,38 +3060,179 @@ main {
   #index-showcase-offers h2 {
     font-size: 28px;
   }
-  #index-showcase-offers #index-showcase-offers-wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
+
+  #index-contact-us {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 40px 0px 40px 0px;
   }
-  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column {
-    display: flex;
-    flex-direction: column;
+  #index-contact-us h3 {
+    width: 90%;
+    font-size: 30px;
     margin: auto;
-    width: 90vw;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 8px;
+  }
+  #index-contact-us p {
+    width: 80%;
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
     margin-bottom: 20px;
   }
-  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column .indexshowcase-img {
-    width: 125px;
-    height: 125px;
-    border-radius: 50%;
+  #index-contact-us #index-offert-btn {
+    height: 40px;
+    font-size: 18px;
+    font-weight: bolder;
+    color: black;
+    background-color: #f07900;
+    border-radius: 8px;
+    border-style: none;
+    padding: 10px 20px 10px 20px;
   }
-  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column h3 {
-    font-size: 24px;
-    margin-top: 6px;
-    margin-bottom: 2px;
-    text-align: left;
-    padding-left: 10px;
+  #index-contact-us #index-offert-btn:hover {
+    opacity: 0.8;
+    cursor: pointer;
   }
-  #index-showcase-offers #index-showcase-offers-wrapper .indexshowcase-offers-column p {
-    padding: 10px;
+
+  #index-subscription {
+    padding-top: 10px;
+    background-color: #fff;
+  }
+  #index-subscription h3 {
+    font-size: 28px;
+    text-align: center;
+  }
+  #index-subscription #index-subscription-top-btn {
+    display: flex;
+    justify-content: center;
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper p {
     font-size: 16px;
-    margin-top: 0px;
-    text-align: left;
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper p:last-child {
+    font-weight: bolder;
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper .button-slider {
+    margin-top: 40px;
+    margin-left: 60px;
+    transform: translate(-50%, -50%);
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper .button-slider input {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    -moz-appearance: none;
+         appearance: none;
+    -webkit-appearance: none;
+    background-color: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper .button-slider input:checked {
+    background: #35a848;
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper .button-slider input::before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 20px;
+    top: 3px;
+    left: 4px;
+    background: #fff;
+    transition: 0.5s;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper .button-slider input:checked::before {
+    left: 33px;
+  }
+  #index-subscription #index-subscription-plan-options {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    padding-bottom: 20px;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option h4 {
+    font-weight: bolder;
+    font-size: 22px;
+    margin-bottom: 0px;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option p {
+    margin-top: 4px;
+    font-size: 14px;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-price p .bold {
+    font-size: 24px;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-info ul {
+    list-style: none;
+    padding-left: 0px;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-info ul li {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-info ul li .orange {
+    margin-right: 8px;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-btn {
+    display: flex;
+    justify-content: center;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-btn button {
+    margin-top: 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    font-weight: bolder;
+    padding: 10px 20px 10px 20px;
+    margin-left: -20px;
+    border-style: none;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-btn button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option #index-subscription-btn-1 {
+    background-color: #7e7979;
+    color: white;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option #index-subscription-btn-2 {
+    background-color: #333;
+    color: white;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option #index-subscription-btn-3 {
+    background-color: #f07900;
+  }
+  #index-subscription #index-subscription-option-1 {
+    border-top: #7e7979;
+    border-top-style: solid;
+    border-width: 6px;
+  }
+  #index-subscription #index-subscription-option-2 {
+    border-top: #333;
+    border-top-style: solid;
+    border-width: 6px;
+  }
+  #index-subscription #index-subscription-option-3 {
+    border-top: #f07900;
+    border-top-style: solid;
+    border-width: 6px;
   }
 }
 @media (max-width: 875px) {
@@ -4049,7 +4491,7 @@ main {
     width: 25px;
   }
 }
-@media (max-width: 875px) {
+@media (max-width: 1080px) {
   #index-firstpicture {
     width: 90%;
   }
@@ -4060,7 +4502,6 @@ main {
     width: 100vw;
     padding-bottom: 14px;
     padding-top: 5px;
-    border-bottom: #708090 3px solid;
     position: fixed;
     z-index: 10;
   }
@@ -4092,6 +4533,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 20px;
   }
   header .container .navbar #cross-black {
     display: none;
@@ -4162,7 +4604,7 @@ main {
     display: none;
   }
 }
-@media (max-width: 750px) {
+@media (max-width: 1080px) {
   .navbarselector {
     display: none;
   }

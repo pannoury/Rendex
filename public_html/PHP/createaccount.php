@@ -43,10 +43,11 @@
             echo (json_encode($results));
         }
         else{
+            $matchid = 0;
             $results = array(
                 0 => $matchid,
             );
-            echo (json_encode($results));
+            echo (json_encode($matchid));
         }
     }
 
