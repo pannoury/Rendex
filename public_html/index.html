@@ -13,10 +13,10 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script>
   $(function(){
-    $("#footer").load("footer.html"); 
+    $("#navbar").load("navbar.html"); 
   });
   $(function(){
-    $("#navbar").load("navbar.html"); 
+    $("#footer").load("footer.html"); 
   });
   $(function(){
     $("#cookiewindowpopupwrapper").load("cookieswindow.html");
@@ -140,7 +140,7 @@
           <p><span class="bold">Antal slutförda uppdrag</span></p>
         </div>
       </div>
-    </section> <!--Company Number section END-->
+    </section>
 
     <section id="index-text">
       <div id="index-text-wrapper-wrapper">
@@ -195,11 +195,70 @@
             <p>För dig som är en Front-end, Back-end eller en Fullstack utvecklare.</p>
           </div>
           <div class="index-showcase-job">
-
+            <div id="index-coding-wrapper">
+              <div id="index-coding-top">
+                <div id="index-coding-top-filename">
+                  <p>JS</p>
+                  <p>ajax.js</p>
+                  <p>&#10005;</p>
+                </div>
+                <div id="index-coding-top-btn-wrapper">
+                  <div class="index-coding-top-btn">
+                    <svg height="30" width="30">
+                      <circle cx="15" cy="15" r="8" stroke="green" stroke-width="3" fill="none" />
+                    </svg> 
+                  </div>
+                  <div class="index-coding-top-btn">
+                    <svg height="30" width="30">
+                      <circle cx="15" cy="15" r="8" stroke="yellow" stroke-width="3" fill="none" />
+                    </svg> 
+                  </div>
+                  <div class="index-coding-top-btn">
+                    <svg height="30" width="30">
+                      <circle cx="15" cy="15" r="8" stroke="red" stroke-width="3" fill="none" />
+                    </svg> 
+                  </div>
+                </div>
+              </div>
+              <div id="index-coding-middlepart">
+                <div id="index-code-wrapper">
+                  <code>
+                    <div class="code-row">1&nbsp;<span class="code-blue">document</span><span class="code-yellow">.getElementById(</span><span class="code-orange">'send'</span><span class="code-yellow">).addEventListener(</span><span class="code-orange">'click'</span>, <span class="code-darkblue">function</span><span class="code-pink">(){</span></div>
+                    <div class="code-row">2&nbsp;&nbsp;&nbsp;<span class="code-darkblue">var</span>&nbsp;<span class="code-blue">loginId</span>&nbsp;=&nbsp;<span class="code-yellow">getCookie</span><span class="code-pink">(</span><span class="code-orange">"a_user"</span><span class="code-pink">)</span>;</div>
+                    <div class="code-row">3&nbsp;&nbsp;&nbsp;<span class="code-darkblue">var</span>&nbsp;<span class="code-blue">newArrayLoginId</span>&nbsp;=&nbsp;<span class="code-blue">loginId</span><span class="code-yellow">.split</span><span class="code-pink">(</span><span class="code-orange">','</span><span class="code-pink">)</span>;</div>
+                    <div class="code-row">4&nbsp;&nbsp;&nbsp;<span class="code-darkblue">var</span>&nbsp;<span class="code-blue">accountid</span>&nbsp;=&nbsp;<span class="code-blue">newArrayLoginId[</span><span class="code-green">0</span><span class="code-blue">]</span>;</div>  
+                    <div class="code-row">5&nbsp;&nbsp;&nbsp;<span class="code-darkblue">var</span>&nbsp;<span class="code-blue">text</span>&nbsp;=&nbsp;<span class="code-blue">document</span><span class="code-yellow">.getElementById</span><span class="code-pink">(</span><span class="code-orange">"chatinput"</span><span class="code-pink">)</span>.value;</div>
+                    <div class="code-row">6&nbsp;&nbsp;&nbsp;<span class="code-darkblue">var</span>&nbsp;<span class="code-blue">today</span>&nbsp;=&nbsp;<span class="code-blue">new</span>&nbsp;<span class="code-green">Date</span><span class="code-pink">()</span>;</div>
+                    <div class="code-row">7&nbsp;&nbsp;&nbsp;<span class="code-darkblue">var</span>&nbsp;<span class="code-blue">month</span>&nbsp;=&nbsp;<span class="code-blue">(</span><span class="code-orange">'0'</span>&nbsp;+&nbsp;<span class="code-yellow">(</span><span class="code-blue">today</span><span class="code-yellow">.getMonth</span><span class="code-pink">()</span>+<span class="code-green">1</span><span class="code-yellow">)</span><span class="code-blue">)</span><span class="code-yellow">.slice</span><span class="code-blue">(</span>-<span class="code-green">2</span><span class="code-blue">)</span>;</div>
+                    <div class="code-row">8&nbsp;&nbsp;&nbsp;<span class="code-darkblue">var</span>&nbsp;<span class="code-blue">date</span>&nbsp;=&nbsp;<span class="code-orange">`</span><span class="code-darkblue">${</span><span class="code-blue">today</span><span class="code-yellow">.getFullYear</span><span class="code-pink">()</span><span class="code-darkblue">}</span><span class="code-orange">-</span><span class="code-darkblue">${</span><span class="code-blue">month</span><span class="code-darkblue">}</span><span class="code-orange">-</span><span class="code-darkblue">${</span><span class="code-blue">today</span><span class="code-yellow">.getDate</span><span class="code-pink">()</span><span class="code-darkblue">}</span><span class="code-orange">`</span>;</div>
+                    <div class="code-row">9&nbsp;&nbsp;&nbsp;<span class="code-pink">if</span><span class="code-yellow">(</span><span class="code-blue">text.length</span>&nbsp;>=&nbsp;<span class="code-green">1</span><span class="code-yellow">)</span><span class="code-pink">{</span></div>
+                    <div class="code-row">10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-blue">$</span><span class="code-yellow">.ajax(</span></div>
+                    <div class="code-row">11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-pink">{</span></div>
+                    <div class="code-row">12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;&nbsp;<span class="code-orange">'./PHP/inbox.php'</span>,</div>
+                    <div class="code-row">13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataType:&nbsp;&nbsp;<span class="code-orange">'text'</span>,</div>
+                    <div class="code-row">14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;method:&nbsp;&nbsp;<span class="code-orange">'POST'</span>,</div>
+                    <div class="code-row">15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data:&nbsp;<span class="code-blue">{</span></div>
+                    <div class="code-row">16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;requestid:&nbsp;<span class="code-green">5</span>,</div>
+                    <div class="code-row">17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sender:&nbsp;<span class="code-blue">accountid</span>,</div>
+                    <div class="code-row">18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reciever:&nbsp;<span class="code-blue">sessionStorage</span><span class="code-yellow">.getItem(</span><span class="code-orange">"counterpart"</span><span class="code-yellow">)</span>,</div>
+                    <div class="code-row">19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reciever:&nbsp;<span class="code-blue">sessionStorage</span><span class="code-yellow">.getItem(</span><span class="code-orange">"chatid"</span><span class="code-yellow">)</span>,</div>
+                    <div class="code-row">20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text:&nbsp;<span class="code-blue">text</span>,</div>
+                    <div class="code-row">21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;date:&nbsp;<span class="code-blue">date</span>,</div>
+                    <div class="code-row">22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-blue">}</span>,</div>
+                    <div class="code-row">23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">success</span>:&nbsp;<span class="code-darkblue">function</span><span class="code-blue">(response){</span></div>
+                    <div class="code-row">24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-pink">if</span><span class="code-yellow">(</span><span class="code-blue">response</span>&nbsp;=&nbsp;<span class="code-green">1</span><span class="code-yellow">){</span></div>
+                    <div class="code-row">25&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">reactiveTexting</span><span class="code-pink">()</span>;</div>
+                    <div class="code-row">26&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">}</span></div>
+                    <div class="code-row">27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-blue">}</span>,</div>
+                    <div class="code-row">28&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-pink">}</span></div>
+                    <div class="code-row">29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-yellow">)</span>;</div>
+                    <div class="code-row">30&nbsp;&nbsp;&nbsp;<span class="code-blue">}</span>;</div>
+                    <div class="code-row">31&nbsp;<span class="code-pink">}</span><span class="code-yellow">)</span>;</div>
+                  </code>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="index-showcase-wrapper">
-
         </div>
       </div>
     </section>

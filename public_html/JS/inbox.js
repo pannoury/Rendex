@@ -814,7 +814,6 @@ document.getElementById('chatinput-sendbtn').addEventListener('click', function 
     var accountid = newArrayLoginId[0];
     var text = document.getElementById('chat-input').value;
     var chatList = document.getElementById('chat-list');
-    //chatListLastChild = chatList.lastElementChild;
     var today = new Date();
     var month = ('0' + (today.getMonth()+1)).slice(-2);
     var date = `${today.getFullYear()}-${month}-${today.getDate()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;

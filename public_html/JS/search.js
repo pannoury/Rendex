@@ -9,6 +9,7 @@ var regionCityHeader = document.getElementById('regioncityheader');
 var width = window.screen.width;
 
 window.addEventListener('load', function loadRegionCheck(){
+    document.getElementById('globeicon').setAttribute('src', './assets/images/globe.svg')
     var region = localStorage.getItem("regionSelected");
     if(region !== undefined && region !== null){
         if (region.includes(',')) {
@@ -179,6 +180,56 @@ function loadRegionCheckV2(regionValue){
     }
 };
 
+document.getElementById('languageanchor').onclick = function(){
+    var ul = document.getElementById('languageanchor');
+    ulAriaLabel = ul.getAttribute('aria-label');
+    if(ulAriaLabel == null || ulAriaLabel == undefined || ulAriaLabel == "not displayed"){
+        document.getElementById('language-options').style.display = "flex";
+        ul.setAttribute('aria-label', "displayed");
+    }
+    else if(ulAriaLabel == "displayed"){
+        document.getElementById('language-options').style.display = "none";
+        ul.setAttribute('aria-label', "not displayed");
+    }
+    
+};
+$(document).ready(function(){
+    var lang = getCookie("lang");
+    if(lang = undefined || lang == null){
+        console.log("no language cookie");
+    }
+    else if(lang = "SE"){
+        document.getElementById('language-selected').innerText = "SE";
+    }
+    else if(lang = "ENG"){
+        document.getElementById('language-selected').innerText = "ENG";
+    }
+});
+document.getElementById('english-selected').onclick = function(){
+    var lang = getCookie("lang");
+    if(lang = undefined || lang == null){
+        createCookie("lang", "ENG", 365);
+    }
+    else if(lang = "ENG"){
+        createCookie("lang", "ENG", 365);
+    }
+    else if(lang = "SE"){
+    }
+    location.reload();
+    
+};
+document.getElementById('swedish-selected').onclick = function(){
+    var lang = getCookie("lang");
+    if(lang = undefined || lang == null){
+        createCookie("lang", "SE", 365);
+    }
+    else if(lang = "ENG"){
+        createCookie("lang", "SE", 365);
+    }
+    else if(lang = "SE"){
+    }
+    location.reload();
+};
 function loadArticles(){
 
 };

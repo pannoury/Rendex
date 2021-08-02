@@ -134,39 +134,47 @@ window.onscroll = function(){
             document.getElementsByClassName('logo')[0].setAttribute('src', './assets/images/rendex_black.svg');
         }
     }
-};
-document.getElementById('swedish-selected').onclick = function(){
-    if(lang = undefined || lang == null){
-        createCookie("lang", "SE", 365);
-    }
-    else if(lang = "ENG"){
-        createCookie("lang", "SE", 365);
-    }
-    else if(lang = "SE"){
+    else{
+        navbar.style.backgroundColor = "#333";
+        document.getElementsByClassName('logo')[0].setAttribute('src', './assets/images/rendex_white.svg');
     }
 };
-
 /***************LANGUAGE SETTINGS *************/
 $(document).ready(function(){
     var lang = getCookie("lang");
-    console.log(lang);
     if(lang = undefined || lang == null){
         console.log("no language cookie");
     }
     else if(lang = "SE"){
+        document.getElementById('language-selected').innerText = "SE";
     }
     else if(lang = "ENG"){
+        document.getElementById('language-selected').innerText = "ENG";
     }
 });
 document.getElementById('english-selected').onclick = function(){
-        if(lang = undefined || lang == null){
+    var lang = getCookie("lang");
+    if(lang = undefined || lang == null){
         createCookie("lang", "ENG", 365);
     }
     else if(lang = "ENG"){
         createCookie("lang", "ENG", 365);
     }
     else if(lang = "SE"){
-        
     }
+    location.reload();
+    
+};
+document.getElementById('swedish-selected').onclick = function(){
+    var lang = getCookie("lang");
+    if(lang = undefined || lang == null){
+        createCookie("lang", "SE", 365);
+    }
+    else if(lang = "ENG"){
+        createCookie("lang", "SE", 365);
+    }
+    else if(lang = "SE"){
+    }
+    location.reload();
 };
 /***************LANGUAGE SETTINGS *************/
