@@ -223,40 +223,81 @@
                     }
                 }
             }
-            #index-text-wrapper{
-                width: 100%;
+        }
+    }
+}
+@media(min-width:1500px){
+    #index-text-wrapper{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        .index-text-column{
+            width: 24%;
+            border-radius: 8px;
+            background-color: #f4f4f4;
+            padding: 12px;
+            margin: 0 20px 20px 20px;
+            .index-text-header{
                 display: flex;
                 flex-direction: row;
-                margin: auto;
-                .index-text-column{
-                    width: 24%;
-                    border-radius: 8px;
-                    background-color: #f4f4f4;
-                    padding: 12px;
-                    margin: 0 20px 20px 20px;
-                    .index-text-header{
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        img{
-                            height: 30px;
-                            margin-right: 6px;
-                        }
-                        h3{
-                            font-size: 20px; 
-                            margin-bottom: 0px;
-                            margin-top: 0px;
-                        }
-                    }
-                    p{
-                        line-height:1.5rem;
-                        font-size: 18px;
-                    }
-                    a{color: blue;
-                        &:hover{
-                            color: slategray;
-                        }
-                    }
+                align-items: center;
+                img{
+                    height: 30px;
+                    margin-right: 6px;
+                }
+                h3{
+                    font-size: 20px; 
+                    margin-bottom: 0px;
+                    margin-top: 0px;
+                }
+            }
+            p{
+                line-height:1.5rem;
+                font-size: 18px;
+            }
+            a{color: blue;
+                &:hover{
+                    color: slategray;
+                }
+            }
+        }
+    }
+}
+@media(max-width:1500px) and (min-width:875px){
+    #index-text-wrapper{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: auto;
+        .index-text-column{
+            width: 40%;
+            border-radius: 8px;
+            background-color: #f4f4f4;
+            padding: 12px;
+            margin: 0 20px 20px 20px;
+            .index-text-header{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                img{
+                    height: 30px;
+                    margin-right: 6px;
+                }
+                h3{
+                    font-size: 20px; 
+                    margin-bottom: 0px;
+                    margin-top: 0px;
+                }
+            }
+            p{
+                line-height:1.5rem;
+                font-size: 18px;
+            }
+            a{color: blue;
+                &:hover{
+                    color: slategray;
                 }
             }
         }
@@ -358,6 +399,7 @@
                                 display: flex;
                                 flex-direction: row;
                                 justify-content: flex-end;
+                                align-items: center;
                                 margin-right: 10px;
                                 .index-coding-top-btn{
                                     margin-top: 4px;
@@ -373,6 +415,8 @@
                         #index-code-wrapper{
                             width: 100%;
                             border-bottom-right-radius: 8px;
+                            border-bottom-left-radius: 8px;
+                            overflow: hidden;
                             code{
                                 padding-top: 15px;
                                 padding-left: 14px;
@@ -390,6 +434,9 @@
                                 .code-row{
                                     display: flex;
                                     flex-direction: row;
+                                    &:nth-last-child(1){
+                                        margin-bottom: 12px;
+                                    }
                                 }
                                 .code-blue{
                                     color: #92c9fd;

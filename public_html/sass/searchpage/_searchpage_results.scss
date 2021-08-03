@@ -49,81 +49,70 @@
             #article-wrapper-wrapper{
                 width: 70%;
                 .article-wrapper{
-                    margin-bottom: 6px;
-                    background-color: #e2e2e2;
-                    border-radius: 3px;
-                    display: block;
+                    display: flex;
+                    flex-direction: row;
+                    padding: 10px 20px 10px 20px;
+                    border-radius: 4px;
+                    background-color: #f4f4f4 !important;
+                    justify-content: space-between;
+                    .article-image-wrapper{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 6vw;
+                        height: 6vw;
+                        border-radius: 10px;
+                        background-color: #fff;
+                        img{
+                            margin: auto;
+                            width: 90%;
+                            height: 90%;
+                        }
+                    }
+                    .article-information-wrapper{
+                        width: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        .title-wrapper{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            .article-title{
+                                width: 70%;
+                                margin: 0px;
+                            }
+                            .time-stamp{
+                                width: 30%;
+                                margin: 0px;
+                            }
+                        }
+                        .article-information-bottom{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            margin-top: auto;
+                            .article-info{
+                                width: 30%;
+                            }
+                            .article-rating{
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                            }
+                            .article-price{
+                                margin: 0px;
+                            }
+                            .article-class{
+                                margin: 0px;
+                            }
+                        }
+                    }
                 }
             }
             .search-result-rightpage{
                 width: 25%;
                 background-color: slategray;
                 border-radius: 3px;
-            }
-        }
-        article{
-            display: flex;
-            width: 90%;
-            margin: auto;
-            padding-top: 10px; padding-bottom: 10px;
-            .search-result-articles-picture{
-                width: 205px;
-                height: 135px;
-                align-self: flex-start;
-                .search-result-articles-pictures-img{
-                    width: 100%;
-                    height: 100%;
-                    position: relative;
-                    background-color: $grey-background;
-                    img{
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-                .nameinformation-mobileversion{
-                    display: none;
-                }
-            }
-            .search-result-articles-information{
-                display: flex;
-                flex-direction: column;
-                flex-grow: 1;
-                margin-left: 15px;
-                width: 100%;
-                p{margin: 0; font-size: 12px;}
-                div{margin-bottom: 16px;}
-                .name-area-wrapper{
-                    text-align: left;
-                    display: flex;
-                    justify-content: space-between;
-                    .name-topinfo-area{}
-                    .license-topinfo-boolean{}
-                }
-                .company-middleinfo-wrapper{
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    .company-rating-div{
-                        display: flex;
-                        align-items: center;
-                        .checked{color: orange;}
-                        a{display: flex;}
-                    }
-                }
-                .company-tags-bottom-header{
-                    margin-bottom: 0px;
-                    margin-top: 40px;
-                }
-                .company-tags-bottom-wrapper{
-                    margin-top: 5px;
-                    button{
-                        border-radius: 3px;
-                        border-style: groove;
-                        border-width: 1px;
-                        border-color: black;
-                        &:hover{transform: scale(.95);}
-                    }
-                }
             }
         }
     }

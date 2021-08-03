@@ -224,7 +224,7 @@
                 <div id="index-code-wrapper">
                   <code>
                     <div class="code-row">1&nbsp;<span class="code-blue">document</span><span class="code-yellow">.getElementById(</span><span class="code-orange">'send'</span><span class="code-yellow">).addEventListener(</span><span class="code-orange">'click'</span>, <span class="code-darkblue">function</span><span class="code-pink">(){</span></div>
-                    <div class="code-row">2&nbsp;&nbsp;&nbsp;<span class="code-darkblue">var</span>&nbsp;<span class="code-blue">loginId</span>&nbsp;=&nbsp;<span class="code-yellow">getCookie</span><span class="code-pink">(</span><span class="code-orange">"a_user"</span><span class="code-pink">)</span>;</div>
+                    <div class="code-row">2&nbsp;&nbsp;&nbsp;<span class="code-darkblue">var</span>&nbsp;<span class="code-blue">loginId</span>&nbsp;=&nbsp;<span class="code-yellow">getCookie</span><span class="code-pink">(</span><span class="code-orange">"user"</span><span class="code-pink">)</span>;</div>
                     <div class="code-row">3&nbsp;&nbsp;&nbsp;<span class="code-darkblue">var</span>&nbsp;<span class="code-blue">newArrayLoginId</span>&nbsp;=&nbsp;<span class="code-blue">loginId</span><span class="code-yellow">.split</span><span class="code-pink">(</span><span class="code-orange">','</span><span class="code-pink">)</span>;</div>
                     <div class="code-row">4&nbsp;&nbsp;&nbsp;<span class="code-darkblue">var</span>&nbsp;<span class="code-blue">accountid</span>&nbsp;=&nbsp;<span class="code-blue">newArrayLoginId[</span><span class="code-green">0</span><span class="code-blue">]</span>;</div>  
                     <div class="code-row">5&nbsp;&nbsp;&nbsp;<span class="code-darkblue">var</span>&nbsp;<span class="code-blue">text</span>&nbsp;=&nbsp;<span class="code-blue">document</span><span class="code-yellow">.getElementById</span><span class="code-pink">(</span><span class="code-orange">"chatinput"</span><span class="code-pink">)</span>.value;</div>
@@ -234,7 +234,7 @@
                     <div class="code-row">9&nbsp;&nbsp;&nbsp;<span class="code-pink">if</span><span class="code-yellow">(</span><span class="code-blue">text.length</span>&nbsp;>=&nbsp;<span class="code-green">1</span><span class="code-yellow">)</span><span class="code-pink">{</span></div>
                     <div class="code-row">10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-blue">$</span><span class="code-yellow">.ajax(</span></div>
                     <div class="code-row">11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-pink">{</span></div>
-                    <div class="code-row">12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;&nbsp;<span class="code-orange">'./PHP/inbox.php'</span>,</div>
+                    <div class="code-row">12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;&nbsp;<span class="code-orange">'./inbox.php'</span>,</div>
                     <div class="code-row">13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataType:&nbsp;&nbsp;<span class="code-orange">'text'</span>,</div>
                     <div class="code-row">14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;method:&nbsp;&nbsp;<span class="code-orange">'POST'</span>,</div>
                     <div class="code-row">15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data:&nbsp;<span class="code-blue">{</span></div>

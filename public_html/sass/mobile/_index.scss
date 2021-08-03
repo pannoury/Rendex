@@ -428,10 +428,12 @@
         background-color: #f4f4f4;
         padding-bottom: 30px;
         #index-showcase-offers-header{
+            width: 90%;
             display: flex;
             flex-direction: column;
             justify-items: center;
             text-align: center;
+            margin: auto;
             h2{
                 font-size: 34px;
                 margin: 20px 0px 0px 0px;
@@ -444,13 +446,13 @@
             }
         }
         #index-showcase-offers-wrapper{
-            width: 100vw;
-            padding: 20px;
+            width: 100%;
             background-color: #fff;
             .index-showcase-wrapper{
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+                padding: 20px;
                 .index-showcase-header{
                     display: flex;
                     flex-direction: column;
@@ -524,7 +526,9 @@
                             width: 80vw;
                             overflow: auto;
                             #index-code-wrapper{
+                                width: 100%;
                                 border-bottom-right-radius: 8px;
+                                overflow: hidden;
                                 code{
                                     padding-top: 15px;
                                     padding-left: 14px;

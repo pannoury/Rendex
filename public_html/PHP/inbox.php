@@ -87,7 +87,6 @@
         $id = $conn->real_escape_string($_GET['userid']);
         $chatid = $conn->real_escape_string($_GET['chatid']);
         $sender = $conn->real_escape_string($_GET['sender']);
-        $sender = $conn->real_escape_string($_GET['sender']);
         $sql = "SELECT * FROM Individuals WHERE accountId='$sender'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_array($result);

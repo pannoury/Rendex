@@ -7,8 +7,11 @@ var regionSpanText = document.getElementById('regionspan-text');
 var citySpan = document.getElementById('cityspan-text');
 var regionCityHeader = document.getElementById('regioncityheader');
 var width = window.screen.width;
+var loginId = getCookie("a_user");
+var newArrayLoginId = loginId.split(',');
 
 window.addEventListener('load', function loadRegionCheck(){
+    loggedInControl(); // for navbar
     document.getElementById('globeicon').setAttribute('src', './assets/images/globe.svg')
     var region = localStorage.getItem("regionSelected");
     if(region !== undefined && region !== null){
@@ -180,6 +183,112 @@ function loadRegionCheckV2(regionValue){
     }
 };
 
+
+/**********************NAVBAR **********************/
+$(document).ready(function(){
+    var lang = getCookie("lang");
+    if(lang = undefined || lang == null){
+        console.log("no language cookie");
+    }
+    else if(lang = "SE"){
+        document.getElementById('language-selected').innerText = "SE";
+    }
+    else if(lang = "ENG"){
+        document.getElementById('language-selected').innerText = "ENG";
+    }
+});
+async function loggedInControl(){
+    if(newArrayLoginId[0] > 0){
+        if(newArrayLoginId[1] == 1){ //Individual
+            var role = newArrayLoginId[1];
+            var accountid = newArrayLoginId[0];
+            $.ajax(
+                {
+                    url: './PHP/individuals.php',
+                    dataType: 'text',
+                    method: 'GET',
+                    data: {
+                        userid: accountid,
+                        role: role,
+                    },
+                    success: function(response){
+                        var response = JSON.parse(response);
+                        if(response[0] == 1){
+                            var width = window.screen.width;
+                            if(width > 875){
+                                document.getElementById('loginanchor').innerText = `${response[1]}`;
+                                document.getElementById('loggedInFalse').style.display = "none";
+                            }
+                            else if(width < 875){
+                                document.getElementById('loginsidemenu').innerText = `${response[1]}`;
+                                document.getElementById('createaccountsidemenu').style.display = "none";
+                            }
+                        }
+                        else{
+                            console.log("Failed to fetch data from server");
+                        }
+    
+                    },
+                }
+            );
+        }
+        else if(newArrayLoginId[1] == 2){ //Organisation
+
+        }
+    }
+    else{
+        document.getElementById('loginanchor').textContent = "Logga In";
+    }
+};
+document.getElementById('loginanchor').onclick = function(){
+    if(newArrayLoginId[0] >= 1){
+        window.location = 'https://rendex.se/myaccount';
+    }
+    else{
+        window.location = 'https://rendex.se/login';
+    }
+};
+document.getElementById('loginsidemenu').onclick = function(){
+    if(newArrayLoginId[0] >= 1){
+        window.location = 'https://rendex.se/myaccount';
+    }
+    else{
+        window.location = 'https://rendex.se/login';
+    }
+}
+document.getElementById('hamburgermenu-btn').addEventListener('click', function(){
+    var sideMenu = document.getElementById('side-menu').offsetWidth;
+    if(sideMenu !== 0){
+        document.getElementById('side-menu').style.width='0';
+        document.getElementById('cross-black').style.display = "none";
+        document.getElementById('hamburgermenu').style.display = "block";
+    }
+    else{
+        document.getElementById('side-menu').style.width='100vw';
+        document.getElementById('hamburgermenu').style.display = "none";
+        document.getElementById('cross-black').style.display = "block";
+    }
+});
+document.getElementById('inboxlink1').onclick = function(){
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
+    if(newArrayLoginId[0] >= 1){
+        document.getElementById('inboxlink1').href = "https://rendex.se/inbox";
+    }
+    else{
+        window.location = 'https://rendex.se/login';
+    }
+};
+document.getElementById('inboxlink2').addEventListener('click',function(){
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
+    if(newArrayLoginId[0] >= 1){
+        window.location = 'https://rendex.se/inbox';
+    }
+    else{
+        window.location = 'https://rendex.se/login';
+    }
+});
 document.getElementById('languageanchor').onclick = function(){
     var ul = document.getElementById('languageanchor');
     ulAriaLabel = ul.getAttribute('aria-label');
@@ -193,18 +302,6 @@ document.getElementById('languageanchor').onclick = function(){
     }
     
 };
-$(document).ready(function(){
-    var lang = getCookie("lang");
-    if(lang = undefined || lang == null){
-        console.log("no language cookie");
-    }
-    else if(lang = "SE"){
-        document.getElementById('language-selected').innerText = "SE";
-    }
-    else if(lang = "ENG"){
-        document.getElementById('language-selected').innerText = "ENG";
-    }
-});
 document.getElementById('english-selected').onclick = function(){
     var lang = getCookie("lang");
     if(lang = undefined || lang == null){
@@ -230,6 +327,4 @@ document.getElementById('swedish-selected').onclick = function(){
     }
     location.reload();
 };
-function loadArticles(){
-
-};
+/**********************NAVBAR **********************/
