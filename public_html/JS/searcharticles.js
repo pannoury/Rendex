@@ -14,7 +14,11 @@ window.addEventListener('load', function(){
 function ajaxResponse(response){
     console.log(response);
     if(response !== null || response !== undefined){
-        if(response[0].constructor === Array){ //if multiarray (multiple hits)
+        if(response == 0){
+            document.getElementById('searchresult-articlecounter').innerText = "0 Annonser";
+            document.getElementById('no-articles-found').style.display = "block";
+        }
+        else if(response[0].constructor === Array){ //if multiarray (multiple hits)
             response.forEach(element => {
                 createArticle(element);
             });
@@ -122,7 +126,7 @@ function createArticle(array){
                             success: function(response){
                                 var response = JSON.parse(response);
                                 console.log(response)
-                                a1.setAttribute('href', `https://rendex.se/article?id=${array[1]}&name1=${response[2]}&name2=${response[3]}`);
+                                a1.setAttribute('href', `https://rendex.se/article?id=${array[1]}`);
                             }
                         }
                     );

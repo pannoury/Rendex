@@ -6,27 +6,42 @@
 
     if($requestId == 1){
         $region = $conn->real_escape_string($_GET['region']);
-        $role = $conn->real_escape_string($_GET['role']);
-        if(strpos($region, ',')){ //region = array
+        $city = $conn->real_escape_string($_GET['city']);
+        $purpose = $conn->real_escape_string($_GET['purpose']);
+        $price = $conn->real_escape_string($_GET['price']);
+
+
+        if(strpos($region, ',') == true){ //region is array
             $region = str_replace('"', "'", $region);
             $region = str_replace("\'", "'", $region);
-            $purpose = $conn->real_escape_string($_GET['purpose']);
-            if(strpos($purpose, ',')){
-                $purpose = explode(",", $purpose);
-                $price = $conn->real_escape_string($_GET['price']);
-                if(strpos(',', $price)){
-                    $price = explode(",", $price);
-                    $sql = "SELECT * FROM Articles WHERE region IN ('$region') AND 
-                    WHERE price IN ('$price') AND WHERE  type IN ('$purpose')
+
+            if(strpos($purpose, ',') == true){ //purpose is array
+                $purpose = str_replace('"', "'", $purpose);
+                $purpose = str_replace("\'", "'", $purpose);
+                if(strpos($price, ',') == true){ //price == array, dont ignore
+                    $price = str_replace('"', "'", $price);
+                    $price = str_replace("\'", "'", $price);
+
+                    $sql = "SELECT * FROM Articles WHERE region IN ($region) AND 
+                    WHERE price IN ($price) AND WHERE type IN ($purpose)
                     ORDER BY created_at DESC LIMIT 40";
 
                     $result = mysqli_query($conn,$sql);  
                     $rows = mysqli_num_rows($result);
                     retrieveArticleInformation($result, $rows);
                 }
-                else{
-                    $sql = "SELECT * FROM Articles WHERE region IN ('$region') AND 
-                    WHERE price IN ('$price') AND WHERE  type IN ('$purpose')
+                else if($price == "All"){ //ignore price
+                    $sql = "SELECT * FROM Articles WHERE region IN ($region) 
+                    AND WHERE type IN ($purpose)
+                    ORDER BY created_at DESC LIMIT 40";
+
+                    $result = mysqli_query($conn,$sql);  
+                    $rows = mysqli_num_rows($result);
+                    retrieveArticleInformation($result, $rows);
+                }
+                else{ //single price value, dont ignore
+                    $sql = "SELECT * FROM Articles WHERE region IN ($region) AND 
+                    WHERE price='$price' AND WHERE type IN ($purpose)
                     ORDER BY created_at DESC LIMIT 40";
 
                     $result = mysqli_query($conn,$sql);  
@@ -34,229 +49,454 @@
                     retrieveArticleInformation($result, $rows);
                 }
             }
-            else if($purpose == "All"){
-                $price = $conn->real_escape_string($_GET['price']);
-                if(strpos(',', $price)){
-                    $price = explode(",", $price);
-                    $sql = "SELECT * FROM Articles WHERE region IN ('$region') ORDER BY created_at DESC LIMIT 40";
+            else if($purpose == "All"){ // ignore purpose
+                if(strpos($price, ',') == true){ //price == array, dont ignore
+                    $price = str_replace('"', "'", $price);
+                    $price = str_replace("\'", "'", $price);
+                    $sql = "SELECT * FROM Articles WHERE region IN ($region) AND 
+                    WHERE price IN ($price) ORDER BY created_at DESC LIMIT 40";
+
                     $result = mysqli_query($conn,$sql);  
                     $rows = mysqli_num_rows($result);
                     retrieveArticleInformation($result, $rows);
                 }
-                else if($price == "All"){
-                    $sql = "SELECT * FROM Articles WHERE region IN ($region) ORDER BY created_at DESC LIMIT 40";
+                else if($price == "All"){ //ignore price
+                    $sql = "SELECT * FROM Articles WHERE region IN ($region) 
+                    ORDER BY created_at DESC LIMIT 40";
+
                     $result = mysqli_query($conn,$sql);  
                     $rows = mysqli_num_rows($result);
                     retrieveArticleInformation($result, $rows);
                 }
-                else{
-                    $sql = "SELECT * FROM Articles WHERE region IN ('$region') ORDER BY created_at DESC LIMIT 40";
+                else{ //single price value, dont ignore
+                    $sql = "SELECT * FROM Articles WHERE region IN ($region) 
+                    AND WHERE price='$price' ORDER BY created_at DESC LIMIT 40";
+
                     $result = mysqli_query($conn,$sql);  
                     $rows = mysqli_num_rows($result);
                     retrieveArticleInformation($result, $rows);
                 }
             }
-            else{
-                $price = $conn->real_escape_string($_GET['price']);
-                if(strpos(',', $price)){
-                    $price = explode(",", $price);
-                    $sql = "SELECT * FROM Articles WHERE region IN ('$region') ORDER BY created_at DESC LIMIT 40";
-                    $result = mysqli_query($conn,$sql);  
-                    $rows = mysqli_num_rows($result);
-                    retrieveArticleInformation($result, $rows);
-                }
-                else if($price == "All"){
-                    $sql = "SELECT * FROM Articles WHERE region IN ('$region') ORDER BY created_at DESC LIMIT 40";
-                    $result = mysqli_query($conn,$sql);  
-                    $rows = mysqli_num_rows($result);
-                    retrieveArticleInformation($result, $rows);
-                }
-                else{
-                    $sql = "SELECT * FROM Articles WHERE region IN ('$region') ORDER BY created_at DESC LIMIT 40";
-                    $result = mysqli_query($conn,$sql);  
-                    $rows = mysqli_num_rows($result);
-                    retrieveArticleInformation($result, $rows);
-                }
+            else{ //not array, do not ignore PURPOSE
+                if(strpos($price, ',') == true){ //PRICE = ARRAY
+                    //REGION ARRAY, PURPOSE NA, PRICE ARRAY
+                    $price = str_replace('"', "'", $price);
+                    $price = str_replace("\'", "'", $price);
+                    $sql = "SELECT * FROM Articles WHERE region IN ($region) 
+                    AND WHERE type='$purpose' AND WHERE price IN ($price)
+                    ORDER BY created_at DESC LIMIT 40";
 
+                    $result = mysqli_query($conn,$sql);  
+                    $rows = mysqli_num_rows($result);
+                    retrieveArticleInformation($result, $rows);
+                }
+                else if($price == "All"){ //ignore price
+                    $sql = "SELECT * FROM Articles WHERE region IN ($region) 
+                    AND WHERE type='$purpose' ORDER BY created_at DESC LIMIT 40";
+
+                    $result = mysqli_query($conn,$sql);  
+                    $rows = mysqli_num_rows($result);
+                    retrieveArticleInformation($result, $rows);
+                }
+                else{ //single price value, dont ignore
+                    $sql = "SELECT * FROM Articles WHERE region IN ($region) 
+                    AND WHERE type='$purpose' AND WHERE price='$price'
+                    ORDER BY created_at DESC LIMIT 40";
+
+                    $result = mysqli_query($conn,$sql);  
+                    $rows = mysqli_num_rows($result);
+                    retrieveArticleInformation($result, $rows);
+                }
             }
-
         }
-        else{ //Specific Region
-            if($region == "Hela Sverige"){ //Hela Sverige
-                $city = $conn->real_escape_string($_GET['city']);
-                if(strpos($city, ',')){ //city = array
-                    $city = explode(",", $city);
-                    $purpose = $conn->real_escape_string($_GET['purpose']);
-                    if(strpos($purpose, ',')){
-                        $purpose = explode(",", $purpose);
-                        $price = $conn->real_escape_string($_GET['price']);
-                        if(strpos(',', $price)){
-                            $price = explode(",", $price);
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
-                        else{
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
+        else if(strpos($region, ',') == false && 
+        strpos($city, ',') == false){ //region not array nor city
+            if($region == "Hela Sverige"){ //continue with region, but ignore in SQL
+                if(strpos($purpose, ',') == true){ //purpose is array
+                    $purpose = str_replace('"', "'", $purpose);
+                    $purpose = str_replace("\'", "'", $purpose);
+                    if(strpos($price, ',') == true){ //price == array, dont ignore
+                        $price = str_replace('"', "'", $price);
+                        $price = str_replace("\'", "'", $price);
+                        $sql = "SELECT * FROM Articles WHERE region='$region' 
+                        AND WHERE type IN ($purpose) AND WHERE price IN ($price)
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
                     }
-                    else{
-                        $purpose = explode(",", $purpose);
-                        $price = $conn->real_escape_string($_GET['price']);
-                        if(strpos(',', $price)){
-                            $price = explode(",", $price);
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
-                        else{
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
+                    else if($price == "All"){ //ignore price
+                        $sql = "SELECT * FROM Articles WHERE region='$region' 
+                        AND WHERE type IN ($purpose) 
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                    else{ //single price value, dont ignore
+                        $sql = "SELECT * FROM Articles WHERE region='$region' 
+                        AND WHERE type IN ($purpose) AND WHERE price='$price'
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
                     }
                 }
-                else{ //city not an array
-                    $purpose = $conn->real_escape_string($_GET['purpose']);
-                    if(strpos($purpose, ',')){
-                        $purpose = explode(",", $purpose);
-                        $price = $conn->real_escape_string($_GET['price']);
-                        if(strpos(',', $price)){
-                            $price = explode(",", $price);
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
-                        else{
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
+                else if($purpose == "All"){ // ignore purpose
+                    if(strpos($price, ',') == true){ //price == array, dont ignore
+                        $price = str_replace('"', "'", $price);
+                        $price = str_replace("\'", "'", $price);
+                        $sql = "SELECT * FROM Articles WHERE price IN ($price)
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
                     }
-                    else{
-                        $purpose = explode(",", $purpose);
-                        $price = $conn->real_escape_string($_GET['price']);
-                        if(strpos(',', $price)){
-                            $price = explode(",", $price);
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
-                        else{
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
+                    else if($price == "All"){ //ignore price
+                        $sql = "SELECT * FROM Articles 
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                    else{ //single price value, dont ignore price
+                        $sql = "SELECT * FROM Articles WHERE price='$price'
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                }
+                else{ //not array, do not ignore purpose
+                    if(strpos($price, ',') == true){ //price == array, dont ignore
+                        $price = str_replace('"', "'", $price);
+                        $price = str_replace("\'", "'", $price);
+                        $sql = "SELECT * FROM Articles WHERE type='$purpose' 
+                        AND WHERE price IN ($price)
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                    else if($price == "All"){ //ignore price
+                        $sql = "SELECT * FROM Articles WHERE type='$purpose' 
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                    else{ //single price value, dont ignore
+                        $sql = "SELECT * FROM Articles WHERE type='$purpose' AND WHERE price='$price'
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
                     }
                 }
             }
-            else{
-                $city = $conn->real_escape_string($_GET['city']);
-                if(strpos($city, ',')){ //city = array
-                    $city = explode(",", $city);
-                    $purpose = $conn->real_escape_string($_GET['purpose']);
-                    if(strpos($purpose, ',')){
-                        $purpose = explode(",", $purpose);
-                        $price = $conn->real_escape_string($_GET['price']);
-                        if(strpos(',', $price)){
-                            $price = explode(",", $price);
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
-                        else{
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
+            else if($region == $city){ //continue with region
+                if(strpos($purpose, ',') == true){ //purpose is array
+                    $purpose = str_replace('"', "'", $purpose);
+                    $purpose = str_replace("\'", "'", $purpose);
+                    if(strpos($price, ',') == true){ //price == array, dont ignore
+                        $price = str_replace('"', "'", $price);
+                        $price = str_replace("\'", "'", $price);
+                        $sql = "SELECT * FROM Articles WHERE region='$region' 
+                        AND WHERE type IN ($purpose) AND WHERE price IN ($price)
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                        
                     }
-                    else{
-                        $purpose = explode(",", $purpose);
-                        $price = $conn->real_escape_string($_GET['price']);
-                        if(strpos(',', $price)){
-                            $price = explode(",", $price);
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
-                        else{
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
+                    else if($price == "All"){ //ignore price
+                        $sql = "SELECT * FROM Articles WHERE region='$region' 
+                        AND WHERE type IN ($purpose) 
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                    else{ //single price value, dont ignore
+                        $sql = "SELECT * FROM Articles WHERE region='$region' 
+                        AND WHERE type IN ($purpose) AND WHERE price='$price'
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
                     }
                 }
-                else{ //city not an array
-                    $purpose = $conn->real_escape_string($_GET['purpose']);
-                    if(strpos($purpose, ',')){
-                        $purpose = explode(",", $purpose);
-                        $price = $conn->real_escape_string($_GET['price']);
-                        if(strpos(',', $price)){
-                            $price = explode(",", $price);
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
-                        else{
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
+                else if($purpose == "All"){ // ignore purpose
+                    if(strpos($price, ',') == true){ //price == array, dont ignore
+                        $price = str_replace('"', "'", $price);
+                        $price = str_replace("\'", "'", $price);
+                        $sql = "SELECT * FROM Articles WHERE region='$region' 
+                        AND WHERE price IN ($price) 
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
                     }
-                    else if($purpose == "All"){
-                        $price = $conn->real_escape_string($_GET['price']);
-                        if(strpos(',', $price)){
-                            $price = explode(",", $price);
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
-                        else{
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
+                    else if($price == "All"){ //ignore price
+                        $sql = "SELECT * FROM Articles WHERE region='$region' 
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
                     }
-                    else{
-                        $price = $conn->real_escape_string($_GET['price']);
-                        if(strpos(',', $price)){
-                            $price = explode(",", $price);
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
-                        else if($price == "All"){
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
-                        else{
-                            $sql = "SELECT * FROM Articles WHERE region='$region' ORDER BY created_at DESC LIMIT 40";
-                            $result = mysqli_query($conn,$sql);  
-                            $rows = mysqli_num_rows($result);
-                            retrieveArticleInformation($result, $rows);
-                        }
+                    else{ //single price value, dont ignore
+                        $sql = "SELECT * FROM Articles WHERE region='$region' 
+                        AND WHERE price='$price' 
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
                     }
+                }
+                else{ //not array, do not ignore purpose
+                    if(strpos($price, ',') == true){ //price == array, dont ignore
+                        $price = str_replace('"', "'", $price);
+                        $price = str_replace("\'", "'", $price);
+                        $sql = "SELECT * FROM Articles WHERE region='$region' 
+                        AND WHERE price IN ($price) AND WHERE type='$purpose'
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                    else if($price == "All"){ //ignore price
+                        $sql = "SELECT * FROM Articles WHERE region='$region' 
+                        AND WHERE type='$purpose' 
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                    else{ //single price value, dont ignore
+                        $sql = "SELECT * FROM Articles WHERE region='$region' 
+                        AND WHERE type='$purpose' AND WHERE price='$price'
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                }
+            }
+            else{ //continue with city, city is different from region (e.g. R: Stockholm, C: Täby)
+                if(strpos($purpose, ',') == true){ //purpose is array
+                    $purpose = str_replace('"', "'", $purpose);
+                    $purpose = str_replace("\'", "'", $purpose);
+                    if(strpos($price, ',') == true){ //price == array, dont ignore
+                        $price = str_replace('"', "'", $price);
+                        $price = str_replace("\'", "'", $price);
+                        $sql = "SELECT * FROM Articles WHERE city='$city' 
+                        AND WHERE type IN ($purpose) AND WHERE price IN ($price)
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                        
+                    }
+                    else if($price == "All"){ //ignore price
+                        $sql = "SELECT * FROM Articles WHERE city='$city' 
+                        AND WHERE type IN ($purpose) 
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                    else{ //single price value, dont ignore
+                        $sql = "SELECT * FROM Articles WHERE city='$city' 
+                        AND WHERE type IN ($purpose) AND WHERE price='$price'
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                }
+                else if($purpose == "All"){ // ignore purpose
+                    if(strpos($price, ',') == true){ //price == array, dont ignore
+                        $price = str_replace('"', "'", $price);
+                        $price = str_replace("\'", "'", $price);
+                        $sql = "SELECT * FROM Articles WHERE city='$city' 
+                        AND WHERE price IN ($price) 
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                    else if($price == "All"){ //ignore price
+                        $sql = "SELECT * FROM Articles WHERE city='$city' 
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                    else{ //single price value, dont ignore price
+                        $sql = "SELECT * FROM Articles WHERE city='$city' 
+                        AND WHERE price='$price'
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                }
+                else{ //not array, do not ignore purpose
+                    if(strpos($price, ',') == true){ //price == array, dont ignore
+                        $price = str_replace('"', "'", $price);
+                        $price = str_replace("\'", "'", $price);
+
+                        $sql = "SELECT * FROM Articles WHERE city='$city' 
+                        AND WHERE price IN ($price) AND WHERE type='$purpose'
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                    else if($price == "All"){ //ignore price
+                        $sql = "SELECT * FROM Articles WHERE city='$city' 
+                        AND WHERE type='$purpose'
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                    else{ //single price value, dont ignore
+                        $sql = "SELECT * FROM Articles WHERE city='$city' 
+                        AND WHERE type='$purpose' AND WHERE price='$price'
+                        ORDER BY created_at DESC LIMIT 40";
+    
+                        $result = mysqli_query($conn,$sql);  
+                        $rows = mysqli_num_rows($result);
+                        retrieveArticleInformation($result, $rows);
+                    }
+                }
+            }
+        }
+        else if(strpos($region, ',') == false && 
+        strpos($city, ',') == true){ //city is array, continue with city
+            $city = str_replace('"', "'", $city);
+            $city = str_replace("\'", "'", $city);
+            if(strpos($purpose, ',') == true){ //purpose is array
+                $purpose = str_replace('"', "'", $purpose);
+                $purpose = str_replace("\'", "'", $purpose);
+                if(strpos($price, ',') == true){ //price == array, dont ignore
+                    $price = str_replace('"', "'", $price);
+                    $price = str_replace("\'", "'", $price);
+
+                    $sql = "SELECT * FROM Articles WHERE city IN ($city) 
+                    AND WHERE type IN ($purpose) AND WHERE price IN ($price)
+                    ORDER BY created_at DESC LIMIT 40";
+
+                    $result = mysqli_query($conn,$sql);  
+                    $rows = mysqli_num_rows($result);
+                    retrieveArticleInformation($result, $rows);
+                }
+                else if($price == "All"){ //ignore price
+                    $sql = "SELECT * FROM Articles WHERE city IN ($city) 
+                    AND WHERE type IN ($purpose) 
+                    ORDER BY created_at DESC LIMIT 40";
+
+                    $result = mysqli_query($conn,$sql);  
+                    $rows = mysqli_num_rows($result);
+                    retrieveArticleInformation($result, $rows);
+                }
+                else{ //single price value, dont ignore price
+                    $sql = "SELECT * FROM Articles WHERE city IN ($city) 
+                    AND WHERE type IN ($purpose) AND WHERE price='$price'
+                    ORDER BY created_at DESC LIMIT 40";
+
+                    $result = mysqli_query($conn,$sql);  
+                    $rows = mysqli_num_rows($result);
+                    retrieveArticleInformation($result, $rows);
+                }
+            }
+            else if($purpose == "All"){ // ignore purpose
+                if(strpos($price, ',') == true){ //price == array, dont ignore
+                    $price = str_replace('"', "'", $price);
+                    $price = str_replace("\'", "'", $price);
+
+                    $sql = "SELECT * FROM Articles WHERE city IN ($city) 
+                    AND WHERE price IN ($price)
+                    ORDER BY created_at DESC LIMIT 40";
+
+                    $result = mysqli_query($conn,$sql);  
+                    $rows = mysqli_num_rows($result);
+                    retrieveArticleInformation($result, $rows);
+                }
+                else if($price == "All"){ //ignore price
+                    $sql = "SELECT * FROM Articles WHERE city IN ($city) 
+                    ORDER BY created_at DESC LIMIT 40";
+
+                    $result = mysqli_query($conn,$sql);  
+                    $rows = mysqli_num_rows($result);
+                    retrieveArticleInformation($result, $rows);
+                }
+                else{ //single price value, dont ignore
+                    $sql = "SELECT * FROM Articles WHERE city IN ($city) 
+                    AND WHERE price='$price'
+                    ORDER BY created_at DESC LIMIT 40";
+
+                    $result = mysqli_query($conn,$sql);  
+                    $rows = mysqli_num_rows($result);
+                    retrieveArticleInformation($result, $rows);
+                }
+            }
+            else{ //not array, do not ignore purpose
+                if(strpos($price, ',') == true){ //price == array, dont ignore
+                    $price = str_replace('"', "'", $price);
+                    $price = str_replace("\'", "'", $price);
+                    $sql = "SELECT * FROM Articles WHERE city IN ($city) 
+                    AND WHERE type='$purpose' AND WHERE price IN ($price)
+                    ORDER BY created_at DESC LIMIT 40";
+
+                    $result = mysqli_query($conn,$sql);  
+                    $rows = mysqli_num_rows($result);
+                    retrieveArticleInformation($result, $rows);
+                }
+                else if($price == "All"){ //ignore price
+                    $sql = "SELECT * FROM Articles WHERE city IN ($city) 
+                    AND WHERE type='$purpose'
+                    ORDER BY created_at DESC LIMIT 40";
+
+                    $result = mysqli_query($conn,$sql);  
+                    $rows = mysqli_num_rows($result);
+                    retrieveArticleInformation($result, $rows);
+                }
+                else{ //single price value, dont ignore
+                    $sql = "SELECT * FROM Articles WHERE city IN ($city) 
+                    AND WHERE type='$purpose' AND WHERE price='$price'
+                    ORDER BY created_at DESC LIMIT 40";
+
+                    $result = mysqli_query($conn,$sql);  
+                    $rows = mysqli_num_rows($result);
+                    retrieveArticleInformation($result, $rows);
                 }
             }
         }
@@ -399,10 +639,40 @@
         }
 
     }
+    else if($requestId == 5){
+        $region = $conn->real_escape_string($_GET['region']);
+        $city = $conn->real_escape_string($_GET['city']);
+        $purpose = $conn->real_escape_string($_GET['purpose']);
+        $role = $conn->real_escape_string($_GET['role']);
+        $price = $conn->real_escape_string($_GET['price']);
+    }
+    else if($requestId == 6){
+        $articleid = $conn->real_escape_string($_GET['articleId']);
+
+        $sql = "SELECT * FROM Articles WHERE articleid='$articleid'";
+
+        $result = mysqli_query($conn,$sql);  
+        $rows = mysqli_num_rows($result);
+
+        retrieveArticleInformation($result, $rows);
+    }
+    else if($requestId == 7){
+        $accountid = $conn->real_escape_string($_GET['accountid']);
+
+        $sql = "SELECT * FROM Accounts WHERE accountId='$accountid'";
+
+        $result = mysqli_query($conn,$sql);  
+        $rows = mysqli_num_rows($result);
+
+        $rs=mysqli_fetch_array($result);
+        $role = $rs['role'];
+        $role = utf8_encode($role);
+
+        echo (json_encode($role));
+    }
     else{
         echo ("error in fetching data");
     }
-
 
     function retrieveArticleInformation($result, $rows){
         if(mysqli_num_rows($result) > 1){

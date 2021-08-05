@@ -3,8 +3,9 @@
 
     $id = $conn->real_escape_string($_GET['userid']);
     $role = $conn->real_escape_string($_GET['role']);
+    $requestid = $conn->real_escape_string($_GET['requestid']);
     
-    if($role1 = 1){ //Individuals
+    if($role == 1){ //Individuals
         $sql = "SELECT * FROM Individuals WHERE accountId='$id'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_fetch_array($result);
@@ -88,7 +89,7 @@
             echo (json_encode($results));
         }
     }
-    else if($role1 = 2){ // Organisation
+    else if($role == 2){ // Organisation
         $sql = "SELECT * FROM organisations WHERE accountId='$id'";
         $firstName = $row['firstname'];
         $lastName = $row['lastname'];
@@ -118,6 +119,25 @@
             6 => $streetNumber,
             7 => $zipCode,
             8 => $phonenumber,
+        );
+        echo (json_encode($results));
+    }
+    else if($requestid == 1 && $role == 0){
+        $sql = "SELECT * FROM Accounts WHERE accountId='$id'";
+        $result = mysqli_query($conn,$sql);
+        $row = mysqli_fetch_array($result);
+        $role = $row['role'];
+        $username = $row['username'];
+        $createdat = $row['created_at'];
+        $matchid = 1;
+        $role = utf8_encode($role);
+        $username = utf8_encode($username);
+        $createdat = utf8_encode($createdat);
+        $results = array(
+            0 => $matchid,
+            1 => $role,
+            2 => $username,
+            3 => $createdat,
         );
         echo (json_encode($results));
     }

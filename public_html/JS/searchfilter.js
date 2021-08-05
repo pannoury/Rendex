@@ -12,7 +12,6 @@ window.addEventListener('load', function(){
 function regionFilter(){
     var regionSelected = localStorage.getItem("regionSelected");
     if(regionSelected.includes(',') == true && regionSelected !== null){
-        //var region = regionSelected.replace(/"/g, "");
         var region = regionSelected;
         cityFilter(region);
     }
@@ -37,12 +36,19 @@ function cityFilter(region){
     }
     else if(region.includes(',') == false && region !== "Hela Sverige"){
         if(citySelected !== null && citySelected.includes(',') == true){ //city is an array
-            var city = citySelected.replace(/"/g, "");
+            var city = citySelected;
             purposeFilter(region, city);
         }
         else if(citySelected !== null && citySelected.includes(',') == false){ //city is not an array, but also not null
-            var city = citySelected.replace(/"/g, "");
-            purposeFilter(region, city);
+            console.log(citySelected);
+            if(citySelected == "Alla Städer" && regionSelected.includes(',') == false){
+                var city = regionSelected.replace(/"/g, "");
+                purposeFilter(region, city);
+            }
+            else{
+                var city = citySelected.replace(/"/g, "");
+                purposeFilter(region, city);
+            }
         }
         else if(citySelected == null){
             var city = regionSelected.replace(/"/g, "");
@@ -57,7 +63,7 @@ function purposeFilter(region, city){
         roleFilter(region, city, purpose);
     }
     else if(purposeSelected !== null && purposeSelected.includes(',') == true){
-        var purpose = purposeSelected.replace(/"/g, "");
+        var purpose = purposeSelected;
         roleFilter(region, city, purpose);
     }
     else if(purposeSelected !== null && purposeSelected.includes(',') == false){
@@ -78,10 +84,9 @@ function roleFilter(region, city, purpose){
     
 };
 function prisFilter(region, city, purpose, role){
-    console.log(region, city, purpose, role);
     var priceSelected = localStorage.getItem("priceFilter");
     if(priceSelected !== null && priceSelected.includes(',') == true){
-        var price = priceSelected.replace(/"/g, "");
+        var price = priceSelected;
         articleLoad(region, city, purpose, role, price);
     }
     else if(priceSelected !== null && priceSelected.includes(',') == false){
@@ -100,23 +105,45 @@ function prisFilter(region, city, purpose, role){
 
 function articleLoad(region, city, purpose, role, price){
     console.log(region, city, purpose, role, price)
-    $.ajax(
-        {
-            url: './PHP/articleload.php',
-            dataType: 'text',
-            method: 'GET',
-            data: {
-                requestid: 1,
-                region: region,
-                city: city,
-                purpose: purpose,
-                role: role,
-                price: price,
-            },
-            success: function(response){
-                var response = JSON.parse(response);
-                ajaxResponse(response);
-            },
-        }
-    );
+    if(role == "Uppdragstagare"){ //detta ska ändras till uppdragsgivare senare!! Detta är tillfälligt
+        $.ajax(
+            {
+                url: './PHP/articleload.php',
+                dataType: 'text',
+                method: 'GET',
+                data: {
+                    requestid: 1,
+                    region: region,
+                    city: city,
+                    purpose: purpose,
+                    price: price,
+                },
+                success: function(response){
+                    var response = JSON.parse(response);
+                    ajaxResponse(response);
+                },
+            }
+        );
+    }
+    else{ //inte klar, ska populera konto profiler!!!
+        $.ajax(
+            {
+                url: './PHP/articleload.php',
+                dataType: 'text',
+                method: 'GET',
+                data: {
+                    requestid: 5,
+                    region: region,
+                    city: city,
+                    purpose: purpose,
+                    role: role,
+                    price: price,
+                },
+                success: function(response){
+                    var response = JSON.parse(response);
+                    ajaxResponse(response);
+                },
+            }
+        );
+    }
 }

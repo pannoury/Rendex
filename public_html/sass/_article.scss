@@ -1,0 +1,129 @@
+@media(min-width:875px){
+    #article-main{
+        margin-bottom: 90px;
+        #article-wrapper-wrapper{
+            width: 80%;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            border-radius: 8px;
+            #top-page-article-wrapper{
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 10px;
+                padding: 30px;
+                #top-page-column-1{
+                    width: 30%;
+                    display: flex;
+                    flex-direction: column;
+                    #article-image-wrapper{
+                        #image-final-wrapper-white-background{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 150px;
+                            height: 150px;
+                            background-color: #fff;
+                            border-radius: 8px;
+                            img{
+                                border-radius: 8px;
+                                width: 140px;
+                                height: 140px;
+                            }
+                        }
+                    }
+                    #article-reference-info{
+                        ul{
+                            padding-left: 0px;
+                            list-style-type: none;
+                            li{
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                margin-bottom: 8px;
+                                img{
+                                    margin-right: 8px;
+                                }
+                            }
+                        }
+                    }
+                }
+                #top-page-column-2{
+                    width: 70%;
+                    display: flex;
+                    flex-direction: column;
+                    #article-title-id-wrapper{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        #article-id-header{
+                            font-size: 22px;
+                            color: #868686;
+                            margin-left: 6px;
+                            margin-top: 0px;
+                            margin-bottom: 0px;
+                        }
+                    }
+                    h4{
+                        font-weight: bold;
+                        margin: 0px;
+                        margin-bottom: 4px;
+                        font-size: 22px;
+                    }
+                    #article-description{
+                        margin-top: 0px;
+                    }
+                }
+            }
+            #article-option-tabs{
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                padding-left: 20px;
+                .article-option-btn{
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+                    border-top: 1px solid black;
+                    border-left: 1px solid black;
+                    border-right: 1px solid black;
+                    border-bottom: none;
+                    background-color: #dfdfdf;
+                    padding: 10px 20px 10px 20px;
+                    font-weight: bolder;
+                    font-size: 12px;
+                    margin-right: 8px;
+                    &:hover{
+                        background-color: #c5c5c5;
+                        cursor: pointer;
+                    }
+                }
+            }
+            #about-assignment-giver{
+                background-color: #f4f4f4;
+                display: none;
+                flex-direction: column;
+                padding: 20px;
+                border-top: 2px solid black;
+                #about-assignment-profile-information{
+                    a{
+                        font-size: 22px;
+                        font-weight: bold;
+                        margin-bottom: 4px;
+                    } 
+                    p{
+                        font-size: 16px;
+                    }
+                }
+                #about-assignment-mid-wrapper{
+                    #about-assignment-giver-column-1{
+
+                    }
+                    #about-assignment-giver-column-2{
+
+                    }
+                }
+            }
+        }
+    }
+}

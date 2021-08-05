@@ -25,54 +25,68 @@
   <!--Navigation Bar-->
   <div id="navbar"></div>
   <!--END-Navigation Bar-->
+
+
+
   <main id="account-page">
-    <div id="account-page-wrapper">
-      <div id="account-image-wrapper">
-        <img alt="Company Logo/Image" id="companylogoimage">
-      </div>
-      <div id="account-companybackground">
-        <div id="account-companybackground-column1">
-          <div class="companyheader-div">
-            <h2><span id="accountpage-companyname">[COMPANY NAME]</span></h2>
-          </div>
-          <div id="companyshortinformation">
-            <p><span id="companystreetadress">Stockholmsgatan</span> <span id="companystreetnumber">45</span></p>
-            <p><span id="companyzipcode">164 75</span>, <span id="companyziparea">Kista</span></p>
-            <p><span id="companyregion">Stockholm</span></p>
-          </div>
+    <div id="account-wrapper-wrapper">
+      <div id="account-page-wrapper">
+        <div id="account-image-wrapper">
+          <img alt="Company Logo/Image" id="companylogoimage">
         </div>
-        <div id="account-companybackground-column2">
-          <div id="companyratings">
-            <p><span id="numberofreviewscompany">XX</span> Recensioner</p>
-            <div id="companybackground-rating">
-              <div id="companybackground-rating1">X</div>
-              <div id="companybackground-rating2">X</div>
-              <div id="companybackground-rating3">X</div>
-              <div id="companybackground-rating4">X</div>
-              <div id="companybackground-rating5">X</div>
+        <div id="account-companybackground">
+          <div id="account-companybackground-column1">
+            <div class="companyheader-div">
+              <h2><span id="accountpage-companyname">[COMPANY NAME]</span></h2>
+            </div>
+            <div id="companyshortinformation">
+              <p id="profile-email"></p>
+              <p><span id="companystreetadress">Stockholmsgatan</span> <span id="companystreetnumber">45</span></p>
+              <p><span id="companyzipcode">164 75</span>, <span id="companyziparea">Kista</span></p>
+              <p><span id="companyregion">Stockholm</span></p>
+            </div>
+            <button id="initiate-chat">Skriv ett meddelande</button>
+          </div>
+          <div id="account-companybackground-column2">
+            <div id="companyratings">
+              <p><span id="numberofreviewscompany">XX</span> Recensioner</p>
+              <div id="companybackground-rating">
+                <div id="companybackground-rating1">X</div>
+                <div id="companybackground-rating2">X</div>
+                <div id="companybackground-rating3">X</div>
+                <div id="companybackground-rating4">X</div>
+                <div id="companybackground-rating5">X</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div id="companybroadbackground">
-      <div id="companybroadbackground-text">
-        <h2>Beskrivning</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam delectus distinctio soluta repudiandae repellendus perspiciatis ab deleniti facilis fugiat rerum ex est magnam quaerat officiis impedit, recusandae dolorem quibusdam adipisci!</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi repudiandae dolore nobis voluptatem deserunt officiis, obcaecati sint! Eveniet esse consectetur commodi vel, repellat dolor sunt officiis culpa, aut, voluptatum dolore!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, illum. Sequi, excepturi minus? Voluptas commodi adipisci modi delectus nostrum neque maiores quidem, iure similique consectetur maxime quisquam praesentium omnis ut?</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit iusto nihil, deserunt quam voluptatibus doloremque ipsa dicta illo at quasi velit reprehenderit beatae inventore hic aspernatur minima ullam, fuga natus!</p>
+      <div id="companybroadbackground">
+        <div id="companybroadbackground-text">
+          <h2>Beskrivning</h2>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam delectus distinctio soluta repudiandae repellendus perspiciatis ab deleniti facilis fugiat rerum ex est magnam quaerat officiis impedit, recusandae dolorem quibusdam adipisci!</p>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi repudiandae dolore nobis voluptatem deserunt officiis, obcaecati sint! Eveniet esse consectetur commodi vel, repellat dolor sunt officiis culpa, aut, voluptatum dolore!</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, illum. Sequi, excepturi minus? Voluptas commodi adipisci modi delectus nostrum neque maiores quidem, iure similique consectetur maxime quisquam praesentium omnis ut?</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit iusto nihil, deserunt quam voluptatibus doloremque ipsa dicta illo at quasi velit reprehenderit beatae inventore hic aspernatur minima ullam, fuga natus!</p>
+        </div>
+      </div>
+      <div id="companyannonser">
+        <h2>Pågående Annonser</h2>
+        <div id="companyannonser-wrapper">
+  
+        </div>
       </div>
     </div>
-    <div id="companyannonser">
-      <h2>Pågående Annonser</h2>
-      <div id="companyannonser-wrapper">
-
-      </div>
-    </div>
+    <div id="new-chatwindow"></div>
+    <div id="darkcover"></div>
     <div id="cookiewindowpopupwrapper"></div>
   </main>
+
+
+
   <div id="footer"></div>
+  
+  <script src="./JS/profile.js"></script>
   <script src="./JS/cookie.js"></script>
 </body>
 <html>

@@ -50,6 +50,9 @@
             echo (json_encode($matchid));
         }
     }
+    else if($requestid == 3){ //create the new account
+        
+    }
 
     mysqli_close($conn);
 ?>

@@ -1,0 +1,98 @@
+@media(min-width:875px){
+    #account-page{
+        display: flex;
+        flex-direction: column;
+        #account-wrapper-wrapper{
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            padding: 20px;
+            width: 80%;
+            margin: auto auto 40px auto;
+            background-color: #f4f4f4;
+            #account-page-wrapper{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                #account-image-wrapper{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100px;
+                    width: 100px;
+                    border-radius: 8px;
+                    padding: 20px;
+                    background-color: #fff;
+                    color: white;
+                    #companylogoimage{
+                        height: 120px;
+                        width: 120px;
+                        border-radius: 8px;
+                    }
+                }
+                #account-companybackground{
+                    width: 82%;
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    #account-companybackground-column1{
+                        .companyheader-div{
+                            h2{
+                                margin: 0px;
+                            }
+                        }
+                        #companyshortinformation{
+                            display: flex;
+                            flex-direction: column;
+                            p{
+                                margin: 0;
+                                margin-top: 4px;
+                            }
+                        }
+                        #initiate-chat{
+                            margin-top: 10px;
+                            padding: 6px 12px 6px 12px;
+                            font-size: 14px;
+                            font-weight: bolder;
+                            border-radius: 8px;
+                            &:hover{
+                                cursor: pointer;
+                                background-color: #d4d4d4;
+                            }
+                        }
+                    }
+                    #account-companybackground-column2{
+                        display: flex;
+                        text-align: right;
+                        p{
+                            margin: 0;
+                            margin-bottom: 4px;
+                        }
+                        #numberofreviewscompany{
+                            font-weight: bold;
+                        }
+                        #companybackground-rating{
+                            display: flex;
+                            flex-direction: row;
+                            gap: 2px;
+                        }
+                    }
+                }
+            }
+            #companyannonser{
+                width: 100%;
+                margin: auto;
+                #companyannonser-wrapper{
+                }
+            }
+            #companybroadbackground{
+                display: flex;
+                margin: 10px auto 10px auto;
+                #companybroadbackground-text{
+                    padding: 20px;
+                }
+            }
+        }
+    }
+}
