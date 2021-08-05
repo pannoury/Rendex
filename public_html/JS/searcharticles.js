@@ -5,72 +5,27 @@ var citySelected = localStorage.getItem("citySelected");
 var purposeSelected = localStorage.getItem("purposeSelected");
 var roleSelected = localStorage.getItem("roleSelected");
 
-
+/*
 window.addEventListener('load', function(){
-    articleFilter1();
+
 });
+*/
 
-function articleFilter1(){
-    searchArray = [];
-
-    if(regionSelected == null){
-        searchArray.push("Hela Sverige");
-    }
-    else{
-        var regionString = regionSelected.replace(/"/g,"");
-        searchArray.push(regionString);
-    }
-    if(citySelected != null){
-        var cityString = regionSelected.replace(/"/g,"");
-        searchArray.push(cityString);
-    }
-    else{
-        searchArray.push(citySelected);
-    }
-    if(purposeSelected != null){
-        var purposeString = purposeSelected.replace(/"/g,"");
-        searchArray.push(purposeString);
-    }
-    else{
-        searchArray.push(purposeSelected);
-    }
-    if(roleSelected != null){
-        var roleString = roleSelected.replace(/"/g,"");
-        searchArray.push(roleString);
-    }
-    else{
-        searchArray.push(roleSelected);
-    }
-    articleLoad(searchArray)
-}
-
-function articleLoad(array){
-    region = array[0]
-    $.ajax(
-        {
-            url: './PHP/articleload.php',
-            dataType: 'text',
-            method: 'GET',
-            data: {
-                requestid: 1,
-                region: region,
-            },
-            success: function(response){
-                var response = JSON.parse(response);
-                ajaxResponse(response);
-            },
-        }
-    );
-}
 function ajaxResponse(response){
     console.log(response);
-    if(response[0].constructor === Array){ //if multiarray (multiple hits)
-        response.forEach(element => {
-            createArticle(element);
-        });
+    if(response !== null || response !== undefined){
+        if(response[0].constructor === Array){ //if multiarray (multiple hits)
+            response.forEach(element => {
+                createArticle(element);
+            });
+        }
+        else{ // single hit
+            createArticle(response);
+        }
     }
-    else{ // single hit
-        createArticle(response);
+    else{
+        document.querySelector(".search-result-midpage-header-right p")[0].innerText = "0 Annonser";
+        //add a div which shows no hits :(
     }
     articleCounter();
 }
@@ -78,7 +33,16 @@ function ajaxResponse(response){
 function articleCounter(){
     var width = window.innerWidth;
     var articleCount = document.querySelectorAll('.article-wrapper');
-    console.log(articleCount.length);
+    var p = document.querySelector(".search-result-midpage-header-right p");
+    if(articleCount.length == 0){
+        p.innerText = "0 Annonser"
+    }
+    else if(articleCount.length == 1){
+        p.innerText = `${articleCount.length} Annons`;
+    }
+    else if(articleCount.length > 1){
+        p.innerText = `${articleCount.length} Annonser`;
+    }
 }
 
 function createArticle(array){
@@ -114,7 +78,8 @@ function createArticle(array){
         pB = document.createElement('p');
         pB.setAttribute('class', 'time-stamp');
 
-        div2.appendChild(pA, pB);
+        div4.appendChild(pA);
+        div4.appendChild(pB);
 
     var div5 = document.createElement('div');
     div5.setAttribute('class', 'article-information-bottom');
@@ -157,6 +122,7 @@ function createArticle(array){
                             success: function(response){
                                 var response = JSON.parse(response);
                                 console.log(response)
+                                a1.setAttribute('href', `https://rendex.se/article?id=${array[1]}&name1=${response[2]}&name2=${response[3]}`);
                             }
                         }
                     );
@@ -186,4 +152,12 @@ function createArticle(array){
     pB.innerText = `${array[8].substring(0,10)}`;
     p1.innerText = `${array[7]}`;
     p2.innerText = `${array[5]}`;
+    marginTopFix();
 };
+
+function marginTopFix(){
+    var fix = document.querySelectorAll('.article-title');
+    for(i=0; i < fix.length; i++){
+        fix[i].style.marginTop = "0px";
+    }
+}

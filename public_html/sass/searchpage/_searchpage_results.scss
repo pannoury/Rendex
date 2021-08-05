@@ -39,22 +39,33 @@
                 text-align: left;
                 h1{font-size: 16px;}
             }
-        }                               // End of Header section //
-        .search-result-midpage-results{    // Result Section //
+        }    
+        .search-result-rightpage{
             width: 100%;
+            background-color: #f4f4f4;
+            border-radius: 3px;
             margin-bottom: 40px;
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: space-between;
+            margin-top: 40px;
+        }                          
+        .search-result-midpage-results{     // End of Header section //
+            width: 100%;                    // Result Section //
+            margin-bottom: 40px;
             #article-wrapper-wrapper{
-                width: 70%;
+                width: 100%;
+                &:hover{
+                    cursor: pointer;
+                }
                 .article-wrapper{
                     display: flex;
                     flex-direction: row;
-                    padding: 10px 20px 10px 20px;
-                    border-radius: 4px;
                     background-color: #f4f4f4 !important;
                     justify-content: space-between;
+                    padding: 10px 20px 10px 20px;
+                    border-radius: 4px;
+                    margin-bottom: 10px;
+                    &:hover{
+                        opacity: 0.8;
+                    }
                     .article-image-wrapper{
                         display: flex;
                         justify-content: center;
@@ -74,15 +85,17 @@
                         display: flex;
                         flex-direction: column;
                         .title-wrapper{
+                            width: 100%;
                             display: flex;
                             flex-direction: row;
-                            justify-content: center;
+                            justify-content: space-between;
                             .article-title{
-                                width: 70%;
+                                max-width: 80%;
                                 margin: 0px;
+                                margin-top: 0px;
                             }
                             .time-stamp{
-                                width: 30%;
+                                width: 20%;
                                 margin: 0px;
                             }
                         }
@@ -90,6 +103,7 @@
                             display: flex;
                             flex-direction: row;
                             align-items: center;
+                            justify-content: space-between;
                             margin-top: auto;
                             .article-info{
                                 width: 30%;
@@ -108,11 +122,6 @@
                         }
                     }
                 }
-            }
-            .search-result-rightpage{
-                width: 25%;
-                background-color: slategray;
-                border-radius: 3px;
             }
         }
     }

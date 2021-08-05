@@ -11,8 +11,13 @@ var loginId = getCookie("a_user");
 var newArrayLoginId = loginId.split(',');
 
 window.addEventListener('load', function loadRegionCheck(){
-    loggedInControl(); // for navbar
+
+    /***********NAVBAR SETTINGS */
+    loggedInControl();
+    roleControl(); 
     document.getElementById('globeicon').setAttribute('src', './assets/images/globe.svg')
+    /***********NAVBAR SETTINGS */
+
     var region = localStorage.getItem("regionSelected");
     if(region !== undefined && region !== null){
         if (region.includes(',')) {
@@ -32,68 +37,8 @@ window.addEventListener('load', function loadRegionCheck(){
                 document.getElementById('helasverigecheckbox').checked = true;
                 document.getElementById('location-city-button').style.display = "none";
             }
-            else if(region == 'Blekinge'){
-                loadRegionCheckV2("Blekinge");
-            }
-            else if(region == 'Dalarna'){
-                loadRegionCheckV2("Dalarna");
-            }
-            else if(region == 'Gävleborg'){
-                loadRegionCheckV2("Gävleborg");
-            }
-            else if(region == 'Gotland'){
-                loadRegionCheckV2("Gotland");
-            }
-            else if(region == 'Halland'){
-                loadRegionCheckV2("Halland");
-            }
-            else if(region == 'Jämtland'){
-                loadRegionCheckV2("Jämtland");
-            }
-            else if(region == 'Jönköping'){
-                loadRegionCheckV2("Jönköping");
-            }
-            else if(region == 'Kalmar'){
-                loadRegionCheckV2("Kalmar");
-            }
-            else if(region == 'Kronoberg'){
-                loadRegionCheckV2("Kronoberg");
-            }
-            else if(region == 'Norrbotten'){
-                loadRegionCheckV2("Norrbotten");
-            }
-            else if(region == "Örebro"){
-                loadRegionCheckV2("Örebro");
-            }
-            else if(region == 'Östergötland'){
-                loadRegionCheckV2("Östergötland");
-            }
-            else if(region == 'Skåne'){
-                loadRegionCheckV2("Skåne");
-            }
-            else if(region == 'Sörmland'){
-                loadRegionCheckV2("Sörmland");
-            }
-            else if(region == 'Stockholm'){
-                loadRegionCheckV2("Stockholm");
-            }
-            else if(region == 'Uppsala'){
-                loadRegionCheckV2("Uppsala");
-            }
-            else if(region == 'Värmland'){
-                loadRegionCheckV2("Värmland");
-            }
-            else if(region == 'Västerbotten'){
-                loadRegionCheckV2("Västerbotten");
-            }
-            else if(region == 'Västernorrland'){
-                loadRegionCheckV2("Västernorrland");
-            }
-            else if(region == 'Västmanland'){
-                loadRegionCheckV2("Västmanland");
-            }
-            else if(region == 'Västra Götaland'){
-                loadRegionCheckV2("Västra Götaland");
+            else{
+                loadRegionCheckV2(`${region}`);
             }
         }
     }
@@ -236,10 +181,22 @@ async function loggedInControl(){
 
         }
     }
-    else{
+    else{ //not logged in, redirect to login page
+        window.location = "https://rendex.se/login"
         document.getElementById('loginanchor').textContent = "Logga In";
     }
 };
+function roleControl(){
+    var role = localStorage.getItem("roleSelected");
+    var roleSpan = document.getElementById('search-role-span');
+    if(role == undefined || role == null){ //role not existing/not selected
+        localStorage.setItem("roleSelected", "Uppdragstagare");
+    }
+    else if(role !== undefined && role !== null){
+        roleSpan.innerText = `${role}`;
+    }
+}
+
 document.getElementById('loginanchor').onclick = function(){
     if(newArrayLoginId[0] >= 1){
         window.location = 'https://rendex.se/myaccount';
@@ -289,7 +246,7 @@ document.getElementById('inboxlink2').addEventListener('click',function(){
         window.location = 'https://rendex.se/login';
     }
 });
-document.getElementById('languageanchor').onclick = function(){
+document.getElementById('languageanchor-searchpage').onclick = function(){
     var ul = document.getElementById('languageanchor');
     ulAriaLabel = ul.getAttribute('aria-label');
     if(ulAriaLabel == null || ulAriaLabel == undefined || ulAriaLabel == "not displayed"){

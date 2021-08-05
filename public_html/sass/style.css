@@ -12,13 +12,9 @@ body {
 }
 
 /* GLOBAL SETTINGS */
-a:hover {
-  color: #708090;
-}
-
 a:link, a:active, a:visited {
   text-decoration: none !important;
-  color: #ffffff;
+  color: inherit;
 }
 
 main {
@@ -168,6 +164,9 @@ main {
   #header #navlogo img {
     margin: 0;
   }
+  #header #navlogo img #navlogo-link #logo-desktop:hover {
+    opacity: 0.5;
+  }
   #header #navlogo #logo-mobile {
     display: none;
   }
@@ -188,6 +187,9 @@ main {
   .navbarselector li a {
     color: black;
   }
+  .navbarselector li a:hover {
+    opacity: 0.5;
+  }
   .navbarselector #languageanchor {
     display: flex;
     flex-direction: row;
@@ -196,9 +198,10 @@ main {
   .navbarselector #languageanchor p {
     margin: 0px;
     margin-left: 4px;
+    color: black;
   }
-  .navbarselector a:hover {
-    color: slategray;
+  .navbarselector #languageanchor p:hover {
+    opacity: 0.5;
   }
 
   .side-nav {
@@ -479,7 +482,7 @@ main {
     margin-bottom: 8px;
   }
   #indexsearchsection #indexsearchsection-wrapper #indexheaderdiv ul li .orange {
-    color: #f07900;
+    color: #f07900 !important;
   }
   #indexsearchsection #indexsearchsection-wrapper #hero-background {
     width: 40%;
@@ -558,10 +561,9 @@ main {
   }
   #testish #indexwrapper #tablewrappersearch .indexwrapper-column .indexwrapper-inputwrapper .indexwrapper-input-div .arrow-select {
     position: absolute;
-    margin-right: 8px;
-    border-top: 0.5em solid black;
-    border-right: 0.5em solid transparent;
-    border-left: 0.5em solid transparent;
+    padding-right: 10px;
+    width: 14px;
+    height: 14px;
   }
   #testish #indexwrapper .indexsearchbutton {
     display: flex;
@@ -2115,23 +2117,34 @@ main {
   .search-result-midpage .search-result-midpage-header .search-result-midpage-header-left h1 {
     font-size: 16px;
   }
+  .search-result-midpage .search-result-rightpage {
+    width: 100%;
+    background-color: #f4f4f4;
+    border-radius: 3px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
   .search-result-midpage .search-result-midpage-results {
     width: 100%;
     margin-bottom: 40px;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
   }
   .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper {
-    width: 70%;
+    width: 100%;
+  }
+  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper:hover {
+    cursor: pointer;
   }
   .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper {
     display: flex;
     flex-direction: row;
-    padding: 10px 20px 10px 20px;
-    border-radius: 4px;
     background-color: #f4f4f4 !important;
     justify-content: space-between;
+    padding: 10px 20px 10px 20px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper:hover {
+    opacity: 0.8;
   }
   .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-image-wrapper {
     display: flex;
@@ -2153,22 +2166,25 @@ main {
     flex-direction: column;
   }
   .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .title-wrapper {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
   }
   .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .title-wrapper .article-title {
-    width: 70%;
+    max-width: 80%;
     margin: 0px;
+    margin-top: 0px;
   }
   .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .title-wrapper .time-stamp {
-    width: 30%;
+    width: 20%;
     margin: 0px;
   }
   .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .article-information-bottom {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     margin-top: auto;
   }
   .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .article-information-bottom .article-info {
@@ -2184,11 +2200,6 @@ main {
   }
   .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .article-information-bottom .article-class {
     margin: 0px;
-  }
-  .search-result-midpage .search-result-midpage-results .search-result-rightpage {
-    width: 25%;
-    background-color: slategray;
-    border-radius: 3px;
   }
 
   #searchpage-sidemenu-wrapper {
@@ -2566,17 +2577,21 @@ main {
   .navbarselector li a {
     color: white;
   }
-  .navbarselector #languageanchor {
+  .navbarselector li a:hover {
+    opacity: 0.5;
+  }
+  .navbarselector #languageanchor-searchpage {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
-  .navbarselector #languageanchor p {
+  .navbarselector #languageanchor-searchpage p {
     margin: 0px;
     margin-left: 4px;
+    color: white;
   }
-  .navbarselector a:hover {
-    color: slategray;
+  .navbarselector #languageanchor-searchpage p:hover {
+    opacity: 0.5;
   }
 
   .side-nav {
@@ -2962,128 +2977,129 @@ main {
   /*********************** Chat CSS ***************************/
 }
 /* Inbox Page */
-#myaccountmain {
-  width: 80%;
-  margin: auto;
-  margin-bottom: 20px;
-}
-#myaccountmain #myaccount-wrapper-wrapper {
-  padding: 20px;
-}
-#myaccountmain #myaccount-wrapper-wrapper #profile-header {
-  display: flex;
-  flex-direction: column;
-}
-#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 {
-  display: flex;
-  flex-direction: row;
-}
-#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profilepicture {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 100px;
-  background-color: white;
-  border-radius: 15%;
-}
-#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profilepicture #myaccount-profilepicture {
-  width: 80px;
-  height: 80px;
-}
-#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profileinfo #myaccount-name-wrapper {
-  margin: 0px 0px 0px 20px;
-  font-size: 20px;
-  font-weight: bolder;
-}
-#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profileinfo #myaccount-email {
-  margin: 0px 0px 0px 20px;
-  font-size: 20px;
-}
-#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 {
-  display: flex;
-  flex-direction: row;
-  margin-top: 20px;
-}
-#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 #showpublicprofile-btn {
-  padding: 6px 12px 6px 12px;
-  background-color: white;
-  font-weight: bolder;
-  border-radius: 4px;
-  border: black 1px solid;
-  margin-right: 10px;
-}
-#myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 #showpublicprofile-btn:hover {
-  opacity: 0.8;
-  cursor: pointer;
-}
-#myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper {
-  margin-top: 20px;
-}
-#myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row {
-  display: flex;
-  flex-direction: row;
-}
-#myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row .option-div {
-  display: flex;
-  flex-direction: column;
-  background-color: #f1f1f1;
-  border-radius: 4px;
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
-  padding: 10px;
-  width: 300px;
-  height: 125px;
-  margin-bottom: 20px;
-}
-#myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row .option-div h4 {
-  margin-top: 0px;
-}
-#myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row .option-div:nth-child(1) {
-  margin-right: 20px;
-}
-#myaccountmain #myaccount-wrapper-wrapper #logout, #myaccountmain #myaccount-wrapper-wrapper #account-settings {
-  padding: 6px 12px 6px 12px;
-  background-color: white;
-  font-weight: bolder;
-  border-radius: 4px;
-  border: black 1px solid;
-}
-#myaccountmain #myaccount-wrapper-wrapper #logout:hover, #myaccountmain #myaccount-wrapper-wrapper #account-settings:hover {
-  opacity: 0.8;
-  cursor: pointer;
-}
-#myaccountmain #myaccount-wrapper-wrapper #logout {
-  margin-right: 10px;
-  margin-left: 10px;
-}
+@media (min-width: 875px) {
+  #myaccountmain {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper {
+    padding: 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header {
+    display: flex;
+    flex-direction: column;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 {
+    display: flex;
+    flex-direction: row;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profilepicture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 15%;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profilepicture #myaccount-profilepicture {
+    width: 80px;
+    height: 80px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profileinfo #myaccount-name-wrapper {
+    margin: 0px 0px 0px 20px;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profileinfo #myaccount-email {
+    margin: 0px 0px 0px 20px;
+    font-size: 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 #showpublicprofile-btn {
+    padding: 6px 12px 6px 12px;
+    background-color: white;
+    font-weight: bolder;
+    border-radius: 4px;
+    border: black 1px solid;
+    margin-right: 10px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 #showpublicprofile-btn:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper {
+    margin-top: 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row {
+    display: flex;
+    flex-direction: row;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row .option-div {
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+    width: 300px;
+    height: 125px;
+    margin-bottom: 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row .option-div h4 {
+    margin-top: 0px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row .option-div:nth-child(1) {
+    margin-right: 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #logout, #myaccountmain #myaccount-wrapper-wrapper #account-settings {
+    padding: 6px 12px 6px 12px;
+    background-color: white;
+    font-weight: bolder;
+    border-radius: 4px;
+    border: black 1px solid;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #logout:hover, #myaccountmain #myaccount-wrapper-wrapper #account-settings:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #logout {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
 
-#settings-window {
-  height: 50vh;
-  width: 0px;
-  position: fixed;
-  z-index: 10;
-  top: 25vh;
-  right: 50%;
-  background-color: #0F1419;
-  overflow-x: hidden;
-  transition: 0.5s;
-  display: flex;
-  flex-direction: column;
-  color: white;
-  border-radius: 6px;
-  box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+  #settings-window {
+    height: 50vh;
+    width: 0px;
+    position: fixed;
+    z-index: 10;
+    top: 25vh;
+    right: 50%;
+    background-color: #0F1419;
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    border-radius: 6px;
+    box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+  }
+  #settings-window #settings-window-header {
+    display: flex;
+    flex-direction: row;
+  }
+  #settings-window #settings-window-header #settings-closeanchor {
+    display: flex;
+    flex-direction: row;
+  }
 }
-#settings-window #settings-window-header {
-  display: flex;
-  flex-direction: row;
-}
-#settings-window #settings-window-header #settings-closeanchor {
-  display: flex;
-  flex-direction: row;
-}
-
 @media (max-width: 875px) {
   main {
     width: 100vw;
@@ -3209,10 +3225,9 @@ main {
   }
   #testish #indexwrapper #tablewrappersearch .indexwrapper-column .indexwrapper-inputwrapper .indexwrapper-input-div .arrow-select {
     position: absolute;
-    margin-right: 18px;
-    border-top: 0.5em solid black;
-    border-right: 0.5em solid transparent;
-    border-left: 0.5em solid transparent;
+    padding-right: 6vw;
+    width: 10px;
+    height: 10px;
   }
   #testish #indexwrapper .indexsearchbutton {
     display: flex;
@@ -3394,7 +3409,7 @@ main {
     align-items: center;
   }
   #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper p {
-    font-size: 16px;
+    font-size: 14px;
   }
   #index-subscription #index-subscription-top-btn #index-subscription-top-wrapper p:last-child {
     font-weight: bolder;
@@ -3472,6 +3487,7 @@ main {
   }
   #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-info ul li .orange {
     margin-right: 8px;
+    color: #e07900;
   }
   #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-btn {
     display: flex;
@@ -3522,30 +3538,32 @@ main {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 30px;
-    width: 100vw;
+    margin: 0px auto 30px auto;
     text-align: center;
+    width: 100vw;
     overflow: hidden;
     background-color: #f4f4f4;
     padding-bottom: 30px;
   }
   #index-showcase-offers #index-showcase-offers-header {
-    width: 90%;
+    width: calc(100% - 40px);
     display: flex;
     flex-direction: column;
     justify-items: center;
     text-align: center;
-    margin: auto;
   }
   #index-showcase-offers #index-showcase-offers-header h2 {
     font-size: 34px;
     margin: 20px 0px 0px 0px;
-    width: 80%;
+    width: 100%;
+    padding: 20px;
     text-align: center;
   }
   #index-showcase-offers #index-showcase-offers-header p {
     font-size: 20px;
-    width: 80%;
+    width: 100%;
+    padding: 0px 20px 20px 20px;
+    margin-top: 0px;
   }
   #index-showcase-offers #index-showcase-offers-wrapper {
     width: 100%;
@@ -3566,10 +3584,12 @@ main {
     font-size: 34px;
     margin-bottom: 4px;
     margin-top: 0px;
+    text-align: center;
   }
   #index-showcase-offers #index-showcase-offers-wrapper .index-showcase-wrapper .index-showcase-header p {
     font-size: 20px;
     margin: 0px;
+    text-align: center;
   }
   #index-showcase-offers #index-showcase-offers-wrapper .index-showcase-wrapper .index-showcase-job {
     width: 80vw;
@@ -3578,12 +3598,12 @@ main {
     margin-top: 20px;
   }
   #index-showcase-offers #index-showcase-offers-wrapper .index-showcase-wrapper .index-showcase-job #index-coding-wrapper {
-    width: 80vw;
+    width: 90vw;
   }
   #index-showcase-offers #index-showcase-offers-wrapper .index-showcase-wrapper .index-showcase-job #index-coding-wrapper #index-coding-top {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    width: 80vw;
+    width: 100%;
     background-color: #04293A;
     display: flex;
     flex-direction: row;
@@ -3627,7 +3647,7 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 80vw;
+    width: 100%;
     overflow: auto;
   }
   #index-showcase-offers #index-showcase-offers-wrapper .index-showcase-wrapper .index-showcase-job #index-coding-wrapper #index-coding-middlepart #index-code-wrapper {
@@ -4477,7 +4497,6 @@ main {
     display: flex;
     flex-wrap: wrap;
     flex-flow: row;
-    margin-top: 46px;
     width: 100%;
     background-color: #0F1419;
   }
@@ -4928,7 +4947,7 @@ main {
   }
 
   #search-tabber {
-    margin-top: 80px;
+    margin-top: 88px;
   }
 }
 @media (max-width: 1080px) {

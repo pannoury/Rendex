@@ -13,9 +13,12 @@ document.getElementById('indexsearchbutton').addEventListener('click', function(
 function indexNumberCount(){
     $.ajax(
         {
-            url: './PHP/orgcount.php',
+            url: './PHP/indexcount.php',
             dataType: 'text',
-            method: 'POST',
+            method: 'GET',
+            data: {
+                requestid: 1,
+            },
             success: function(response){
                 var response = JSON.parse(response);
                 if(response[0] == 1){
@@ -39,6 +42,69 @@ function indexNumberCount(){
             },
         }
     );
+    $.ajax(
+        {
+            url: './PHP/indexcount.php',
+            dataType: 'text',
+            method: 'GET',
+            data: {
+                requestid: 2,
+            },
+            success: function(response){
+                var response = JSON.parse(response);
+                if(response[0] == 1){
+                    if(response[1] > 999){
+                        var numberCount = (response[1]/1000);
+                        document.getElementById('numberofarticles').innerText = `${numberCount}`;
+                        document.getElementById('thousandsspan2').style.display = "block";
+                        document.getElementById('thousandsspan2').innerText = "K";
+                    }
+                    else{
+                        document.getElementById('numberofarticles').innerText = `${response[1]}`;
+                        document.getElementById('thousandsspan2').style.display = "none";
+                    }
+                }
+                else{
+                    var numberCount = 0;
+                    document.getElementById('numberofarticles').innerText = `${numberCount}`;
+                    document.getElementById('thousandsspan2').style.display = "none";
+                }
+
+            },
+        }
+    );
+    $.ajax(
+        {
+            url: './PHP/indexcount.php',
+            dataType: 'text',
+            method: 'GET',
+            data: {
+                requestid: 3,
+            },
+            success: function(response){
+                console.log(response)
+                var response = JSON.parse(response);
+                if(response[0] == 1){
+                    if(response[1] > 999){
+                        var numberCount = (response[1]/1000);
+                        document.getElementById('numberoffinisheduppdrag').innerText = `${numberCount}`;
+                        document.getElementById('thousandsspan3').style.display = "block";
+                        document.getElementById('thousandsspan3').innerText = "K";
+                    }
+                    else{
+                        document.getElementById('numberoffinisheduppdrag').innerText = `${response[1]}`;
+                        document.getElementById('thousandsspan3').style.display = "none";
+                    }
+                }
+                else{
+                    document.getElementById('numberoffinisheduppdrag').innerText = `${0}`;
+                    document.getElementById('thousandsspan3').style.display = "none";
+                }
+
+            },
+        }
+    );
+
 }
 
 function regionCityCheck(){

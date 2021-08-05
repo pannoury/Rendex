@@ -57,96 +57,7 @@ function populateChatList(){
                             },
                             success: function(response){
                                 var query = JSON.parse(response);
-                                //Populate chat preview
-                                var convoList = document.getElementById('conversation-list');
-                                var a = document.createElement('a');
-                                a.setAttribute('class', 'conversation-selection');
-                                a.setAttribute('id', `conversation-${sessionStorage.getItem('c_id')}`);
-                                a.setAttribute('onclick', 'conversationSelect(this.id)');
-                                convoList.appendChild(a);
-                                var div1 = document.createElement('div');
-                                div1.setAttribute('class', 'conversation');
-                                a.appendChild(div1);
-                                //div2
-                                var div2 = document.createElement('div');
-                                div2.setAttribute('class', 'conversation-img');
-                                div1.appendChild(div2);
-                                //div3
-                                var div3 = document.createElement('div');
-                                div3.setAttribute('class','conversation-list-information');
-                                div1.appendChild(div3);
-                                var div4 = document.createElement('div');
-                                div4.setAttribute('class', 'name-and-date');
-                                div3.appendChild(div4);
-
-                                var p = document.createElement('p');
-                                var span = document.createElement('span');
-                                span.setAttribute('class', 'bold');
-                                span.innerText = ``
-                                p.appendChild(span);
-                                div4.appendChild(p);
-
-                                var div5 = document.createElement('div');
-                                div5.setAttribute('class', 'message-cue');
-                                div3.appendChild(div5);
-                                var p1 = document.createElement('p');
-                                var p2 = document.createElement('p');
-                                p2.setAttribute('class', 'conversation-date')
-                                div5.appendChild(p1);
-                                div5.appendChild(p2);
-                                p2.style.textAlign = "right";
-                                if(query[0] != accountid){ // you recieved latest msg
-                                    $.ajax(
-                                        {
-                                            url: './PHP/inbox.php',
-                                            dataType: 'text',
-                                            method: 'GET',
-                                            data: {
-                                                requestid: 3,
-                                                sender: query[0], //query[0] = counterpart since you recieved
-                                            },
-                                            success: function(response){
-                                                var senderQuery = JSON.parse(response);
-                                                span.innerText = `${senderQuery[1]} ${senderQuery[2]}`;
-                                                var text = query[3];
-                                                p2.innerText = `${query[2].substring(0,10)}`;
-                                                setDate(p2, query[2]);
-                                                if(text.length > 20){
-                                                    p1.innerText = `${text.substring(0,20)}...`;
-                                                }
-                                                else{
-                                                    p1.innerText = `${text}`;
-                                                }
-                                            },
-                                        }
-                                    );
-                                }
-                                else if(query[0] = accountid){ //you sent latest msg
-                                    $.ajax(
-                                        {
-                                            url: './PHP/inbox.php',
-                                            dataType: 'text',
-                                            method: 'GET',
-                                            data: {
-                                                requestid: 3,
-                                                sender: query[1], //query[1] = counterpart since you sent
-                                            },
-                                            success: function(response){
-                                                var senderQuery = JSON.parse(response);
-                                                span.innerText = `${senderQuery[1]} ${senderQuery[2]}`;
-                                                var text = query[3];
-                                                p2.innerText = `${query[2].substring(0,10)}`; //date text
-                                                if(text.length > 20){
-                                                    
-                                                    p1.innerText = `You: ${text.substring(0,10)}...`; //Text cue
-                                                }
-                                                else{
-                                                    p1.innerText = `You: ${text}`;
-                                                }
-                                            },
-                                        }
-                                    );
-                                }
+                                conversationPopulate(query);
                             },
                         }
                     );
@@ -164,124 +75,7 @@ function populateChatList(){
                                 },
                                 success: function(response){
                                     var query = JSON.parse(response);
-                                    //Populate chat preview
-                                    var convoList = document.getElementById('conversation-list');
-                                    var a = document.createElement('a');
-                                    a.setAttribute('class', 'conversation-selection');
-                                    a.setAttribute('id', `conversation-${element}`);
-                                    a.setAttribute('onclick', 'conversationSelect(this.id)');
-                                    convoList.appendChild(a);
-                                    var div1 = document.createElement('div');
-                                    div1.setAttribute('class', 'conversation');
-                                    a.appendChild(div1);
-                                    //div2
-                                    var div2 = document.createElement('div');
-                                    div2.setAttribute('class', 'conversation-img');
-                                    div1.appendChild(div2);
-                                    //div3
-                                    var div3 = document.createElement('div');
-                                    div3.setAttribute('class','conversation-list-information');
-                                    div1.appendChild(div3);
-                                    var div4 = document.createElement('div');
-                                    div4.setAttribute('class', 'name-and-date');
-                                    div3.appendChild(div4);
-    
-                                    var p = document.createElement('p');
-                                    var span = document.createElement('span');
-                                    span.setAttribute('class', 'bold');
-                                    span.innerText = ``
-                                    p.appendChild(span);
-                                    div4.appendChild(p);
-    
-                                    var div5 = document.createElement('div');
-                                    div5.setAttribute('class', 'message-cue');
-                                    div3.appendChild(div5);
-                                    var p1 = document.createElement('p');
-                                    var p2 = document.createElement('p');
-                                    p2.setAttribute('class', 'conversation-date')
-                                    div5.appendChild(p1);
-                                    div5.appendChild(p2);
-                                    p2.style.textAlign = "right";
-                                    if(query[0] != accountid){ // you recieved latest msg
-                                        $.ajax(
-                                            {
-                                                url: './PHP/inbox.php',
-                                                dataType: 'text',
-                                                method: 'GET',
-                                                data: {
-                                                    requestid: 3,
-                                                    sender: query[0], //query[0] = counterpart since you recieved
-                                                },
-                                                success: function(response){
-                                                    var senderQuery = JSON.parse(response);
-                                                    span.innerText = `${senderQuery[1]} ${senderQuery[2]}`;
-                                                    var text = query[3];
-                                                    setDate(p2, query[2]);
-                                                    if(text.length > 20){
-                                                        p1.innerText = `${text.substring(0,20)}...`;
-                                                    }
-                                                    else{
-                                                        p1.innerText = `${text}`;
-                                                    }
-
-                                                    if(senderQuery.length = 8){
-                                                        var img = document.createElement('img');
-                                                        img.setAttribute('src', './assets/images/unchosen-profilepic.svg');
-                                                        div2.appendChild(img);
-                                                    }
-                                                    else if(senderQuery.length = 9){
-                                                        var img = document.createElement('img');
-                                                        img.setAttribute('src', `${senderQuery[8]}`);
-                                                        div2.appendChild(img);
-                                                    }
-                                                },
-                                            }
-                                        );
-                                    }
-                                    else if(query[0] = accountid){ //you sent latest msg
-                                        $.ajax(
-                                            {
-                                                url: './PHP/inbox.php',
-                                                dataType: 'text',
-                                                method: 'GET',
-                                                data: {
-                                                    requestid: 3,
-                                                    sender: query[1], //query[1] = counterpart since you sent
-                                                },
-                                                success: function(response){
-                                                    var senderQuery = JSON.parse(response);
-                                                    span.innerText = `${senderQuery[1]} ${senderQuery[2]}`;
-                                                    var text = query[3];
-                                                    p2.innerText = `${query[2].substring(0,10)}`; //date text
-                                                    setDate(p2, query[2]);
-                                                    if(text.length > 20 && senderQuery.length == 9){
-                                                        p1.innerText = `You: ${text.substring(0,9)}...`; //Text cue
-                                                        var img = document.createElement('img');
-                                                        img.setAttribute('src', `${senderQuery[8]}`);
-                                                        div2.appendChild(img);
-                                                    }
-                                                    else if(text.length < 20 && senderQuery.length == 9){
-                                                        p1.innerText = `You: ${text}`;
-                                                        var img = document.createElement('img');
-                                                        img.setAttribute('src', `${senderQuery[8]}`);
-                                                        div2.appendChild(img);
-                                                    }
-                                                    else if(senderQuery.length = 8 && text.length > 20){ //no image exists
-                                                        p1.innerText = `You: ${text.substring(0,9)}...`; //Text cue
-                                                        var img = document.createElement('img');
-                                                        img.setAttribute('src', './assets/images/unchosen-profilepic.svg');
-                                                        div2.appendChild(img);
-                                                    }
-                                                    else if(senderQuery.length = 8 && text.length < 10){ //no image exists
-                                                        p1.innerText = `You: ${text}`;
-                                                        var img = document.createElement('img');
-                                                        img.setAttribute('src', './assets/images/unchosen-profilepic.svg');
-                                                        div2.appendChild(img);
-                                                    }
-                                                },
-                                            }
-                                        );
-                                    }
+                                    conversationPopulate(query, element);
                                 },
                             }
                         );
@@ -295,6 +89,141 @@ function populateChatList(){
         }
     );
 };
+function conversationPopulate(query, element){
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
+    var accountid = newArrayLoginId[0];
+
+    if(element == undefined || element == null){
+        var element = sessionStorage.getItem("c_id");
+    }
+
+    //Populate chat preview
+    var convoList = document.getElementById('conversation-list');
+    var a = document.createElement('a');
+    a.setAttribute('class', 'conversation-selection');
+    a.setAttribute('id', `conversation-${element}`);
+    a.setAttribute('onclick', 'conversationSelect(this.id)');
+    convoList.appendChild(a);
+    var div1 = document.createElement('div');
+    div1.setAttribute('class', 'conversation');
+    a.appendChild(div1);
+    //div2
+    var div2 = document.createElement('div');
+    div2.setAttribute('class', 'conversation-img');
+    div1.appendChild(div2);
+    //div3
+    var div3 = document.createElement('div');
+    div3.setAttribute('class','conversation-list-information');
+    div1.appendChild(div3);
+    var div4 = document.createElement('div');
+    div4.setAttribute('class', 'name-and-date');
+    div3.appendChild(div4);
+
+    var p = document.createElement('p');
+    var span = document.createElement('span');
+    span.setAttribute('class', 'bold');
+    span.innerText = ``
+    p.appendChild(span);
+    div4.appendChild(p);
+
+    var div5 = document.createElement('div');
+    div5.setAttribute('class', 'message-cue');
+    div3.appendChild(div5);
+    var p1 = document.createElement('p');
+    var p2 = document.createElement('p');
+    p2.setAttribute('class', 'conversation-date')
+    div5.appendChild(p1);
+    div5.appendChild(p2);
+    p2.style.textAlign = "right";
+    if(query[0] != accountid){ // you recieved latest msg
+        $.ajax(
+            {
+                url: './PHP/inbox.php',
+                dataType: 'text',
+                method: 'GET',
+                data: {
+                    requestid: 3,
+                    sender: query[0], //query[0] = counterpart since you recieved
+                },
+                success: function(response){
+                    var senderQuery = JSON.parse(response);
+                    span.innerText = `${senderQuery[1]} ${senderQuery[2]}`;
+                    var text = query[3];
+                    setDate(p2, query[2]);
+                    if(text.length > 20 && senderQuery.length == 9){
+                        p1.innerText = `${text.substring(0,20)}...`;
+                        var img = document.createElement('img');
+                        img.setAttribute('src', `${senderQuery[8]}`);
+                        div2.appendChild(img);
+                    }
+                    else if(text.length < 20 && senderQuery.length == 9){
+                        p1.innerText = `${text}`;
+                        var img = document.createElement('img');
+                        img.setAttribute('src', `${senderQuery[8]}`);
+                        div2.appendChild(img);
+                    }
+                    else if(senderQuery.length = 8 && text.length > 20){
+                        p1.innerText = `${text.substring(0,20)}...`;
+                        var img = document.createElement('img');
+                        img.setAttribute('src', './assets/images/unchosen-profilepic.svg');
+                        div2.appendChild(img);
+                    }
+                    else if(senderQuery.length = 8 && text.length < 20){
+                        p1.innerText = `${text}`;
+                        var img = document.createElement('img');
+                        img.setAttribute('src', './assets/images/unchosen-profilepic.svg');
+                        div2.appendChild(img);
+                    }
+                },
+            }
+        );
+    }
+    else if(query[0] = accountid){ //you sent latest msg
+        $.ajax(
+            {
+                url: './PHP/inbox.php',
+                dataType: 'text',
+                method: 'GET',
+                data: {
+                    requestid: 3,
+                    sender: query[1], //query[1] = counterpart since you sent
+                },
+                success: function(response){
+                    var senderQuery = JSON.parse(response);
+                    span.innerText = `${senderQuery[1]} ${senderQuery[2]}`;
+                    var text = query[3];
+                    p2.innerText = `${query[2].substring(0,10)}`; //date text
+                    if(text.length > 20 && senderQuery.length == 9){
+                        p1.innerText = `You: ${text.substring(0,9)}...`; //Text cue
+                        var img = document.createElement('img');
+                        img.setAttribute('src', `${senderQuery[8]}`);
+                        div2.appendChild(img);
+                    }
+                    else if(text.length < 20 && senderQuery.length == 9){
+                        p1.innerText = `You: ${query[3]}`;
+                        var img = document.createElement('img');
+                        img.setAttribute('src', `${senderQuery[8]}`);
+                        div2.appendChild(img);
+                    }
+                    else if(senderQuery.length = 8 && text.length > 20){ //no image exists
+                        p1.innerText = `You: ${query[3].substring(0,9)}...`; //Text cue
+                        var img = document.createElement('img');
+                        img.setAttribute('src', './assets/images/unchosen-profilepic.svg');
+                        div2.appendChild(img);
+                    }
+                    else if(senderQuery.length = 8 && text.length < 20){ //no image exists
+                        p1.innerText = `You: ${query[3]}`;
+                        var img = document.createElement('img');
+                        img.setAttribute('src', './assets/images/unchosen-profilepic.svg');
+                        div2.appendChild(img);
+                    }
+                    setDate(p2, query[2]);
+                },
+            }
+        );
+    }
+}
 /******THIS FUNCTION SETS THE DATE IN THE CONVO PREVIEW
 BASED ON CURRENT TIME******* */
 function setDate(p2,time){
@@ -584,109 +513,12 @@ function populateConvoList(id){
             },
             success: function(response){
                 var queryChat = JSON.parse(response);
-                if(queryChat[0].constructor === Array){ //Multiple texts has been sent
-                    for(i=0; i < queryChat.length; i++){
-                        if(queryChat[i][1] != accountid[0]){ //grey text AKA recieved text
-                            var li = document.createElement('li');
-                            li.setAttribute('class', 'chat-item');
-                            li.setAttribute('id', 'text-recieved');
-                            var div1 = document.createElement('div');
-                            div1.setAttribute('class', 'text-recieved-wrapper');
-                            li.appendChild(div1);
-                            var div2 = document.createElement('div');
-                            div2.setAttribute('class', 'chat-time-stamp');
-                            div1.appendChild(div2);
-                            var p1 = document.createElement('p');
-                            div2.appendChild(p1);
-                            var div3 = document.createElement('div');
-                            div3.setAttribute('class', 'chat-text');
-                            div1.appendChild(div3);
-                            var p2 = document.createElement('p');
-                            div3.appendChild(p2);
-    
-                            p1.innerText = `${queryChat[i][3].substring(0,16)}`;
-                            p2.innerText = `${queryChat[i][4]}`;
-    
-                            document.getElementById('chat-list').appendChild(li);
-                        }
-                        else if(queryChat[i][1] == accountid[0]){ //blue text AKA your text
-                            var li = document.createElement('li');
-                            li.setAttribute('class', 'chat-item');
-                            li.setAttribute('id', 'text-sent');
-                            var div1 = document.createElement('div');
-                            div1.setAttribute('class', 'text-sent-wrapper');
-                            li.appendChild(div1);
-                            var div2 = document.createElement('div');
-                            div2.setAttribute('class', 'chat-time-stamp');
-                            div1.appendChild(div2);
-                            var p1 = document.createElement('p');
-                            div2.appendChild(p1);
-                            var div3 = document.createElement('div');
-                            div3.setAttribute('class', 'chat-text');
-                            div1.appendChild(div3);
-                            var p2 = document.createElement('p');
-                            div3.appendChild(p2);
-    
-                            p1.innerText = `${queryChat[i][3].substring(0,16)}`;
-                            p2.innerText = `${queryChat[i][4]}`;
-    
-                            document.getElementById('chat-list').appendChild(li);
-                        }
-                    }
-                }
-                else{
-                    if(queryChat[1] != accountid[0]){ //grey text AKA recieved text
-                        var li = document.createElement('li');
-                        li.setAttribute('class', 'chat-item');
-                        li.setAttribute('id', 'text-recieved');
-                        var div1 = document.createElement('div');
-                        div1.setAttribute('class', 'text-recieved-wrapper');
-                        li.appendChild(div1);
-                        var div2 = document.createElement('div');
-                        div2.setAttribute('class', 'chat-time-stamp');
-                        div1.appendChild(div2);
-                        var p1 = document.createElement('p');
-                        div2.appendChild(p1);
-                        var div3 = document.createElement('div');
-                        div3.setAttribute('class', 'chat-text');
-                        div1.appendChild(div3);
-                        var p2 = document.createElement('p');
-                        div3.appendChild(p2);
-
-                        p1.innerText = `${queryChat[3].substring(0,16)}`;
-                        p2.innerText = `${queryChat[4]}`;
-
-                        document.getElementById('chat-list').appendChild(li);
-                    }
-                    else if(queryChat[1] == accountid[0]){ //blue text AKA your text
-                        var li = document.createElement('li');
-                        li.setAttribute('class', 'chat-item');
-                        li.setAttribute('id', 'text-sent');
-                        var div1 = document.createElement('div');
-                        div1.setAttribute('class', 'text-sent-wrapper');
-                        li.appendChild(div1);
-                        var div2 = document.createElement('div');
-                        div2.setAttribute('class', 'chat-time-stamp');
-                        div1.appendChild(div2);
-                        var p1 = document.createElement('p');
-                        div2.appendChild(p1);
-                        var div3 = document.createElement('div');
-                        div3.setAttribute('class', 'chat-text');
-                        div1.appendChild(div3);
-                        var p2 = document.createElement('p');
-                        div3.appendChild(p2);
-
-                        p1.innerText = `${queryChat[3].substring(0,16)}`;
-                        p2.innerText = `${queryChat[4]}`;
-
-                        document.getElementById('chat-list').appendChild(li);
-                    }
-                }
+                chatTextParser(queryChat)
                 document.getElementById('insert-button-chat-wrapper').style.display = "block";
                 document.getElementById('chat-input-wrapper-wrapper').style.display = "flex";
                 populateChatHeader(queryChat);
                 if(width > 875){ //desktop
-
+                    //do nothing
                 }
                 else if(width < 875){ //mobile
                     document.getElementById('nameheader-div').style.display = "flex";
@@ -703,6 +535,7 @@ function populateConvoList(id){
 };
 /********MOBILE VERSION, LEAVING A SPECIFIC CONVERSATION ********* */
 document.getElementById('leaveconversation-anchor').onclick = function (){
+    /*
     document.getElementById('conversation-inbox-list').style.display = "block";
     document.getElementById('conversation-display').style.display = "none";
     document.getElementById('conversation-display').style.width = "0vw";
@@ -711,6 +544,10 @@ document.getElementById('leaveconversation-anchor').onclick = function (){
         $(this).attr('aria-label', "diselected");
     });
     $('.chat-item').remove();
+    */
+    sessionStorage.clear("c_id");
+    location.reload()
+    //clearInterval(reactiveTextLoading);
 };
 
 function populateChatHeader(chatArray){
@@ -920,7 +757,7 @@ function reactiveTexting(){
                 }
                 document.getElementById('chat-input').value = ""; //removes the text after you hit send
                 document.getElementById('chatinput-sendbtn').style.display = "none";
-                $("#chat-list").scrollTop($("#chat-list")[0].scrollHeight);
+                $("#chat-list").scrollTop($("#chat-list")[0].scrollHeight); //not working
             },
         }
     );
@@ -960,104 +797,8 @@ function reactiveTextLoading(){
                             },
                             success: function(response){
                                 var queryChat = JSON.parse(response);
-                                if(queryChat[0].constructor === Array){ //Multiple texts has been sent
-                                    for(i=0; i < queryChat.length; i++){
-                                        if(queryChat[i][1] != accountid[0]){ //grey text AKA recieved text
-                                            var li = document.createElement('li');
-                                            li.setAttribute('class', 'chat-item');
-                                            li.setAttribute('id', 'text-recieved');
-                                            var div1 = document.createElement('div');
-                                            div1.setAttribute('class', 'text-recieved-wrapper');
-                                            li.appendChild(div1);
-                                            var div2 = document.createElement('div');
-                                            div2.setAttribute('class', 'chat-time-stamp');
-                                            div1.appendChild(div2);
-                                            var p1 = document.createElement('p');
-                                            div2.appendChild(p1);
-                                            var div3 = document.createElement('div');
-                                            div3.setAttribute('class', 'chat-text');
-                                            div1.appendChild(div3);
-                                            var p2 = document.createElement('p');
-                                            div3.appendChild(p2);
-                    
-                                            p1.innerText = `${queryChat[i][3].substring(0,16)}`;
-                                            p2.innerText = `${queryChat[i][4]}`;
-                    
-                                            document.getElementById('chat-list').appendChild(li);
-                                        }
-                                        else if(queryChat[i][1] == accountid[0]){ //blue text AKA your text
-                                            var li = document.createElement('li');
-                                            li.setAttribute('class', 'chat-item');
-                                            li.setAttribute('id', 'text-sent');
-                                            var div1 = document.createElement('div');
-                                            div1.setAttribute('class', 'text-sent-wrapper');
-                                            li.appendChild(div1);
-                                            var div2 = document.createElement('div');
-                                            div2.setAttribute('class', 'chat-time-stamp');
-                                            div1.appendChild(div2);
-                                            var p1 = document.createElement('p');
-                                            div2.appendChild(p1);
-                                            var div3 = document.createElement('div');
-                                            div3.setAttribute('class', 'chat-text');
-                                            div1.appendChild(div3);
-                                            var p2 = document.createElement('p');
-                                            div3.appendChild(p2);
-                    
-                                            p1.innerText = `${queryChat[i][3].substring(0,16)}`;
-                                            p2.innerText = `${queryChat[i][4]}`;
-                    
-                                            document.getElementById('chat-list').appendChild(li);
-                                        }
-                                    }
-                                }
-                                else{
-                                    if(queryChat[0] != accountid[0]){ //grey text AKA recieved text
-                                        var li = document.createElement('li');
-                                        li.setAttribute('class', 'chat-item');
-                                        li.setAttribute('id', 'text-recieved');
-                                        var div1 = document.createElement('div');
-                                        div1.setAttribute('class', 'text-recieved-wrapper');
-                                        li.appendChild(div1);
-                                        var div2 = document.createElement('div');
-                                        div2.setAttribute('class', 'chat-time-stamp');
-                                        div1.appendChild(div2);
-                                        var p1 = document.createElement('p');
-                                        div2.appendChild(p1);
-                                        var div3 = document.createElement('div');
-                                        div3.setAttribute('class', 'chat-text');
-                                        div1.appendChild(div3);
-                                        var p2 = document.createElement('p');
-                                        div3.appendChild(p2);
-                
-                                        p1.innerText = `${queryChat[2].substring(0,16)}`;
-                                        p2.innerText = `${queryChat[3]}`;
-                
-                                        document.getElementById('chat-list').appendChild(li);
-                                    }
-                                    else if(queryChat[0] == accountid[0]){ //blue text AKA your text
-                                        var li = document.createElement('li');
-                                        li.setAttribute('class', 'chat-item');
-                                        li.setAttribute('id', 'text-sent');
-                                        var div1 = document.createElement('div');
-                                        div1.setAttribute('class', 'text-sent-wrapper');
-                                        li.appendChild(div1);
-                                        var div2 = document.createElement('div');
-                                        div2.setAttribute('class', 'chat-time-stamp');
-                                        div1.appendChild(div2);
-                                        var p1 = document.createElement('p');
-                                        div2.appendChild(p1);
-                                        var div3 = document.createElement('div');
-                                        div3.setAttribute('class', 'chat-text');
-                                        div1.appendChild(div3);
-                                        var p2 = document.createElement('p');
-                                        div3.appendChild(p2);
-                
-                                        p1.innerText = `${queryChat[2].substring(0,16)}`;
-                                        p2.innerText = `${queryChat[3]}`;
-                
-                                        document.getElementById('chat-list').appendChild(li);
-                                    }
-                                }
+                                console.log("populateChatList Triggered!")
+                                chatTextParser(queryChat);
                                 populateChatList();
                             },
                         }
@@ -1071,9 +812,109 @@ function reactiveTextLoading(){
     setTimeout(reactiveTextLoading, 2000);
 }
 reactiveTextLoading();
-/*
-function getURLParameter(){
-    let parameter = new URLSearchParams(window.location.search);
-    return parameter.get(parameterName);
-};
-*/
+
+
+function chatTextParser(queryChat){
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
+    var accountid = newArrayLoginId[0];
+
+    if(queryChat[0].constructor === Array){ //Multiple texts has been sent
+        for(i=0; i < queryChat.length; i++){
+            if(queryChat[i][1] != accountid[0]){ //grey text AKA recieved text
+                var li = document.createElement('li');
+                li.setAttribute('class', 'chat-item');
+                li.setAttribute('id', 'text-recieved');
+                var div1 = document.createElement('div');
+                div1.setAttribute('class', 'text-recieved-wrapper');
+                li.appendChild(div1);
+                var div2 = document.createElement('div');
+                div2.setAttribute('class', 'chat-time-stamp');
+                div1.appendChild(div2);
+                var p1 = document.createElement('p');
+                div2.appendChild(p1);
+                var div3 = document.createElement('div');
+                div3.setAttribute('class', 'chat-text');
+                div1.appendChild(div3);
+                var p2 = document.createElement('p');
+                div3.appendChild(p2);
+
+                p1.innerText = `${queryChat[i][3].substring(0,16)}`;
+                p2.innerText = `${queryChat[i][4]}`;
+
+                document.getElementById('chat-list').appendChild(li);
+            }
+            else if(queryChat[i][1] == accountid[0]){ //blue text AKA your text
+                var li = document.createElement('li');
+                li.setAttribute('class', 'chat-item');
+                li.setAttribute('id', 'text-sent');
+                var div1 = document.createElement('div');
+                div1.setAttribute('class', 'text-sent-wrapper');
+                li.appendChild(div1);
+                var div2 = document.createElement('div');
+                div2.setAttribute('class', 'chat-time-stamp');
+                div1.appendChild(div2);
+                var p1 = document.createElement('p');
+                div2.appendChild(p1);
+                var div3 = document.createElement('div');
+                div3.setAttribute('class', 'chat-text');
+                div1.appendChild(div3);
+                var p2 = document.createElement('p');
+                div3.appendChild(p2);
+
+                p1.innerText = `${queryChat[i][3].substring(0,16)}`;
+                p2.innerText = `${queryChat[i][4]}`;
+
+                document.getElementById('chat-list').appendChild(li);
+            }
+        }
+    }
+    else{
+        if(queryChat[0] != accountid[0]){ //grey text AKA recieved text
+            var li = document.createElement('li');
+            li.setAttribute('class', 'chat-item');
+            li.setAttribute('id', 'text-recieved');
+            var div1 = document.createElement('div');
+            div1.setAttribute('class', 'text-recieved-wrapper');
+            li.appendChild(div1);
+            var div2 = document.createElement('div');
+            div2.setAttribute('class', 'chat-time-stamp');
+            div1.appendChild(div2);
+            var p1 = document.createElement('p');
+            div2.appendChild(p1);
+            var div3 = document.createElement('div');
+            div3.setAttribute('class', 'chat-text');
+            div1.appendChild(div3);
+            var p2 = document.createElement('p');
+            div3.appendChild(p2);
+
+            p1.innerText = `${queryChat[2].substring(0,16)}`;
+            p2.innerText = `${queryChat[3]}`;
+
+            document.getElementById('chat-list').appendChild(li);
+        }
+        else if(queryChat[0] == accountid[0]){ //blue text AKA your text
+            var li = document.createElement('li');
+            li.setAttribute('class', 'chat-item');
+            li.setAttribute('id', 'text-sent');
+            var div1 = document.createElement('div');
+            div1.setAttribute('class', 'text-sent-wrapper');
+            li.appendChild(div1);
+            var div2 = document.createElement('div');
+            div2.setAttribute('class', 'chat-time-stamp');
+            div1.appendChild(div2);
+            var p1 = document.createElement('p');
+            div2.appendChild(p1);
+            var div3 = document.createElement('div');
+            div3.setAttribute('class', 'chat-text');
+            div1.appendChild(div3);
+            var p2 = document.createElement('p');
+            div3.appendChild(p2);
+
+            p1.innerText = `${queryChat[2].substring(0,16)}`;
+            p2.innerText = `${queryChat[3]}`;
+
+            document.getElementById('chat-list').appendChild(li);
+        }
+    }
+}

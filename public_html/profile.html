@@ -8,17 +8,16 @@
   <meta name="keywords" content="arbete, bygg, renovering, elektriker, offert, hitta renoverare, hitta arbetare, hitta elektriker, golv, lägga golv, VVS, Rendex, Rendex AB">
   <meta name="author" content="Patrick Tannoury">
   <link rel="stylesheet" href="sass/style.css" type="text/css">
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous">
-  </script> 
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script> 
+  $(function(){
+    $("#navbar").load("navbar.html"); 
+  });
   $(function(){
     $("#footer").load("footer.html"); 
   });
   $(function(){
-    $("#navbar").load("navbar.html"); 
+    $("#cookiewindowpopupwrapper").load("cookieswindow.html");
   });
   </script>
 </head>
@@ -71,7 +70,9 @@
 
       </div>
     </div>
+    <div id="cookiewindowpopupwrapper"></div>
   </main>
   <div id="footer"></div>
+  <script src="./JS/cookie.js"></script>
 </body>
 <html>

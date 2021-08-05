@@ -297,21 +297,7 @@ document.getElementById('allaområdencheckbox').onclick = function(){
         }
     }
 };
-function clearCitySelection(){
-    var x = document.getElementsByClassName('citycheckbox');
-    var allCities = document.getElementById('allaområdencheckbox');
-    var checkedboxes = 0;
-    for(i = 0; i < x.length; i++){
-        if (x[i].checked) {
-            checkedboxes++;
-            if (checkedboxes > 1){
-                x[i].checked = false;
-                allCities.checked = true;
-            }
-            else{}
-        }
-    }
-}
+
 function cityWindowScript(regionValue){
     clearCityList();
     var citySelected = localStorage.getItem("citySelected");
@@ -429,16 +415,3 @@ function checkBoxScan(){
     location.reload();
 }
 /*************************INITIATE LOAD******************* */
-function clearCity2(){
-    var x = document.getElementsByClassName('citycheckbox');
-    var checkedboxes = 0;
-    for(i = 0; i < x.length; i++){
-        if (x[i].checked) {
-            checkedboxes++;
-            if (checkedboxes > 1){
-                x[i].checked = false;
-            }
-            else{}
-        }
-    }
-}

@@ -41,7 +41,7 @@
                         font-size: 18px;
                         margin-bottom: 8px;
                         .orange{
-                            color: $rendex-orange;
+                            color: $rendex-orange !important;
                         }
                     }
                 }
@@ -115,10 +115,9 @@
                             }
                             .arrow-select{
                                 position: absolute;
-                                margin-right: 8px;
-                                border-top: 0.5em solid black;
-                                border-right: 0.5em solid transparent;
-                                border-left: 0.5em solid transparent;
+                                padding-right: 10px;
+                                width: 14px;
+                                height: 14px;
                             }
                         }
                     }

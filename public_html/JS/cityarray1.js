@@ -1,4 +1,4 @@
-var HelaSverigeCityArray = ["Hela Sverige"]
+var HelaSverigeCityArray = ["Hela Sverige"];
 var BlekingeCityArray = ["Hela Blekinge", "Karlshamn", "Karlskrona", "Olofström", "Ronneby", "Sölvesborg"];
 var DalarnaCityArray = ["Hela Dalarna", "Avesta", "Borlänge", "Falun", "Gagnef", "Hedemora", "Leksand", "Ludvika", "Malung-Sälen", "Mora", "Orsa", "Rättvik", "Smedjebacken", "Säter", "Vansbro", "Älvdalen"];
 var GotlandCityArray = ["Hela Gotland"];
@@ -19,7 +19,7 @@ var VästernorrlandCityArray=["Hela Västernorrland","Härnösand","Kramfors","S
 var VästmanlandCityArray=["Hela Västmanland","Arboga","Fagersta","Hallstahammar","Kungsör","Köping","Norberg","Sala","Skinnskatteberg","Surahammar","Västerås"];
 var VästraGötalandCityArray=["Hela Västra Götaland","Ale","Alingsås","Bengtsfors","Bollebygd","Borås","Dals-Ed","Essunga","Falköping","Färgelanda","Grästorp","Gullspång","Göteborg","Götene","Herrljunga","Hjo","Härryda","Karlsborg","Kungälv","Lerum","Lidköping","Lilla Edet","Lysekil","Mariestad","Mark","Mellerud","Munkedal","Mölndal","Orust","Partille","Skara","Skövde","Sotenäs","Stenungsundd","Strömstad","Svenljunga","Tanum","Tibro","Tidaholm","Tjörn","Tranemo","Trollhättann","Töreboda","Uddevalla","Ulricehamn","Vara","Vårgårda","Vänersborg","Åmål","Öckerö"];
 var ÖrebroCityArray=["Hela Örebro","Askersund","Degerfors","Hallsberg","Hällefors","Karlskoga","Kumla","Laxå","Lekeberg","Lindesberg","Ljusnarsberg","Nora","Örebro"];
-var ÖstergötlandCityArray=["Boxholm","Finspång","Kinda","Linköping","Mjölby","Motala","Norrköping","Söderköping","Vadstena","Valdemarsvik","Ydre","Åtvidaberg","Ödeshög"];
+var ÖstergötlandCityArray=["Hela Östergötland","Boxholm","Finspång","Kinda","Linköping","Mjölby","Motala","Norrköping","Söderköping","Vadstena","Valdemarsvik","Ydre","Åtvidaberg","Ödeshög"];
 
 
 var cityArray = [

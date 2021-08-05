@@ -1,3 +1,4 @@
+
 /**************************END OF REGION/CITY SELECT************************* */
 document.getElementById('searchpage-searchindex').addEventListener('input', inputQuery);
 function inputQuery(data){
