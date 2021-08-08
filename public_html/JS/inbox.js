@@ -11,6 +11,8 @@ var minutes = today.getMinutes();
 var fullYear = today.getFullYear();
 
 window.addEventListener('load', function conversationCount(){
+    loggedInControl();
+    cookieConsentLoad();
     cssChatList();
     populateChatList();
     sessionStorage.clear();
@@ -775,10 +777,10 @@ function reactiveTextLoading(){
                 }
                 else{
                     if(accountid == chatArray[1]){ //you're the sender
-                        creactiveTextLoading2(chatArray[2]);
+                        reactiveTextLoading2(chatArray[2]);
                     }
                     else if(accountid != chatArray[1]){ //you're the reciever
-                        creactiveTextLoading2(chatArray[1]);
+                        reactiveTextLoading2(chatArray[1]);
                     }
                 }
             }

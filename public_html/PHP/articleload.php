@@ -273,7 +273,7 @@
                         $price = str_replace('"', "'", $price);
                         $price = str_replace("\'", "'", $price);
                         $sql = "SELECT * FROM Articles WHERE region='$region' 
-                        AND WHERE price IN ($price) AND WHERE type='$purpose'
+                        AND price IN ($price) AND type='$purpose'
                         ORDER BY created_at DESC LIMIT 40";
     
                         $result = mysqli_query($conn,$sql);  
@@ -282,7 +282,7 @@
                     }
                     else if($price == "All"){ //ignore price
                         $sql = "SELECT * FROM Articles WHERE region='$region' 
-                        AND WHERE type='$purpose' 
+                        AND type='$purpose' 
                         ORDER BY created_at DESC LIMIT 40";
     
                         $result = mysqli_query($conn,$sql);  
@@ -291,7 +291,7 @@
                     }
                     else{ //single price value, dont ignore
                         $sql = "SELECT * FROM Articles WHERE region='$region' 
-                        AND WHERE type='$purpose' AND WHERE price='$price'
+                        AND type='$purpose' AND price='$price'
                         ORDER BY created_at DESC LIMIT 40";
     
                         $result = mysqli_query($conn,$sql);  
@@ -308,7 +308,7 @@
                         $price = str_replace('"', "'", $price);
                         $price = str_replace("\'", "'", $price);
                         $sql = "SELECT * FROM Articles WHERE city='$city' 
-                        AND WHERE type IN ($purpose) AND WHERE price IN ($price)
+                        AND type IN ($purpose) AND price IN ($price)
                         ORDER BY created_at DESC LIMIT 40";
     
                         $result = mysqli_query($conn,$sql);  

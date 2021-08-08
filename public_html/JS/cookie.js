@@ -24,11 +24,8 @@ function eraseCookie(name) {
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 /*********************** GLOBAL COOKIE SETTINGS **********************************/
-window.addEventListener('load', function checkCookie(){
-  cookieConsentLoad();
-});
 function cookieConsentLoad(){
-  var user=getCookie("cookieconsent");
+  var user = getCookie("cookieconsent");
   if (user != "") {
     document.getElementById('cookiewindowpopupwrapper').style.display = "none";
   } else {

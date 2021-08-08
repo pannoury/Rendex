@@ -5,10 +5,6 @@ var roleSelected = localStorage.getItem("roleSelected");
 var priceSelected = localStorage.getItem("priceFilter");
 
 
-window.addEventListener('load', function(){
-    regionFilter();
-});
-
 function regionFilter(){
     var regionSelected = localStorage.getItem("regionSelected");
     if(regionSelected.includes(',') == true && regionSelected !== null){
@@ -41,7 +37,7 @@ function cityFilter(region){
         }
         else if(citySelected !== null && citySelected.includes(',') == false){ //city is not an array, but also not null
             console.log(citySelected);
-            if(citySelected == "Alla Städer" && regionSelected.includes(',') == false){
+            if(citySelected == "Alla Städer" || citySelected.includes('Hela') == true && regionSelected.includes(',') == false){
                 var city = regionSelected.replace(/"/g, "");
                 purposeFilter(region, city);
             }

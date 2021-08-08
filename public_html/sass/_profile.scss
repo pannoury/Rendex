@@ -62,6 +62,7 @@
                         }
                         #initiate-chat{
                             margin-top: 10px;
+                            margin-left: 40px;
                             padding: 6px;
                             font-size: 14px;
                             font-weight: bolder;
@@ -122,6 +123,200 @@
         overflow-x: hidden;
         transition: 0.5s;
         display: flex;
+        flex-direction: column;
+        color: black;
+        border-radius: 6px;
+        box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+        #new-chatwindow-wrapper{
+            padding: 20px;
+            #new-chatwindow-top{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                #new-chat-reciever-wrapper{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    p{
+                        &:nth-child(1){
+                            font-size: 20px;
+                            margin-bottom: 0px;
+                            margin-top: 0px;
+                        }
+                    }
+                    #new-chat-reciever{
+                        margin-left: 6px;
+                        margin-bottom: 0px;
+                        margin-top: 0px;
+                        font-weight: bold;
+                        font-size: 20px;
+                        padding: 2px 4px 2px 4px;
+                        background-color: #b9b9b9;
+                        text-align: center;
+                        border-radius: 3px;
+                    }
+                }
+                #close-new-chat{
+                    font-size: 40px;
+                    &:hover{
+                        cursor: pointer;
+                        opacity: 0.8;
+                    }
+                }
+            }
+            #new-chatwindow-text-wrapper{
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 10px;
+                width: 100%;
+                #new-chatwindow-input{
+                    width: 90%;
+                    height: 40vh;
+                    resize: none;
+                }
+            }
+            #new-chatwindow-bottom{
+                display: flex;
+                justify-content: flex-end;
+                #new-send-wrapper{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #b9b9b9;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                    padding: 10px;
+                    &:hover{
+                        opacity: 0.8;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width:875px){
+    #account-page{
+        padding-top: 88px;
+        display: flex;
+        flex-direction: column;
+        #account-wrapper-wrapper{
+            display: flex;
+            flex-direction: column;
+            padding: 20px 10px 10px 10px;
+            background-color: #f4f4f4;
+            #account-page-wrapper{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                #account-image-wrapper{
+                    margin: auto;
+                    height: 100px;
+                    width: 100px;
+                    border-radius: 8px;
+                    background-color: #fff;
+                    color: white;
+                    #companylogoimage{
+                        height: 100px;
+                        width: 100px;
+                        border-radius: 8px;
+                    }
+                }
+                #account-companybackground{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding-top: 10px;
+                    #account-companybackground-column1{
+                        .companyheader-div{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
+                            h2{
+                                margin: 0px;
+                            }
+                        }
+                        #companyshortinformation{
+                            display: flex;
+                            flex-direction: column;
+                            .profile-top-info-row{
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                margin: 0;
+                                margin-top: 4px;
+                                img{
+                                    margin-right: 8px;
+                                }
+                            }
+                        }
+                        #initiate-chat{
+                            margin-top: 10px;
+                            padding: 6px;
+                            font-size: 14px;
+                            font-weight: bolder;
+                            border-radius: 8px;
+                            background-color: #f07900;
+                            &:hover{
+                                cursor: pointer;
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+                    #account-companybackground-column2{
+                        display: flex;
+                        text-align: right;
+                        p{
+                            margin: 0;
+                            margin-bottom: 4px;
+                        }
+                        #numberofreviewscompany{
+                            font-weight: bold;
+                        }
+                        #companybackground-rating{
+                            display: flex;
+                            flex-direction: row;
+                            gap: 2px;
+                        }
+                    }
+                }
+            }
+            #companyannonser{
+                width: 100%;
+                margin: auto;
+                #companyannonser-wrapper{
+                }
+            }
+            #companybroadbackground{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                #companybroadbackground-text{
+                    width: 100%;
+                    padding: 0px;
+                }
+                #profile-skills{
+
+                }
+            }
+        }
+    }
+    #new-chatwindow{
+        height: 60vh;
+        width: 0px;
+        position: fixed;
+        z-index: 10;
+        top: 20vh;
+        right: 25%;
+        background-color: #f4f4f4;
+        overflow-x: hidden;
+        transition: 0.5s;
+        display: none;
         flex-direction: column;
         color: black;
         border-radius: 6px;

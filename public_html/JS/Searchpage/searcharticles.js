@@ -1,15 +1,7 @@
-//const { DEFAULT_MIN_VERSION } = require("tls");
-
 var regionSelected = localStorage.getItem("regionSelected");
 var citySelected = localStorage.getItem("citySelected");
 var purposeSelected = localStorage.getItem("purposeSelected");
 var roleSelected = localStorage.getItem("roleSelected");
-
-/*
-window.addEventListener('load', function(){
-
-});
-*/
 
 function ajaxResponse(response){
     console.log(response);
@@ -17,6 +9,7 @@ function ajaxResponse(response){
         if(response == 0){
             document.getElementById('searchresult-articlecounter').innerText = "0 Annonser";
             document.getElementById('no-articles-found').style.display = "block";
+            document.getElementById('search-navigation-btn-mobile').style.display = "none";
         }
         else if(response[0].constructor === Array){ //if multiarray (multiple hits)
             response.forEach(element => {
@@ -25,6 +18,7 @@ function ajaxResponse(response){
         }
         else{ // single hit
             createArticle(response);
+            document.getElementById('search-navigation-btn-mobile').style.display = "none";
         }
     }
     else{

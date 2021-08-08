@@ -7,13 +7,20 @@ var regionSpanText = document.getElementById('regionspan-text');
 var citySpan = document.getElementById('cityspan-text');
 var regionCityHeader = document.getElementById('regioncityheader');
 var width = window.screen.width;
-var loginId = getCookie("a_user");
-var newArrayLoginId = loginId.split(',');
 
-window.addEventListener('load', function loadRegionCheck(){
+$(document).ready(function(){
+    loggedInControl();
+    cookieConsentLoad();
+    loadRegionCheck();
+
+    regionFilter(); //searchfilter.js
+
+    document.getElementById('logo-mobile').style.display = "block";
+});
+
+function loadRegionCheck(){
 
     /***********NAVBAR SETTINGS */
-    loggedInControl();
     roleControl(); 
     document.getElementById('globeicon').setAttribute('src', './assets/images/globe.svg')
     /***********NAVBAR SETTINGS */
@@ -54,7 +61,7 @@ window.addEventListener('load', function loadRegionCheck(){
         document.getElementById('regionspan-text').innerText = "Flera Regioner";
         document.getElementById('location-city-button').style.display = "none";
     } //might need to be removed, archaic!
-});
+};
 
 function loadRegionCheckV2(regionValue){
     regionHeader.innerText = `${regionValue}`;
@@ -142,7 +149,9 @@ $(document).ready(function(){
         document.getElementById('language-selected').innerText = "ENG";
     }
 });
-async function loggedInControl(){
+function loggedInControl(){
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
     if(newArrayLoginId[0] > 0){
         if(newArrayLoginId[1] == 1){ //Individual
             var role = newArrayLoginId[1];
@@ -198,6 +207,8 @@ function roleControl(){
 }
 
 document.getElementById('loginanchor').onclick = function(){
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
     if(newArrayLoginId[0] >= 1){
         window.location = 'https://rendex.se/myaccount';
     }
@@ -246,7 +257,7 @@ document.getElementById('inboxlink2').addEventListener('click',function(){
         window.location = 'https://rendex.se/login';
     }
 });
-document.getElementById('languageanchor-searchpage').onclick = function(){
+document.getElementById('languageanchor').onclick = function(){
     var ul = document.getElementById('languageanchor');
     ulAriaLabel = ul.getAttribute('aria-label');
     if(ulAriaLabel == null || ulAriaLabel == undefined || ulAriaLabel == "not displayed"){

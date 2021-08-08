@@ -1,5 +1,7 @@
 /******************************* Index Search *************************************/
 window.addEventListener('load', function(){
+    loggedInControl();
+    cookieConsentLoad();
     indexNumberCount();
     cityOptionMain();
     localStorage.clear();

@@ -1,6 +1,7 @@
-
 window.onload = function(){
+    loggedInControl();
     getURLParameter()
+    cookieConsentLoad();
 }
 
 function getURLParameter(){

@@ -1,8 +1,3 @@
-
-window.onload = function(){
-    loggedInControl();
-}
-
 function loggedInControl(){
     var loginId = getCookie("a_user");
     var newArrayLoginId = loginId.split(',');
@@ -126,6 +121,7 @@ window.onscroll = function(){
             document.getElementById('language-selected').style.color = "white";
             document.getElementById('globeicon').setAttribute('src', './assets/images/globe.svg');
             document.getElementsByClassName('logo')[0].setAttribute('src', './assets/images/rendex_white.svg');
+            document.getElementById('loginanchor').style.color = "white";
         }
         else{
             navbar.style.backgroundColor = "#ffffff";
@@ -136,6 +132,7 @@ window.onscroll = function(){
             document.getElementById('language-selected').style.color = "black";
             document.getElementById('globeicon').setAttribute('src', './assets/images/globe-black.svg');
             document.getElementsByClassName('logo')[0].setAttribute('src', './assets/images/rendex_black.svg');
+            document.getElementById('loginanchor').style.color = "black";
         }
     }
     else{

@@ -56,6 +56,7 @@ document.getElementById('insert-button-chat').addEventListener('click', function
 document.getElementById('remove-conversation').onclick = function(){
     var preSelectedConvo = $("[aria-label='selected']");
     chatid = preSelectedConvo[0].getAttribute('id').replace('conversation-', "");
+    console.log(chatid)
     $.ajax(
         {
             url: './PHP/inbox.php',
@@ -66,7 +67,7 @@ document.getElementById('remove-conversation').onclick = function(){
                 chatid: chatid,
             },
             success: function(response){
-                var query = JSON.parse(response);
+                location.reload();
             },
         }
     );

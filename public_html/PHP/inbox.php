@@ -9,7 +9,12 @@
         $id = $conn->real_escape_string($_GET['userid']);
         $chatid = $conn->real_escape_string($_GET['chatid']);
         $sender = $conn->real_escape_string($_GET['sender']);
-        $sql = "SELECT DISTINCT chat_id FROM chatdb WHERE account_id='$id' OR counterpart='$id' ORDER BY chat_time DESC";
+        $sql = "SELECT DISTINCT chat_id FROM chatdb WHERE 
+        (
+            account_id='$id' 
+            OR counterpart='$id' 
+        )
+            AND active=1 ORDER BY chat_time DESC";
         $result = mysqli_query($conn,$sql); 
         $rows = mysqli_num_rows($result); 
         if(mysqli_num_rows($result) > 1){
@@ -35,7 +40,7 @@
         $id = $conn->real_escape_string($_GET['userid']);
         $chatid = $conn->real_escape_string($_GET['chatid']);
         $sender = $conn->real_escape_string($_GET['sender']);
-        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' ORDER BY chat_time DESC LIMIT 1";
+        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' AND active=1 ORDER BY chat_time DESC LIMIT 1";
         $result = mysqli_query($conn,$sql);  
         $rows = mysqli_num_rows($result);
         if(mysqli_num_rows($result) > 1){
@@ -162,7 +167,7 @@
         $id = $conn->real_escape_string($_GET['userid']);
         $chatid = $conn->real_escape_string($_GET['chatid']);
         $sender = $conn->real_escape_string($_GET['sender']);
-        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' ORDER BY chat_time ASC";
+        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' AND active=1 ORDER BY chat_time ASC";
         $result = mysqli_query($conn,$sql);  
         $rows = mysqli_num_rows($result);
         if(mysqli_num_rows($result) > 1){
@@ -217,7 +222,7 @@
         $text = $conn->real_escape_string($_POST['text']);
         $date = $conn->real_escape_string($_POST['date']);
         $text = utf8_decode($text);
-        $sql = "INSERT INTO chatdb (account_id,chat_time,counterpart,text,chat_id) VALUES ('$sender','$date','$reciever','$text','$chatid')";
+        $sql = "INSERT INTO chatdb (account_id,chat_time,counterpart,text,chat_id,active) VALUES ('$sender','$date','$reciever','$text','$chatid','1')";
         $result = mysqli_query($conn, $sql);
         if ($result) {
             echo json_encode("1");
@@ -229,7 +234,7 @@
     else if($requestId == 6){ //update and include latest text (When you send a text)
         $chatid = $conn->real_escape_string($_GET['chatid']);
         $sender = $conn->real_escape_string($_GET['sender']);
-        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' ORDER BY chat_time DESC LIMIT 1";
+        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' AND active=1 ORDER BY chat_time DESC LIMIT 1";
         $result = mysqli_query($conn,$sql);  
         $rows = mysqli_num_rows($result);
         if(mysqli_num_rows($result) == 1){
@@ -259,7 +264,7 @@
         $chatid = $conn->real_escape_string($_GET['chatid']);
         $sender = $conn->real_escape_string($_GET['sender']);
         $chatRows = $conn->real_escape_string($_GET['chatRows']);
-        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' AND account_id=$sender ORDER BY chat_time DESC";
+        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' AND account_id=$sender AND active=1 ORDER BY chat_time DESC";
         $result = mysqli_query($conn,$sql);  
         $rows = mysqli_num_rows($result);
         if(mysqli_num_rows($result) > $chatRows){
@@ -277,7 +282,7 @@
         $chatid = $conn->real_escape_string($_GET['chatid']);
         $limit = $conn->real_escape_string($_GET['limit']);
         $sender = $conn->real_escape_string($_GET['sender']);
-        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' AND account_id=$sender ORDER BY chat_time DESC LIMIT $limit";
+        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' AND account_id=$sender AND active=1 ORDER BY chat_time DESC LIMIT $limit";
         $result = mysqli_query($conn,$sql);  
         $rows = mysqli_num_rows($result);
         if(mysqli_num_rows($result) > 0){
@@ -306,7 +311,7 @@
     }
     else if($requestId == 9){ //
         $chatid = $conn->real_escape_string($_GET['chatid']);
-        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' ORDER BY chat_time DESC LIMIT 1";
+        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' AND active=1 ORDER BY chat_time DESC LIMIT 1";
         $result = mysqli_query($conn,$sql);  
         $rows = mysqli_num_rows($result);
         if(mysqli_num_rows($result) > 1){
@@ -357,14 +362,14 @@
     else if($requestId == 10){ //from sending or initating a new conversation
         $chatid = $conn->real_escape_string($_GET['chatid']);
         $chatid2 = $conn->real_escape_string($_GET['chatid2']);
-        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid'";
+        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' AND active=1";
         $result = mysqli_query($conn,$sql);  
         $rows = mysqli_num_rows($result);
         if(mysqli_num_rows($result) >= 1){
             echo (json_encode($chatid));
         }
         else{
-            $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid2'";
+            $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid2' AND active=1";
             $result = mysqli_query($conn,$sql);  
             $rows = mysqli_num_rows($result);
             if(mysqli_num_rows($result) >= 1){
@@ -376,25 +381,8 @@
         }
     }
     else if($requestIdPost == 11){ //remove conversation
-        $chatid = $conn->real_escape_string($_GET['chatid']);
-        $chatid2 = $conn->real_escape_string($_GET['chatid2']);
-        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid'";
-        $result = mysqli_query($conn,$sql);  
-        $rows = mysqli_num_rows($result);
-        if(mysqli_num_rows($result) >= 1){
-            echo (json_encode($chatid));
-        }
-        else{
-            $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid2'";
-            $result = mysqli_query($conn,$sql);  
-            $rows = mysqli_num_rows($result);
-            if(mysqli_num_rows($result) >= 1){
-                echo (json_encode($chatid2));
-            }
-            else{
-                echo (0);
-            }
-        }
+        $chatid = $conn->real_escape_string($_POST['chatid']);
+        $sql = "UPDATE chatdb SET active=0 WHERE chat_id='$chatid'";  
     }
 
     mysqli_close($conn);

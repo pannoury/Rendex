@@ -53,8 +53,7 @@
             }
         }
         .search-result-topwrapper{
-            .search-result-wrapper{
-                width: 100vh; 
+            .search-result-wrapper{ 
                 .search-result-midpage{
                     display: flex;
                     width: 100%;
@@ -77,74 +76,108 @@
                             h1{font-size: 16px;}
                         }
                     }                               // End of Header section //
-                    .search-result-midpage-results{    // Result Section //
-                        width: 100%;
+                    .search-result-midpage-results{     // End of Header section //
+                        width: 100%;                    // Result Section //
                         margin-bottom: 40px;
                         #article-wrapper-wrapper{
-                            width: 100vw;
+                            width: 100%;
                             .article-wrapper{
-                                margin-bottom: 6px;
-                                background-color: #e2e2e2;
-                                border-radius: 3px;
-                                display: block;
-                                .search-result-articles{
+                                display: flex;
+                                flex-direction: row;
+                                background-color: #f4f4f4 !important;
+                                justify-content: space-between;
+                                padding: 10px;
+                                border-radius: 4px;
+                                margin-bottom: 10px;
+                                height: 100px;
+                                &:hover{
+                                    cursor: pointer;
+                                    border-left: 4px solid #333;
+                                    padding-left: 16px;
+                                }
+                                .article-image-wrapper{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    width: 15%;
+                                    border-radius: 10px;
+                                    background-color: #fff;
+                                    &::before{
+                                        content: "";
+                                        float: left;
+                                        padding-top: 100%;
+                                    }
+                                    img{
+                                        margin: auto;
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+                                }
+                                .article-information-wrapper{
+                                    width: 75%;
                                     display: flex;
                                     flex-direction: column;
-                                    width: 90%;
-                                    margin: auto;
-                                    padding-top: 10px; padding-bottom: 10px;
-                                    .search-result-articles-picture{
+                                    .title-wrapper{
                                         width: 100%;
+                                        display: flex;
+                                        flex-direction: row;
+                                        justify-content: space-between;
+                                        .article-title{
+                                            font-weight: bold;
+                                            font-size: 14px;
+                                            max-width: 65%;
+                                            margin: 0px;
+                                            margin-top: 0px;
+                                        }
+                                        .time-stamp{
+                                            text-align: right;
+                                            font-size: 12px;
+                                            width: 35%;
+                                            margin: 0px;
+                                        }
+                                    }
+                                    .article-information-bottom{
                                         display: flex;
                                         flex-direction: row;
                                         align-items: center;
                                         justify-content: space-between;
-                                        padding: 4px;
-                                        .search-result-articles-pictures-img{
+                                        margin-top: auto;
+                                        .article-info{
+                                            width: 30%;
+                                            font-size: 12px;
+                                        }
+                                        .article-rating{
                                             display: flex;
+                                            flex-direction: row;
                                             align-items: center;
-                                            justify-content: center;
-                                            width: 100px;
-                                            height: 100px;
-                                            background-color: #f4f4f4;
-                                            img{
-                                                width: 100%;
-                                                height: 100%;
-                                            }
                                         }
-                                    }
-                                    .search-result-articles-information{
-                                        display: flex;
-                                        flex-direction: column;
-                                        margin-top: 10px;
-                                        width: 100%;
-                                        p{margin: 0; font-size: 12px;}
-                                        div{margin-bottom: 16px;}
-                                        .name-area-wrapper{
-                                            text-align: left;
-                                            display: flex;
-                                            justify-content: space-between;
+                                        .article-price{
+                                            margin: 0px;
                                         }
-                                        .company-middleinfo-wrapper{
-                                            display: flex;
-                                            justify-content: space-between;
-                                            align-items: center;
-                                            .company-rating-div{
-                                                display: flex;
-                                                align-items: center;
-                                                .checked{color: orange;}
-                                                a{display: flex;}
-                                            }
-                                        }
-                                        .company-tags-bottom-header{
-                                            display: none;
-                                        }
-                                        .company-tags-bottom-wrapper{
-                                            display: none;
+                                        .article-class{
+                                            margin: 0px;
                                         }
                                     }
                                 }
                             }
+                        }
+                    }
+                    #no-articles-found{
+                        display: none;
+                        background-color: #f4f4f4;
+                        margin-bottom: 30px;
+                        h3{
+                            font-size: 26px;
+                            margin-bottom: 10px;
+                            text-align: center;
+                            padding-left: 20px;
+                            padding-right: 20px;
+                        }
+                        p{
+                            padding-left: 20px;
+                            padding-right: 20px;
+                            font-size: 18px;
+                            text-align: center;
                         }
                     }
                 }  
@@ -157,6 +190,7 @@
 @media(max-width: 750px){
     .searchpage-section{
         width: 100vw;
+        margin-top: -4px;
         #search-tabber{
             display: flex;
             flex-wrap: wrap;

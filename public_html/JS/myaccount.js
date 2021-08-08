@@ -1,4 +1,6 @@
 window.onload = function(){
+  loggedInControl();
+  cookieConsentLoad();
   displayMyAccount();
 };
 
@@ -56,6 +58,7 @@ function displayMyAccount(){
           },
       }
     );
+    document.getElementById('showpublicprofile-anchor').setAttribute('href', `https://rendex.se/profile?id=${accountid}`);
   }
   else{
     window.location = 'https://rendex.se';

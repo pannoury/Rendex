@@ -175,22 +175,26 @@
                         z-index: 10;
                         user-select: none;
                         #imginputlink{
-                            padding: 6px;
+                            padding: 12px 6px 12px 6px;
                             border-top-left-radius: 6px;
                             border-top-right-radius: 6px;
                             margin-bottom: 8px;
+                            text-align: center;
+                            font-size: 12px;
                             &:hover{
                                 cursor: pointer;
-                                opacity: 0.8;
+                                background-color: #707070;
                             }
                         }
                         #fileinputlink{
-                            padding: 6px;
+                            padding: 12px 6px 12px 6px;
                             border-bottom-left-radius: 6px;
                             border-bottom-right-radius: 6px;
+                            text-align: center;
+                            font-size: 12px;
                             &:hover{
                                 cursor: pointer;
-                                opacity: 0.8;
+                                background-color: #707070;
                             }
                         }
                     }

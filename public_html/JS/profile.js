@@ -1,5 +1,6 @@
 $(document).ready(function(){
     loggedInControl();
+    cookieConsentLoad();
     getURLParameterProfile();
     viewControl();
 });
