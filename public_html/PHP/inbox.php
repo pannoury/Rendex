@@ -304,12 +304,9 @@
             echo (json_encode("2"));
         }
     }
-    /*************Archaic Code */
-    else if($requestId == 9){ //multiple chats has been written
+    else if($requestId == 9){ //
         $chatid = $conn->real_escape_string($_GET['chatid']);
-        $limit = $conn->real_escape_string($_GET['limit']);
-        $offset = $conn->real_escape_string($_GET['offset']);
-        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' ORDER BY chat_time ASC LIMIT $limit OFFSET $offset";
+        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' ORDER BY chat_time DESC LIMIT 1";
         $result = mysqli_query($conn,$sql);  
         $rows = mysqli_num_rows($result);
         if(mysqli_num_rows($result) > 1){
@@ -333,6 +330,70 @@
                 $points[$i][4]=($text);
             }
             echo (json_encode($points));
+        }
+        else{
+            $row = mysqli_fetch_array($result);
+            $sender = $row['account_id'];
+            $reciever = $row['counterpart'];
+            $chattime = $row['chat_time'];
+            $text = $row['text'];
+            $chatid = $row['chat_id'];
+            $sender = utf8_encode($sender);
+            $reciever = utf8_encode($reciever);
+            $chattime = utf8_encode($chattime);
+            $text = utf8_encode($text);
+            $chatid = utf8_encode($chatid);
+            $matchid = 1;
+            $results = array(
+                0 => $matchid,
+                1 => $sender,
+                2 => $reciever,
+                3 => $chattime,
+                4 => $text,
+            );
+            echo (json_encode($results));
+        }
+    }
+    else if($requestId == 10){ //from sending or initating a new conversation
+        $chatid = $conn->real_escape_string($_GET['chatid']);
+        $chatid2 = $conn->real_escape_string($_GET['chatid2']);
+        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid'";
+        $result = mysqli_query($conn,$sql);  
+        $rows = mysqli_num_rows($result);
+        if(mysqli_num_rows($result) >= 1){
+            echo (json_encode($chatid));
+        }
+        else{
+            $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid2'";
+            $result = mysqli_query($conn,$sql);  
+            $rows = mysqli_num_rows($result);
+            if(mysqli_num_rows($result) >= 1){
+                echo (json_encode($chatid2));
+            }
+            else{
+                echo (0);
+            }
+        }
+    }
+    else if($requestIdPost == 11){ //remove conversation
+        $chatid = $conn->real_escape_string($_GET['chatid']);
+        $chatid2 = $conn->real_escape_string($_GET['chatid2']);
+        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid'";
+        $result = mysqli_query($conn,$sql);  
+        $rows = mysqli_num_rows($result);
+        if(mysqli_num_rows($result) >= 1){
+            echo (json_encode($chatid));
+        }
+        else{
+            $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid2'";
+            $result = mysqli_query($conn,$sql);  
+            $rows = mysqli_num_rows($result);
+            if(mysqli_num_rows($result) >= 1){
+                echo (json_encode($chatid2));
+            }
+            else{
+                echo (0);
+            }
         }
     }
 

@@ -1,11 +1,11 @@
-var loginId = getCookie("a_user");
-var newArrayLoginId = loginId.split(',');
 
-$(document).ready(function(){
+window.onload = function(){
     loggedInControl();
-});
+}
 
-async function loggedInControl(){
+function loggedInControl(){
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
     if(newArrayLoginId[0] > 0){
         if(newArrayLoginId[1] == 1){ //Individual
             var role = newArrayLoginId[1];
@@ -49,6 +49,8 @@ async function loggedInControl(){
     }
 };
 document.getElementById('loginanchor').onclick = function(){
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
     if(newArrayLoginId[0] >= 1){
         window.location = 'https://rendex.se/myaccount';
     }
@@ -57,6 +59,8 @@ document.getElementById('loginanchor').onclick = function(){
     }
 };
 document.getElementById('loginsidemenu').onclick = function(){
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
     if(newArrayLoginId[0] >= 1){
         window.location = 'https://rendex.se/myaccount';
     }

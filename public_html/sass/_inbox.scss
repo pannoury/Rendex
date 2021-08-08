@@ -125,7 +125,6 @@
                     #conversation-options-window{
                         display: flex;
                         flex-direction: column;
-                        padding: 10px;
                         border-radius: 6px;
                         background-color: #434347;
                         row-gap: 6px;
@@ -135,6 +134,20 @@
                         margin-top: 30px;
                         user-select: none;
                         display: none;
+                        a{
+                            padding: 10px;
+                            &:nth-child(1){
+                                border-top-right-radius: 6px;
+                                border-top-left-radius: 6px;
+                            }
+                            &:nth-child(2){
+                                border-bottom-right-radius: 6px;
+                                border-bottom-left-radius: 6px;
+                            }
+                            &:hover{
+                                background-color: #707070;
+                            }
+                        }
                     }
                 }
                 .header-separator-inbox{
@@ -158,11 +171,28 @@
                         flex-direction: column;
                         margin-top: 600px;
                         margin-left: 10px;
-                        row-gap: 6px;
-                        padding: 6px;
                         border-radius: 6px;
                         z-index: 10;
                         user-select: none;
+                        #imginputlink{
+                            padding: 6px;
+                            border-top-left-radius: 6px;
+                            border-top-right-radius: 6px;
+                            margin-bottom: 8px;
+                            &:hover{
+                                cursor: pointer;
+                                opacity: 0.8;
+                            }
+                        }
+                        #fileinputlink{
+                            padding: 6px;
+                            border-bottom-left-radius: 6px;
+                            border-bottom-right-radius: 6px;
+                            &:hover{
+                                cursor: pointer;
+                                opacity: 0.8;
+                            }
+                        }
                     }
                 }
                 .chat-input-wrapper{

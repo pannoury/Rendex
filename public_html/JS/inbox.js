@@ -1,3 +1,4 @@
+
 var insertWindow = document.getElementById('insert-window');
 var windowButton = document.getElementById('insert-button-chat');
 var chatOptionsButton = document.getElementById('conversation-options');
@@ -123,7 +124,7 @@ function conversationPopulate(query, element){
     var p = document.createElement('p');
     var span = document.createElement('span');
     span.setAttribute('class', 'bold');
-    span.innerText = ``
+    span.innerText = ``;
     p.appendChild(span);
     div4.appendChild(p);
 
@@ -151,25 +152,25 @@ function conversationPopulate(query, element){
                     span.innerText = `${senderQuery[1]} ${senderQuery[2]}`;
                     var text = query[3];
                     setDate(p2, query[2]);
-                    if(text.length > 20 && senderQuery.length == 9){
+                    if(senderQuery.length == 9 && text.length >= 20){
                         p1.innerText = `${text.substring(0,20)}...`;
                         var img = document.createElement('img');
                         img.setAttribute('src', `${senderQuery[8]}`);
                         div2.appendChild(img);
                     }
-                    else if(text.length < 20 && senderQuery.length == 9){
+                    else if(senderQuery.length == 9 && text.length <= 20){
                         p1.innerText = `${text}`;
                         var img = document.createElement('img');
                         img.setAttribute('src', `${senderQuery[8]}`);
                         div2.appendChild(img);
                     }
-                    else if(senderQuery.length = 8 && text.length > 20){
+                    else if(senderQuery.length = 8 && text.length >= 20){
                         p1.innerText = `${text.substring(0,20)}...`;
                         var img = document.createElement('img');
                         img.setAttribute('src', './assets/images/unchosen-profilepic.svg');
                         div2.appendChild(img);
                     }
-                    else if(senderQuery.length = 8 && text.length < 20){
+                    else if(senderQuery.length = 8 && text.length <= 20){
                         p1.innerText = `${text}`;
                         var img = document.createElement('img');
                         img.setAttribute('src', './assets/images/unchosen-profilepic.svg');
@@ -194,25 +195,25 @@ function conversationPopulate(query, element){
                     span.innerText = `${senderQuery[1]} ${senderQuery[2]}`;
                     var text = query[3];
                     p2.innerText = `${query[2].substring(0,10)}`; //date text
-                    if(text.length > 20 && senderQuery.length == 9){
+                    if(senderQuery.length == 9 && text.length >= 20){
                         p1.innerText = `You: ${text.substring(0,9)}...`; //Text cue
                         var img = document.createElement('img');
                         img.setAttribute('src', `${senderQuery[8]}`);
                         div2.appendChild(img);
                     }
-                    else if(text.length < 20 && senderQuery.length == 9){
+                    else if(senderQuery.length == 9 && text.length <= 20){
                         p1.innerText = `You: ${query[3]}`;
                         var img = document.createElement('img');
                         img.setAttribute('src', `${senderQuery[8]}`);
                         div2.appendChild(img);
                     }
-                    else if(senderQuery.length = 8 && text.length > 20){ //no image exists
+                    else if(senderQuery.length == 8 && text.length >= 20){ //no image exists
                         p1.innerText = `You: ${query[3].substring(0,9)}...`; //Text cue
                         var img = document.createElement('img');
                         img.setAttribute('src', './assets/images/unchosen-profilepic.svg');
                         div2.appendChild(img);
                     }
-                    else if(senderQuery.length = 8 && text.length < 20){ //no image exists
+                    else if(senderQuery.length == 8 && text.length <= 20){ //no image exists
                         p1.innerText = `You: ${query[3]}`;
                         var img = document.createElement('img');
                         img.setAttribute('src', './assets/images/unchosen-profilepic.svg');
@@ -404,23 +405,6 @@ function cssChatList(){
     }
 };
 
-window.addEventListener('click', function(e){
-    var select = e.target;
-    var a = windowButton;
-    var b = chatOptionsButton;
-
-    if(select == a || select == insertWindow){
-        insertWindow.style.display = "flex";
-    }
-    else if(select == b || select == chatOptionsWindow){
-        chatOptionsWindow.style.display = "flex";
-    }
-    else if (select !== a || select !== insertWindow){
-        insertWindow.style.display = "none";
-        chatOptionsWindow.style.display = "none";
-    }
-});
-
 /********FILE INPUT IN CHAT WINDOW******* */
 document.getElementById('imginputlink').addEventListener('click', () => {
     document.getElementById('imginput').click();
@@ -556,6 +540,7 @@ function populateChatHeader(chatArray){
     var accountid = newArrayLoginId[0];
     if(chatArray[0].constructor === Array){
         if(accountid == chatArray[0][1]){ //you're the sender
+
             $.ajax(
                 {
                     url: './PHP/inbox.php',
@@ -767,8 +752,43 @@ function reactiveTextLoading(){
     var newArrayLoginId = loginId.split(',');
     var accountid = newArrayLoginId[0];
     var id = sessionStorage.getItem("chatid");
-    var chatRows = $('.text-recieved-wrapper').length;
-    var sender = sessionStorage.getItem("counterpart");
+    //var chatRows = $('.text-recieved-wrapper').length;
+
+    $.ajax(
+        {
+            url: './PHP/inbox.php',
+            dataType: 'text',
+            method: 'GET',
+            data: {
+                requestid: 4,
+                chatid: id,
+            },
+            success: function(response){
+                var chatArray = JSON.parse(response);
+                if(chatArray[0].constructor === Array){
+                    if(accountid == chatArray[0][1]){ //you're the sender
+                        reactiveTextLoading2(chatArray[0][2]);
+                    }
+                    else if(accountid != chatArray[0][1]){ //you're the reciever
+                        reactiveTextLoading2(chatArray[0][1]);
+                    }
+                }
+                else{
+                    if(accountid == chatArray[1]){ //you're the sender
+                        creactiveTextLoading2(chatArray[2]);
+                    }
+                    else if(accountid != chatArray[1]){ //you're the reciever
+                        creactiveTextLoading2(chatArray[1]);
+                    }
+                }
+            }
+        }
+    )
+}
+reactiveTextLoading();
+
+function reactiveTextLoading2(sender){
+    var chatRows = document.querySelectorAll('.text-recieved-wrapper').length;
     $.ajax(
         {
             url: './PHP/inbox.php',
@@ -783,6 +803,7 @@ function reactiveTextLoading(){
             success: function(response){
                 var queryChat = JSON.parse(response);
                 var number = queryChat.toString();
+                id = sessionStorage.getItem("chatid");
                 if(number >= 1 && id != null){
                     $.ajax(
                         {
@@ -797,21 +818,20 @@ function reactiveTextLoading(){
                             },
                             success: function(response){
                                 var queryChat = JSON.parse(response);
-                                console.log("populateChatList Triggered!")
                                 chatTextParser(queryChat);
-                                populateChatList();
+                                reactivePopulateChatList();
                             },
                         }
                     );
                 }
-                else{ //no new chats 
+                else{ //no new chats
+                    reactivePopulateChatList();
                 }
             }
         },
     );
     setTimeout(reactiveTextLoading, 2000);
 }
-reactiveTextLoading();
 
 
 function chatTextParser(queryChat){
@@ -917,4 +937,90 @@ function chatTextParser(queryChat){
             document.getElementById('chat-list').appendChild(li);
         }
     }
+};
+
+function reactivePopulateChatList(){
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
+    var accountid = newArrayLoginId[0];
+    $.ajax(
+        {
+            url: './PHP/inbox.php',
+            dataType: 'text',
+            method: 'GET',
+            data: {
+                requestid: 1,
+                userid: accountid,
+            },
+            success: function(response){
+                var response = JSON.parse(response);
+                if(Array.isArray(response) == false){ //single chatbox
+                    $.ajax(
+                        {
+                            url: './PHP/inbox.php',
+                            dataType: 'text',
+                            method: 'GET',
+                            data: {
+                                requestid: 2,
+                                chatid: response,
+                            },
+                            success: function(response){
+                                var query = JSON.parse(response);
+                                if(query[0] == accountid){ //you're the latest sender
+                                    // do nothing, already solved by function reactiveTexting
+                                }
+                                else if(query[0] !== accountid){
+                                    var p1 = document.getElementsByClassName('message-cue')[0].getElementsByTagName('p')[0];
+                                    var p2 = document.getElementsByClassName('conversation-date')[0];
+                                    var text = query[3];
+                                    setDate(p2, query[2]);
+                                    if(text.length >= 20){
+                                        p1.innerText = `${text.substring(0,20)}...`;
+                                    }
+                                    else if(text.length <= 20){
+                                        p1.innerText = `${text}`;
+                                    }
+                                }
+                            },
+                        }
+                    );
+                }
+                else if(response.length > 1){ //multiple chatbox
+                    response.forEach(element => {
+                        $.ajax(
+                            {
+                                url: './PHP/inbox.php',
+                                dataType: 'text',
+                                method: 'GET',
+                                data: {
+                                    requestid: 2,
+                                    chatid: element[0],
+                                },
+                                success: function(response){
+                                    var query = JSON.parse(response);
+
+                                    if(query[0] !== accountid){ //youre not the latest sender
+                                        var mainDiv = document.getElementById(`conversation-${element[0]}`);
+                                        var p1 = mainDiv.getElementsByClassName('conversation')[0].getElementsByClassName('conversation-list-information')[0].getElementsByClassName('message-cue')[0].getElementsByTagName('p')[0];
+                                        var p2 = mainDiv.getElementsByClassName('conversation')[0].getElementsByClassName('conversation-list-information')[0].getElementsByClassName('message-cue')[0].getElementsByTagName('p')[1];
+                                        var text = query[3];
+                                        setDate(p2, query[2]);
+                                        if(text.length >= 20){
+                                            p1.innerText = `${text.substring(0,20)}...`;
+                                        }
+                                        else if(text.length <= 20){
+                                            p1.innerText = `${text}`;
+                                        }
+                                    }
+                                    else if(query[0] == accountid){ //youre the latest sender
+                                        //do nothing
+                                    }
+                                },
+                            }
+                        );
+                    });
+                }
+            }
+        }
+    );
 }

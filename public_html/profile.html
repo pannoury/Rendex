@@ -8,11 +8,9 @@
   <meta name="keywords" content="arbete, bygg, renovering, elektriker, offert, hitta renoverare, hitta arbetare, hitta elektriker, golv, lägga golv, VVS, Rendex, Rendex AB">
   <meta name="author" content="Patrick Tannoury">
   <link rel="stylesheet" href="sass/style.css" type="text/css">
-  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-  <script> 
-  $(function(){
-    $("#navbar").load("navbar.html"); 
-  });
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script>
   $(function(){
     $("#footer").load("footer.html"); 
   });
@@ -23,10 +21,46 @@
 </head>
 <body>
   <!--Navigation Bar-->
-  <div id="navbar"></div>
+  <header id="header">
+    <div class="container">
+      <div id="navlogo">
+        <a id="navlogo-link" href="https://rendex.se">
+          <img src="./assets/images/rendex_black.svg" id="logo-desktop" alt="logo-black" class="logo" width="125" height="20">
+          <img src="./assets/images/rendex_white.svg" id="logo-mobile" alt="logo-white" class="logo" width="125px" height="20px">
+        </a>
+      </div>
+      <nav class="navbar">
+            <span class="open-slide">
+              <a href="#" id="hamburgermenu-btn">
+                <img id="hamburgermenu" src="./assets/images/Hamburgermenu-black.svg" alt="hamburgermenu" width="30px" height="30px">
+                <img id="cross-black" src="./assets/images/cross-black.svg" alt="blackcross" width="30px" height="30px">
+              </a>
+            </span>
+            <ul class="navbarselector">
+              <li id="languageanchor">
+                <img src="assets/images/globe-black.svg" alt="globe" height="18px" id="globeicon">
+                <p id="language-selected">SE</p>
+                <ul id="language-options">
+                  <li id="swedish-selected"><img src="./assets/images/sweden-roundflag.svg">Svenska</li>
+                  <li id="english-selected"><img src="./assets/images/uk-roundflag.svg">English</li>
+                </ul>
+              </li>
+              <li><a href="searchpage">Sök</a></li>
+              <li><a id="inboxlink1">Inkorg</a></li>
+              <li id="loggedInFalse"><a href="https://rendex.se/create_account" id="loggedInFalseAnchor">Bli Medlem</a></li>
+              <li id="loginlist"><a id="loginanchor"></a></li>
+            </ul>  
+      </nav>
+    </div>
+    <div id="side-menu" class="side-nav">      
+      <a href="https://rendex.se">Hem</a>
+      <a id="loginsidemenu">Logga in</a>
+      <a href="https://rendex.se/create_account" id="createaccountsidemenu">Bli Medlem</a>
+      <a id="inboxlink2">Inkorg</a>
+      <a href="searchpage">Sök</a>
+    </div>
+  </header>
   <!--END-Navigation Bar-->
-
-
 
   <main id="account-page">
     <div id="account-wrapper-wrapper">
@@ -37,15 +71,16 @@
         <div id="account-companybackground">
           <div id="account-companybackground-column1">
             <div class="companyheader-div">
-              <h2><span id="accountpage-companyname">[COMPANY NAME]</span></h2>
+              <div><h2><span id="accountpage-companyname"></span></h2></div>
+              <button id="initiate-chat"><img src="./assets/images/chatbubble-white-empty.svg" height="20px" width="20px"></button>
             </div>
             <div id="companyshortinformation">
-              <p id="profile-email"></p>
-              <p><span id="companystreetadress">Stockholmsgatan</span> <span id="companystreetnumber">45</span></p>
-              <p><span id="companyzipcode">164 75</span>, <span id="companyziparea">Kista</span></p>
-              <p><span id="companyregion">Stockholm</span></p>
+              <p class="profile-top-info-row"><img src="./assets/images/mail-icon.svg" height="20px" width="20px"><span id="profile-email"></span></p>
+              <p id="profile-category" class="profile-top-info-row"></p>
+              <p class="profile-top-info-row"><img src="./assets/images/navigation-pin.svg" height="20px" width="20px"><span id="companystreetadress">Stockholmsgatan</span> <span id="companystreetnumber">45</span></p>
+              <p class="profile-top-info-row"><span id="companyzipcode">164 75</span>, <span id="companyziparea">Kista</span></p>
+              <p class="profile-top-info-row"><img src="./assets/images/navigation-pin.svg" height="20px" width="20px"><span id="companyregion">Stockholm</span></p>
             </div>
-            <button id="initiate-chat">Skriv ett meddelande</button>
           </div>
           <div id="account-companybackground-column2">
             <div id="companyratings">
@@ -69,6 +104,9 @@
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, illum. Sequi, excepturi minus? Voluptas commodi adipisci modi delectus nostrum neque maiores quidem, iure similique consectetur maxime quisquam praesentium omnis ut?</p>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit iusto nihil, deserunt quam voluptatibus doloremque ipsa dicta illo at quasi velit reprehenderit beatae inventore hic aspernatur minima ullam, fuga natus!</p>
         </div>
+        <div id="profile-skills">
+
+        </div>
       </div>
       <div id="companyannonser">
         <h2>Pågående Annonser</h2>
@@ -77,16 +115,33 @@
         </div>
       </div>
     </div>
-    <div id="new-chatwindow"></div>
+    <div id="new-chatwindow">
+      <div id="new-chatwindow-wrapper">
+        <div id="new-chatwindow-top">
+          <div id="new-chat-reciever-wrapper">
+            <p>Skicka meddelande till:</p>
+            <p id="new-chat-reciever"></p>
+          </div>
+          <a id="close-new-chat">&#10006;</a>
+        </div>
+        <div id="new-chatwindow-text-wrapper">
+          <textarea id="new-chatwindow-input" style="resize:none"></textarea>
+        </div>
+        <div id="new-chatwindow-bottom">
+          <a id="new-send-wrapper">
+            <img src="./assets/images/send.svg" height="20px" width="20px">
+          </a>
+        </div>
+      </div>
+    </div>
     <div id="darkcover"></div>
     <div id="cookiewindowpopupwrapper"></div>
   </main>
 
-
-
   <div id="footer"></div>
-  
+
   <script src="./JS/profile.js"></script>
+  <script src="./JS/navbar.js"></script>
   <script src="./JS/cookie.js"></script>
 </body>
 <html>

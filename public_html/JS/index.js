@@ -82,7 +82,6 @@ function indexNumberCount(){
                 requestid: 3,
             },
             success: function(response){
-                console.log(response)
                 var response = JSON.parse(response);
                 if(response[0] == 1){
                     if(response[1] > 999){

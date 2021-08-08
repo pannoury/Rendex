@@ -12,9 +12,6 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
   <script>
   $(function(){
-    $("#navbar").load("navbar.html"); 
-  });
-  $(function(){
     $("#footer").load("footer.html"); 
   });
   $(function(){
@@ -24,7 +21,45 @@
 </head>
 <body>
   <!--Navigation Bar-->
-  <div id="navbar"></div>
+  <header id="header">
+    <div class="container">
+      <div id="navlogo">
+        <a id="navlogo-link" href="https://rendex.se">
+          <img src="./assets/images/rendex_black.svg" id="logo-desktop" alt="logo-black" class="logo" width="125" height="20">
+          <img src="./assets/images/rendex_white.svg" id="logo-mobile" alt="logo-white" class="logo" width="125px" height="20px">
+        </a>
+      </div>
+      <nav class="navbar">
+            <span class="open-slide">
+              <a href="#" id="hamburgermenu-btn">
+                <img id="hamburgermenu" src="./assets/images/Hamburgermenu-black.svg" alt="hamburgermenu" width="30px" height="30px">
+                <img id="cross-black" src="./assets/images/cross-black.svg" alt="blackcross" width="30px" height="30px">
+              </a>
+            </span>
+            <ul class="navbarselector">
+              <li id="languageanchor">
+                <img src="assets/images/globe-black.svg" alt="globe" height="18px" id="globeicon">
+                <p id="language-selected">SE</p>
+                <ul id="language-options">
+                  <li id="swedish-selected"><img src="./assets/images/sweden-roundflag.svg">Svenska</li>
+                  <li id="english-selected"><img src="./assets/images/uk-roundflag.svg">English</li>
+                </ul>
+              </li>
+              <li><a href="searchpage">Sök</a></li>
+              <li><a id="inboxlink1">Inkorg</a></li>
+              <li id="loggedInFalse"><a href="https://rendex.se/create_account" id="loggedInFalseAnchor">Bli Medlem</a></li>
+              <li id="loginlist"><a id="loginanchor"></a></li>
+            </ul>  
+      </nav>
+    </div>
+    <div id="side-menu" class="side-nav">      
+      <a href="https://rendex.se">Hem</a>
+      <a id="loginsidemenu">Logga in</a>
+      <a href="https://rendex.se/create_account" id="createaccountsidemenu">Bli Medlem</a>
+      <a id="inboxlink2">Inkorg</a>
+      <a href="searchpage">Sök</a>
+    </div>
+  </header>
   <!--END-Navigation Bar-->
   <main id="main-inbox">
     <div class="inbox-wrapper-wrapper">
@@ -46,7 +81,7 @@
               <a id="conversation-options">&bull; &bull; &bull;</a>
               <div id="conversation-options-window">
                 <a>Blockera användare</a>
-                <a>Ta bort konversation</a>
+                <a id="remove-conversation">Ta bort konversation</a>
               </div>
             </div>
             <div class="conversation-topic-clue">
@@ -87,6 +122,8 @@
   <div id="footer"></div>
   <!--FOOTER END-->
   <script src="./JS/inbox.js"></script>
+  <script src="./JS/inboxSettings.js"></script>
+  <script src="./JS/navbar.js"></script>
   <script src="./JS/cookie.js"></script>
 </body>
 <html>

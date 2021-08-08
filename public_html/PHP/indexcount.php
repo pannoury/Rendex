@@ -14,7 +14,7 @@
         indexCount($result);
     }
     else if($requestId == 3){
-        $sql = "SELECT * FROM finished-articles";
+        $sql = "SELECT * FROM Articles WHERE role=2";
         $result = mysqli_query($conn,$sql);
         indexCount($result);
     }
