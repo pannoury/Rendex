@@ -481,7 +481,7 @@ function populateConvoList(id){
     var newArrayLoginId = loginId.split(',');
     var accountid = newArrayLoginId[0];
     $(".conversation-selection").each(function (){
-        $(this).css("backgroundColor", "#38383D");
+        $(this).css("backgroundColor", "");
     });
     document.getElementById(`${id}`).style.backgroundColor = "#515155";
     var id = id.replace("conversation-", "");

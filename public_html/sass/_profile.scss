@@ -228,10 +228,11 @@
                 }
                 #account-companybackground{
                     display: flex;
-                    flex-direction: row;
+                    flex-direction: column;
                     justify-content: space-between;
                     padding-top: 10px;
                     #account-companybackground-column1{
+                        margin-bottom: 20px;
                         .companyheader-div{
                             display: flex;
                             flex-direction: row;
@@ -294,7 +295,7 @@
             }
             #companybroadbackground{
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 justify-content: space-between;
                 #companybroadbackground-text{
                     width: 100%;
@@ -307,16 +308,16 @@
         }
     }
     #new-chatwindow{
-        height: 60vh;
+        display: none;
+        height: 64vh;
         width: 0px;
         position: fixed;
         z-index: 10;
         top: 20vh;
-        right: 25%;
+        right: 0%;
         background-color: #f4f4f4;
-        overflow-x: hidden;
+        overflow: hidden;
         transition: 0.5s;
-        display: none;
         flex-direction: column;
         color: black;
         border-radius: 6px;
@@ -325,7 +326,7 @@
             padding: 20px;
             #new-chatwindow-top{
                 display: flex;
-                flex-direction: row;
+                flex-direction: column-reverse;
                 justify-content: space-between;
                 align-items: center;
                 #new-chat-reciever-wrapper{
@@ -334,7 +335,7 @@
                     align-items: center;
                     p{
                         &:nth-child(1){
-                            font-size: 20px;
+                            font-size: 16px;
                             margin-bottom: 0px;
                             margin-top: 0px;
                         }
@@ -344,7 +345,7 @@
                         margin-bottom: 0px;
                         margin-top: 0px;
                         font-weight: bold;
-                        font-size: 20px;
+                        font-size: 16px;
                         padding: 2px 4px 2px 4px;
                         background-color: #b9b9b9;
                         text-align: center;
@@ -352,7 +353,9 @@
                     }
                 }
                 #close-new-chat{
-                    font-size: 40px;
+                    padding-left: 90%;
+                    font-size: 34px;
+                    margin-bottom: 10px;
                     &:hover{
                         cursor: pointer;
                         opacity: 0.8;

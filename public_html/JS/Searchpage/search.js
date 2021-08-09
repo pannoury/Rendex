@@ -170,7 +170,8 @@ function loggedInControl(){
                         if(response[0] == 1){
                             var width = window.screen.width;
                             if(width > 875){
-                                document.getElementById('loginanchor').innerText = `${response[1]}`;
+                                document.getElementById('loginanchorTrue').innerText = `${response[1]}`;
+                                document.getElementById('loginanchor').style.display = "none";
                                 document.getElementById('loggedInFalse').style.display = "none";
                             }
                             else if(width < 875){
@@ -190,8 +191,7 @@ function loggedInControl(){
 
         }
     }
-    else{ //not logged in, redirect to login page
-        window.location = "https://rendex.se/login"
+    else{
         document.getElementById('loginanchor').textContent = "Logga In";
     }
 };
@@ -206,7 +206,7 @@ function roleControl(){
     }
 }
 
-document.getElementById('loginanchor').onclick = function(){
+document.getElementById('loginanchorTrue').onclick = function(){
     var loginId = getCookie("a_user");
     var newArrayLoginId = loginId.split(',');
     if(newArrayLoginId[0] >= 1){

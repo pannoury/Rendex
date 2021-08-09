@@ -10,8 +10,8 @@ window.addEventListener('click', function(e){
 
     if(select == a || select == insertWindow){
         insertWindow.style.display = "flex";
-        if(chatOptionsButton.getAttribute('aria-label') == "open"){
-            chatOptionsButton.style.display = "none";
+        if(chatOptionsWindow.getAttribute('aria-label') == "open"){
+            chatOptionsWindow.style.display = "none";
         }
     }
     else if(select == b || select == chatOptionsWindow){

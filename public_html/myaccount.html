@@ -41,6 +41,7 @@
           </li>
           <li><a href="searchpage">Sök</a></li>
           <li><a id="inboxlink1">Inkorg</a></li>
+          <li><a id="loginanchorTrue"></a></li>
         </ul> 
       </div>
       <div id="navbar-commit">
@@ -82,9 +83,9 @@
           
         </div>
         <div id="profileheader-row2">
-          <button id="showpublicprofile-btn"><a id="showpublicprofile-anchor">Visa publik profil</a></button>
-          <button id="account-settings">Inställningar</button>
-          <button id="logout">Logga ut</button>
+          <button id="showpublicprofile-btn" class="profileheader-row2-btn"><a id="showpublicprofile-anchor">Visa publik profil</a></button>
+          <button id="account-settings" class="profileheader-row2-btn">Inställningar</button>
+          <button id="logout" class="profileheader-row2-btn">Logga ut</button>
         </div>
       </div>
       <div id="myaccount-options-wrapper">
@@ -112,9 +113,87 @@
       <div id="cookiewindowpopupwrapper"></div>
   </main>
   <div id="settings-window">
-    <div id="settings-window-header">
-      <h3>Inställningar</h3>
-      <a id="settings-closeanchor"><p>Stäng</p><img src="./assets/images/cross-black.svg" width="20px" height="20px"></a>
+    <div id="settings-window-wrapper">
+      <div id="settings-window-header">
+        <h3>Inställningar</h3>
+        <a id="settings-closeanchor"><p>Stäng</p><span>&#10006;</span></a>
+      </div>
+      <div id="settings-window-middle">
+        <div id="settings-window-mid-options">
+          <ul>
+            <li class="settings-option" id="settings-option1" onclick="settingsListClick(id)"><a>Kontaktuppgifter</a></li>
+            <li class="settings-option" id="settings-option2" onclick="settingsListClick(id)"><a>Byt lösenord</a></li>
+            <li class="settings-option" id="settings-option3" onclick="settingsListClick(id)"><a>Företagsprofil</a></li>
+            <li class="settings-option" id="settings-option4" onclick="settingsListClick(id)"><a>Bevakning</a></li>
+          </ul>
+        </div>
+        <div id="settings-window-mid-display">
+          <div id="settings-window-kontaktuppgifter" class="settings-window-mid-option-display">
+            <div class="settings-window-wrapper">
+              <h4 class="settings-window-wrapper-header">Kontaktuppgifter</h4>
+              <p class="settings-window-wrapper-explanation">Här fyller du i dina kontaktuppgifter som vi använder för att kontakta dig. Namn samt e-mailadress visas ut mot kunden.</p>
+              <div class="two-input-div">
+                <div class="two-input-div-column">
+                  <label>Förnamn</label>
+                  <input id="settings-window-firstname" class="input50%">
+                </div>
+                <div class="two-input-div-column">
+                  <label>Efternamn</label>
+                  <input id="settings-window-lastname" class="input50%">
+                </div>
+              </div>
+              <div class="two-input-div">
+                <div class="two-input-div-column">
+                  <label>Telefon</label>
+                  <input id="settings-window-phonenumber">
+                </div>
+                <div class="two-input-div-column">
+                  <label>Alt. Telefon <span class="gray">(Valfritt)</span></label>
+                  <input id="settings-window-phonenumber-alternative">
+                </div>
+              </div>
+              <div class="two-input-div">
+                <div class="two-input-div-column">
+                  <label>Adress</label>
+                  <input id="settings-window-streetadress">
+                </div>
+                <div class="two-input-div-column">
+                  <label>Gatunummer</label>
+                  <input id="settings-window-streetnumber">
+                </div>
+              </div>
+              <div class="one-input-div">
+                <label>Postadress</label>
+                <input id="settings-window-zipcode">
+              </div>
+              <div class="one-input-div">
+                <label>Ändra profilbild</label>
+                <input type="file" id="settings-window-upload-picture" class="settings-window-file-input">
+                <a id="settings-window-file-existing-name" target="_blank"></a>
+              </div>
+            </div>
+            <div class="settings-window-wrapper">
+              <button id="settings-window-kontaktuppgifter-btn" class="settings-window-save-btn">Spara uppgifter</button>
+            </div>
+          </div>
+          <div id="settings-window-changepassword" class="settings-window-mid-option-display">
+            <div class="settings-window-wrapper">
+              <h4 class="settings-window-wrapper-header">Byt lösenord</h4>
+              <p class="settings-window-wrapper-explanation">Nedan kan du uppdatera ditt lösenord. Om du behöver hjälp eller har glömt ditt lösenord, var god och kontakta <a>kundtjänst</a></p>
+              <div class="one-input-div">
+                <label>Nuvarande lösenord</label>
+                <input id="settings-window-old-password">
+              </div>
+              <div class="one-input-div">
+                <label>Nytt lösenord</label>
+                <input id="settings-window-new-password">
+              </div>
+            </div>
+            </div>
+          <div id="settings-window-companyprofile" class="settings-window-mid-option-display"></div>
+          <div id="settings-window-bevakning" class="settings-window-mid-option-display"></div>
+        </div>
+      </div>
     </div>
   </div>
 <div id="footer"></div>

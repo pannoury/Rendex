@@ -86,6 +86,9 @@ function organisationRender(response, id){
 
 /************Chat function */
 document.getElementById('initiate-chat').addEventListener('click', function(){
+    var width = window.innerWidth;
+    console.log(width)
+
     document.getElementById('initiate-chat').setAttribute('aria-label', 'open');
     var url_string = window.location.href;
     var url = new URL(url_string);
@@ -94,7 +97,13 @@ document.getElementById('initiate-chat').addEventListener('click', function(){
     cookieid = getCookie("a_user");
     var cookieid = cookieid.split(',');
 
-    document.getElementById('new-chatwindow').style.width = "50vw";
+    if(width > 875){
+        document.getElementById('new-chatwindow').style.width = "50vw";
+    }
+    else{
+        document.getElementById('new-chatwindow').style.display = "block";
+        document.getElementById('new-chatwindow').style.width = "100vw";
+    }
     document.getElementById('darkcover').style.display = "block"
 
 
