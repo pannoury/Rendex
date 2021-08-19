@@ -8,39 +8,54 @@
     }
     .containercentre-wrapper-wrapper{
         display: flex;
-        justify-content: center;
-        flex-direction: column;
-        width: 500px;
+        flex-direction: row;
         margin: auto;
         text-align: center;
         border-radius: 6px;
         background-color: #f4f4f4;
-        .containercentre-wrapper{
-            margin-left: 40px;
-            margin-right: 40px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            #containercentre-firstrow-desktop{
-                display: none;
-                h1{font-size: 22px;}
-                h3{font-size: 16px; font-weight: normal; line-height: 1.4;}
-            }
-        }
-        .containercentre-secondrow{
-            display: flex;
-            justify-content: space-between;
-            border-top: 1px solid $rendex-black10;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            a{
-                margin: 20px 40px 10px 40px;
-                font-size: 18px; 
-                color: #00006d; 
-                font-weight: bold;
-                &:hover{
-                    text-decoration: underline !important;
+        width: 80%;
+        height: 65vh;
+        #login-wrapper-wrapper{
+            width: 40%;
+            .containercentre-wrapper{
+                margin-left: 40px;
+                margin-right: 40px;
+                margin-top: 20px;
+                margin-bottom: 10px;
+                h4{
+                    text-align: left;
+                    font-size: 24px;
+                    margin-bottom: 0px;
+                    margin-top: 8px;
+                    margin-left: 20px;
+                }
+                #containercentre-firstrow-desktop{
+                    display: none;
+                    h1{font-size: 22px;}
+                    h3{font-size: 16px; font-weight: normal; line-height: 1.4;}
                 }
             }
+            .containercentre-secondrow{
+                display: none;
+                justify-content: space-between;
+                margin-top: auto;
+                margin-bottom: 10px;
+                a{
+                    margin: 20px 40px 10px 40px;
+                    font-size: 18px; 
+                    color: #00006d; 
+                    font-weight: bold;
+                    &:hover{
+                        text-decoration: underline !important;
+                    }
+                }
+            }
+        }
+        #login-side-hero{
+            background-image: url(../assets/images/freelans-hero-create-account.svg);
+            background-size: cover;
+            width: 60%;
+            border-radius: 6px;
         }
     }
     .bankID-QR{
@@ -59,10 +74,10 @@
         border-radius: 6px;
         border-style: none;
         font-weight: bolder;
-        background-color: $dark-blue;
+        background-color: $rendex-orange;
         color: white;
         &:hover{
-            background-color: #000041;
+            background-color: $rendex-orange-hover;
             cursor: pointer;
         }
         img{
@@ -131,40 +146,10 @@
                     width: 40px;
                 }
             }
-            #username-wrapper, #password-wrapper{
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: flex-end;
-                #clearusername, #clearpassword{
-                    display: none;
-                    align-items: center;
-                    justify-content: center;
-                    position: absolute;
-                    width: 40px;
-                    height: 40px;
-                    margin-right: 40px;
-                    border-radius: 50%;
-                    #clearusername-btn, #clearpassword-btn{
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        user-select: none;
-                        pointer-events: none;
-                        height: 20px;
-                        width: 20px;
-                        border-radius: 50%;
-                        background-color: gray;
-                        border-style: none;
-                        margin: 0;
-                        padding: 6px;
-                        &:hover{
-                            cursor: pointer;
-                        }
-                    }
-                    &:hover{
-                        background-color: rgba(128, 128, 128, 0.137);
-                    }
+            #password-wrapper{
+                position: relative;
+                #show-password-login{
+                    margin-right: 1vw;
                 }
             }
             #användarnamnlogin, #lösenordlogin{
@@ -182,22 +167,75 @@
                 border-radius: 6px;
                 border-style: none;
                 font-weight: bolder;
-                background-color: $dark-blue;
+                background-color: $rendex-orange;
                 color: white;
                 &:hover{
-                    background-color: #000041;
+                    background-color: $rendex-orange-hover;
                     cursor: pointer;
                 }
             }
-            #forgot-password{
+            #close-bankId{
+                display: none;
+                margin: auto;
+                width: 95%;
                 font-size: 18px;
-                color: $dark-blue;
-                margin-left: 12px;
-                text-align: left;
+                padding: 14px;
+                border-radius: 6px;
+                border-style: none;
+                font-weight: bolder;
+                background-color: $rendex-orange;
+                color: white;
                 &:hover{
-                    opacity: 0.8;
-                    cursor:pointer;
+                    background-color: $rendex-orange-hover;
+                    cursor: pointer;
                 }
+            }
+        }
+    }
+}
+@media(min-width: 1380px){
+    #login-referral-wrapper{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    p{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}
+@media(max-width: 1380px) and (min-width:875px){
+    #login-referral-wrapper{
+        flex-direction: column;
+        p{
+            text-align: left;
+            margin-left: 12px;
+            margin-top: 10px;
+        }
+    }
+}
+#login-referral-wrapper{
+    display: flex;
+    #forgot-password{
+        font-size: 16px;
+        color: black;
+        margin-left: 12px;
+        text-align: left;
+        font-weight: bold;
+        &:hover{
+            opacity: 0.8;
+            cursor:pointer;
+        }
+    }
+    p{
+        font-size: 16px;
+        color: black;
+        a{
+            font-size: 16px;
+            font-weight: bold;
+            &:hover{
+                opacity: 0.8;
+                cursor:pointer;
             }
         }
     }

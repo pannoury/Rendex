@@ -26,8 +26,8 @@
     <div class="container">
       <div id="navlogo">
         <a id="navlogo-link" href="https://rendex.se">
-          <img src="./assets/images/rendex_black.svg" id="logo-desktop" alt="logo-black" class="logo" width="125" height="20">
-          <img src="./assets/images/rendex_white.svg" id="logo-mobile" alt="logo-white" class="logo" width="125px" height="20px">
+          <img src="./assets/images/freelans-full-black.svg" id="logo-desktop" alt="logo-black" class="logo" width="125" height="40px">
+          <img src="./assets/images/freelans-full-white.svg" id="logo-mobile" alt="logo-white" class="logo" width="125px" height="40px">
         </a>
         <ul class="navbarselector">
           <li id="languageanchor">
@@ -38,14 +38,14 @@
               <li id="english-selected"><img src="./assets/images/uk-roundflag.svg">English</li>
             </ul>
           </li>
-          <li><a href="searchpage">Sök</a></li>
+          <li><a id="searchpageanchor">Sök</a></li>
           <li><a id="inboxlink1">Inkorg</a></li>
           <li><a id="loginanchorTrue"></a></li>
         </ul> 
       </div>
       <div id="navbar-commit">
         <ul id="navbar-ul-commit">
-          <li id="loginlist"><a id="loginanchor">Logga in</a></li>
+          <li id="loginlist"><a id="loginanchor" href="https://rendex.se/login">Logga in</a></li>
           <li id="loggedInFalse"><button href="https://rendex.se/create_account" id="loggedInFalseAnchor">Bli Medlem</button></li>
         </ul>
       </div>
@@ -106,10 +106,7 @@
       <div id="companybroadbackground">
         <div id="companybroadbackground-text">
           <h2>Beskrivning</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam delectus distinctio soluta repudiandae repellendus perspiciatis ab deleniti facilis fugiat rerum ex est magnam quaerat officiis impedit, recusandae dolorem quibusdam adipisci!</p>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi repudiandae dolore nobis voluptatem deserunt officiis, obcaecati sint! Eveniet esse consectetur commodi vel, repellat dolor sunt officiis culpa, aut, voluptatum dolore!</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, illum. Sequi, excepturi minus? Voluptas commodi adipisci modi delectus nostrum neque maiores quidem, iure similique consectetur maxime quisquam praesentium omnis ut?</p>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit iusto nihil, deserunt quam voluptatibus doloremque ipsa dicta illo at quasi velit reprehenderit beatae inventore hic aspernatur minima ullam, fuga natus!</p>
+          <p id="profile-description-text"></p>
         </div>
         <div id="profile-skills">
 
@@ -121,6 +118,11 @@
   
         </div>
       </div>
+    </div>
+    <div id="no-account-error">
+      <img src="./assets/images/profile-not-found.svg">
+      <h4>Konto kunde inte hittas</h4>
+      <button id="leave-no-account-error">Lämna sidan</button>
     </div>
     <div id="new-chatwindow">
       <div id="new-chatwindow-wrapper">

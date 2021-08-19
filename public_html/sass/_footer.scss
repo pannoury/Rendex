@@ -1,8 +1,16 @@
 /* FOOTER START */
 @media(min-width:875px){
-    footer {width: 100%;background-color: #333;color: white;
-        ul{margin: 0; padding: 0;}
-        a:hover{color: slategray;}}
+    footer {
+        width: 100%;
+        background-color: #333;
+        color: white;
+        ul{margin: 0; 
+            padding: 0;
+        }
+        a:hover{
+            color: slategray;
+        }
+    }
     .boxtest{
         display: flex;
         margin: auto;
@@ -18,17 +26,31 @@
             margin-bottom: 6px;
         }
     }
-    #footercolumn1, #footercolumn2, #footercolumn3{width: 33%; padding-left: 70px;}
-    #footercolumn3{
-        a:hover{opacity: 0.5;}
-        img{
-            margin-top: 40px;
-            margin-right: 5px;
-            margin-left: 5px;
+    #footercolumn1, #footercolumn2, #footercolumn3{
+        width: 33%; 
+        padding-left: 70px;
+    }
+    #socialmedia-wrapper{
+        width:60%;
+        display: flex;
+        justify-content: flex-end;
+        margin: auto;
+        a{
+            margin-right: 20px;
+            &:hover{
+                opacity: 0.5;
+            }
         }
     }
-    .appbadge{display: flex;justify-content: center; margin-top: 60px;}
-    #applebadge img, #googlebadge img{width: 200px;height: 40px;}
+    .appbadge{
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+    }
+    #applebadge img, #googlebadge img{
+        width: 200px;
+        height: 40px;
+    }
     .endbox{
         background-color: #333;
         height: 30px;

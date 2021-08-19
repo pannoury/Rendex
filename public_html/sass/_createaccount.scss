@@ -3,6 +3,63 @@
     display: flex;
     justify-content: center;
     margin: 130px 0 100px 0;
+    #createaccountheaderdiv{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        @media(min-width: 1330px){
+            width: 65%;
+        }
+        @media(max-width:1330px){
+            width: 80%;
+        }
+        #createaccountwrapper{
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            width: 100%;
+            height: auto;
+            margin: auto;
+            background-color: #f4f4f4;
+            border-radius: 6px;
+            #form-wrapper{
+                height: 100%;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                padding: 20px 20px 20px 20px;
+                #form-logo{
+                    h4{
+                        margin-top: 0px;
+                        margin-bottom: 10px;
+                        font-size: 28px;
+                        font-weight: bold;
+                        span{
+                            font-size: 18px;
+                        }
+                    }
+                }
+
+            }
+            a{color: blue;
+            &:hover{color: slategray;}}
+            p{
+                text-align: left; 
+                margin-bottom: 0;
+            }
+            #checkboxdiv{
+                align-items: center; 
+                font-size: 14px;
+                display: flex;
+                margin: auto;
+                label{
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
     #createaccount-btn{ 
         width: 100%; 
         height: 40px; 
@@ -20,150 +77,13 @@
     #agreetoa{
         width: auto;
     }
-}
-#createaccountheaderdiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: auto;
-    width: 70%;
-}
-#createaccountwrapper{
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    width:80%;
-    height: 530px;
-    margin: auto;
-    background-color: #f4f4f4;
-    border-radius: 6px;
-    #form-wrapper{
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        width: 60%;
-        padding: 40px 20px 0px 20px;
-        #form-logo{
-            p{
-                margin-top: 0px;
-                font-size: 18px;
-            }
-        }
-        #insurance-wrapper{
-            display: flex;
-            flex-direction: column;
-            margin-top: 10px;
-            p{margin-top: 0;}
-        }
-        #fullname-input-wrapper{
-            display: none;
-            flex-direction: row;
-            justify-content: space-between;
-            width: 100%;
-            .firstname-wrapper, .lastname-wrapper{
-                width: 48%;
-                display: flex;
-                flex-direction: column;
-                p{
-                    margin-top: 0;
-                    margin-bottom: 2px;
-                }
-            }
-        }
-        #account-role-select, #account-region-select, #account-postalcode, #account-emailrepeat, #account-phonenumber{
-            display: none;
-            flex-direction: column;
-            p{
-                margin-top: 0;
-                margin-bottom: 2px;
-            }
-        }
-        select{
-            height: 30px; 
-            width: 100%;
-            font-size: 16px;
-            border-radius: 6px;
-            color: black;
-            padding-left: 10px;
-            appearance: none;
-            outline: none;
-        }
-        /* Inputs */
-        input{ 
-            height: 30px;
-            font-size: 16px;
-            border-radius: 6px;
-            outline: none;
-            border: 1px groove black;
-            color: black;
-            padding-left: 10px;
-        }
-    }
-    #createaccount-hero{
-        background-image: url(../assets/images/createaccount-hero-picture.jpg);
-        background-size: cover;
-        background-position: 40%;
-        color: black;
-        width: 40%;
-        padding: 20px;
-        padding-left: 40px;
-        h1{
-            font-size: 28px;
-            margin-bottom: 0;
-        }
-        p{
-            margin-top: 2px;
-        }
-    }
-    a{color: blue;
-    &:hover{color: slategray;}}
-    p{
-        text-align: left; 
-        margin-bottom: 0;
-    }
-    #checkboxdiv{
-        align-items: center; 
-        font-size: 12px;
+    #wrongphonenumber, #wronginsurancenumber, #wrongemailrepeat{
+        color: red;
         display: none;
-    label{
-        margin-left: 5px;
-        }
     }
-}
-#wrongphonenumber, #wronginsurancenumber, #wrongemailrepeat{
-    color: red;
-    display: none;
-}
-#finalcreateaccount{
-    display: none;
-    p{text-align: center;}
-}
-#insurance-wrapper{
-    width: 100%;
-}
-#registration-tracker{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    p{
-        margin-top: 0px;
-    }
-    #tracker1, #tracker2, #tracker3{
-        font-size: 48px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    #tracker1{
-        color: #616161;
-    }
-    #tracker2{
-        color: #afafaf;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-    #tracker3{
-        color: #afafaf;
+    #finalcreateaccount{
+        display: none;
+        p{text-align: center;}
     }
 }
 #next-button{
@@ -171,51 +91,138 @@
     flex-direction: row;
     justify-content: space-between;
     margin-top: auto;
+    align-items: center;
+    width: 70%;
+    margin: auto;
     #next-btn{
+        margin-top: 20px;
         border-radius: 20px;
-        border-style: solid;
-        border-color: $dark-blue;
-        background-color: $dark-blue;
+        border-style: none;
+        background-color: #d4d4d4;
         color: white;
         padding: 10px 30px 10px 30px;
         font-size: 16px;
-        &:hover{
-            background-color: $dark-blue-hover;
+        font-weight: bold;
+        align-items: center;
+    }
+}
+.show-password{
+    position: absolute;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    .mask-password{
+        fill: #d4d4d4;
+        width: 25px;
+        height: 25px;
+    }
+    &:hover{
+        .mask-password{
+            fill: black;
         }
     }
 }
-#name-set{
-    display: none;
-    flex-direction: row;
-    align-content: center;
-    p{
-        margin-left: 6px;
-        margin-top: 0px;
-        align-self: center;
-        font-weight: bold;
-    }
-}
-#arrow-back{
-    display: flex;
-    align-items: center;
-    border-radius: 50%;
-    background-color: none;
-    padding: 4px;
-    width: 20px;
-    height: 20px;
-    &:hover{
-        background-color: #d3d3d3;
-    }
-    svg{
-        margin-left: 1px;
+
+@media(min-width:875px){
+    #form-inputs-wrapper{
+        @media(min-width: 1400px){
+            width: 80%;
+        }
+        @media(max-width:1400px) and (min-width:875px){
+            width: 100%
+        }
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        gap: 10px;
+        .create-account-one-input{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+            transition: 0.5s;
+            transition-property: display;
+            width: 65%;
+            margin: auto;
+            .password-input-wrapper{
+                position: relative;
+            }
+            .input-header{
+                display: flex;
+                flex-direction: row;
+                margin-top: 10px;
+            }
+            input{ 
+                position: relative;
+                height: 40px;
+                font-size: 16px;
+                border-radius: 6px;
+                outline: none;
+                border: 1px groove black;
+                color: black;
+                padding-left: 10px;
+                width: 100%;
+            }
+            select{
+                height: 40px; 
+                width: 103%;
+                font-size: 16px;
+                border-radius: 6px;
+                color: black;
+                padding-left: 10px;
+                appearance: none;
+                outline: none;
+                border-style: solid;
+                border-width: 1px;
+                border-color: black;
+            }
+            .password-length-wrapper{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        .create-account-two-input{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            transition: 0.5s;
+            transition-property: display;
+            margin-bottom: 10px;
+            width: 65%;
+            margin: auto;
+            div{
+                width: 48%;
+                .input-header{
+                    display: flex;
+                    flex-direction: row;
+                    margin: 0px;
+                }
+                input{ 
+                    width: 100%;
+                    height: 40px;
+                    font-size: 16px;
+                    border-radius: 6px;
+                    outline: none;
+                    border: 1px groove black;
+                    color: black;
+                    padding-left: 10px;
+                }
+            }
+        }
     }
 }
 
-
-@media (max-width: 450px){
+//Mobile CSS
+@media(max-width:875px){
     #createaccountsection{
-        width: 100%;
-        margin-top: 50px;
+        width: 100vw;
+        margin-top: 88px;
+        margin-bottom: 0px;
         #createaccountheaderdiv{
             width: 100%;
             #createaccountwrapper{
@@ -225,9 +232,118 @@
                 }
                 #form-wrapper{
                     width: 100%;
+                    padding: 0px;
+                    #form-logo{
+                        display: flex;
+                        flex-direction: column;
+                        padding: 20px;
+                        img{
+                            margin: auto;
+                        }
+                        h4{
+                            text-align: center;
+                        }
+                    }
+                    #form-inputs-wrapper{
+                        display: flex;
+                        flex-direction: column;
+                        margin: auto;
+                        padding: 20px;
+                        .create-account-one-input{
+                            display: flex;
+                            flex-direction: column;
+                            margin-bottom: 10px;
+                            transition: 0.5s;
+                            transition-property: display;
+                            width: 90%;
+                            .password-input-wrapper{
+                                position: relative;
+                            }
+                            .input-header{
+                                display: flex;
+                                flex-direction: row;
+                                margin-top: 10px;
+                            }
+                            input{ 
+                                position: relative;
+                                height: 40px;
+                                font-size: 16px;
+                                border-radius: 6px;
+                                outline: none;
+                                border: 1px groove black;
+                                color: black;
+                                padding-left: 10px;
+                                width: 100%;
+                            }
+                            select{
+                                height: 40px; 
+                                width: 100%;
+                                font-size: 16px;
+                                border-radius: 6px;
+                                color: black;
+                                padding-left: 10px;
+                                appearance: none;
+                                outline: none;
+                            }
+                            .password-length-wrapper{
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                            }
+                        }
+                        .create-account-two-input{
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            transition: 0.5s;
+                            transition-property: display;
+                            margin-bottom: 10px;
+                            width: 90%;
+                            div{
+                                width: 100%;
+                                .input-header{
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: space-between;
+                                    margin: 0px;
+                                }
+                                input{ 
+                                    width: 100%;
+                                    height: 40px;
+                                    font-size: 16px;
+                                    border-radius: 6px;
+                                    outline: none;
+                                    border: 1px groove black;
+                                    color: black;
+                                    padding-left: 10px;
+                                }
+                                &:nth-child(1){
+                                    margin-bottom: 10px;
+                                }
+                            }
+                        }
+                    }
+                    #next-button{
+                        display: flex;
+                        flex-direction: column;
+                        button{
+                            margin-bottom: 20px;
+                        }
+                    }
                 }
             }
         }
     }
+}
 
+.create-account-header-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .green-check-tick{
+        width: 0px;
+        margin-left: 10px;
+        transition: width 0.5s;
+        transition-timing-function: ease-in;
+    }
 }

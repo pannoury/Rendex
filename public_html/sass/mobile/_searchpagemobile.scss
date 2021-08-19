@@ -36,20 +36,23 @@
     .search-result-main{
         margin: auto;
         #top-button-wrapper{
-            display: flex;
-            flex-direction: row;
             margin: auto;
-            justify-content: space-between;
             width: 94vw;
             margin-top: 8px;
             button{
-                width: 30%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
                 border-radius: 8px;
                 border-style: none;
                 background-color: $dark-blue2;
                 color: white;
                 font-size: 18px;
                 padding: 6px;
+                img{
+                    margin-left: 10px;
+                }
             }
         }
         .search-result-topwrapper{
@@ -89,33 +92,17 @@
                                 padding: 10px;
                                 border-radius: 4px;
                                 margin-bottom: 10px;
-                                height: 100px;
+                                height: 180px;
                                 &:hover{
                                     cursor: pointer;
                                     border-left: 4px solid #333;
                                     padding-left: 16px;
                                 }
                                 .article-image-wrapper{
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                    width: 15%;
-                                    height: auto;
-                                    border-radius: 10px;
-                                    background-color: #fff;
-                                    &::before{
-                                        content: "";
-                                        float: left;
-                                        padding-top: 100%;
-                                    }
-                                    img{
-                                        margin: auto;
-                                        width: 50px;
-                                        height: 50px;
-                                    }
+                                    display: none;
                                 }
                                 .article-information-wrapper{
-                                    width: 75%;
+                                    width: 100%;
                                     display: flex;
                                     flex-direction: column;
                                     .title-wrapper{

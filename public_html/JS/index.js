@@ -1,5 +1,6 @@
 /******************************* Index Search *************************************/
 window.addEventListener('load', function(){
+    languageControl();
     loggedInControl();
     cookieConsentLoad();
     indexNumberCount();
@@ -205,32 +206,3 @@ document.getElementById('index-subscription-checkbox').onchange = function index
         }
     }
 }
-/***************************Dynamic Search City************************************/
-/* ARCHAIC CODE
-document.getElementById('mainRegionSelect').onchange = function(){
-    var regionSelected = document.getElementById('mainRegionSelect').value;
-    var defaultCitySelection = document.getElementById('defualtCitySelect');
-    var blekingeSelection = document.getElementById('blekingeCitySelect');
-    var dalarnaSelection = document.getElementById('dalarnaCitySelect');
-    var gotlandSelection = document.getElementById('gotlandCitySelect');
-    var gävleborgSelection = document.getElementById('gävleborgCitySelect');
-    var hallandSelection = document.getElementById('hallandCitySelect');
-    var jämtlandSelection = document.getElementById('jämtlandCitySelect');
-    var jönköpingSelection = document.getElementById('jönköpingCitySelect');
-    var kalmarSelection = document.getElementById('kalmarCitySelect');
-    var kronobergSelection = document.getElementById('kronobergCitySelect');
-    var norrbottenSelection = document.getElementById('norrbottenCitySelect');
-    var skåneSelection = document.getElementById('skåneCitySelect');
-    var stockholmSelection = document.getElementById('stockholmCitySelect');
-    var södermanlandSelection = document.getElementById('södermanlandCitySelect');
-    var uppsalaSelection = document.getElementById('uppsalaCitySelect');
-    var värmlandSelection = document.getElementById('värmlandCitySelect');
-    var västerbottenSelection = document.getElementById('västerbottenCitySelect');
-    var västernorrlandSelection = document.getElementById('västernorrlandCitySelect');
-    var västmanlandSelection = document.getElementById('västmanlandCitySelect');
-    var västraGötalandSelection = document.getElementById('västraGötalandCitySelect');
-    var örebroSelection = document.getElementById('örebroCitySelect');
-    var östergötlandSelection = document.getElementById('östergötlandCitySelect');
-}
-*/
-/***************************Dynamic Search City************************************/

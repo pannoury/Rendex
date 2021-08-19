@@ -407,13 +407,17 @@ main {
     padding-left: 70px;
   }
 
-  #footercolumn3 a:hover {
-    opacity: 0.5;
+  #socialmedia-wrapper {
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+    margin: auto;
   }
-  #footercolumn3 img {
-    margin-top: 40px;
-    margin-right: 5px;
-    margin-left: 5px;
+  #socialmedia-wrapper a {
+    margin-right: 20px;
+  }
+  #socialmedia-wrapper a:hover {
+    opacity: 0.5;
   }
 
   .appbadge {
@@ -610,7 +614,7 @@ main {
             appearance: none;
     margin-top: 0px;
     width: 100%;
-    height: 30px;
+    height: 40px;
     font-size: 16px;
     padding-left: 8px;
   }
@@ -626,18 +630,20 @@ main {
     margin-top: 20px;
   }
   #testish #indexwrapper .indexsearchbutton #indexsearchbutton {
+    position: relative;
     width: 150px;
     height: 40px;
     font-size: 18px;
     font-weight: bolder;
     color: black;
     background-color: #f4f4f4;
-    border-radius: 8px;
+    border-radius: 20px;
     border-style: none;
   }
   #testish #indexwrapper .indexsearchbutton #indexsearchbutton:hover {
     opacity: 0.8;
     cursor: pointer;
+    top: -2px;
   }
 
   #company-number-wrapper {
@@ -714,18 +720,24 @@ main {
     text-align: center;
   }
   #index-text #index-text-wrapper-wrapper #index-text-header #index-text-btn {
+    position: relative;
     background-color: #f07900;
     width: 200px;
     height: 40px;
     font-size: 18px;
     font-weight: bolder;
-    border-radius: 8px;
+    border-radius: 20px;
     border-style: none;
-    margin: auto;
+    margin: 20px auto;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   }
   #index-text #index-text-wrapper-wrapper #index-text-header #index-text-btn:hover {
     opacity: 0.8;
     cursor: pointer;
+    color: #333;
+    top: -2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   }
 }
 @media (min-width: 1500px) {
@@ -759,6 +771,7 @@ main {
   #index-text-wrapper .index-text-column p {
     line-height: 1.5rem;
     font-size: 18px;
+    margin-top: 15px;
   }
   #index-text-wrapper .index-text-column a {
     color: blue;
@@ -849,6 +862,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 40px;
   }
   #index-showcase-offers #index-showcase-offers-wrapper .index-showcase-wrapper .index-showcase-header {
     display: flex;
@@ -888,8 +902,8 @@ main {
     flex-direction: row;
     margin-left: 60px;
     background-color: #0f3b50;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0px 15px;
+    align-items: center;
   }
   #index-showcase-offers #index-showcase-offers-wrapper .index-showcase-wrapper .index-showcase-job #index-coding-wrapper #index-coding-top #index-coding-top-filename p:nth-child(1) {
     color: yellow;
@@ -981,18 +995,24 @@ main {
     font-size: 20px;
   }
   #index-contact-us #index-offert-btn {
+    position: relative;
     height: 40px;
     font-size: 18px;
     font-weight: bolder;
-    color: black;
+    color: white;
     background-color: #f07900;
-    border-radius: 8px;
+    border-radius: 20px;
     border-style: none;
     padding: 10px 20px 10px 20px;
+    margin-top: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   }
   #index-contact-us #index-offert-btn:hover {
     opacity: 0.8;
     cursor: pointer;
+    color: black;
+    top: -2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   }
 
   #index-subscription {
@@ -1103,17 +1123,21 @@ main {
     justify-content: center;
   }
   #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-btn button {
+    position: relative;
     margin-top: 20px;
     font-size: 16px;
-    border-radius: 8px;
+    border-radius: 20px;
     font-weight: bolder;
     padding: 10px 20px 10px 20px;
     margin-left: -20px;
     border-style: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   }
   #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-btn button:hover {
     cursor: pointer;
     opacity: 0.8;
+    top: -2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   }
   #index-subscription #index-subscription-plan-options .index-subscription-option #index-subscription-btn-1 {
     background-color: #7e7979;
@@ -1125,6 +1149,10 @@ main {
   }
   #index-subscription #index-subscription-plan-options .index-subscription-option #index-subscription-btn-3 {
     background-color: #f07900;
+    color: white;
+  }
+  #index-subscription #index-subscription-plan-options .index-subscription-option #index-subscription-btn-3:hover {
+    color: black;
   }
   #index-subscription #index-subscription-option-1 {
     border-top: #7e7979;
@@ -1171,46 +1199,61 @@ main {
 
   .containercentre-wrapper-wrapper {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 500px;
+    flex-direction: row;
     margin: auto;
     text-align: center;
     border-radius: 6px;
     background-color: #f4f4f4;
+    width: 80%;
+    height: 65vh;
   }
-  .containercentre-wrapper-wrapper .containercentre-wrapper {
+  .containercentre-wrapper-wrapper #login-wrapper-wrapper {
+    width: 40%;
+  }
+  .containercentre-wrapper-wrapper #login-wrapper-wrapper .containercentre-wrapper {
     margin-left: 40px;
     margin-right: 40px;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 10px;
   }
-  .containercentre-wrapper-wrapper .containercentre-wrapper #containercentre-firstrow-desktop {
+  .containercentre-wrapper-wrapper #login-wrapper-wrapper .containercentre-wrapper h4 {
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 0px;
+    margin-top: 8px;
+    margin-left: 20px;
+  }
+  .containercentre-wrapper-wrapper #login-wrapper-wrapper .containercentre-wrapper #containercentre-firstrow-desktop {
     display: none;
   }
-  .containercentre-wrapper-wrapper .containercentre-wrapper #containercentre-firstrow-desktop h1 {
+  .containercentre-wrapper-wrapper #login-wrapper-wrapper .containercentre-wrapper #containercentre-firstrow-desktop h1 {
     font-size: 22px;
   }
-  .containercentre-wrapper-wrapper .containercentre-wrapper #containercentre-firstrow-desktop h3 {
+  .containercentre-wrapper-wrapper #login-wrapper-wrapper .containercentre-wrapper #containercentre-firstrow-desktop h3 {
     font-size: 16px;
     font-weight: normal;
     line-height: 1.4;
   }
-  .containercentre-wrapper-wrapper .containercentre-secondrow {
-    display: flex;
+  .containercentre-wrapper-wrapper #login-wrapper-wrapper .containercentre-secondrow {
+    display: none;
     justify-content: space-between;
-    border-top: 1px solid #e9e9e9;
-    margin-top: 10px;
+    margin-top: auto;
     margin-bottom: 10px;
   }
-  .containercentre-wrapper-wrapper .containercentre-secondrow a {
+  .containercentre-wrapper-wrapper #login-wrapper-wrapper .containercentre-secondrow a {
     margin: 20px 40px 10px 40px;
     font-size: 18px;
     color: #00006d;
     font-weight: bold;
   }
-  .containercentre-wrapper-wrapper .containercentre-secondrow a:hover {
+  .containercentre-wrapper-wrapper #login-wrapper-wrapper .containercentre-secondrow a:hover {
     text-decoration: underline !important;
+  }
+  .containercentre-wrapper-wrapper #login-side-hero {
+    background-image: url(../assets/images/freelans-hero-create-account.svg);
+    background-size: cover;
+    width: 60%;
+    border-radius: 6px;
   }
 
   .bankID-QR img {
@@ -1229,11 +1272,11 @@ main {
     border-radius: 6px;
     border-style: none;
     font-weight: bolder;
-    background-color: #00006d;
+    background-color: #f07900;
     color: white;
   }
   #bankid-initatebutton:hover {
-    background-color: #000041;
+    background-color: #c96400;
     cursor: pointer;
   }
   #bankid-initatebutton img {
@@ -1311,44 +1354,11 @@ main {
     height: 40px;
     width: 40px;
   }
-  #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper {
+    position: relative;
   }
-  #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    margin-right: 40px;
-    border-radius: 50%;
-  }
-  #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername #clearusername-btn, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername #clearpassword-btn, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword #clearusername-btn, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword #clearpassword-btn, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername #clearusername-btn, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername #clearpassword-btn, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword #clearusername-btn, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword #clearpassword-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-    pointer-events: none;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background-color: gray;
-    border-style: none;
-    margin: 0;
-    padding: 6px;
-  }
-  #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername #clearusername-btn:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername #clearpassword-btn:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword #clearusername-btn:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword #clearpassword-btn:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername #clearusername-btn:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername #clearpassword-btn:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword #clearusername-btn:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword #clearpassword-btn:hover {
-    cursor: pointer;
-  }
-  #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername:hover, #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword:hover {
-    background-color: rgba(128, 128, 128, 0.137);
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #show-password-login {
+    margin-right: 1vw;
   }
   #alternative-login-wrapper-wrapper #alternative-login-wrapper #användarnamnlogin, #alternative-login-wrapper-wrapper #alternative-login-wrapper #lösenordlogin {
     width: 90%;
@@ -1365,24 +1375,79 @@ main {
     border-radius: 6px;
     border-style: none;
     font-weight: bolder;
-    background-color: #00006d;
+    background-color: #f07900;
     color: white;
   }
   #alternative-login-wrapper-wrapper #alternative-login-wrapper #login-btn:hover {
-    background-color: #000041;
+    background-color: #c96400;
     cursor: pointer;
   }
-  #alternative-login-wrapper-wrapper #alternative-login-wrapper #forgot-password {
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #close-bankId {
+    display: none;
+    margin: auto;
+    width: 95%;
     font-size: 18px;
-    color: #00006d;
-    margin-left: 12px;
-    text-align: left;
+    padding: 14px;
+    border-radius: 6px;
+    border-style: none;
+    font-weight: bolder;
+    background-color: #f07900;
+    color: white;
   }
-  #alternative-login-wrapper-wrapper #alternative-login-wrapper #forgot-password:hover {
-    opacity: 0.8;
+  #alternative-login-wrapper-wrapper #alternative-login-wrapper #close-bankId:hover {
+    background-color: #c96400;
     cursor: pointer;
   }
 }
+@media (min-width: 1380px) {
+  #login-referral-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+@media (max-width: 1380px) and (min-width: 875px) {
+  #login-referral-wrapper {
+    flex-direction: column;
+  }
+  #login-referral-wrapper p {
+    text-align: left;
+    margin-left: 12px;
+    margin-top: 10px;
+  }
+}
+#login-referral-wrapper {
+  display: flex;
+}
+#login-referral-wrapper #forgot-password {
+  font-size: 16px;
+  color: black;
+  margin-left: 12px;
+  text-align: left;
+  font-weight: bold;
+}
+#login-referral-wrapper #forgot-password:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+#login-referral-wrapper p {
+  font-size: 16px;
+  color: black;
+}
+#login-referral-wrapper p a {
+  font-size: 16px;
+  font-weight: bold;
+}
+#login-referral-wrapper p a:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 /*LOGIN/ACCOUNT PAGE SETTINGS END*/
 .side-navhelp {
   height: 100%;
@@ -1452,6 +1517,68 @@ main {
   justify-content: center;
   margin: 130px 0 100px 0;
 }
+#createaccountsection #createaccountheaderdiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+@media (min-width: 1330px) {
+  #createaccountsection #createaccountheaderdiv {
+    width: 65%;
+  }
+}
+@media (max-width: 1330px) {
+  #createaccountsection #createaccountheaderdiv {
+    width: 80%;
+  }
+}
+#createaccountsection #createaccountheaderdiv #createaccountwrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  background-color: #f4f4f4;
+  border-radius: 6px;
+}
+#createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper {
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding: 20px 20px 20px 20px;
+}
+#createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-logo h4 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 28px;
+  font-weight: bold;
+}
+#createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-logo h4 span {
+  font-size: 18px;
+}
+#createaccountsection #createaccountheaderdiv #createaccountwrapper a {
+  color: blue;
+}
+#createaccountsection #createaccountheaderdiv #createaccountwrapper a:hover {
+  color: slategray;
+}
+#createaccountsection #createaccountheaderdiv #createaccountwrapper p {
+  text-align: left;
+  margin-bottom: 0;
+}
+#createaccountsection #createaccountheaderdiv #createaccountwrapper #checkboxdiv {
+  align-items: center;
+  font-size: 14px;
+  display: flex;
+  margin: auto;
+}
+#createaccountsection #createaccountheaderdiv #createaccountwrapper #checkboxdiv label {
+  margin-left: 5px;
+}
 #createaccountsection #createaccount-btn {
   width: 100%;
   height: 40px;
@@ -1469,164 +1596,15 @@ main {
 #createaccountsection #agreetoa {
   width: auto;
 }
-
-#createaccountheaderdiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: auto;
-  width: 70%;
-}
-
-#createaccountwrapper {
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  width: 80%;
-  height: 530px;
-  margin: auto;
-  background-color: #f4f4f4;
-  border-radius: 6px;
-}
-#createaccountwrapper #form-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 60%;
-  padding: 40px 20px 0px 20px;
-  /* Inputs */
-}
-#createaccountwrapper #form-wrapper #form-logo p {
-  margin-top: 0px;
-  font-size: 18px;
-}
-#createaccountwrapper #form-wrapper #insurance-wrapper {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
-#createaccountwrapper #form-wrapper #insurance-wrapper p {
-  margin-top: 0;
-}
-#createaccountwrapper #form-wrapper #fullname-input-wrapper {
-  display: none;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-}
-#createaccountwrapper #form-wrapper #fullname-input-wrapper .firstname-wrapper, #createaccountwrapper #form-wrapper #fullname-input-wrapper .lastname-wrapper {
-  width: 48%;
-  display: flex;
-  flex-direction: column;
-}
-#createaccountwrapper #form-wrapper #fullname-input-wrapper .firstname-wrapper p, #createaccountwrapper #form-wrapper #fullname-input-wrapper .lastname-wrapper p {
-  margin-top: 0;
-  margin-bottom: 2px;
-}
-#createaccountwrapper #form-wrapper #account-role-select, #createaccountwrapper #form-wrapper #account-region-select, #createaccountwrapper #form-wrapper #account-postalcode, #createaccountwrapper #form-wrapper #account-emailrepeat, #createaccountwrapper #form-wrapper #account-phonenumber {
-  display: none;
-  flex-direction: column;
-}
-#createaccountwrapper #form-wrapper #account-role-select p, #createaccountwrapper #form-wrapper #account-region-select p, #createaccountwrapper #form-wrapper #account-postalcode p, #createaccountwrapper #form-wrapper #account-emailrepeat p, #createaccountwrapper #form-wrapper #account-phonenumber p {
-  margin-top: 0;
-  margin-bottom: 2px;
-}
-#createaccountwrapper #form-wrapper select {
-  height: 30px;
-  width: 100%;
-  font-size: 16px;
-  border-radius: 6px;
-  color: black;
-  padding-left: 10px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  outline: none;
-}
-#createaccountwrapper #form-wrapper input {
-  height: 30px;
-  font-size: 16px;
-  border-radius: 6px;
-  outline: none;
-  border: 1px groove black;
-  color: black;
-  padding-left: 10px;
-}
-#createaccountwrapper #createaccount-hero {
-  background-image: url(../assets/images/createaccount-hero-picture.jpg);
-  background-size: cover;
-  background-position: 40%;
-  color: black;
-  width: 40%;
-  padding: 20px;
-  padding-left: 40px;
-}
-#createaccountwrapper #createaccount-hero h1 {
-  font-size: 28px;
-  margin-bottom: 0;
-}
-#createaccountwrapper #createaccount-hero p {
-  margin-top: 2px;
-}
-#createaccountwrapper a {
-  color: blue;
-}
-#createaccountwrapper a:hover {
-  color: slategray;
-}
-#createaccountwrapper p {
-  text-align: left;
-  margin-bottom: 0;
-}
-#createaccountwrapper #checkboxdiv {
-  align-items: center;
-  font-size: 12px;
-  display: none;
-}
-#createaccountwrapper #checkboxdiv label {
-  margin-left: 5px;
-}
-
-#wrongphonenumber, #wronginsurancenumber, #wrongemailrepeat {
+#createaccountsection #wrongphonenumber, #createaccountsection #wronginsurancenumber, #createaccountsection #wrongemailrepeat {
   color: red;
   display: none;
 }
-
-#finalcreateaccount {
+#createaccountsection #finalcreateaccount {
   display: none;
 }
-#finalcreateaccount p {
+#createaccountsection #finalcreateaccount p {
   text-align: center;
-}
-
-#insurance-wrapper {
-  width: 100%;
-}
-
-#registration-tracker {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-#registration-tracker p {
-  margin-top: 0px;
-}
-#registration-tracker #tracker1, #registration-tracker #tracker2, #registration-tracker #tracker3 {
-  font-size: 48px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-#registration-tracker #tracker1 {
-  color: #616161;
-}
-#registration-tracker #tracker2 {
-  color: #afafaf;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-#registration-tracker #tracker3 {
-  color: #afafaf;
 }
 
 #next-button {
@@ -1634,52 +1612,145 @@ main {
   flex-direction: row;
   justify-content: space-between;
   margin-top: auto;
+  align-items: center;
+  width: 70%;
+  margin: auto;
 }
 #next-button #next-btn {
+  margin-top: 20px;
   border-radius: 20px;
-  border-style: solid;
-  border-color: #00006d;
-  background-color: #00006d;
+  border-style: none;
+  background-color: #d4d4d4;
   color: white;
   padding: 10px 30px 10px 30px;
   font-size: 16px;
-}
-#next-button #next-btn:hover {
-  background-color: #000042;
-}
-
-#name-set {
-  display: none;
-  flex-direction: row;
-  align-content: center;
-}
-#name-set p {
-  margin-left: 6px;
-  margin-top: 0px;
-  align-self: center;
   font-weight: bold;
+  align-items: center;
 }
 
-#arrow-back {
+.show-password {
+  position: absolute;
+  height: 100%;
   display: flex;
   align-items: center;
-  border-radius: 50%;
-  background-color: none;
-  padding: 4px;
-  width: 20px;
-  height: 20px;
+  justify-content: center;
+  padding: 0 12px;
+  right: 0;
+  top: 0;
+  cursor: pointer;
 }
-#arrow-back:hover {
-  background-color: #d3d3d3;
+.show-password .mask-password {
+  fill: #d4d4d4;
+  width: 25px;
+  height: 25px;
 }
-#arrow-back svg {
-  margin-left: 1px;
+.show-password:hover .mask-password {
+  fill: black;
 }
 
-@media (max-width: 450px) {
-  #createaccountsection {
+@media (min-width: 875px) {
+  #form-inputs-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: 10px;
+  }
+}
+@media (min-width: 875px) and (min-width: 1400px) {
+  #form-inputs-wrapper {
+    width: 80%;
+  }
+}
+@media (min-width: 875px) and (max-width: 1400px) and (min-width: 875px) {
+  #form-inputs-wrapper {
     width: 100%;
-    margin-top: 50px;
+  }
+}
+@media (min-width: 875px) {
+  #form-inputs-wrapper .create-account-one-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    transition: 0.5s;
+    transition-property: display;
+    width: 65%;
+    margin: auto;
+  }
+  #form-inputs-wrapper .create-account-one-input .password-input-wrapper {
+    position: relative;
+  }
+  #form-inputs-wrapper .create-account-one-input .input-header {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+  }
+  #form-inputs-wrapper .create-account-one-input input {
+    position: relative;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 6px;
+    outline: none;
+    border: 1px groove black;
+    color: black;
+    padding-left: 10px;
+    width: 100%;
+  }
+  #form-inputs-wrapper .create-account-one-input select {
+    height: 40px;
+    width: 103%;
+    font-size: 16px;
+    border-radius: 6px;
+    color: black;
+    padding-left: 10px;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    outline: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+  }
+  #form-inputs-wrapper .create-account-one-input .password-length-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 875px) {
+  #form-inputs-wrapper .create-account-two-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    transition: 0.5s;
+    transition-property: display;
+    margin-bottom: 10px;
+    width: 65%;
+    margin: auto;
+  }
+  #form-inputs-wrapper .create-account-two-input div {
+    width: 48%;
+  }
+  #form-inputs-wrapper .create-account-two-input div .input-header {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+  }
+  #form-inputs-wrapper .create-account-two-input div input {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 6px;
+    outline: none;
+    border: 1px groove black;
+    color: black;
+    padding-left: 10px;
+  }
+}
+@media (max-width: 875px) {
+  #createaccountsection {
+    width: 100vw;
+    margin-top: 88px;
+    margin-bottom: 0px;
   }
   #createaccountsection #createaccountheaderdiv {
     width: 100%;
@@ -1692,8 +1763,120 @@ main {
   }
   #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper {
     width: 100%;
+    padding: 0px;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-logo {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-logo img {
+    margin: auto;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-logo h4 {
+    text-align: center;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-inputs-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 20px;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-inputs-wrapper .create-account-one-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    transition: 0.5s;
+    transition-property: display;
+    width: 90%;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-inputs-wrapper .create-account-one-input .password-input-wrapper {
+    position: relative;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-inputs-wrapper .create-account-one-input .input-header {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-inputs-wrapper .create-account-one-input input {
+    position: relative;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 6px;
+    outline: none;
+    border: 1px groove black;
+    color: black;
+    padding-left: 10px;
+    width: 100%;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-inputs-wrapper .create-account-one-input select {
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 6px;
+    color: black;
+    padding-left: 10px;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    outline: none;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-inputs-wrapper .create-account-one-input .password-length-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-inputs-wrapper .create-account-two-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.5s;
+    transition-property: display;
+    margin-bottom: 10px;
+    width: 90%;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-inputs-wrapper .create-account-two-input div {
+    width: 100%;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-inputs-wrapper .create-account-two-input div .input-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-inputs-wrapper .create-account-two-input div input {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 6px;
+    outline: none;
+    border: 1px groove black;
+    color: black;
+    padding-left: 10px;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #form-inputs-wrapper .create-account-two-input div:nth-child(1) {
+    margin-bottom: 10px;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #next-button {
+    display: flex;
+    flex-direction: column;
+  }
+  #createaccountsection #createaccountheaderdiv #createaccountwrapper #form-wrapper #next-button button {
+    margin-bottom: 20px;
   }
 }
+.create-account-header-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.create-account-header-wrapper .green-check-tick {
+  width: 0px;
+  margin-left: 10px;
+  transition: width 0.5s;
+  transition-timing-function: ease-in;
+}
+
 /* Create Account Page */
 @media (min-width: 875px) {
   #account-page {
@@ -1706,7 +1889,7 @@ main {
     border-radius: 8px;
     padding: 20px;
     width: 80%;
-    margin: auto auto 40px auto;
+    margin: auto auto 100px auto;
     background-color: #f4f4f4;
   }
   #account-page #account-wrapper-wrapper #account-page-wrapper {
@@ -1802,6 +1985,42 @@ main {
     width: 60%;
     padding: 20px;
   }
+  #account-page #no-account-error {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  #account-page #no-account-error img {
+    margin: auto;
+    width: 40vw;
+  }
+  #account-page #no-account-error h4 {
+    text-align: center;
+    font-size: 40px;
+    margin: 0px;
+  }
+  #account-page #no-account-error button {
+    position: relative;
+    margin-top: 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    font-weight: bolder;
+    padding: 10px 20px 10px 20px;
+    margin-left: -20px;
+    margin-bottom: 20px;
+    border-style: none;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #f07900;
+  }
+  #account-page #no-account-error button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    top: -2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: black;
+  }
+
   #new-chatwindow {
     height: 60vh;
     width: 0px;
@@ -2191,21 +2410,10 @@ main {
     height: 40px;
     background-color: #333;
     border-style: none;
-    display: flex;
-    flex-direction: column;
     color: white;
     text-align: left;
-    font-size: 14px;
-  }
-  .searchpage-section #search-tabber #search-tabber-subdiv #searchpage-regioncity-select-wrapper #locationselect-button #regionspan-text {
-    color: white;
-    margin: 0px;
-    padding-left: 2px;
-  }
-  .searchpage-section #search-tabber #search-tabber-subdiv #searchpage-regioncity-select-wrapper #locationselect-button #cityspan-text {
-    color: white;
-    margin: 0px;
-    padding-left: 2px;
+    font-size: 18px;
+    margin-left: 10px;
   }
   .searchpage-section #search-tabber #search-tabber-subdiv #searchpage-regioncity-select-wrapper #location-arrow-up {
     display: none;
@@ -2438,58 +2646,50 @@ main {
 }
 
 @media (min-width: 875px) {
-  #searchbutton-wrappers {
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    display: none;
-  }
-
   .search-result-wrapper {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     width: 100%;
     margin: auto;
   }
-
-  .search-result-midpage {
+  .search-result-wrapper .search-result-midpage {
     display: flex;
     width: 60%;
     flex-direction: column;
   }
-  .search-result-midpage .search-result-midpage-header {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-header {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
   }
-  .search-result-midpage .search-result-midpage-header .search-result-midpage-header-right {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-header .search-result-midpage-header-right {
     width: 50%;
     text-align: right;
   }
-  .search-result-midpage .search-result-midpage-header .search-result-midpage-header-left {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-header .search-result-midpage-header-left {
     width: 50%;
     text-align: left;
   }
-  .search-result-midpage .search-result-midpage-header .search-result-midpage-header-left h1 {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-header .search-result-midpage-header-left h1 {
     font-size: 16px;
   }
-  .search-result-midpage .search-result-rightpage {
+  .search-result-wrapper .search-result-midpage .search-result-rightpage {
     width: 100%;
     background-color: #f4f4f4;
     border-radius: 3px;
     margin-bottom: 40px;
     margin-top: 40px;
   }
-  .search-result-midpage .search-result-midpage-results {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-results {
     width: 100%;
     margin-bottom: 40px;
   }
-  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper {
     width: 100%;
   }
-  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper {
     display: flex;
     flex-direction: row;
     background-color: #f4f4f4 !important;
@@ -2497,181 +2697,84 @@ main {
     padding: 10px 20px 10px 20px;
     border-radius: 4px;
     margin-bottom: 10px;
+    height: 140px;
   }
-  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper:hover {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper:hover {
     cursor: pointer;
     border-left: 4px solid #333;
     padding-left: 16px;
   }
-  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-image-wrapper {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-image-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 6vw;
-    height: 6vw;
-    border-radius: 10px;
-    background-color: #fff;
+    width: 20%;
   }
-  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-image-wrapper img {
-    margin: auto;
-    width: 90%;
-    height: 90%;
-  }
-  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper {
-    width: 80%;
+  .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper {
     display: flex;
     flex-direction: column;
+    width: 80%;
   }
-  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .title-wrapper {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .title-wrapper {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
-  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .title-wrapper .article-title {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .title-wrapper .article-title {
     font-weight: bold;
     font-size: 18px;
     max-width: 80%;
     margin: 0px;
     margin-top: 0px;
   }
-  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .title-wrapper .time-stamp {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .title-wrapper .time-stamp {
     text-align: right;
     width: 20%;
     margin: 0px;
   }
-  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .article-information-bottom {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .article-information-middle {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .article-information-bottom {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     margin-top: auto;
   }
-  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .article-information-bottom .article-info {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .article-information-bottom .article-info {
     width: 30%;
   }
-  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .article-information-bottom .article-rating {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .article-information-bottom .article-rating {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
-  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .article-information-bottom .article-price {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .article-information-bottom .article-price {
     margin: 0px;
   }
-  .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .article-information-bottom .article-class {
+  .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper .article-information-bottom .article-class {
     margin: 0px;
   }
-  .search-result-midpage #no-articles-found {
+  .search-result-wrapper .search-result-midpage #no-articles-found {
     display: none;
     background-color: #f4f4f4;
     margin-bottom: 30px;
   }
-  .search-result-midpage #no-articles-found h3 {
+  .search-result-wrapper .search-result-midpage #no-articles-found h3 {
     font-size: 26px;
     margin-bottom: 10px;
     text-align: center;
     padding-left: 20px;
     padding-right: 20px;
   }
-  .search-result-midpage #no-articles-found p {
+  .search-result-wrapper .search-result-midpage #no-articles-found p {
     padding-left: 20px;
     padding-right: 20px;
     font-size: 18px;
     text-align: center;
-  }
-
-  #searchpage-sidemenu-wrapper {
-    display: flex;
-    flex-direction: row-reverse;
-    position: fixed;
-    z-index: 15;
-    background-color: #333;
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    left: 0px;
-    top: 240px;
-  }
-  #searchpage-sidemenu-wrapper #arrowopen-anchor {
-    cursor: pointer;
-  }
-  #searchpage-sidemenu-wrapper #arrowopen-anchor:hover {
-    opacity: 0.5;
-  }
-  #searchpage-sidemenu-wrapper #arrowopen-anchor #sidemenu-arrow-open {
-    margin: 6px;
-    display: block;
-  }
-  #searchpage-sidemenu-wrapper #arrowclose-anchor {
-    display: none;
-    cursor: pointer;
-  }
-  #searchpage-sidemenu-wrapper #arrowclose-anchor:hover {
-    opacity: 0.5;
-  }
-  #searchpage-sidemenu-wrapper #arrowclose-anchor #sidemenu-arrow-close {
-    margin: 6px;
-    margin-left: 400px;
-  }
-
-  #searchpage-sidemenu {
-    width: 0px;
-    height: 0px;
-    overflow: hidden;
-    color: black;
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    padding-top: 20px;
-    background-color: white;
-    overflow-x: hidden;
-    overflow-y: auto;
-    transition: 0.5s;
-    display: flex;
-    flex-direction: column;
-  }
-  #searchpage-sidemenu .sidemenu-option-wrapper {
-    display: flex;
-    flex-direction: column;
-  }
-  #searchpage-sidemenu .sidemenu-option-wrapper h2 {
-    font-size: 20px;
-    margin-bottom: 4px;
-    margin-top: 4px;
-    padding-left: 40px;
-  }
-  #searchpage-sidemenu .sidemenu-option-wrapper a {
-    font-size: 16px;
-  }
-  #searchpage-sidemenu .sidemenu-option-wrapper a:hover {
-    color: white;
-  }
-  #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 10px 10px 40px;
-  }
-  #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div .whitearrowright {
-    display: none;
-  }
-  #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div:hover {
-    background-color: rgba(51, 51, 51, 0.8);
-    color: white;
-    cursor: pointer;
-  }
-  #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div:hover .blackarrowright {
-    visibility: hidden;
-  }
-  #searchpage-sidemenu .sidemenu-option-wrapper .sidemenu-option-div:hover .whitearrowright {
-    display: block;
-  }
-
-  .sidemenu-separator {
-    height: 1px;
-    border-bottom: groove 1px;
   }
 
   #darkcover {
@@ -2685,58 +2788,47 @@ main {
     transition: 0.5s;
   }
 
-  .sidemenuextended {
+  #searchpage-filter-window {
+    height: 70vh;
     width: 0px;
-    height: 0px;
-    overflow: hidden;
-    color: black;
-    height: 100%;
-    width: 0;
     position: fixed;
-    z-index: 20;
-    top: 0;
-    left: 0px;
-    padding-top: 20px;
-    background-color: white;
-    overflow-x: hidden;
-    overflow-y: auto;
+    z-index: 10;
+    top: 15vh;
+    right: 20%;
+    background-color: #f4f4f4;
     transition: 0.5s;
-    display: flex;
-    flex-direction: column;
-  }
-  .sidemenuextended .sidemenu-option-div {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    padding: 10px 10px 10px 40px;
-  }
-  .sidemenuextended .sidemenu-option-div h2 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 20px;
-  }
-  .sidemenuextended .sidemenu-option-div p {
-    font-size: 16px;
-    margin: 0px;
-  }
-  .sidemenuextended .sidemenu-option-div .whitearrowleft {
     display: none;
+    flex-direction: column;
+    color: black;
+    border-radius: 6px;
+    box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+    padding: 20px;
   }
-  .sidemenuextended .sidemenu-option-div:hover {
-    background-color: #333333cc;
-    color: white;
-    cursor: pointer;
+  #searchpage-filter-window #searchpage-filter-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
-  .sidemenuextended .sidemenu-option-div:hover .blackarrowleft {
-    visibility: hidden;
+  #searchpage-filter-window #searchpage-filter-top h4 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
-  .sidemenuextended .sidemenu-option-div:hover .whitearrowleft {
-    display: block;
+  #searchpage-filter-window #searchpage-filter-top a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 6px 12px 6px 12px;
   }
-  .sidemenuextended .sidemenu-option-div:hover h2 {
-    margin-left: 5px;
+  #searchpage-filter-window #searchpage-filter-top a:hover {
+    background-color: #d4d4d4;
+    border-radius: 30px;
+  }
+  #searchpage-filter-window #searchpage-filter-top a span {
+    font-size: 30px;
+    margin-left: 10px;
   }
 }
 @media (min-width: 875px) {
@@ -3260,6 +3352,7 @@ main {
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display #conversation-header {
     height: 95px;
+    overflow: hidden;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information {
     display: flex;
@@ -3267,6 +3360,7 @@ main {
     align-items: center;
     padding-left: 10px;
     padding-right: 20px;
+    margin-top: 20px;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #nameheader-div {
     display: flex;
@@ -3275,6 +3369,9 @@ main {
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #nameheader-div #leaveconversation-anchor {
     display: none;
     margin-right: 10px;
+  }
+  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #nameheader-div p {
+    font-size: 26px;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #conversation-header-information-text {
     display: none;
@@ -3286,6 +3383,10 @@ main {
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
+  }
+  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #conversation-options:hover {
+    cursor: pointer;
+    filter: brightness(50%);
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #conversation-options-window {
     display: flex;
@@ -3310,12 +3411,13 @@ main {
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
   }
-  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #conversation-options-window a:nth-child(2) {
+  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #conversation-options-window a:nth-child(3) {
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #conversation-options-window a:hover {
     background-color: #707070;
+    cursor: pointer;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .header-separator-inbox {
     height: 1px;
@@ -3323,6 +3425,7 @@ main {
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-topic-clue {
     padding-left: 10px;
+    margin-top: auto;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-topic-clue #conversation-topic-p {
     display: none;
@@ -3369,6 +3472,18 @@ main {
     cursor: pointer;
     background-color: #707070;
   }
+  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-display-window #no-message-svg-wrapper {
+    display: none;
+    flex-direction: column;
+  }
+  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-display-window #no-message-svg-wrapper #no-message-svg {
+    margin: auto;
+  }
+  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-display-window #no-message-svg-wrapper h4 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 0px;
+  }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper {
     height: 50px;
     margin: auto;
@@ -3383,6 +3498,7 @@ main {
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .insert-button-chat #insert-button-chat:hover {
     filter: brightness(50%);
+    cursor: pointer;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .chat-input {
     margin: auto;
@@ -3391,18 +3507,30 @@ main {
     align-items: center;
     width: 90%;
   }
-  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .chat-input #chat-input {
+  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .chat-input #chat-input-final-wrapper #chat-input-file {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    background-color: #434347;
+    color: white;
+    min-height: 200px;
+    width: 500px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-style: none;
+  }
+  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .chat-input #chat-input-final-wrapper #chat-input {
     background-color: #434347;
     color: white;
     border-radius: 20px;
     border-style: none;
     height: 35px;
-    width: 500px;
+    width: 480px;
     padding-left: 20px;
     padding-right: 10px;
     font-size: 14px;
   }
-  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .chat-input #chat-input:focus {
+  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .chat-input #chat-input-final-wrapper #chat-input:focus {
     outline: none;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .chat-input-wrapper .chat-input #chatinput-sendbtn {
@@ -3429,14 +3557,15 @@ main {
   #text-sent .chat-text {
     display: flex;
     justify-content: right;
+    justify-content: flex-end;
     text-align: right;
-    margin-bottom: 10px;
   }
   #text-sent .chat-text p {
     background-color: #1f4ece;
     border-radius: 20px;
     padding: 10px 15px 10px 15px;
     text-align: left;
+    margin-bottom: 4px;
   }
 
   #text-recieved {
@@ -3447,7 +3576,6 @@ main {
   }
   #text-recieved .chat-text {
     text-align: left;
-    margin-bottom: 10px;
     display: flex;
     justify-content: left;
   }
@@ -3455,6 +3583,7 @@ main {
     background-color: gray;
     border-radius: 20px;
     padding: 10px 15px 10px 15px;
+    margin-bottom: 4px;
   }
 
   #chat-list {
@@ -3468,15 +3597,21 @@ main {
   }
   #chat-list .chat-item .chat-time-stamp {
     font-size: 12px;
+    margin-bottom: 4px;
+    margin-top: 0px;
   }
   #chat-list .chat-item .chat-text {
     color: white;
     height: auto;
     max-width: 300px;
     display: flex;
+    margin-bottom: 8px;
   }
   #chat-list .chat-item .chat-text p {
     margin: 0;
+  }
+  #chat-list li:nth-child(1) {
+    margin-top: 5px;
   }
 
   #imginput, #fileinput {
@@ -3655,7 +3790,11 @@ main {
   }
   #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .settings-window-wrapper-header {
     margin-top: 0px;
+    margin-bottom: 5px;
     font-size: 18px;
+  }
+  #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .settings-window-wrapper-explanation {
+    margin-bottom: 20px;
   }
   #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div {
     display: flex;
@@ -3671,9 +3810,14 @@ main {
     color: #5c5c5c;
   }
   #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div input {
-    height: 25px;
+    height: 40px;
+    font-size: 16px;
     width: 45.5%;
     padding-left: 10px;
+  }
+  #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div label {
+    resize: none;
+    width: 95%;
   }
   #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div .settings-window-file-input {
     margin-top: 10px;
@@ -3681,6 +3825,44 @@ main {
   }
   #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div #settings-window-file-existing-file {
     margin-bottom: 0px;
+  }
+  #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div .password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div .password-wrapper input {
+    border-radius: 3px;
+    border: 1px solid black;
+  }
+  #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div .password-wrapper .show-password-myaccount {
+    position: absolute;
+    width: 25px;
+    margin-left: 42%;
+  }
+  #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div .password-wrapper .show-password-myaccount svg {
+    fill: #9f9f9f;
+  }
+  #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div .password-wrapper .show-password-myaccount svg:hover {
+    fill: black;
+    cursor: pointer;
+  }
+  #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div #myaccount-beskrivning {
+    resize: none;
+    height: 100px;
+  }
+  #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div .one-input-div-100 {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div .one-input-div-100 #settings-window-website-link {
+    width: 95%;
+    padding-left: 50px;
+  }
+  #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div .one-input-div-100 .icon-input-left {
+    position: absolute;
+    margin-left: 10px;
   }
   #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .two-input-div {
     display: flex;
@@ -3702,7 +3884,8 @@ main {
     color: #5c5c5c;
   }
   #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .two-input-div .two-input-div-column input {
-    height: 25px;
+    height: 40px;
+    font-size: 16px;
     padding-left: 10px;
   }
   #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-save-btn {
@@ -3717,6 +3900,7 @@ main {
   #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-save-btn:hover {
     background-color: #c96400;
     cursor: pointer;
+    color: black;
   }
 }
 @media (max-width: 875px) {
@@ -3937,6 +4121,41 @@ main {
   }
   #article-main #article-wrapper-wrapper #about-assignment-giver #about-assignment-profile-information p {
     font-size: 16px;
+  }
+  #article-main #article-wrapper-wrapper #no-article-error {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  #article-main #article-wrapper-wrapper #no-article-error img {
+    margin: auto;
+    width: 30vw;
+  }
+  #article-main #article-wrapper-wrapper #no-article-error h4 {
+    text-align: center;
+    font-size: 40px;
+    margin: 0px;
+  }
+  #article-main #article-wrapper-wrapper #no-article-error button {
+    position: relative;
+    margin-top: 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    font-weight: bolder;
+    padding: 10px 20px 10px 20px;
+    margin-left: -20px;
+    margin-bottom: 20px;
+    border-style: none;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #f07900;
+  }
+  #article-main #article-wrapper-wrapper #no-article-error button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    top: -2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: black;
   }
 }
 @media (max-width: 875px) {
@@ -5111,7 +5330,7 @@ main {
     border-radius: 6px;
     border-style: groove 0.5px;
     width: 80vw;
-    background-color: #00006d;
+    background-color: #f07900;
     color: white;
     border-style: none;
     padding: 14px;
@@ -5120,10 +5339,9 @@ main {
     font-weight: bolder;
   }
   #login .containercentre-wrapper-wrapper-mobile .containercentre-secondrow-mobile {
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: space-between;
-    border-top: 1px solid #e9e9e9;
     margin: 0px 10px 10px 10px;
     padding: 10px 20px 10px 20px;
     background-color: white;
@@ -5166,6 +5384,18 @@ main {
   #login .containercentre-wrapper-wrapper .containercentre-secondrow {
     display: none;
   }
+  #login .containercentre-wrapper-wrapper .containercentre-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  #login .containercentre-wrapper-wrapper .containercentre-wrapper img {
+    margin: auto;
+  }
+  #login .containercentre-wrapper-wrapper .containercentre-wrapper h4 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 0px;
+  }
   #login .containercentre-wrapper-wrapper .containercentre-wrapper h1 {
     text-align: center;
     margin-bottom: 0px;
@@ -5200,7 +5430,7 @@ main {
     border-radius: 6px;
     border-style: none;
     font-weight: bolder;
-    background-color: #00006d;
+    background-color: #f07900;
     color: white;
   }
   #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #bankid-button-wrapper #bankid-initatebutton:hover {
@@ -5237,25 +5467,15 @@ main {
     height: 40px;
     width: 40px;
   }
-  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-  }
-  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword {
-    display: none;
-  }
-  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername #clearusername-btn, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearusername #clearpassword-btn, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword #clearusername-btn, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper #clearpassword #clearpassword-btn, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername #clearusername-btn, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearusername #clearpassword-btn, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword #clearusername-btn, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #clearpassword #clearpassword-btn {
-    display: none;
-  }
   #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #användarnamnlogin, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #lösenordlogin {
     width: 90%;
     height: 40px;
     border-radius: 6px;
     padding-left: 10px;
     margin: auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
   }
   #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #login-btn {
     margin: auto;
@@ -5265,7 +5485,7 @@ main {
     border-radius: 6px;
     border-style: none;
     font-weight: bolder;
-    background-color: #00006d;
+    background-color: #f07900;
     color: white;
     margin-bottom: 20px;
   }
@@ -5274,6 +5494,63 @@ main {
     color: #00006d;
     margin-left: 12px;
     text-align: left;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #close-bankId {
+    display: none;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 95%;
+    font-size: 18px;
+    padding: 14px;
+    border-radius: 6px;
+    border-style: none;
+    font-weight: bolder;
+    background-color: #f07900;
+    color: white;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #login-referral-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #login-referral-wrapper #forgot-password {
+    font-size: 16px;
+    color: black;
+    margin-left: 12px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: bold;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #login-referral-wrapper #forgot-password:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #login-referral-wrapper p {
+    font-size: 16px;
+    color: black;
+    margin: 0px;
+    margin-left: 12px;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #login-referral-wrapper p a {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #login-referral-wrapper p a:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper, #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #username-wrapper {
+    display: flex;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #show-password-login {
+    margin-right: 10px;
+  }
+  #login .containercentre-wrapper-wrapper #alternative-login-wrapper-wrapper #alternative-login-wrapper #password-wrapper #show-password-login .mask-password {
+    fill: black;
   }
 }
 /********** SEARCH PAGE NAVIGATION ****************/
@@ -5315,21 +5592,24 @@ main {
     margin: auto;
   }
   .search-result-main #top-button-wrapper {
-    display: flex;
-    flex-direction: row;
     margin: auto;
-    justify-content: space-between;
     width: 94vw;
     margin-top: 8px;
   }
   .search-result-main #top-button-wrapper button {
-    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     border-radius: 8px;
     border-style: none;
     background-color: #0F1419;
     color: white;
     font-size: 18px;
     padding: 6px;
+  }
+  .search-result-main #top-button-wrapper button img {
+    margin-left: 10px;
   }
   .search-result-main .search-result-topwrapper .search-result-wrapper .search-result-midpage {
     display: flex;
@@ -5371,7 +5651,7 @@ main {
     padding: 10px;
     border-radius: 4px;
     margin-bottom: 10px;
-    height: 100px;
+    height: 180px;
   }
   .search-result-main .search-result-topwrapper .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper:hover {
     cursor: pointer;
@@ -5379,26 +5659,10 @@ main {
     padding-left: 16px;
   }
   .search-result-main .search-result-topwrapper .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-image-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 15%;
-    height: auto;
-    border-radius: 10px;
-    background-color: #fff;
-  }
-  .search-result-main .search-result-topwrapper .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-image-wrapper::before {
-    content: "";
-    float: left;
-    padding-top: 100%;
-  }
-  .search-result-main .search-result-topwrapper .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-image-wrapper img {
-    margin: auto;
-    width: 50px;
-    height: 50px;
+    display: none;
   }
   .search-result-main .search-result-topwrapper .search-result-wrapper .search-result-midpage .search-result-midpage-results #article-wrapper-wrapper .article-wrapper .article-information-wrapper {
-    width: 75%;
+    width: 100%;
     display: flex;
     flex-direction: column;
   }
@@ -6076,47 +6340,39 @@ main {
   margin: 0 0 20px 0;
 }
 
-#imgcontainertou {
-  background-image: url("../images/terms_of_use_cover.jpeg");
-  background-size: cover;
-  width: 100%;
-  height: 500px;
-  background-position: 50% 45%;
+#loadingwindow {
+  height: 0vh;
+  width: 100vw;
+  top: 0;
+  position: fixed;
+  z-index: 20;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 5px 10px 10px #3333332f;
 }
-
-/* terms of use PAGE END */
-/* BLOG PAGES */
-/* Kitchen Start */
-#kitchenblogbackground {
-  background-image: url("../images/kitchen_stockphoto.jpeg");
-  background-size: cover;
-  width: 100%;
-  height: 500px;
-  background-position: 50% 45%;
+#loadingwindow #loading {
+  margin: auto;
+  width: 40px;
+  height: 40px;
+  border: 5px solid rgba(51, 51, 51, 0.11);
+  border-radius: 50%;
+  border-top-color: #f07900;
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
 }
-
-.kitchenimg, .kitchenimg2 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+@-webkit-keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
-
-.kitchenimg {
-  width: 500px;
-  height: 500px;
-}
-
-.kitchenimg2 {
-  width: 700px;
-  height: 460px;
-}
-
-/* Kitchen End */
-/* Countertop */
-#countertopimg {
-  background-image: url("../images/countertop1.jpg");
-  background-size: cover;
-  width: 100%;
-  height: 500px;
-  background-position: 60% 70%;
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=style.css.map */

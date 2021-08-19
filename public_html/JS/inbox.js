@@ -60,7 +60,12 @@ function populateChatList(){
                             },
                             success: function(response){
                                 var query = JSON.parse(response);
-                                conversationPopulate(query);
+                                if(query !== 0){
+                                    conversationPopulate(query);
+                                }
+                                else{ //no messages, display no-message-svg
+                                    document.getElementById('no-message-svg-wrapper').style.display = "flex";
+                                }
                             },
                         }
                     );
@@ -415,7 +420,7 @@ document.getElementById('fileinputlink').addEventListener('click', () => {
     document.getElementById('fileinput').click();
 });
 
-$('#fileinput').on('change', function(){
+$('#fileinput').on('change', function(){ //not working
     var output = [];
     for (var i = 0, len = this.files.length; i < len; i++) {
         output[output.length] =  this.files[i].name;
@@ -542,7 +547,6 @@ function populateChatHeader(chatArray){
     var accountid = newArrayLoginId[0];
     if(chatArray[0].constructor === Array){
         if(accountid == chatArray[0][1]){ //you're the sender
-
             $.ajax(
                 {
                     url: './PHP/inbox.php',
@@ -556,6 +560,7 @@ function populateChatHeader(chatArray){
                         response = JSON.parse(response);
                         document.getElementById('conversation-header-information-text').innerText = `${response[1]} ${response[2]}`;
                         sessionStorage.setItem("counterpart", `${chatArray[0][2]}`); //store the counterpart
+                        document.getElementById('inbox-account-link').setAttribute('href', `https://rendex.se/profile?id=${chatArray[0][2]}`)
                     },
                 }
             );
@@ -574,6 +579,7 @@ function populateChatHeader(chatArray){
                     success: function(response){
                         response = JSON.parse(response);
                         document.getElementById('conversation-header-information-text').innerText = `${response[1]} ${response[2]}`;
+                        document.getElementById('inbox-account-link').setAttribute('href', `https://rendex.se/profile?id=${chatArray[0][1]}`)
                     },
                 }
             );
@@ -594,6 +600,7 @@ function populateChatHeader(chatArray){
                         response = JSON.parse(response);
                         document.getElementById('conversation-header-information-text').innerText = `${response[1]}, ${response[2]}`;
                         sessionStorage.setItem("counterpart", `${chatArray[2]}`); //store the counterpart
+                        document.getElementById('inbox-account-link').setAttribute('href', `https://rendex.se/profile?id=${chatArray[2]}`)
                     },
                 }
             );
@@ -612,6 +619,7 @@ function populateChatHeader(chatArray){
                     success: function(response){
                         response = JSON.parse(response);
                         document.getElementById('conversation-header-information-text').innerText = `${response[1]} ${response[2]}`;
+                        document.getElementById('inbox-account-link').setAttribute('href', `https://rendex.se/profile?id=${chatArray[1]}`)
                     },
                 }
             );
@@ -843,7 +851,7 @@ function chatTextParser(queryChat){
 
     if(queryChat[0].constructor === Array){ //Multiple texts has been sent
         for(i=0; i < queryChat.length; i++){
-            if(queryChat[i][1] != accountid[0]){ //grey text AKA recieved text
+            if(queryChat[i][1] != accountid){ //grey text AKA recieved text
                 var li = document.createElement('li');
                 li.setAttribute('class', 'chat-item');
                 li.setAttribute('id', 'text-recieved');
@@ -866,7 +874,7 @@ function chatTextParser(queryChat){
 
                 document.getElementById('chat-list').appendChild(li);
             }
-            else if(queryChat[i][1] == accountid[0]){ //blue text AKA your text
+            else if(queryChat[i][1] == accountid){ //blue text AKA your text
                 var li = document.createElement('li');
                 li.setAttribute('class', 'chat-item');
                 li.setAttribute('id', 'text-sent');
@@ -892,7 +900,7 @@ function chatTextParser(queryChat){
         }
     }
     else{
-        if(queryChat[0] != accountid[0]){ //grey text AKA recieved text
+        if(queryChat[1] !== accountid){ //grey text AKA recieved text
             var li = document.createElement('li');
             li.setAttribute('class', 'chat-item');
             li.setAttribute('id', 'text-recieved');
@@ -910,12 +918,12 @@ function chatTextParser(queryChat){
             var p2 = document.createElement('p');
             div3.appendChild(p2);
 
-            p1.innerText = `${queryChat[2].substring(0,16)}`;
-            p2.innerText = `${queryChat[3]}`;
+            p1.innerText = `${queryChat[3].substring(0,16)}`;
+            p2.innerText = `${queryChat[4]}`;
 
             document.getElementById('chat-list').appendChild(li);
         }
-        else if(queryChat[0] == accountid[0]){ //blue text AKA your text
+        else if(queryChat[1] == accountid){ //blue text AKA your text
             var li = document.createElement('li');
             li.setAttribute('class', 'chat-item');
             li.setAttribute('id', 'text-sent');
@@ -933,8 +941,8 @@ function chatTextParser(queryChat){
             var p2 = document.createElement('p');
             div3.appendChild(p2);
 
-            p1.innerText = `${queryChat[2].substring(0,16)}`;
-            p2.innerText = `${queryChat[3]}`;
+            p1.innerText = `${queryChat[3].substring(0,16)}`;
+            p2.innerText = `${queryChat[4]}`;
 
             document.getElementById('chat-list').appendChild(li);
         }

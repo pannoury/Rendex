@@ -85,7 +85,7 @@
             echo json_encode($points);
         }
         else if(mysqli_num_rows($result) == 0){
-            echo ("less than 1");
+            echo json_encode(0);
         }
     }
     else if($requestId == 3){

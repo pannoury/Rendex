@@ -16,8 +16,8 @@ function viewControl(){ //checks whether its you looking at your public profile 
     if(cookieid[0] == id){ //you are looking at your own page
         document.getElementById('initiate-chat').style.display = "none";
     }
-    else{
-        //do nothing
+    else if(cookieid[0] == null || cookieid[0] == undefined){
+        window.location = "https://rendex.se/login"
     }
 }
 
@@ -25,29 +25,41 @@ function getURLParameterProfile(){
     var url_string = window.location.href;
     var url = new URL(url_string);
     var id = url.searchParams.get("id");
-    $.ajax(
-        {
-            url: './PHP/individuals.php',
-            dataType: 'text',
-            method: 'GET',
-            data: {
-                requestid: 1,
-                userid: id,
-                role: 0, //since we dont know the role yet
-            },
-            success: function(response){
-                var response = JSON.parse(response);
-                
-                if(response[1] == 1){ //individual
-                    individualRender(response, id);
-                }
-                else if(response[1] == 2){ //organisation
-                    organisationRender(response, id);
+    if(id !== null && id !== undefined && id !== " "){
+        $.ajax(
+            {
+                url: './PHP/individuals.php',
+                dataType: 'text',
+                method: 'GET',
+                data: {
+                    requestid: 1,
+                    userid: id,
+                    role: 0, //since we dont know the role yet
+                },
+                success: function(response){
+                    var response = JSON.parse(response);
+                    
+                    if(response[1] == 1){ //individual
+                        individualRender(response, id);
+                    }
+                    else if(response[1] == 2){ //organisation
+                        organisationRender(response, id);
+                    }
+                    else if(response[1] === ""){
+                        document.getElementById('no-account-error').style.display = "flex";
+                        document.getElementById('account-wrapper-wrapper').style.display = "none";
+                    }
                 }
             }
-        }
-    );
+        );
+    }
+    else{
+        document.getElementById('no-account-error').style.display = "flex";
+        document.getElementById('account-wrapper-wrapper').style.display = "none";
+    }
+
 };
+
 
 function individualRender(response, id){
     document.getElementById('profile-email').innerText = `${response[2]}`
@@ -62,7 +74,6 @@ function individualRender(response, id){
             },
             success: function(response){
                 var response = JSON.parse(response);
-                console.log(response)
                 document.getElementById('accountpage-companyname').innerText = `${response[1]} ${response[2]}`;
                 
                 //hide information that is only shown among organisation profiles
@@ -82,8 +93,13 @@ function individualRender(response, id){
 
 function organisationRender(response, id){
  //do nothing yet
+ //this function populates the profile site in case the profile is an organisation
+ //needs to be added
 }
 
+//These functions allow users to text other users in case they dont have
+//an existing conversation, or if they want to text in an already existing chat
+//
 /************Chat function */
 document.getElementById('initiate-chat').addEventListener('click', function(){
     var width = window.innerWidth;
@@ -191,7 +207,7 @@ document.getElementById('new-send-wrapper').addEventListener('click', function()
                             {
                                 url: './PHP/inbox.php',
                                 dataType: 'text',
-                                method: 'GET',
+                                method: 'POST',
                                 data: {
                                     requestid: 5,
                                     sender: cookieid[0],

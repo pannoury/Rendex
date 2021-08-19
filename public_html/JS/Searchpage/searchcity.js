@@ -8,8 +8,17 @@ var backToRegionBtn = document.getElementById('backtoregionselect');
 var brackets = /\[|\]/g;
 var width = window.screen.width;
 
+function test(){
+    document.getElementById('searchpage-filter-window').style.display = "flex";
+    document.getElementById('searchpage-filter-window').style.width = "50vw";
+    document.getElementById('searchpage-filter-window').style.height = "50vh";
+}
+
+
+
 /* OPEN REGION WINDOW */
 document.getElementById('searchpage-regioncity-select-wrapper').addEventListener('click', function(){
+    test();
     locationSelectButton();
 });
 document.getElementById('plats-btn').addEventListener('click', function(){
@@ -30,27 +39,11 @@ function locationSelectButton(){
                     var region = localStorage.getItem("regionSelected");
                     var region = region.replace(/"/g, "")
                     if(helaSverige.checked = true && region == "Hela Sverige"){
-                        document.getElementById('Blekinge').checked = false;
-                        document.getElementById('Dalarna').checked = false;
-                        document.getElementById('Gävleborg').checked = false;
-                        document.getElementById('Gotland').checked = false;
-                        document.getElementById('Halland').checked = false;
-                        document.getElementById('Jämtland').checked = false;
-                        document.getElementById('Jönköping').checked = false;
-                        document.getElementById('Kalmar').checked = false;
-                        document.getElementById('Kronoberg').checked = false;
-                        document.getElementById('Norrbotten').checked = false;
-                        document.getElementById('Örebro').checked = false;
-                        document.getElementById('Östergötland').checked = false;
-                        document.getElementById('Skåne').checked = false;
-                        document.getElementById('Sörmland').checked = false;
-                        document.getElementById('Stockholm').checked = false;
-                        document.getElementById('Uppsala').checked = false;
-                        document.getElementById('Värmland').checked = false;
-                        document.getElementById('Västerbotten').checked = false;
-                        document.getElementById('Västernorrland').checked = false;
-                        document.getElementById('Västmanland').checked = false;
-                        document.getElementById('Västra Götaland').checked = false;
+                        var regionOptions = $('input[name=region]');
+                        for(x in regionOptions){
+                            regionOptions[x].checked = false;
+                        }
+                        helaSverige.checked = true;
                         document.getElementById('location-initiate-button').style.display = "block";
                         document.getElementById('location-city-button').style.display = "none";
                     }
@@ -69,7 +62,7 @@ function locationSelectButton(){
     }
     windowWidthCheck();
 }
-function windowWidthCheck(){
+function windowWidthCheck(){ //adjust size of window
     var width = window.screen.width;
     if(width > 875){
         document.getElementById('locationselectwindow').style.width = "300px";
@@ -138,28 +131,11 @@ document.getElementById('helasverigecheckbox').onclick = function(){
         if (x[i].checked) {
             checkedboxes++;
             if (checkedboxes > 1){
+                var regionOptions = $('input[name=region]');
+                for(x in regionOptions){
+                    regionOptions[x].checked = false;
+                }
                 helaSverige.checked = true;
-                document.getElementById('Blekinge').checked = false;
-                document.getElementById('Dalarna').checked = false;
-                document.getElementById('Gävleborg').checked = false;
-                document.getElementById('Gotland').checked = false;
-                document.getElementById('Halland').checked = false;
-                document.getElementById('Jämtland').checked = false;
-                document.getElementById('Jönköping').checked = false;
-                document.getElementById('Kalmar').checked = false;
-                document.getElementById('Kronoberg').checked = false;
-                document.getElementById('Norrbotten').checked = false;
-                document.getElementById('Örebro').checked = false;
-                document.getElementById('Östergötland').checked = false;
-                document.getElementById('Skåne').checked = false;
-                document.getElementById('Sörmland').checked = false;
-                document.getElementById('Stockholm').checked = false;
-                document.getElementById('Uppsala').checked = false;
-                document.getElementById('Värmland').checked = false;
-                document.getElementById('Västerbotten').checked = false;
-                document.getElementById('Västernorrland').checked = false;
-                document.getElementById('Västmanland').checked = false;
-                document.getElementById('Västra Götaland').checked = false;
                 document.getElementById('location-initiate-button').style.display = "block";
                 document.getElementById('location-city-button').style.display = "none";
             }
@@ -172,67 +148,67 @@ document.getElementById('helasverigecheckbox').onclick = function(){
 cityButton.addEventListener('click', function cityDisplayControl(){
     clearCityList();
     if(document.getElementById('Blekinge').checked === true){
-        cityWindowScript('blekinge');
+        cityWindowScript('Blekinge');
     }
     else if(document.getElementById('Dalarna').checked === true){
-        cityWindowScript('dalarna');
+        cityWindowScript('Dalarna');
     }
     else if(document.getElementById('Gävleborg').checked === true){
-        cityWindowScript('gävleborg');
+        cityWindowScript('Gävleborg');
     }
     else if(document.getElementById('Gotland').checked === true){
-        cityWindowScript('gotland');
+        cityWindowScript('Gotland');
     }
     else if(document.getElementById('Halland').checked === true){
-        cityWindowScript('halland');
+        cityWindowScript('Halland');
     }
     else if(document.getElementById('Jämtland').checked === true){
-        cityWindowScript('jämtland');
+        cityWindowScript('Jämtland');
     }
     else if(document.getElementById('Jönköping').checked === true){
-        cityWindowScript('jönköping');
+        cityWindowScript('Jönköping');
     }
     else if(document.getElementById('Kalmar').checked === true){
-        cityWindowScript('kalmar');
+        cityWindowScript('Kalmar');
     }
     else if(document.getElementById('Kronoberg').checked === true){
-        cityWindowScript('kronoberg');
+        cityWindowScript('Kronoberg');
     }
     else if(document.getElementById('Norrbotten').checked === true){
-        cityWindowScript('norrbotten');
+        cityWindowScript('Norrbotten');
     }
     else if(document.getElementById('Örebro').checked === true){
-        cityWindowScript('örebro');
+        cityWindowScript('Örebro');
     }
     else if(document.getElementById('Östergötland').checked === true){
-        cityWindowScript('östergötland');
+        cityWindowScript('Östergötland');
     }
     else if(document.getElementById('Skåne').checked === true){
-        cityWindowScript('skåne');
+        cityWindowScript('Skåne');
     }
     else if(document.getElementById('Sörmland').checked === true){
-        cityWindowScript('sörmland');
+        cityWindowScript('Sörmland');
     }
     else if(document.getElementById('Stockholm').checked === true){
-        cityWindowScript('stockholm');
+        cityWindowScript('Stockholm');
     }
     else if(document.getElementById('Uppsala').checked === true){
-        cityWindowScript('uppsala');
+        cityWindowScript('Uppsala');
     }
     else if(document.getElementById('Värmland').checked === true){
-        cityWindowScript('värmland');
+        cityWindowScript('Värmland');
     }
     else if(document.getElementById('Västerbotten').checked === true){
-        cityWindowScript('västerbotten');
+        cityWindowScript('Västerbotten');
     }
     else if(document.getElementById('Västernorrland').checked === true){
-        cityWindowScript('västernorrland');
+        cityWindowScript('Västernorrland');
     }
     else if(document.getElementById('Västmanland').checked === true){
-        cityWindowScript('västmanland');
+        cityWindowScript('Västmanland');
     }
     else if(document.getElementById('Västra Götaland').checked === true){
-        cityWindowScript('västra götaland');
+        cityWindowScript('Västra Götaland');
     }
 });
 backToRegionBtn.addEventListener('click', function(){
@@ -300,57 +276,15 @@ document.getElementById('allaområdencheckbox').onclick = function(){
 
 function cityWindowScript(regionValue){
     clearCityList();
+    console.log(regionValue)
     var citySelected = localStorage.getItem("citySelected");
     if(regionValue === 'västra götaland'){
-        //var regionValueNoSpace = regionValue.replace(/ /g, "");
-        document.getElementById('locationvästragötaland').style.display = "flex";
-        document.getElementById('regioncityheader').innerText = "Västra Götaland";
-        if(citySelected === null || citySelected === undefined){
-            clearCitySelection();
-            document.getElementById('allaområdencheckbox').checked = true;
-        }
-        else if(citySelected.includes(',')){
-            var citySelected = citySelected.replace(/"/g, "");
-            var citySelected = citySelected.split(',');
-            for (i = 0; i < citySelected.length; i++){
-                document.getElementById(citySelected[i]).checked = true;
-                document.getElementById('allaområdencheckbox').checked = false;
-            }
-        }
-        else if(citySelected = 'Alla Städer'){
-            clearCitySelection();
-            document.getElementById('allaområdencheckbox').checked = true;
-        }
-        else{
-            var citySelected = citySelected.replace(/"/g, "");
-            document.getElementById(`${citySelected}`).checked = true;
-        }
+        populateCityOptions(regionValue);
     }
     else if(regionValue !== 'västra götaland'){
         var regionToUpperCase = regionValue.charAt(0).toUpperCase() + regionValue.slice(1);
         if(document.getElementById(regionToUpperCase).checked === true){
-            document.getElementById(`location${regionValue}`).style.display = "flex";
-            document.getElementById('regioncityheader').innerText = `${regionToUpperCase}`;
-            if(citySelected === null || citySelected === undefined){
-                clearCitySelection();
-                document.getElementById('allaområdencheckbox').checked = true;
-            }
-            else if(citySelected.includes(',')){
-                var citySelected = citySelected.replace(/"/g, "");
-                var citySelected = citySelected.split(',');
-                for (i = 0; i < citySelected.length; i++){
-                    document.getElementById(citySelected[i]).checked = true;
-                    document.getElementById('allaområdencheckbox').checked = false;
-                }
-            }
-            else if(citySelected = `Hela + ${regionValue}`){
-                document.getElementById('allaområdencheckbox').checked = true;
-            }
-            else{
-                console.log(citySelected);
-                var citySelected = citySelected.replace(/"/g, "");
-                document.getElementById(`${citySelected}`).checked = true;
-            }
+            populateCityOptions(regionValue);
         }
     }
     else if(regionValue.includes(',')){
@@ -371,6 +305,93 @@ function cityWindowScript(regionValue){
     }
     
 }
+/******************Dynamic City Options *****************/
+function populateCityOptions(regionValue){
+    console.log(regionValue);
+    if(regionValue.includes(' ') == true){
+        document.getElementById('regioncityheader').innerText = 'Västra Götaland';
+        var regionValue = regionValue.replace(/\s/g, "");
+        console.log(regionValue);
+
+        var cityWrapper = document.getElementById('locationselect-cityoptions');
+        var locationCityWrapper = document.createElement('div');
+        locationCityWrapper.setAttribute('class', 'locationcityoptions');
+        locationCityWrapper.setAttribute('id', `location${regionValue}`);
+
+        cityWrapper.append(locationCityWrapper);
+
+        var array = window[`${regionValue}CityArray`];
+        for(x in array){
+            var cityOptionWrapper = document.createElement('div');
+            cityOptionWrapper.setAttribute('class', 'singlecityoption');
+    
+            var cityInput = document.createElement('input');
+            cityInput.setAttribute('type', 'checkbox');
+            cityInput.setAttribute('name', 'city');
+            cityInput.setAttribute('class', 'citycheckbox');
+            cityInput.setAttribute('value', `${array[x]}`);
+            cityInput.setAttribute('id', `${array[x]}`);
+
+            var label = document.createElement('label');
+            label.textContent = `${array[x]}`;
+
+            locationCityWrapper.append(cityOptionWrapper);
+            cityOptionWrapper.append(cityInput);
+            cityOptionWrapper.append(label);
+        }
+    }
+    else{
+        document.getElementById('regioncityheader').innerText = `${regionValue}`;
+        var cityWrapper = document.getElementById('locationselect-cityoptions');
+        var locationCityWrapper = document.createElement('div');
+        locationCityWrapper.setAttribute('class', 'locationcityoptions');
+        locationCityWrapper.setAttribute('id', `location${regionValue}`);
+
+        cityWrapper.append(locationCityWrapper);
+
+        var array = window[`${regionValue}CityArray`];
+        for(x in array){
+            var cityOptionWrapper = document.createElement('div');
+            cityOptionWrapper.setAttribute('class', 'singlecityoption');
+    
+            var cityInput = document.createElement('input');
+            cityInput.setAttribute('type', 'checkbox');
+            cityInput.setAttribute('name', 'city');
+            cityInput.setAttribute('class', 'citycheckbox');
+            cityInput.setAttribute('value', `${array[x]}`);
+            cityInput.setAttribute('id', `${array[x]}`);
+
+            var label = document.createElement('label');
+            label.textContent = `${array[x]}`;
+
+            locationCityWrapper.append(cityOptionWrapper);
+            cityOptionWrapper.append(cityInput);
+            cityOptionWrapper.append(label);
+        }
+    }
+
+    if(citySelected === null || citySelected === undefined){
+        clearCitySelection();
+        document.getElementById('allaområdencheckbox').checked = true;
+    }
+    else if(citySelected.includes(',')){
+        var citySelected = citySelected.replace(/"/g, "");
+        var citySelected = citySelected.split(',');
+        for (i = 0; i < citySelected.length; i++){
+            document.getElementById(citySelected[i]).checked = true;
+            document.getElementById('allaområdencheckbox').checked = false;
+        }
+    }
+    else if(citySelected = 'Alla Städer'){
+        clearCitySelection();
+        document.getElementById('allaområdencheckbox').checked = true;
+    }
+    else{
+        var citySelected = citySelected.replace(/"/g, "");
+        document.getElementById(`${citySelected}`).checked = true;
+    }
+}
+/******************Dynamic City Options *****************/
 /*************************INITIATE LOAD******************* */
 document.getElementById('location-initiate-button').addEventListener('click', function(){
     localStorage.clear("regionSelected");

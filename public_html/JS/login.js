@@ -3,7 +3,10 @@ var användarNamn = document.getElementById('användarnamnlogin');
 var password = document.getElementById('lösenordlogin');
 var loginButton = document.getElementById('login-btn');
 $(document).ready(function(){
-    loggedInControl2();
+    loggedInControl();
+    //loggedInControl2();
+    languageControl();
+    cookieConsentLoad();
 });
 async function loggedInControl2(){
     var loginId = getCookie("a_user");
@@ -69,45 +72,43 @@ function closeSlideHelp(){
     document.getElementById('login').style.marginLeft='0';
 }
 document.getElementById('bankid-initatebutton').onclick = function(){
-    if(width > 875){
-        document.getElementById('containercentre-firstrow-desktop').style.display = "block";
+    var arialabel = document.getElementById('bankid-initatebutton').getAttribute('aria-label');
+    if(arialabel == "open"){
+        document.getElementById('bankid-initatebutton').setAttribute('aria-label', 'open');
     }
     else{
-        document.getElementById('bankidlogin-mobile').style.display = "block";
-        document.getElementById('alternative-login-wrapper-wrapper').style.display = "none";
+        if(width > 875){
+            document.getElementById('containercentre-firstrow-desktop').style.display = "block";
+            document.getElementsByClassName('containercentre-secondrow')[0].style.display = "flex";
+        }
+        else{
+            document.getElementById('bankidlogin-mobile').style.display = "block";
+            document.getElementById('alternative-login-wrapper-wrapper').style.display = "none";
+            document.getElementsByClassName('containercentre-secondrow-mobile')[0].style.display = "flex";
+        }
+        document.getElementById('username-wrapper').style.display = "none"
+        document.getElementById('password-wrapper').style.display = "none"
+        document.getElementById('login-btn').style.display = "none"
+        document.getElementById('bankid-initatebutton').style.display = "none";
     }
-    
+    document.getElementById('close-bankId').style.display = "block";
+    document.getElementsByClassName('containercentre-wrapper-wrapper')[0].style.height = "75vh";
 };
+document.getElementById('close-bankId').onclick = function(){
+    document.getElementById('containercentre-firstrow-desktop').style.display = "none";
+    document.getElementById('close-bankId').style.display = "none";
+
+    document.getElementById('username-wrapper').style.display = "flex";
+    document.getElementById('password-wrapper').style.display = "flex";
+    document.getElementById('login-btn').style.display = "block";
+    document.getElementById('bankid-initatebutton').style.display = "flex";
+    document.getElementsByClassName('containercentre-secondrow')[0].style.display = "none";
+    document.getElementsByClassName('containercentre-wrapper-wrapper')[0].style.height = "60vh";
+}
 document.getElementById('credentials-login-btn').onclick = function(){
     document.getElementById('bankidlogin-mobile').style.display = "none";
     document.getElementById('alternative-login-wrapper-wrapper').style.display = "block";
 };
-
-document.getElementById('användarnamnlogin').oninput = function(){
-    if(användarNamn.value.length >= 1){
-        document.getElementById('clearusername').style.display = "flex";
-    }
-    else{
-        document.getElementById('clearusername').style.display = "none";
-    }
-};
-document.getElementById('lösenordlogin').oninput = function(){
-    if(password.value.length >= 1){
-        document.getElementById('clearpassword').style.display = "flex";
-    }
-    else{
-        document.getElementById('clearpassword').style.display = "none";
-    }
-};
-document.getElementById('clearusername-btn').onclick = function(){
-    document.getElementById('användarnamnlogin').value = "";
-    document.getElementById('clearusername').style.display = "none";
-};
-document.getElementById('clearpassword-btn').onclick = function(){
-    document.getElementById('lösenordlogin').value = "";
-    document.getElementById('clearpassword').style.display = "none";
-};
-
 document.getElementById('login-btn').onclick = function(){
     var username = document.getElementById('användarnamnlogin').value;
     var password = document.getElementById('lösenordlogin').value;
@@ -118,7 +119,7 @@ document.getElementById('login-btn').onclick = function(){
             {
                 url: './PHP/login.php',
                 dataType: 'text',
-                method: 'POST',
+                method: 'GET',
                 data: {
                     login: 1,
                     username: username,
@@ -136,6 +137,12 @@ document.getElementById('login-btn').onclick = function(){
                     }
                     else{
                         document.getElementById('error-message-login-wrapper').style.display = "block";
+                        document.getElementById('användarnamnlogin').style.borderColor = "red";
+                        document.getElementById('lösenordlogin').style.borderColor = "red";
+
+                        if(width > 875){
+                            document.querySelectorAll('.containercentre-wrapper-wrapper')[0].style.height = "78vh";
+                        }
                     }
 
                 },
@@ -147,3 +154,31 @@ document.getElementById('login-btn').onclick = function(){
         document.getElementById('lösenordlogin').style.borderColor = "red";
     }
 };
+
+document.getElementById('show-password-login').onclick = function(){ //display password
+    var type = document.getElementById('lösenordlogin').getAttribute('aria-label');
+
+    if(type == null || type == undefined || type == 'hidden'){
+        document.getElementById('lösenordlogin').setAttribute('type', 'text');
+        document.getElementById('lösenordlogin').setAttribute('aria-label', 'toggled');
+        document.querySelectorAll('.mask-password-strikethrough')[0].style.display = "none";
+    }
+    else if(type == 'toggled'){
+        document.getElementById('lösenordlogin').setAttribute('type', 'password');
+        document.getElementById('lösenordlogin').setAttribute('aria-label', 'hidden');
+        document.querySelectorAll('.mask-password-strikethrough')[0].style.display = "";
+    }
+}
+document.getElementById('searchpageanchor').onclick = function(){
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
+    if(newArrayLoginId[0] === null || newArrayLoginId[0] === undefined || newArrayLoginId[0] === ""){
+        window.location = "https://rendex.se/login"
+    }
+    else if(newArrayLoginId[0] >= 1){
+        window.location = "https://rendex.se/searchpage";
+    }
+    else{
+        window.location = "https://rendex.se/login"
+    }
+}

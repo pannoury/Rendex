@@ -35,22 +35,34 @@
     h1{text-align: center;}
     p{margin: 0 0 20px 0;}
 }
-#imgcontainertou{
-    background-image: url('../images/terms_of_use_cover.jpeg'); background-size: cover;
-    width: 100%; height: 500px; background-position: 50% 45%;
-}
-/* terms of use PAGE END */
 
-/* BLOG PAGES */
-/* Kitchen Start */
-#kitchenblogbackground{
-    background-image: url('../images/kitchen_stockphoto.jpeg'); background-size: cover;
-    width: 100%; height: 500px; background-position: 50% 45%;
+#loadingwindow{
+    height: 0vh;
+    width: 100vw;
+    top: 0;
+    position: fixed;
+    z-index: 20;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 5px 10px 10px #3333332f;
+    #loading{
+        margin: auto;
+        width: 40px;
+        height: 40px;
+        border: 5px solid rgba(51, 51, 51, 0.11);
+        border-radius: 50%;
+        border-top-color: $rendex-orange;
+        animation: spin 1s linear infinite;
+    }
+    @keyframes spin{
+        100%{
+            transform: rotate(360deg);
+        }
+    }
 }
-.kitchenimg, .kitchenimg2{display: block; margin-left: auto; margin-right: auto;}
-.kitchenimg{width: 500px; height: 500px;} .kitchenimg2{width: 700px; height: 460px;}
-/* Kitchen End */
-
-/* Countertop */
-#countertopimg{background-image: url('../images/countertop1.jpg'); background-size: cover;
-width: 100%; height: 500px; background-position: 60% 70%;}

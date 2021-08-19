@@ -52,19 +52,21 @@ function createArticle(array){
     a1.setAttribute('class', 'article-wrapper');
     resultWrapper.appendChild(a1);
 
-    var div1 = document.createElement('div');
-    div1.setAttribute('class', 'article-image-wrapper');
-    a1.appendChild(div1);
-
     var div2 = document.createElement('div');
     div2.setAttribute('class', 'article-information-wrapper');
     a1.appendChild(div2);
+
+    var div1 = document.createElement('div');
+    div1.setAttribute('class', 'article-image-wrapper');
+    a1.appendChild(div1);
     /************First layer *********/
     
     /********ARTICLE-IMAGE-WRAPPER********* */
+    /*
     var image = document.createElement('img');
     image.setAttribute('alt', 'article-image');
     div1.appendChild(image);
+    */
     /********ARTICLE-IMAGE-WRAPPER********* */
 
     /********ARTICLE-INFORMATION-WRAPPER********* */
@@ -79,9 +81,18 @@ function createArticle(array){
         div4.appendChild(pA);
         div4.appendChild(pB);
 
+
+    var divMid = document.createElement('div');
+    divMid.setAttribute('class', 'article-information-middle');
+    div2.appendChild(divMid);
+    var pMid = document.createElement('p');
+    pMid.setAttribute('class', 'article-information-middle-text');
+    divMid.appendChild(pMid);
+
     var div5 = document.createElement('div');
     div5.setAttribute('class', 'article-information-bottom');
     div2.appendChild(div5);
+
     /********ARTICLE-INFORMATION-WRAPPER********* */
 
     var div6 = document.createElement('div');
@@ -146,10 +157,26 @@ function createArticle(array){
         }
     );
 
-    pA.innerText = `${array[6]}`;
-    pB.innerText = `${array[8].substring(0,10)}`;
-    p1.innerText = `${array[7]}`;
-    p2.innerText = `${array[5]}`;
+    pA.innerText = `${array[6]}`; //article titel label
+    pB.innerText = `${array[8].substring(0,10)}`; //date label
+    p2.innerText = `${array[5]}`; //category label
+
+    /************PRICE WINDOW IN ARTICLE *************/
+    if(array[7].includes(',') === true){ //a price intervall is set
+        var priceIntervall = array[7].split(','); //its going to contain two values'
+        if(priceIntervall[0].length >= 4){ //value is equal or more than 10k
+
+            p1.innerText = `${priceIntervall[0].substring(0, priceIntervall[0].length-3)}K - ${priceIntervall[1].substring(0, priceIntervall[1].length-3)}K`;
+            p1.style.fontWeight = "bold";
+        }
+    }
+    else{
+        p1.innerText = `${array[7]}`;
+        p1.style.fontWeight = "bold";
+    }
+    /************PRICE WINDOW IN ARTICLE *************/
+
+    pMid.innerText = `${array[4].replace(/\r?\n|\r/g, "").substring(0,300)}`;
     marginTopFix();
 };
 

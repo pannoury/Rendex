@@ -1,21 +1,3 @@
-var insuranceWrapper = document.getElementById('insurance-wrapper');
-var fullNameInputWrapper = document.getElementById('fullname-input-wrapper');
-var accountRoleSelect = document.getElementById('account-role-select');
-var accountRegionSelect = document.getElementById('account-region-select');
-var accountEmail = document.getElementById('account-emailrepeat');
-var accountPhoneNumber = document.getElementById('account-phonenumber');
-var accountCheckboxDiv = document.getElementById('checkboxdiv');
-var accountFinalCreateAccount = document.getElementById('finalcreateaccount');
-var registrationTrackerOne = document.getElementById('tracker1');
-var registrationTrackerTwo = document.getElementById('tracker2');
-var registrationTrackerThree = document.getElementById('tracker3');
-var personnummer = false;
-var aktieBolag = false;
-var enskildFirma = false;
-var arrowBack = document.getElementById('name-set');
-var arrowBackAddInfo = document.getElementById('addPersonnummer');
-var formWrapper = document.getElementById('form-wrapper');
-var classFormWrapper = formWrapper.className;
 let today = new Date();
 var day = today.getDate();
 var month = today.getMonth();
@@ -23,30 +5,55 @@ var hours = today.getHours();
 var minutes = today.getMinutes();
 var fullYear = today.getFullYear();
 
-/****************************PERSONNUMMER/ORGNUMMER***************************** */
-window.onload = function clear(){
+//Universal settings
+//Do not change these
+window.addEventListener('load', function(){
+    document.getElementById('loadingwindow').style.height = "100vh";
     sessionStorage.clear();
+    hideAndClearElements();
+    languageControl();
+    loggedInControl();
+    cookieConsentLoad();
+    purposeControl();
+    regionControl();
+    /* setInterval(clear, 600000) */
+});
+$(document).ready(function(){
+    setTimeout(function(){
+        document.getElementById('loadingwindow').style.height = "0vh";
+    }, 1000);
+    console.log(document.getElementById('agreetoa').checked)
+    console.log(document.getElementById('regioninput').value);
+    console.log(document.getElementById('purposeselect').value);
+});
+
+function hideAndClearElements(){
     document.getElementById('insurancenumber').value = "";
     document.getElementById('firstnameinput').value = "";
     document.getElementById('surnameinput').value = "";
-
-    document.getElementById('account-adress').style.display = "none";
-    document.getElementById('account-password').style.display = "none";
-    /* setInterval(clear, 600000) */
+    document.getElementById('emailinput').value = "";
+    document.getElementById('streetadressinput').value = "";
+    document.getElementById('zipcodeinput').value = "";
+    document.getElementById('phonenumberinput').value = "";
+    document.getElementById('password1').value = "";
+    document.getElementById('password-repeat').value = "";
 }
-document.getElementById('insurancenumber').oninput = function insuranceLengthCheck(){
+/******UNIVERSAL SETTINGS END******** */
+
+/****************************PERSONNUMMER/ORGNUMMER***************************** */
+document.getElementById('insurancenumber').addEventListener('input', function insuranceLengthCheck(){
+    insuranceNumber()
+});
+document.getElementById('insurancenumber').onblur = () => {
+    insuranceNumber()
+};
+function insuranceNumber(){
     var a = document.getElementById('insurancenumber');
     var b = a.value;
     var c = document.getElementById('wronginsurancenumber');
-    var i;
     if(b.length === 10 && !isNaN(b) && b.substring(0,1) == 5){ //org nr check
-        console.log(b.substring(0,1));
-        personnummer = false;
-        aktiebolag = true;
-        enskildFirma = false;
         a.style.borderColor = "black";
         c.style.display = "none";
-        return (b, `aktiebolag ${aktiebolag}`);
     }
     else if(b.length === 12 && !isNaN(b)){ //personnummer check
         var minimumage = fullYear - b.substring(0,4);
@@ -69,17 +76,14 @@ document.getElementById('insurancenumber').oninput = function insuranceLengthChe
                                 if(query[1] == b){
                                     a.style.borderColor = "red";
                                     c.style.display = "block";
-                                    personnummer = false;
-                                    aktieBolag = false;
-                                    enskildFirma = false;
-                                    document.getElementById('wronginsurancenumber').innerText = "Ett konto med detta personnnummer existerar redan";
+                                    document.querySelectorAll('.green-check-tick')[0].style.width = "0px";
+                                    document.getElementById('insurancenumber').setAttribute('aria-label', "");
                                 }
                                 else{
-                                    personnummer = true;
                                     a.style.borderColor = "black";
                                     c.style.display = "none";
-                                    sessionStorage.setItem('personnummer', true);
-                                    return (b, personnummer);
+                                    document.getElementById('insurancenumber').setAttribute('aria-label', 'complete');
+                                    document.querySelectorAll('.green-check-tick')[0].style.width = "25px";
                                 }
                             },
                         }
@@ -95,310 +99,450 @@ document.getElementById('insurancenumber').oninput = function insuranceLengthChe
     else{
         a.style.borderColor = "red";
         c.style.display = "block";
-        personnummer = false;
-        aktieBolag = false;
-        enskildFirma = false;
     }
-    /*
-    var insuranceNumberArray = $.getJSON("https://skatteverket.entryscape.net/rowstore/dataset/b4de7df7-63c0-4e7e-bb59-1f156a591763/json", function skatteverketApi(){
-        var x = insuranceNumberArray.responseJSON.results;
-        var y = x.map(value => value.testpersonnummer);
-        console.log(y);
-        for(i = 0; i < y.length; i++){
-            if(b === y[i]){
-                personnummer = true;
-                aktieBolag = false;
-                enskildFirma = true;
-                a.style.borderColor = "black";
-                c.style.display = "none";
-                console.log(b, personnummer);
-                sessionStorage.setItem('personnummer', true);
-                return (b, personnummer);
+    createAccountFormControl()
+}
+
+//First Name "Förnamn" Input
+document.getElementById('firstnameinput').oninput = () => {
+    firstName();
+}
+document.getElementById('firstnameinput').onblur = () => {
+    firstName();
+}
+function firstName(){
+    var value = document.getElementById('firstnameinput').value;
+    if(value.lenght <= 1 || !/[^a-zA-Z]/.test(document.getElementById('firstnameinput').value) == false){
+        document.getElementById('firstnameinput').style.borderColor = "red";
+        document.getElementById('firstnameinput').setAttribute('aria-label', "");
+    }
+    else{
+        document.getElementById('firstnameinput').style.borderColor = "black";
+        document.getElementById('firstnameinput').setAttribute('aria-label', 'complete');
+    }
+    createAccountFormControl()
+}
+//Surname input
+document.getElementById('surnameinput').oninput = () => {
+    surname()
+}
+document.getElementById('surnameinput').onblur = () => {
+    surname()
+}
+function surname(){
+    var value = document.getElementById('surnameinput').value;
+    if(value.lenght <= 2 || !/[^a-zA-Z]/.test(document.getElementById('surnameinput').value) == false){
+        document.getElementById('surnameinput').style.borderColor = "red";
+        document.getElementById('surnameinput').setAttribute('aria-label', "");
+    }
+    else{
+        document.getElementById('surnameinput').style.borderColor = "black";
+        document.getElementById('surnameinput').setAttribute('aria-label', 'complete');
+    }
+    createAccountFormControl()
+}
+//Email
+document.getElementById('emailinput').oninput = () => {
+    email()
+}
+document.getElementById('emailinput').onblur = () => {
+    email()
+}
+function email(){
+    var value = document.getElementById('emailinput').value;
+    if(value.length >= 10 && value.includes('@') == true){
+        $.ajax(
+            {
+                url: './PHP/createaccount.php',
+                dataType: 'text',
+                method: 'GET',
+                data: {
+                    requestid: 3,
+                    email: document.getElementById('emailinput').value,
+                },
+                success: function(response){
+                    var query = JSON.parse(response);
+                    console.log(query)
+                    if(query == "0"){
+                        document.getElementById('emailinput').style.borderColor = "black";
+                        document.getElementById('emailinput').setAttribute('aria-label', 'complete');
+                    }
+                    else{
+                        document.getElementById('emailinput').style.borderColor = "red";
+                        document.getElementById('emailinput').setAttribute('aria-label', "");
+                    }
+                },
             }
-            else if(b.length === 10 && !isNaN(b)){
-                personnummer = false;
-                aktiebolag = true;
-                enskildFirma = false;
-                a.style.borderColor = "black";
-                c.style.display = "none";
-                return (b, `aktiebolag ${aktiebolag}`);
-            }
-            else if(b.length === 0){
-                a.style.borderColor = "black";
-                c.style.display = "none";
+        );
+    }
+    else{
+        document.getElementById('emailinput').style.borderColor = "red";
+        document.getElementById('emailinput').setAttribute('aria-label', "");
+    }
+    createAccountFormControl()
+}
+//role selector
+document.getElementById('purposeselect').onchange = () => {
+    purposeControl();
+}
+function purposeControl(){
+    var value = document.getElementById('purposeselect').value;
+    if(value !== ""){
+        document.getElementById('purposeselect').setAttribute('aria-label', "complete")
+    }
+    else{
+        document.getElementById('purposeselect').setAttribute('aria-label', "")
+    }
+    createAccountFormControl()
+}
+//street adress
+document.getElementById('streetadressinput').oninput = () => {
+    streetAdress()
+}
+document.getElementById('streetadressinput').onblur = () => {
+    streetAdress()
+}
+function streetAdress(){
+    var value = document.getElementById('streetadressinput').value;
+    if(value.length <= 5){
+        document.getElementById('streetadressinput').style.borderColor = "red";
+        document.getElementById('streetadressinput').setAttribute('aria-label', "");
+    }
+    else{
+        document.getElementById('streetadressinput').style.borderColor = "black";
+        document.getElementById('streetadressinput').setAttribute('aria-label', 'complete');
+    }
+    createAccountFormControl()
+}
+//zipcode
+document.getElementById('zipcodeinput').oninput = () => {
+    zipCode()
+}
+document.getElementById('zipcodeinput').onblur = () => {
+    zipCode()
+}
+function zipCode(){
+    var value = document.getElementById('zipcodeinput').value;
+    if(value.length == 5 && /^\d+$/.test(value)){
+        document.getElementById('zipcodeinput').style.borderColor = "black";
+        document.getElementById('zipcodeinput').setAttribute('aria-label', 'complete');
+    }
+    else{
+        document.getElementById('zipcodeinput').style.borderColor = "red";
+        document.getElementById('zipcodeinput').setAttribute('aria-label', "");
+    }
+    createAccountFormControl()
+}
+/****************************Phone number ***********************************/
+document.getElementById('phonenumberinput').oninput = function(){
+    phoneNumber()
+}
+document.getElementById('phonenumberinput').onblur = function(){
+    phoneNumber()
+}
+function phoneNumber(){
+    var x = document.getElementById('phonenumberinput').value;
+    var c = document.getElementById('wrongphonenumber');
+    if(isNaN(x) == true){
+        document.getElementById('phonenumberinput').style.borderColor = "red";
+        c.style.display = "block"
+    }
+    else if(x.length >= 9 && isNaN(x) == false){
+        if(x.substring(0,2) == 07 && x.length == 10){ //mobilnummer
+            if(x.substring(2,3) == 0 || x.substring(2,3) == 2 || x.substring(2,3) == 3 || 
+            x.substring(2,3) == 6 || x.substring(2,3) == 9){
+                if(x.length = 10){
+                    document.getElementById('phonenumberinput').style.borderColor = "black";
+                    c.style.display = "none"
+                    document.getElementById('phonenumberinput').setAttribute('aria-label', "complete");
+                }
+                else{
+                    document.getElementById('phonenumberinput').style.borderColor = "red";
+                    c.style.display = "block" 
+                    document.getElementById('phonenumberinput').setAttribute('aria-label', "");
+                }
             }
             else{
-                a.style.borderColor = "red";
-                c.style.display = "block";
-                personnummer = false;
-                aktieBolag = false;
-                enskildFirma = false;
+                document.getElementById('phonenumberinput').style.borderColor = "red";
+                c.style.display = "block" 
+                document.getElementById('phonenumberinput').setAttribute('aria-label', "");
             }
         }
-    });
-    */
-};
-document.getElementById('next-btn').onclick = function nextSlide(){
-    var a = document.getElementById('insurancenumber');
-    var b = a.value;
-    var c = sessionStorage.getItem("slidePage");
-    var d = sessionStorage.getItem('personnummer');
-    var firstName = document.getElementById('firstnameinput').value;
-    var lastName = document.getElementById('surnameinput').value;
-    if(d = true && d != null && c == null || c == undefined){
-        arrowBackAddInfo.innerHTML = `${b}`;
-        arrowBack.style.display = "flex";
-        registrationTrackerOne.style.color = "#afafaf";
-        registrationTrackerTwo.style.color = "#616161";
-        registrationTrackerThree.style.color = "#afafaf";
-        insuranceWrapper.style.display = "none";
-        fullNameInputWrapper.style.display = "flex";
-        accountPhoneNumber.style.display = "flex";
-        accountEmail.style.display = "flex";
-
-        document.getElementById('emailinput').value = "";
-        document.getElementById('phonenumberinput').value = "";
-
-        sessionStorage.setItem("personnummer", `${a.value}`);
-        sessionStorage.setItem("slidePage", 2);
-        return ("slideTwo");
+        else if(x.substring(0,2) == 08 && x.length == 9){ //08 nummer
+            if(x.length == 9){
+                document.getElementById('phonenumberinput').style.borderColor = "black";
+                c.style.display = "none"
+                document.getElementById('phonenumberinput').setAttribute('aria-label', "complete");
+            }
+            else{
+                document.getElementById('phonenumberinput').style.borderColor = "red";
+                c.style.display = "block" 
+                document.getElementById('phonenumberinput').setAttribute('aria-label', "");
+            }
+        }
+        else{
+            document.getElementById('phonenumberinput').style.borderColor = "red";
+            c.style.display = "block" 
+            document.getElementById('phonenumberinput').setAttribute('aria-label', "");
+        }
     }
-    else if(c == 2 && c != null){
-        var email = document.getElementById('emailinput');
-        var emailInput = email.value;
-        if(firstName !== null && isNaN(firstName) == true
-            && lastName !== null && isNaN(lastName) == true
-            && firstName.length >= 2 && lastName.length >= 2){
-                if(email.value.length > 10 && email.value.includes('@')){
+    createAccountFormControl()
+}
+/***********Region Select********* */
+document.getElementById('regioninput').onchange = () => {
+    regionControl();
+}
+function regionControl(){
+    var value = document.getElementById('regioninput').value;
+    console.log(value);
+    if(value !== ""){
+        document.getElementById('regioninput').setAttribute('aria-label', "complete")
+    }
+    else{
+        document.getElementById('regioninput').setAttribute('aria-label', "")
+    }
+    createAccountFormControl()
+}
+/***********Region Select********* */
+//Password
+//First password row
+document.getElementById('password1').oninput = () => {
+    password1()
+}
+document.getElementById('password1').onblur = () => {
+    password1()
+}
+function password1(){
+    var password = document.getElementById('password1');
+    var regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])")
+    console.log(regex.test(password.value))
+    if(password.value.length >= 8 && regex.test(password.value) == true){
+        var passwordRepeat = document.getElementById('password-repeat').value;
+        if(password.value == passwordRepeat){
+            document.getElementById('password1').style.borderColor = "black";
+            document.getElementById('password1').setAttribute('aria-label', "complete");
+        }
+        else{
+            document.getElementById('password1').style.borderColor = "red";
+            document.getElementById('password1').setAttribute('aria-label', "");
+        }
+    }
+    else{
+        document.getElementById('password1').style.borderColor = "red";
+        document.getElementById('password1').setAttribute('aria-label', "");
+    }
+    createAccountFormControl()
+}
+//second row
+document.getElementById('password-repeat').oninput = () => {
+    passwordRepeat();
+}
+document.getElementById('password-repeat').onblur = () => {
+    passwordRepeat();
+}
+function passwordRepeat(){
+    var password = document.getElementById('password-repeat');
+    var regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])")
+    if(password.value.length >= 8 && regex.test(password.value) == true){
+        var password1 = document.getElementById('password1').value;
+        if(password.value == password1){
+            document.getElementById('password-repeat').style.borderColor = "black";
+            document.getElementById('password-repeat').setAttribute('aria-label', "complete");
+            document.getElementById('password1').style.borderColor = "black";
+            document.getElementById('password1').setAttribute('aria-label', "complete");
+        }
+        else{
+            document.getElementById('password-repeat').style.borderColor = "red";
+            document.getElementById('password-repeat').setAttribute('aria-label', "");
+        }
+    }
+    else{
+        document.getElementById('password-repeat').style.borderColor = "red";
+        document.getElementById('password-repeat').setAttribute('aria-label', "");
+    }
+    createAccountFormControl()
+}
+/**************Show Password************ */
+document.getElementById('show-firstpassword').onclick = function(){ //first password row
+    var type = document.getElementById('show-firstpassword').getAttribute('aria-label');
+
+    if(type == null || type == undefined || type == 'hidden'){
+        document.getElementById('password1').setAttribute('type', 'text');
+        document.getElementById('show-firstpassword').setAttribute('aria-label', 'toggled');
+        document.querySelectorAll('.mask-password-strikethrough')[0].style.display = "none";
+    }
+    else if(type == 'toggled'){
+        document.getElementById('password1').setAttribute('type', 'password');
+        document.getElementById('show-firstpassword').setAttribute('aria-label', 'hidden');
+        document.querySelectorAll('.mask-password-strikethrough')[0].style.display = "";
+    }
+}
+document.getElementById('show-secondpassword').onclick = function(){ //second row
+    var type = document.getElementById('show-secondpassword').getAttribute('aria-label');
+
+    if(type == null || type == undefined || type == 'hidden'){
+        document.getElementById('password-repeat').setAttribute('type', 'text');
+        document.getElementById('show-secondpassword').setAttribute('aria-label', 'toggled');
+        document.querySelectorAll('.mask-password-strikethrough')[1].style.display = "none";
+    }
+    else if(type == 'toggled'){
+        document.getElementById('password-repeat').setAttribute('type', 'password');
+        document.getElementById('show-secondpassword').setAttribute('aria-label', 'hidden');
+        document.querySelectorAll('.mask-password-strikethrough')[1].style.display = "";
+    }
+}
+/**************Show Password************ */
+
+//Toggle checkbox
+document.getElementById('agreetoa').onchange = () => {
+    var checkBox = document.getElementById('agreetoa');
+    if(checkBox.checked == true){
+        checkBox.style.borderColor = "black";
+        checkBox.setAttribute('aria-label', "complete");
+    }
+    else{
+        checkBox.setAttribute('aria-label', "");
+    }
+}
+//End Section -> Display Button, make it selectable
+
+//Check function
+//After each input has been changed, this function is triggered
+function createAccountFormControl(){
+    var button = document.getElementById('next-btn');
+    if(
+        document.getElementById('insurancenumber').getAttribute("aria-label") == "complete" &&
+        document.getElementById('firstnameinput').getAttribute("aria-label") == "complete" &&
+        document.getElementById('surnameinput').getAttribute("aria-label") == "complete" &&
+        document.getElementById('purposeselect').value != "" &&
+        document.getElementById('streetadressinput').getAttribute("aria-label") == "complete" &&
+        document.getElementById('zipcodeinput').getAttribute("aria-label") == "complete" &&
+        document.getElementById('phonenumberinput').getAttribute("aria-label") == "complete" &&
+        document.getElementById('regioninput').value != "" &&
+        document.getElementById('password1').getAttribute("aria-label") == "complete" &&
+        document.getElementById('password-repeat').getAttribute("aria-label") == "complete" &&
+        document.getElementById('agreetoa').checked == true
+    ){
+        button.style.backgroundColor = "#f07900";
+        button.setAttribute("aria-label", "active");
+        $('#next-btn').css('cursor', 'pointer');
+    }
+    else{
+        button.style.backgroundColor = "#d4d4d4";
+        button.setAttribute("aria-label", "");
+        $('#next-btn').css('cursor', 'none');
+    }
+}
+//Change button appearance
+document.getElementById('next-btn').onclick = () => {
+    console.log("click")
+    var button = document.getElementById('next-btn').getAttribute('aria-label');
+
+    if(button === null || button === undefined || button !== "active"){
+        //do nothing, the button is not selectable
+    }
+    else if(button == "active"){
+        var role = document.getElementById('purposeselect').value
+        if(role == "Uppdragstagare"){
+            createNewAccount(1);
+        }
+        else if(role == "Uppdragsgivare"){
+            createNewAccount(2);
+        }
+    }
+}
+
+function createNewAccount(role){
+    console.log("createNewAccount activated")
+    var password = document.getElementById('password1').value
+    var today = new Date();
+    var month = ('0' + (today.getMonth()+1)).slice(-2);
+    var date = `${today.getFullYear()}-${month}-${today.getDate()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
+    var email = document.getElementById('emailinput').value;
+
+    var personnummer =  document.getElementById('insurancenumber').value
+    var firstname = document.getElementById('firstnameinput').value;
+    var lastname = document.getElementById('surnameinput').value
+    var streetadress =  document.getElementById('streetadressinput').value;
+
+    var firstname = firstname.charAt(0).toUpperCase() + firstname.slice(1);
+    var lastname = lastname.charAt(0).toUpperCase() + lastname.slice(1);
+    var streetadress = streetadress.charAt(0).toUpperCase() + streetadress.slice(1);
+    var streetadress1 = streetadress.replace(/[0-9]/g, "")
+    var streetnumber = streetadress.replace(/\D/g, "");
+    var zipcode = document.getElementById('zipcodeinput').value;
+    var phonenumber = document.getElementById('phonenumberinput').value
+
+    $.ajax(
+        {
+            url: './PHP/createaccount.php',
+            dataType: 'text',
+            method: 'POST',
+            data: {
+                requestid: 4,
+                email: email,
+                role: role,
+                password: password,
+                time: date,
+                firstname: firstname,
+                lastname: lastname,
+                streetadress: streetadress1,
+                streetnumber: streetnumber,
+                zipcode: zipcode,
+                phonenumber: phonenumber,
+                personnummer: personnummer,
+            },
+            success: function(response){
+                var query = JSON.parse(response);
+                if(query == "Unsuccessful request"){
+
+                }
+                else{
                     $.ajax(
                         {
                             url: './PHP/createaccount.php',
                             dataType: 'text',
                             method: 'GET',
                             data: {
-                                requestid: 2,
-                                username: emailInput,
+                                requestid: 6,
+                                email: email,
+                                role: role,
                             },
                             success: function(response){
-                                var senderQuery = JSON.parse(response);
-                                console.log(senderQuery);
-                                if(senderQuery[0] == 0 || senderQuery[0] == null){
-                                    var phonenumber = document.getElementById('phonenumberinput');
-                                    if(phonenumber.value.length <= 13){
-                                        if(phonenumber.value.substring(0,2) == 08){
-                                            if(phonenumber.value.length == 9){
-                                                sessionStorage.setItem("firstName", `${firstName}`);
-                                                sessionStorage.setItem("lastName", `${lastName}`);
-                                                sessionStorage.setItem("slidePage", "3");
-                                                registrationTrackerOne.style.color = "#afafaf";
-                                                registrationTrackerTwo.style.color = "#afafaf";
-                                                registrationTrackerThree.style.color = "#616161";
-                                                insuranceWrapper.style.display = "none";
-                                                fullNameInputWrapper.style.display = "none";
-                                                accountPhoneNumber.style.display = "none";
-                                                accountEmail.style.display = "none";
-                                                document.getElementById('account-adress').style.display = "flex";
-                                                document.getElementById('account-password').style.display = "flex";
-                                                document.getElementById('password-input-wrapper').style.display = "flex";
-                                                document.getElementById('password-input-wrapper').style.flexDirection = "row";
-                                                document.getElementById('password-input-wrapper').style.justifyContent = "space-between";
-                                                document.getElementById('password1').style.width = "45%";
-                                                document.getElementById('password-repeat').style.width = "45%";
-                                                document.getElementById('account-adress').style.flexDirection = "column";
-                                                document.getElementById('account-password').style.flexDirection = "column";
-                                                document.getElementById('streetadressinput').style.marginBottom = "10px";
-                                                accountRegionSelect.style.display = "flex";
-                                            }
-                                            else{
-                                                alert("Ange ett giltigt telefonnummer");
-                                            }
-                                        }
-                                        else if(phonenumber.value.substring(0,1) == 0){
-                                            if(phonenumber.value.length == 10){
-                                                var phonenumber = phonenumber.value;
-                                                var email = document.getElementById('emailinput');
-                                                var email = email.value;
-                                                sessionStorage.setItem("firstName", `${firstName}`);
-                                                sessionStorage.setItem("lastName", `${lastName}`);
-                                                sessionStorage.setItem("email", `${email}`);
-                                                sessionStorage.setItem("phonenumber", `${phonenumber}`)
-                                                sessionStorage.setItem("slidePage", "3");
-                                                registrationTrackerOne.style.color = "#afafaf";
-                                                registrationTrackerTwo.style.color = "#afafaf";
-                                                registrationTrackerThree.style.color = "#616161";
-                                                insuranceWrapper.style.display = "none";
-                                                fullNameInputWrapper.style.display = "none";
-                                                accountPhoneNumber.style.display = "none";
-                                                accountEmail.style.display = "none";
-                                                document.getElementById('account-adress').style.display = "flex";
-                                                document.getElementById('account-adress').style.flexDirection = "column";
-                                                document.getElementById('password-input-wrapper').style.display = "flex";
-                                                document.getElementById('password-input-wrapper').style.flexDirection = "row";
-                                                document.getElementById('password-input-wrapper').style.justifyContent = "space-between";
-                                                document.getElementById('account-password').style.display = "flex";
-                                                document.getElementById('password1').style.width = "45%";
-                                                document.getElementById('password-repeat').style.width = "45%";
-                                                document.getElementById('account-password').style.flexDirection = "column";
-                                                document.getElementById('streetadressinput').style.marginBottom = "10px";
-                                                accountRegionSelect.style.display = "flex";
-                                            }
-                                            else{
-                                                alert("Ange ett giltigt mobilnummer");
-                                            }
-                                        }
-                                        else if(phonenumber.value.substring(0,2) == 00){
-                                            alert("Ange ett telefonnummer utan internationellt prefix");
-                                        }
-                                    }
+                                var query = JSON.parse(response);
+                                if(query[0] == 0){
+                
                                 }
                                 else{
-                                    alert("emailadress redan tagen!")
+                                    var id = query[1];
+                                    $.ajax(
+                                        {
+                                            url: './PHP/createaccount.php',
+                                            dataType: 'text',
+                                            method: 'POST',
+                                            data: {
+                                                requestid: 5,
+                                                email: email,
+                                                id: id,
+                                                role: role,
+                                            },
+                                            success: function(response){
+                                                var query = JSON.parse(response);
+                                                if(query == 1){
+                                                    window.location = "https://rendex.se/login";
+                                                }
+                                                else{
+                                                    alert("Something went wrong, please contact customer service")
+                                                }
+                                            },
+                                        }
+                                    );
                                 }
                             },
                         }
                     );
                 }
+            },
         }
-    }
-    else if(c == 3 && c != null){
-        var streetadress = document.getElementById('streetadressinput');
-        var zipcode = document.getElementById('zipcodeinput');
-        var region = document.getElementById('regioninput');
-        if(streetadress.value != null && streetadress.value.length > 8 && zipcode.value.length == 5 && isNaN(zipcode.value) == false)
-
-        sessionStorage.setItem("streetadress", `${streetadress.value}`);
-        sessionStorage.setItem("zipcode", `${zipcode.value}`);
-        sessionStorage.setItem("region", `${region.value}`);
-    }
-    else{
-        console.log("else");
-    }
-};
-
-document.getElementById('arrow-back').onclick = function backClick(){
-    var a = document.getElementById('insurancenumber');
-    var page = sessionStorage.getItem("slidePage");
-    if(page == 2){
-        a.value = "";
-        arrowBackAddInfo.innerHTML = '';
-        arrowBack.style.display = "none";
-        registrationTrackerOne.style.color = "#616161";
-        registrationTrackerTwo.style.color = "#afafaf";
-        registrationTrackerThree.style.color = "#afafaf";
-        insuranceWrapper.style.display = "flex";
-        fullNameInputWrapper.style.display = "none";
-        accountPhoneNumber.style.display = "none";
-        accountEmail.style.display = "none";
-        document.getElementById('account-adress').style.display = "none";
-        document.getElementById('account-password').style.display = "none";
-        sessionStorage.clear();
-    }
-    else if(page == 3){
-        registrationTrackerOne.style.color = "#afafaf";
-        registrationTrackerTwo.style.color = "#616161";
-        registrationTrackerThree.style.color = "#afafaf";
-        fullNameInputWrapper.style.display = "flex";
-        accountPhoneNumber.style.display = "flex";
-        accountEmail.style.display = "flex";
-        accountRegionSelect.style.display = "none";
-        document.getElementById('account-adress').style.display = "none";
-        document.getElementById('account-password').style.display = "none";
-        sessionStorage.setItem("slidePage", "2");
-        sessionStorage.removeItem("firstName");
-        sessionStorage.removeItem("lastName");
-        sessionStorage.removeItem("phonenumber");
-        sessionStorage.removeItem("email");
-    }
-    else{
-
-    }
-};
-/****************************PERSONNUMMER/ORGNUMMER***************************** */
-document.getElementById('firstnameinput').oninput = function(){
-    document.getElementById('firstnameinput').onblur = function(){
-        var f = document.getElementById('firstnameinput');
-        var z = f.value;
-        if(z.length < 2){
-            f.style.borderColor = "red";
-        }
-        else{
-            f.style.borderColor = "black"
-        }
-    }
+    );
 }
-document.getElementById('surnameinput').oninput = function(){
-    document.getElementById('surnameinput').onblur = function(){
-        var s = document.getElementById('surnameinput').value;
-        return s;
-    } 
-}
-document.getElementById('purposeselect').onchange = function purposeSelect(){
-    var p = document.getElementById('purposeselect').value;
-    return p;
-}
-document.getElementById('regioninput').onchange = function regionSelect(){
-    var r = document.getElementById('regioninput').value;
-    return r;
-}
-/****************************Phone number ***********************************/
-document.getElementById('phonenumberinput').oninput = function(){
-    var x = document.getElementById('phonenumberinput').value;
-    var c = document.getElementById('wrongphonenumber');
-    if(isNaN(x) == true){
-        x.style.borderColor = "red";
-        c.style.display = "block"
-    }
-    else if(x.length >= 9){
-        if(x.substring(0,2) == 07){ //mobilnummer
-            if(x.substring(2,3) == 0 || x.substring(2,3) == 2 || x.substring(2,3) == 3 || 
-            x.substring(2,3) == 6 || x.substring(2,3) == 9){
-                if(x.length = 10){
-                    document.getElementById('phonenumberinput').style.borderColor = "black";
-                    c.style.display = "none"
-                }
-                else{
-                    document.getElementById('phonenumberinput').style.borderColor = "red";
-                    c.style.display = "block" 
-                }
-            }
-            else{
-                document.getElementById('phonenumberinput').style.borderColor = "red";
-                c.style.display = "block" 
-            }
-        }
-        else if(x.substring(0,2) == 08){ //08 nummer
-            if(x.length == 9){
-                document.getElementById('phonenumberinput').style.borderColor = "black";
-                c.style.display = "none"
-            }
-            else{
-                document.getElementById('phonenumberinput').borderColor = "red";
-                c.style.display = "block" 
-            }
-        }
-        else{
-            document.getElementById('phonenumberinput').borderColor = "red";
-            c.style.display = "block" 
-        }
-    }
-}
-/****************************Phone number ***********************************/
-document.getElementById('firstnameinput').oninput = function(){
-    var firstname = document.getElementById('firstnameinput').value;
-    console.log(isNaN(firstname));
-    if(isNaN(firstname) == true){
-        document.getElementById('firstnameinput').style.borderColor = "black";
-    }
-    else if(isNaN(firstname) == false && firstname.length > 0){
-        document.getElementById('firstnameinput').style.borderColor = "red";
-    }
-};
-document.getElementById('surnameinput').oninput = function(){
-    var lastname = document.getElementById('surnameinput').value;
-    if(isNaN(lastname) == true){
-        document.getElementById('surnameinput').style.borderColor = "black";
-    }
-    else if(isNaN(lastname) == false && lastname.length > 0){
-        document.getElementById('surnameinput').style.borderColor = "red";
-    }
-};

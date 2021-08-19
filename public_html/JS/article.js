@@ -8,22 +8,37 @@ function getURLParameter(){
     var url_string = window.location.href;
     var url = new URL(url_string);
     var articleid = url.searchParams.get("id");
-    $.ajax(
-        {
-            url: './PHP/articleload.php',
-            dataType: 'text',
-            method: 'GET',
-            data: {
-                requestid: 6,
-                articleId: articleid,
-            },
-            success: function(response){
-                var response = JSON.parse(response);
-                console.log(response);
-                populateArticlePage(response);
+
+    cookieid = getCookie("a_user");
+    var cookieid = cookieid.split(',');
+    if(cookieid[0] == null || cookieid[0] == undefined){
+        window.location = "https://rendex.se/login"
+    }
+    else{
+        $.ajax(
+            {
+                url: './PHP/articleload.php',
+                dataType: 'text',
+                method: 'GET',
+                data: {
+                    requestid: 6,
+                    articleId: articleid,
+                },
+                success: function(response){
+                    var response = JSON.parse(response);
+                    if(response === 0){
+                        document.getElementById('no-article-error').style.display = "flex";
+                        document.getElementById('top-page-article-wrapper').style.display = "none";
+                        document.getElementById('article-option-tabs').style.display = "none";
+                        document.getElementById('article-wrapper-wrapper').style.backgroundColor = "#fff"
+                    }
+                    else{
+                        populateArticlePage(response);
+                    }
+                }
             }
-        }
-    );
+        );
+    }
 };
 function populateArticlePage(response){
     var articleTitle = document.getElementById('article-title');
@@ -37,9 +52,23 @@ function populateArticlePage(response){
     articleIdSpan.innerText = `(#${response[1]})`;
     articleDescription.innerText = response[4];
     regionLocation.innerText = `${response[3]}, ${response[2]}`;
-    price.innerText = response[7];
     date.innerText = response[8].substring(0,10);
     type.innerText = response[5];
+
+    if(response[7].includes(',')){
+        priceValue = response[7].split(',');
+        if(priceValue[0].length >= 5){
+            priceLow = priceValue[0]/1000;
+            priceHigh = priceValue[1]/1000;
+            price.innerText = `${priceLow}K - ${priceHigh}K`
+        }
+        else{
+            price.innerText = `${priceValue[0]} - ${priceValue[1]}`
+        }
+    }
+    else{
+        price.innerText = response[7];
+    }
 
     sessionStorage.setItem("ac_id", `${response[0]}`);
 

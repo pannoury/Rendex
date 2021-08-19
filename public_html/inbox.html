@@ -26,8 +26,8 @@
     <div class="container">
       <div id="navlogo">
         <a id="navlogo-link" href="https://rendex.se">
-          <img src="./assets/images/rendex_black.svg" id="logo-desktop" alt="logo-black" class="logo" width="125" height="20">
-          <img src="./assets/images/rendex_white.svg" id="logo-mobile" alt="logo-white" class="logo" width="125px" height="20px">
+          <img src="./assets/images/freelans-full-black.svg" id="logo-desktop" alt="logo-black" class="logo" width="125" height="40px">
+          <img src="./assets/images/freelans-full-white.svg" id="logo-mobile" alt="logo-white" class="logo" width="125px" height="40px">
         </a>
         <ul class="navbarselector">
           <li id="languageanchor">
@@ -38,7 +38,7 @@
               <li id="english-selected"><img src="./assets/images/uk-roundflag.svg">English</li>
             </ul>
           </li>
-          <li><a href="searchpage">Sök</a></li>
+          <li><a id="searchpageanchor">Sök</a></li>
           <li><a id="inboxlink1">Inkorg</a></li>
           <li><a id="loginanchorTrue"></a></li>
         </ul> 
@@ -90,6 +90,7 @@
               <div id="conversation-options-window">
                 <a>Blockera användare</a>
                 <a id="remove-conversation">Ta bort konversation</a>
+                <a id="inbox-account-link">Till profil</a>
               </div>
             </div>
             <div class="conversation-topic-clue">
@@ -106,6 +107,10 @@
             </div>
             <ul id="chat-list">
             </ul>
+            <div id="no-message-svg-wrapper">
+              <img id="no-message-svg" src="./assets/images/no-messages.svg" width="400px" height="400px">
+              <h4>Inga Meddelanden</h4>
+            </div>
           </div>
           <div class="header-separator-inbox"></div>
           <div class="chat-input-wrapper" id="chat-input-wrapper">
@@ -113,7 +118,11 @@
               <img id="insert-button-chat" src="./assets/images/plussign-chatbtn.svg" height="20px" width="20px">
             </div>
             <div class="chat-input" id="chat-input-wrapper-wrapper">
-              <input type="text" id="chat-input" placeholder="Skriv ett meddelande...">
+              <div id="chat-input-final-wrapper">
+                <div id="chat-input-file">
+                </div>
+                <input type="text" id="chat-input" placeholder="Skriv ett meddelande...">
+              </div>
               <button id="chatinput-sendbtn"><img src="./assets/images/send-white.svg"></button>
             </div>
           </div>

@@ -91,7 +91,7 @@
         top: 15vh;
         right: 20%;
         background-color: #f4f4f4;
-        overflow-y: scroll;
+        overflow-y: auto;
         transition: 0.5s;
         display: flex;
         flex-direction: column;
@@ -163,7 +163,11 @@
                             margin-bottom: 10px;
                             .settings-window-wrapper-header{
                                 margin-top: 0px;
+                                margin-bottom: 5px;
                                 font-size: 18px;
+                            }
+                            .settings-window-wrapper-explanation{
+                                margin-bottom: 20px;
                             }
                             .one-input-div{
                                 display: flex;
@@ -178,9 +182,14 @@
                                     }
                                 }
                                 input{
-                                    height: 25px;
+                                    height: 40px;
+                                    font-size: 16px;
                                     width: 45.5%;
                                     padding-left: 10px;
+                                }
+                                label{
+                                    resize: none;
+                                    width: 95%;
                                 }
                                 .settings-window-file-input{
                                     margin-top: 10px;
@@ -188,6 +197,45 @@
                                 }
                                 #settings-window-file-existing-file{
                                     margin-bottom: 0px;
+                                }
+                                .password-wrapper{
+                                    position: relative;
+                                    display: flex;
+                                    align-items: center;
+                                    input{
+                                        border-radius: 3px;
+                                        border: 1px solid black;
+                                    }
+                                    .show-password-myaccount{
+                                        position: absolute;
+                                        width: 25px;
+                                        margin-left: 42%;
+                                        svg{
+                                            fill: #9f9f9f;
+                                            &:hover{
+                                                fill: black;
+                                                cursor: pointer;
+                                            }
+                                        }
+                                    }
+
+                                }
+                                #myaccount-beskrivning{
+                                    resize: none;
+                                    height: 100px;
+                                }
+                                .one-input-div-100{
+                                    position: relative;
+                                    display: flex;
+                                    align-items: center;
+                                    #settings-window-website-link{
+                                        width: 95%;
+                                        padding-left: 50px;
+                                    }
+                                    .icon-input-left{
+                                        position: absolute;
+                                        margin-left: 10px;
+                                    }
                                 }
                             }
                             .two-input-div{
@@ -208,7 +256,8 @@
                                         }
                                     }
                                     input{
-                                        height: 25px;
+                                        height: 40px;
+                                        font-size: 16px;
                                         padding-left: 10px;
                                     }
                                 }
@@ -225,6 +274,7 @@
                             &:hover{
                                 background-color: #c96400;
                                 cursor: pointer;
+                                color: black
                             }
                         }
                     }
