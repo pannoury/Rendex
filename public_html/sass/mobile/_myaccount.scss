@@ -44,49 +44,66 @@
                 #profileheader-row2{
                     display: flex;
                     flex-direction: row;
-                    justify-content: space-between;
-                    flex-wrap: wrap;
-                    margin-top: 20px;
-                    width: 100%;
-                    .profileheader-row2-btn{
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        justify-content: center;
-                        width: 48%;
-                        padding: 12px;
-                        border-radius: 20px;
-                        background-color: $rendex-orange;
-                        font-weight: bolder;
-                        border-style: none;
-                        box-shadow: 0 4px 10px rgba(0,0,0,.5);
-                        &:hover{
-                            opacity: 0.8;
-                            cursor: pointer;
-                            svg{
-                                fill: black;
-                                .st1{
-                                    stroke: black;
+                    margin-top: 40px;
+                    .profile-header-row2-column{
+                        &:nth-child(1){
+                            width: 100%;
+                            .profile-header-content{
+                                margin-bottom: 20px;
+                                &:nth-child(2){
+                                    margin-bottom: 40px;
+                                }
+                                .profile-header-content-header{
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    svg{
+                                        &:not(.profile-header-icon-exclude){
+                                            transform: rotate(90deg);
+                                        }
+                                        margin-right: 10px;
+                                    }
+                                    p{
+                                        font-weight: bold;
+                                        font-size: 18px;
+                                    }
+                                }
+                                ul{
+                                    list-style: none;
+                                    padding-left: 0px;
+                                    .profile-header-row2-option{
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        margin-bottom: 20px;
+                                        width: 250px;
+                                        &:hover{
+                                            background-color: #d4d4d4;
+                                            border-radius: 3px;
+                                            cursor: pointer;
+                                        }
+                                        svg{
+                                            &:not(.profile-arrow-right){
+                                                margin-right: 20px;
+                                                background-color: #d4d4d4;
+                                                padding: 4px;
+                                                border-radius: 3px;
+                                            }
+                                        }
+                                        p{
+                                            font-size: 18px;
+                                            margin: 0px;
+                                        }
+                                        .profile-arrow-right{
+                                            margin-left: auto;
+                                        }
+                                    }
                                 }
                             }
                         }
-                        &:nth-child(1), &:nth-child(2){
-                            margin-bottom: 20px;
-                        }
-                        svg{
-                            fill: white;
-                            width: 25px;
-                            margin-right: 5px;
-                            .st0{
-                                fill: none
-                            }
-                            .st1{
-                                fill:none;
-                                stroke: white;
-                                stroke-width:77;
-                                stroke-linecap:round;
-                                stroke-linejoin:round;
-                            }
+                        &:nth-child(2){
+                            display: none;
+                            width: 100%;
                         }
                     }
                 }

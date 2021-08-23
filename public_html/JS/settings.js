@@ -15,13 +15,25 @@ function checkWidth(){
     //do nothing
   }
 }
+//Click on back button, to see the settings options again
+document.getElementById('back-to-options-settings').onclick = () =>{
+  document.getElementById('settings-window-mid-options').style.display = "flex";
+  document.getElementById('back-to-options-settings').style.display = "none";
+  var divs = document.querySelectorAll('.settings-window-mid-option-display');
+  for(x in divs){
+    divs[x].style.display = "none";
+  }
+}
 
 function clearSettingsList(){
+  document.getElementById('back-to-options-settings').style.display = "none";
+  /*
   var options = document.getElementsByClassName('settings-option');
   for(i=0; i < options.length; i++){
     options[i].style.background = "";
     options[i].style.color = "black";
   }
+  */
   var settingWindows = document.getElementsByClassName('settings-window-mid-option-display');
   for(i=0; i < settingWindows.length; i++){
     settingWindows[i].style.display = "none";
@@ -30,6 +42,7 @@ function clearSettingsList(){
   document.getElementById('settings-window-upload-picture').value = "";
 }
 function settingsListClick(id){
+  /*
   var options = document.getElementsByClassName('settings-option');
   for(i=0; i < options.length; i++){
     options[i].style.background = "";
@@ -42,6 +55,7 @@ function settingsListClick(id){
 
   document.getElementById(`${id}`).style.backgroundColor = "#f07900";
   document.getElementById(`${id}`).style.color = "white";
+  */
 
   retrieveAccountInformation(id);
 }
@@ -65,6 +79,8 @@ function retrieveAccountInformation(id){
             var response = JSON.parse(response);
             console.log(response);
             if(response[0] == 1){ //if successful
+              document.getElementById('back-to-options-settings').style.display = "flex";
+              document.getElementById('settings-window-mid-options').style.display = "none";
               if(id == "settings-option1"){ //Kontaktuppgifter
                 document.getElementById('settings-window-kontaktuppgifter').style.display = "flex";
                 document.getElementById('settings-window-firstname').value = `${response[1]}`;
@@ -92,6 +108,9 @@ function retrieveAccountInformation(id){
               }
               else if(id == "settings-option4"){
             
+              }
+              else if(id == "settings-option5"){
+                window.location = "https://rendex.se/myaccount"
               }
             }
             else{

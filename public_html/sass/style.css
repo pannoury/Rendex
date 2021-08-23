@@ -1910,12 +1910,13 @@ main {
     border-radius: 8px;
     width: 80%;
     margin: auto auto 100px auto;
-    background-color: #f4f4f4;
+    background-color: #d4d4d4;
   }
   #account-page #account-wrapper-wrapper #account-page-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 20px;
   }
   #account-page #account-wrapper-wrapper #account-page-wrapper #account-image-wrapper {
     display: flex;
@@ -1997,13 +1998,19 @@ main {
   }
   #account-page #account-wrapper-wrapper #companyannonser {
     width: 100%;
-    margin: auto;
+    background-color: #f4f4f4;
+    margin-top: 0px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  #account-page #account-wrapper-wrapper #companyannonser h2 {
     padding-left: 20px;
   }
   #account-page #account-wrapper-wrapper #companybroadbackground {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color: #f4f4f4;
   }
   #account-page #account-wrapper-wrapper #companybroadbackground #companybroadbackground-text {
     width: 60%;
@@ -3462,7 +3469,10 @@ main {
     margin-bottom: 20px;
   }
   #myaccountmain #myaccount-wrapper-wrapper {
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper h1 {
+    margin-top: 0px;
   }
   #myaccountmain #myaccount-wrapper-wrapper #profile-header {
     display: flex;
@@ -3497,48 +3507,126 @@ main {
   #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 {
     display: flex;
     flex-direction: row;
-    margin-top: 20px;
+    margin-top: 40px;
   }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn {
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) {
+    width: 250px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content {
+    margin-bottom: 30px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content:nth-child(2) {
+    margin-bottom: 40px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content .profile-header-content-header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    width: 160px;
-    padding: 12px 8px;
-    background-color: #f07900;
-    color: white;
-    font-weight: bolder;
-    border-radius: 20px;
-    border-style: none;
-    margin-right: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:hover {
-    opacity: 0.8;
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content .profile-header-content-header svg {
+    margin-right: 10px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content .profile-header-content-header svg:not(.profile-header-icon-exclude) {
+    transform: rotate(90deg);
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content .profile-header-content-header p {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content ul {
+    list-style: none;
+    padding-left: 0px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content ul .profile-header-row2-option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 250px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content ul .profile-header-row2-option:hover {
+    background-color: #d4d4d4;
+    border-radius: 3px;
     cursor: pointer;
-    color: black;
   }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:hover svg {
-    fill: black;
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content ul .profile-header-row2-option svg:not(.profile-arrow-right) {
+    margin-right: 20px;
+    background-color: #d4d4d4;
+    padding: 4px;
+    border-radius: 3px;
   }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:hover svg .st1 {
-    stroke: black;
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content ul .profile-header-row2-option p {
+    font-size: 18px;
+    margin: 0px;
   }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn svg {
-    fill: white;
-    width: 25px;
-    margin-right: 5px;
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content ul .profile-header-row2-option .profile-arrow-right {
+    margin-left: auto;
   }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn svg .st0 {
-    fill: none;
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) {
+    width: calc(100% - 250px);
+    max-height: 600px;
+    overflow-y: auto;
   }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn svg .st1 {
-    fill: none;
-    stroke: white;
-    stroke-width: 77;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) h2 {
+    margin-top: 0px;
+    font-size: 28px;
+    text-align: center;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) #my-articles-wrapper-wrapper {
+    padding: 0px 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) #my-articles-wrapper-wrapper .profile-header-column-2-div {
+    margin-bottom: 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) #my-articles-wrapper-wrapper .profile-header-column-2-div .my-articles-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 3px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) #my-articles-wrapper-wrapper .profile-header-column-2-div .my-articles-wrapper:hover {
+    background-color: #d4d4d4;
+    cursor: pointer;
+    border-left: 4px solid black;
+    padding-left: 16px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) #my-articles-wrapper-wrapper .profile-header-column-2-div .my-articles-wrapper .my-articles-wrapper-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) #my-articles-wrapper-wrapper .profile-header-column-2-div .my-articles-wrapper .my-articles-wrapper-header h4, #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) #my-articles-wrapper-wrapper .profile-header-column-2-div .my-articles-wrapper .my-articles-wrapper-header p {
+    margin: 0px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) #my-articles-wrapper-wrapper .profile-header-column-2-div .my-articles-wrapper .my-articles-wrapper-header h4 {
+    width: 70%;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) #my-articles-wrapper-wrapper .profile-header-column-2-div .my-articles-wrapper .my-articles-mid p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) #my-articles-wrapper-wrapper .profile-header-column-2-div .my-articles-wrapper .my-articles-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) #my-articles-wrapper-wrapper .profile-header-column-2-div .my-articles-wrapper .my-articles-bottom .my-articles-category {
+    font-weight: bold;
+    margin: 0px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) #my-articles-wrapper-wrapper .profile-header-column-2-div .my-articles-wrapper .my-articles-bottom .my-articles-views {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) #my-articles-wrapper-wrapper .profile-header-column-2-div .my-articles-wrapper .my-articles-bottom svg {
+    margin-right: 8px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) #my-articles-wrapper-wrapper .profile-header-column-2-div .my-articles-wrapper .my-articles-bottom p {
+    font-weight: bold;
+    margin: 0px;
   }
   #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper {
     margin-top: 20px;
@@ -4093,16 +4181,28 @@ main {
     border-radius: 6px;
     box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
   }
+  #settingsmain #settings-window-settings #back-to-options-settings {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+    font-size: 18px;
+  }
+  #settingsmain #settings-window-settings #back-to-options-settings svg {
+    width: 40px;
+    height: 40px;
+  }
   #settingsmain #settings-window-settings #settings-window-wrapper-settings {
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
   }
   #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-header-settings {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
   }
   #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-header-settings h3 {
+    margin-top: 0px;
     font-size: 24px;
   }
   #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings {
@@ -4113,34 +4213,33 @@ main {
     width: 100%;
     display: flex;
     flex-direction: column;
-    overflow-x: auto;
   }
   #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-options ul {
     list-style-type: none;
     padding: 0px;
     margin: 0px;
-    display: flex;
-    flex-direction: row;
   }
   #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-options ul .settings-option {
     display: flex;
-    justify-content: center;
-    padding: 6px 12px 6px 12px;
+    align-items: center;
+    padding: 6px 12px 6px 0px;
     margin-bottom: 10px;
-    min-width: 115px;
-    border-radius: 30px;
-    background-color: #d4d4d4;
+    width: 90vw;
+    font-size: 18px;
   }
-  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-options ul .settings-option:hover {
-    background-color: #c6c6c6;
-    cursor: pointer;
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-options ul .settings-option svg {
+    fill: black;
   }
-  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-options ul .settings-option:nth-child(2) {
-    margin-left: 20px;
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-options ul .settings-option svg:not(.arrow-right) {
+    background-color: #f4f4f4;
+    border-radius: 3px;
+    padding: 4px;
     margin-right: 20px;
   }
-  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-options ul .settings-option:nth-child(4) {
-    margin-left: 20px;
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-options ul .settings-option .arrow-right {
+    margin-left: auto;
+    width: 40px;
+    height: 40px;
   }
   #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display {
     width: 100%;
@@ -4151,7 +4250,6 @@ main {
   }
   #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper {
     background-color: #fff;
-    padding: 14px;
     border-radius: 3px;
   }
   #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .settings-window-wrapper-header {
@@ -6514,51 +6612,64 @@ main {
   #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: 40px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) {
     width: 100%;
   }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn {
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content {
+    margin-bottom: 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content:nth-child(2) {
+    margin-bottom: 40px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content .profile-header-content-header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    width: 48%;
-    padding: 12px;
-    border-radius: 20px;
-    background-color: #f07900;
-    font-weight: bolder;
-    border-style: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:hover {
-    opacity: 0.8;
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content .profile-header-content-header svg {
+    margin-right: 10px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content .profile-header-content-header svg:not(.profile-header-icon-exclude) {
+    transform: rotate(90deg);
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content .profile-header-content-header p {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content ul {
+    list-style: none;
+    padding-left: 0px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content ul .profile-header-row2-option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 250px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content ul .profile-header-row2-option:hover {
+    background-color: #d4d4d4;
+    border-radius: 3px;
     cursor: pointer;
   }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:hover svg {
-    fill: black;
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content ul .profile-header-row2-option svg:not(.profile-arrow-right) {
+    margin-right: 20px;
+    background-color: #d4d4d4;
+    padding: 4px;
+    border-radius: 3px;
   }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:hover svg .st1 {
-    stroke: black;
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content ul .profile-header-row2-option p {
+    font-size: 18px;
+    margin: 0px;
   }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:nth-child(1), #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:nth-child(2) {
-    margin-bottom: 20px;
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(1) .profile-header-content ul .profile-header-row2-option .profile-arrow-right {
+    margin-left: auto;
   }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn svg {
-    fill: white;
-    width: 25px;
-    margin-right: 5px;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn svg .st0 {
-    fill: none;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn svg .st1 {
-    fill: none;
-    stroke: white;
-    stroke-width: 77;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profile-header-row2-column:nth-child(2) {
+    display: none;
+    width: 100%;
   }
   #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper {
     margin-top: 20px;

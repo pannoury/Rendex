@@ -10,14 +10,26 @@
             color: black;
             border-radius: 6px;
             box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+            #back-to-options-settings{
+                display: none;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                margin-right: 20px;
+                font-size: 18px;
+                svg{
+                    width: 40px;
+                    height: 40px;
+                }
+            }
             #settings-window-wrapper-settings{
-                padding: 20px;
+                padding: 0px 20px 20px 20px;
                 #settings-window-header-settings{
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                    justify-content: space-between;
                     h3{
+                        margin-top: 0px;
                         font-size: 24px;
                     }
                 }
@@ -28,31 +40,30 @@
                         width: 100%;
                         display: flex;
                         flex-direction: column;
-                        overflow-x: auto;
                         ul{
                             list-style-type: none;
                             padding: 0px;
                             margin: 0px;
-                            display: flex;
-                            flex-direction: row;
                             .settings-option{
                                 display: flex;
-                                justify-content: center;
-                                padding: 6px 12px 6px 12px;
+                                align-items: center;
+                                padding: 6px 12px 6px 0px;
                                 margin-bottom: 10px;
-                                min-width: 115px;
-                                border-radius: 30px;
-                                background-color: #d4d4d4;
-                                &:hover{
-                                    background-color: #c6c6c6;
-                                    cursor: pointer;
+                                width: 90vw;
+                                font-size: 18px;
+                                svg{
+                                    &:not(.arrow-right){
+                                        background-color: #f4f4f4;
+                                        border-radius: 3px;
+                                        padding: 4px;
+                                        margin-right: 20px;
+                                    }
+                                    fill: black;
                                 }
-                                &:nth-child(2){
-                                    margin-left: 20px;
-                                    margin-right: 20px;
-                                }
-                                &:nth-child(4){
-                                    margin-left: 20px;
+                                .arrow-right{
+                                    margin-left: auto;
+                                    width: 40px;
+                                    height: 40px;
                                 }
                             }
                         }
@@ -64,7 +75,6 @@
                             flex-direction: column;
                             .settings-window-wrapper{
                                 background-color: #fff;
-                                padding: 14px;
                                 border-radius: 3px;
                                 .settings-window-wrapper-header{
                                     margin-top: 0px;

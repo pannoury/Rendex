@@ -81,12 +81,21 @@ function displayMyAccount(){
           },
       }
     );
-    document.getElementById('showpublicprofile-anchor').setAttribute('href', `https://rendex.se/profile?id=${accountid}`);
+    document.getElementById('showpublicprofile-btn').setAttribute('aria-label', `https://rendex.se/profile?id=${accountid}`);
   }
   else{
     window.location = 'https://rendex.se/login';
   }
 };
+document.getElementById('showpublicprofile-btn').onclick = () =>{
+  var ariaLabel = document.getElementById('showpublicprofile-btn').getAttribute('aria-label')
+  if(ariaLabel === null || ariaLabel === undefined || ariaLabel === ""){
+    //do nothing...
+  }
+  else{
+    window.location = `${ariaLabel}`;
+  }
+}
 
 
 document.getElementById('logout').onclick = function(){
@@ -537,9 +546,4 @@ document.getElementById('settings-window-companyprofile-btn').onclick = () => {
   else{
     // do nothing
   }
-}
-
-/***********Create Article Link **************/
-document.getElementById('create-article-btn').onclick = () => {
-  window.location = "https://rendex.se/createarticle";
 }

@@ -8,11 +8,12 @@
             border-radius: 8px;
             width: 80%;
             margin: auto auto 100px auto;
-            background-color: #f4f4f4;
+            background-color: #d4d4d4;
             #account-page-wrapper{
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+                padding: 20px;
                 #account-image-wrapper{
                     display: flex;
                     justify-content: center;
@@ -96,21 +97,22 @@
             }
             #companyannonser{
                 width: 100%;
-                margin: auto;
-                padding-left: 20px;
-                #companyannonser-wrapper{
+                background-color: #f4f4f4;
+                margin-top: 0px;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+                h2{
+                    padding-left: 20px;
                 }
             }
             #companybroadbackground{
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+                background-color: #f4f4f4;
                 #companybroadbackground-text{
                     width: 60%;
                     padding: 20px;
-                }
-                #profile-skills{
-
                 }
             }
         }
