@@ -37,6 +37,9 @@
     #socialmedia-wrapper{
         display: flex;
         flex-direction: row;
+        a:nth-child(1){
+            margin-left: 3vw;
+        }
         a:nth-child(2){
             margin-left: 6vw;
             margin-right: 6vw;

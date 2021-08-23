@@ -1249,12 +1249,6 @@ main {
   .containercentre-wrapper-wrapper #login-wrapper-wrapper .containercentre-secondrow a:hover {
     text-decoration: underline !important;
   }
-  .containercentre-wrapper-wrapper #login-side-hero {
-    background-image: url(../assets/images/freelans-hero-create-account.svg);
-    background-size: cover;
-    width: 60%;
-    border-radius: 6px;
-  }
 
   .bankID-QR img {
     width: 50%;
@@ -1510,6 +1504,33 @@ main {
   color: #708090;
 }
 
+@media (min-width: 875px) {
+  #login-side-hero {
+    background-image: url(../assets/images/freelans-hero-create-account.svg);
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 60%;
+  }
+}
+@media (min-width: 875px) and (max-width: 1400px) {
+  #login-side-hero {
+    background-size: cover;
+  }
+}
+@media (min-width: 1400px) {
+  #login-side-hero {
+    background-size: contain;
+    background-position: center;
+    background-position-x: right;
+  }
+}
+@media (min-width: 1600px) {
+  #login-side-hero {
+    background-size: cover;
+    background-position: center;
+  }
+}
 /* Login page settings */
 /* Create Account START */
 #createaccountsection {
@@ -1887,7 +1908,6 @@ main {
     display: flex;
     flex-direction: column;
     border-radius: 8px;
-    padding: 20px;
     width: 80%;
     margin: auto auto 100px auto;
     background-color: #f4f4f4;
@@ -1943,6 +1963,9 @@ main {
   #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 #companyshortinformation .profile-top-info-row img {
     margin-right: 8px;
   }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 #companyshortinformation .profile-top-info-row a {
+    color: blue;
+  }
   #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 #initiate-chat {
     margin-top: 10px;
     margin-left: 40px;
@@ -1975,6 +1998,7 @@ main {
   #account-page #account-wrapper-wrapper #companyannonser {
     width: 100%;
     margin: auto;
+    padding-left: 20px;
   }
   #account-page #account-wrapper-wrapper #companybroadbackground {
     display: flex;
@@ -2069,196 +2093,6 @@ main {
   }
   #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-top #close-new-chat {
     font-size: 40px;
-  }
-  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-top #close-new-chat:hover {
-    cursor: pointer;
-    opacity: 0.8;
-  }
-  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-text-wrapper {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 10px;
-    width: 100%;
-  }
-  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-text-wrapper #new-chatwindow-input {
-    width: 90%;
-    height: 40vh;
-    resize: none;
-  }
-  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-bottom {
-    display: flex;
-    justify-content: flex-end;
-  }
-  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-bottom #new-send-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #b9b9b9;
-    border-radius: 50%;
-    margin-right: 10px;
-    padding: 10px;
-  }
-  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-bottom #new-send-wrapper:hover {
-    opacity: 0.8;
-    cursor: pointer;
-  }
-}
-@media (max-width: 875px) {
-  #account-page {
-    padding-top: 88px;
-    display: flex;
-    flex-direction: column;
-  }
-  #account-page #account-wrapper-wrapper {
-    display: flex;
-    flex-direction: column;
-    padding: 20px 10px 10px 10px;
-    background-color: #f4f4f4;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper #account-image-wrapper {
-    margin: auto;
-    height: 100px;
-    width: 100px;
-    border-radius: 8px;
-    background-color: #fff;
-    color: white;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper #account-image-wrapper #companylogoimage {
-    height: 100px;
-    width: 100px;
-    border-radius: 8px;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 10px;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 {
-    margin-bottom: 20px;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 .companyheader-div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 .companyheader-div h2 {
-    margin: 0px;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 #companyshortinformation {
-    display: flex;
-    flex-direction: column;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 #companyshortinformation .profile-top-info-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 0;
-    margin-top: 4px;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 #companyshortinformation .profile-top-info-row img {
-    margin-right: 8px;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 #initiate-chat {
-    margin-top: 10px;
-    padding: 6px;
-    font-size: 14px;
-    font-weight: bolder;
-    border-radius: 8px;
-    background-color: #f07900;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 #initiate-chat:hover {
-    cursor: pointer;
-    opacity: 0.8;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column2 {
-    display: flex;
-    text-align: right;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column2 p {
-    margin: 0;
-    margin-bottom: 4px;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column2 #numberofreviewscompany {
-    font-weight: bold;
-  }
-  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column2 #companybackground-rating {
-    display: flex;
-    flex-direction: row;
-    gap: 2px;
-  }
-  #account-page #account-wrapper-wrapper #companyannonser {
-    width: 100%;
-    margin: auto;
-  }
-  #account-page #account-wrapper-wrapper #companybroadbackground {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  #account-page #account-wrapper-wrapper #companybroadbackground #companybroadbackground-text {
-    width: 100%;
-    padding: 0px;
-  }
-  #new-chatwindow {
-    display: none;
-    height: 64vh;
-    width: 0px;
-    position: fixed;
-    z-index: 10;
-    top: 20vh;
-    right: 0%;
-    background-color: #f4f4f4;
-    overflow: hidden;
-    transition: 0.5s;
-    flex-direction: column;
-    color: black;
-    border-radius: 6px;
-    box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
-  }
-  #new-chatwindow #new-chatwindow-wrapper {
-    padding: 20px;
-  }
-  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-top {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
-    align-items: center;
-  }
-  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-top #new-chat-reciever-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-top #new-chat-reciever-wrapper p:nth-child(1) {
-    font-size: 16px;
-    margin-bottom: 0px;
-    margin-top: 0px;
-  }
-  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-top #new-chat-reciever-wrapper #new-chat-reciever {
-    margin-left: 6px;
-    margin-bottom: 0px;
-    margin-top: 0px;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 2px 4px 2px 4px;
-    background-color: #b9b9b9;
-    text-align: center;
-    border-radius: 3px;
-  }
-  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-top #close-new-chat {
-    padding-left: 90%;
-    font-size: 34px;
-    margin-bottom: 10px;
   }
   #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-top #close-new-chat:hover {
     cursor: pointer;
@@ -3666,16 +3500,45 @@ main {
     margin-top: 20px;
   }
   #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn {
-    padding: 6px 12px 6px 12px;
-    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    padding: 12px 8px;
+    background-color: #f07900;
+    color: white;
     font-weight: bolder;
-    border-radius: 4px;
-    border: black 1px solid;
+    border-radius: 20px;
+    border-style: none;
     margin-right: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   }
   #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:hover {
     opacity: 0.8;
     cursor: pointer;
+    color: black;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:hover svg {
+    fill: black;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:hover svg .st1 {
+    stroke: black;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn svg {
+    fill: white;
+    width: 25px;
+    margin-right: 5px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn svg .st0 {
+    fill: none;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn svg .st1 {
+    fill: none;
+    stroke: white;
+    stroke-width: 77;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
   #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper {
     margin-top: 20px;
@@ -3712,7 +3575,7 @@ main {
     top: 15vh;
     right: 20%;
     background-color: #f4f4f4;
-    overflow-y: scroll;
+    overflow-y: auto;
     transition: 0.5s;
     display: flex;
     flex-direction: column;
@@ -3809,7 +3672,7 @@ main {
     font-weight: normal;
     color: #5c5c5c;
   }
-  #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div input {
+  #settings-window #settings-window-wrapper #settings-window-middle #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div input:not(.password) {
     height: 40px;
     font-size: 16px;
     width: 45.5%;
@@ -3903,111 +3766,6 @@ main {
     color: black;
   }
 }
-@media (max-width: 875px) {
-  #myaccountmain {
-    margin-bottom: 20px;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper {
-    padding: 20px;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header {
-    display: flex;
-    flex-direction: column;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profilepicture {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: white;
-    border-radius: 15%;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profilepicture #myaccount-profilepicture {
-    width: 50px;
-    height: 50px;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profileinfo #myaccount-name-wrapper {
-    margin: 0px 0px 0px 20px;
-    font-size: 20px;
-    font-weight: bolder;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profileinfo #myaccount-email {
-    margin: 0px 0px 0px 20px;
-    font-size: 20px;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn {
-    padding: 6px 12px 6px 12px;
-    background-color: white;
-    font-weight: bolder;
-    font-size: 11px;
-    border-radius: 4px;
-    border: black 1px solid;
-    margin-right: 10px;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:hover {
-    opacity: 0.8;
-    cursor: pointer;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper {
-    margin-top: 20px;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row {
-    display: flex;
-    flex-direction: column;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row .option-div {
-    display: flex;
-    flex-direction: column;
-    background-color: #f1f1f1;
-    border-radius: 4px;
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-    padding: 10px;
-    height: 125px;
-    margin-bottom: 20px;
-  }
-  #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row .option-div h4 {
-    margin-top: 0px;
-  }
-
-  #settings-window {
-    height: 50vh;
-    width: 0px;
-    position: fixed;
-    z-index: 10;
-    top: 25vh;
-    right: 50%;
-    background-color: #0F1419;
-    overflow-x: hidden;
-    transition: 0.5s;
-    display: flex;
-    flex-direction: column;
-    color: white;
-    border-radius: 6px;
-    box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
-  }
-  #settings-window #settings-window-header {
-    display: flex;
-    flex-direction: row;
-  }
-  #settings-window #settings-window-header #settings-closeanchor {
-    display: flex;
-    flex-direction: row;
-  }
-}
 @media (min-width: 875px) {
   #article-main {
     margin-bottom: 90px;
@@ -4086,40 +3844,56 @@ main {
   }
   #article-main #article-wrapper-wrapper #article-option-tabs {
     display: flex;
-    flex-direction: row;
-    align-items: flex-end;
+    flex-direction: column;
     padding-left: 20px;
+    margin-bottom: 20px;
   }
   #article-main #article-wrapper-wrapper #article-option-tabs .article-option-btn {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: none;
-    background-color: #dfdfdf;
-    padding: 10px 20px 10px 20px;
+    padding: 10px 0px;
     font-weight: bolder;
-    font-size: 12px;
-    margin-right: 8px;
+    font-size: 14px;
+    width: 50%;
   }
   #article-main #article-wrapper-wrapper #article-option-tabs .article-option-btn:hover {
     background-color: #c5c5c5;
     cursor: pointer;
   }
-  #article-main #article-wrapper-wrapper #about-assignment-giver {
-    background-color: #f4f4f4;
+  #article-main #article-wrapper-wrapper #article-option-tabs .article-option-btn:not(:first-child) {
+    border-bottom: 1px solid black;
+  }
+  #article-main #article-wrapper-wrapper #article-option-tabs .article-option-btn .article-option-btn-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #article-main #article-wrapper-wrapper #article-option-tabs .article-option-btn .article-option-btn-top p {
+    margin-left: 10px;
+    font-size: 16px;
+  }
+  #article-main #article-wrapper-wrapper #article-option-tabs .article-option-btn .article-option-btn-top svg {
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+  }
+  #article-main #article-wrapper-wrapper #article-option-tabs .article-option-btn .article-option-btn-info {
+    display: none;
+  }
+  #article-main #article-wrapper-wrapper #article-option-tabs .article-option-btn #about-assignment-giver {
     display: none;
     flex-direction: column;
     padding: 20px;
-    border-top: 2px solid black;
   }
-  #article-main #article-wrapper-wrapper #about-assignment-giver #about-assignment-profile-information a {
+  #article-main #article-wrapper-wrapper #article-option-tabs .article-option-btn #about-assignment-giver #about-assignment-profile-information a {
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 4px;
   }
-  #article-main #article-wrapper-wrapper #about-assignment-giver #about-assignment-profile-information p {
+  #article-main #article-wrapper-wrapper #article-option-tabs .article-option-btn #about-assignment-giver #about-assignment-profile-information p {
     font-size: 16px;
   }
   #article-main #article-wrapper-wrapper #no-article-error {
@@ -4237,10 +4011,9 @@ main {
     flex-direction: row;
     align-items: flex-end;
     padding-left: 20px;
+    margin-bottom: 20px;
   }
   #article-main #article-wrapper-wrapper #article-option-tabs .article-option-btn {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
     border-top: 1px solid black;
     border-left: 1px solid black;
     border-right: 1px solid black;
@@ -4255,8 +4028,10 @@ main {
     background-color: #c5c5c5;
     cursor: pointer;
   }
+  #article-main #article-wrapper-wrapper .article-option-btn-info {
+    display: none;
+  }
   #article-main #article-wrapper-wrapper #about-assignment-giver {
-    background-color: #f4f4f4;
     display: none;
     flex-direction: column;
     padding: 20px;
@@ -4270,7 +4045,352 @@ main {
   #article-main #article-wrapper-wrapper #about-assignment-giver #about-assignment-profile-information p {
     font-size: 16px;
   }
+  #no-article-error {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  #no-article-error img {
+    margin: auto;
+    width: 80vw;
+  }
+  #no-article-error h4 {
+    text-align: center;
+    font-size: 6vw;
+    margin: 0px;
+  }
+  #no-article-error button {
+    position: relative;
+    margin-top: 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    font-weight: bolder;
+    padding: 10px 20px 10px 20px;
+    margin-left: -20px;
+    margin-bottom: 20px;
+    border-style: none;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: #f07900;
+  }
+  #no-article-error button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    top: -2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: black;
+  }
 }
+@media (max-width: 875px) {
+  #settingsmain #settings-window-settings {
+    height: auto;
+    width: 100%;
+    background-color: #fff;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    border-radius: 6px;
+    box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings {
+    padding: 20px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-header-settings {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-header-settings h3 {
+    font-size: 24px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings {
+    display: flex;
+    flex-direction: column;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-options {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-options ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-options ul .settings-option {
+    display: flex;
+    justify-content: center;
+    padding: 6px 12px 6px 12px;
+    margin-bottom: 10px;
+    min-width: 115px;
+    border-radius: 30px;
+    background-color: #d4d4d4;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-options ul .settings-option:hover {
+    background-color: #c6c6c6;
+    cursor: pointer;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-options ul .settings-option:nth-child(2) {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-options ul .settings-option:nth-child(4) {
+    margin-left: 20px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display {
+    width: 100%;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display {
+    display: none;
+    flex-direction: column;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper {
+    background-color: #fff;
+    padding: 14px;
+    border-radius: 3px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .settings-window-wrapper-header {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .settings-window-wrapper-explanation {
+    margin-bottom: 20px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div label {
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div label .gray {
+    font-weight: normal;
+    color: #5c5c5c;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div input {
+    height: 40px;
+    font-size: 16px;
+    width: 45.5%;
+    padding-left: 10px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div label {
+    resize: none;
+    width: 95%;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div .settings-window-file-input {
+    margin-top: 10px;
+    padding-left: 0px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div #settings-window-file-existing-file {
+    margin-bottom: 0px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div #settings-window-upload-picture {
+    width: 100%;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div #settings-window-file-existing-name {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div #myaccount-beskrivning {
+    resize: none;
+    height: 100px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div .one-input-div-100 {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div .one-input-div-100 #settings-window-website-link {
+    width: 95%;
+    padding-left: 50px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .one-input-div .one-input-div-100 .icon-input-left {
+    position: absolute;
+    margin-left: 10px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .two-input-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .two-input-div .two-input-div-column {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .two-input-div .two-input-div-column label {
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .two-input-div .two-input-div-column label .gray {
+    font-weight: normal;
+    color: #5c5c5c;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-wrapper .two-input-div .two-input-div-column input {
+    height: 40px;
+    font-size: 16px;
+    padding-left: 10px;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-save-btn {
+    background-color: #f07900;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
+    border-radius: 30px;
+    border-style: none;
+  }
+  #settingsmain #settings-window-settings #settings-window-wrapper-settings #settings-window-middle-settings #settings-window-mid-display .settings-window-mid-option-display .settings-window-save-btn:hover {
+    background-color: #c96400;
+    cursor: pointer;
+    color: black;
+  }
+}
+@media (max-width: 500px) {
+  #settingsmain .password-div:first-of-type {
+    margin-bottom: 20px;
+  }
+  #settingsmain .password-div label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  #settingsmain .password-div .password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  #settingsmain .password-div .password-wrapper #settings-window-old-password, #settingsmain .password-div .password-wrapper #settings-window-new-password {
+    border-radius: 3px;
+    border: 1px solid black;
+    height: 40px;
+    width: 100%;
+    padding-left: 10px;
+  }
+  #settingsmain .password-div .password-wrapper .show-password-myaccount {
+    position: absolute;
+    width: 25px;
+    margin-left: 85%;
+  }
+  #settingsmain .password-div .password-wrapper .show-password-myaccount svg {
+    fill: #9f9f9f;
+  }
+  #settingsmain .password-div .password-wrapper .show-password-myaccount svg:hover {
+    fill: black;
+    cursor: pointer;
+  }
+}
+@media (max-width: 875px) and (min-width: 500px) {
+  #settingsmain .password-div .password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  #settingsmain .password-div .password-wrapper #settings-window-old-password, #settingsmain .password-div .password-wrapper #settings-window-new-password {
+    border-radius: 3px;
+    border: 1px solid black;
+  }
+  #settingsmain .password-div .password-wrapper .show-password-myaccount {
+    position: absolute;
+    width: 25px;
+    margin-left: 42%;
+  }
+  #settingsmain .password-div .password-wrapper .show-password-myaccount svg {
+    fill: #9f9f9f;
+  }
+  #settingsmain .password-div .password-wrapper .show-password-myaccount svg:hover {
+    fill: black;
+    cursor: pointer;
+  }
+}
+#createarticle-main #createarticle-wrapper {
+  width: 80%;
+  margin: auto;
+}
+#createarticle-main #createarticle-wrapper h2 {
+  font-size: 28px;
+}
+#createarticle-main #createarticle-wrapper .one-input-div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+#createarticle-main #createarticle-wrapper .one-input-div label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+#createarticle-main #createarticle-wrapper .one-input-div .one-input-div-inputselect {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+#createarticle-main #createarticle-wrapper .one-input-div .one-input-div-inputselect select {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  border-radius: 3px;
+  border: 1px solid black;
+  padding: 10px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+#createarticle-main #createarticle-wrapper .one-input-div .one-input-div-inputselect input {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  border-radius: 3px;
+  border: 1px solid black;
+  padding: 10px;
+}
+#createarticle-main #createarticle-wrapper .one-input-div .one-input-div-inputselect input:checked .one-input-div-inputselect-svg {
+  transform: rotate(180);
+}
+#createarticle-main #createarticle-wrapper .one-input-div .one-input-div-inputselect textarea {
+  resize: none;
+  width: 100%;
+  height: 200px;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+#createarticle-main #createarticle-wrapper .one-input-div .one-input-div-inputselect .one-input-div-inputselect-svg {
+  fill: black;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  margin-right: 15px;
+}
+#createarticle-main #createarticle-wrapper .one-input-div .one-input-div-inputselect .checkbox-div label {
+  font-weight: normal;
+}
+#createarticle-main #createarticle-wrapper .one-input-div .two-input-div-inputselect {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  justify-content: space-between;
+}
+#createarticle-main #createarticle-wrapper .one-input-div .two-input-div-inputselect .price-range {
+  width: 40%;
+}
+#createarticle-main #createarticle-wrapper .one-input-div .two-input-div-inputselect .price-range input {
+  width: 100%;
+  height: 20px;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+
 @media (max-width: 875px) {
   main {
     width: 100vw;
@@ -4412,8 +4532,9 @@ main {
     font-weight: bolder;
     color: black;
     background-color: #f4f4f4;
-    border-radius: 8px;
+    border-radius: 20px;
     border-style: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   }
   #testish #indexwrapper .indexsearchbutton #indexsearchbutton:hover {
     opacity: 0.8;
@@ -4471,9 +4592,10 @@ main {
     height: 40px;
     font-size: 18px;
     font-weight: bolder;
-    border-radius: 8px;
+    border-radius: 20px;
     border-style: none;
     margin: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   }
   #index-text #index-text-wrapper-wrapper #index-text-header #index-text-btn:hover {
     opacity: 0.8;
@@ -4553,9 +4675,10 @@ main {
     font-weight: bolder;
     color: black;
     background-color: #f07900;
-    border-radius: 8px;
+    border-radius: 20px;
     border-style: none;
     padding: 10px 20px 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   }
   #index-contact-us #index-offert-btn:hover {
     opacity: 0.8;
@@ -4667,11 +4790,12 @@ main {
   #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-btn button {
     margin-top: 20px;
     font-size: 16px;
-    border-radius: 8px;
+    border-radius: 20px;
     font-weight: bolder;
     padding: 10px 20px 10px 20px;
     margin-left: -20px;
     border-style: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   }
   #index-subscription #index-subscription-plan-options .index-subscription-option .index-subscription-btn button:hover {
     cursor: pointer;
@@ -4911,6 +5035,9 @@ main {
     display: flex;
     flex-direction: row;
   }
+  #socialmedia-wrapper a:nth-child(1) {
+    margin-left: 3vw;
+  }
   #socialmedia-wrapper a:nth-child(2) {
     margin-left: 6vw;
     margin-right: 6vw;
@@ -5009,6 +5136,9 @@ main {
     margin: 0;
     padding: 10px;
   }
+  .inbox-wrapper-wrapper .inbox-wrapper .conversation-inbox-list .conversation-selection:not(:last-child) {
+    border-bottom: white groove 1px;
+  }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-inbox-list .conversation-selection:hover {
     background-color: #515155;
   }
@@ -5093,7 +5223,6 @@ main {
             user-select: none;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #conversation-options-window {
-    display: flex;
     flex-direction: column;
     padding: 10px;
     border-radius: 6px;
@@ -5101,13 +5230,21 @@ main {
     row-gap: 6px;
     font-size: 12px;
     position: absolute;
-    margin-left: 460px;
     margin-top: 30px;
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
     display: none;
+    top: 40vh;
+    right: 30vw;
+  }
+  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #conversation-options-window a {
+    font-size: 20px;
+  }
+  .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .conversation-header-information #conversation-options-window a:nth-child(2) {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
   }
   .inbox-wrapper-wrapper .inbox-wrapper .conversation-display .header-separator-inbox {
     height: 1px;
@@ -5163,7 +5300,7 @@ main {
     border-radius: 20px;
     border-style: none;
     height: 35px;
-    width: 530px;
+    width: 70vw;
     padding-left: 20px;
     font-size: 14px;
   }
@@ -5255,6 +5392,18 @@ main {
   }
 
   /*********************** Chat CSS ***************************/
+  #no-message-svg-wrapper {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  #no-message-svg-wrapper #no-message-svg {
+    width: 300px;
+  }
+  #no-message-svg-wrapper h4 {
+    margin-top: 0px;
+    font-size: 10vw;
+  }
 }
 @media (max-width: 875px) {
   #login {
@@ -6179,6 +6328,10 @@ main {
     height: 25px;
     width: 25px;
   }
+
+  #searchpage-filter-window {
+    display: none;
+  }
 }
 @media (max-width: 1080px) {
   #logo-black {
@@ -6312,6 +6465,361 @@ main {
 @media (max-width: 1080px) {
   .navbarselector {
     display: none;
+  }
+}
+@media (max-width: 875px) {
+  #myaccountmain {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper {
+    width: 90%;
+    margin: auto;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header {
+    display: flex;
+    flex-direction: column;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profilepicture {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 30vw;
+    height: 30vw;
+    background-color: white;
+    border-radius: 15%;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profilepicture #myaccount-profilepicture {
+    width: 80px;
+    height: 80px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profileinfo p {
+    text-align: center;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profileinfo #myaccount-name-wrapper {
+    margin: 0px;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row1 #myaccount-profileinfo #myaccount-email {
+    margin: 0px;
+    font-size: 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 100%;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 48%;
+    padding: 12px;
+    border-radius: 20px;
+    background-color: #f07900;
+    font-weight: bolder;
+    border-style: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:hover svg {
+    fill: black;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:hover svg .st1 {
+    stroke: black;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:nth-child(1), #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn:nth-child(2) {
+    margin-bottom: 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn svg {
+    fill: white;
+    width: 25px;
+    margin-right: 5px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn svg .st0 {
+    fill: none;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #profile-header #profileheader-row2 .profileheader-row2-btn svg .st1 {
+    fill: none;
+    stroke: white;
+    stroke-width: 77;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper {
+    margin-top: 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row .option-div {
+    width: calc(100% - 20px);
+    height: 12vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  #myaccountmain #myaccount-wrapper-wrapper #myaccount-options-wrapper .options-wrapper-row .option-div h4 {
+    margin-top: 0px;
+  }
+
+  #settings-window {
+    height: 50vh;
+    width: 0px;
+    position: fixed;
+    z-index: 10;
+    top: 25vh;
+    right: 50%;
+    background-color: #0F1419;
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    border-radius: 6px;
+    box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+  }
+  #settings-window #settings-window-header {
+    display: flex;
+    flex-direction: row;
+  }
+  #settings-window #settings-window-header #settings-closeanchor {
+    display: flex;
+    flex-direction: row;
+  }
+}
+@media (max-width: 875px) {
+  #account-page {
+    padding-top: 88px;
+    display: flex;
+    flex-direction: column;
+  }
+  #account-page #account-wrapper-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px 10px 10px;
+    background-color: #f4f4f4;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-image-wrapper {
+    margin: auto;
+    height: 100px;
+    width: 100px;
+    border-radius: 8px;
+    background-color: #fff;
+    color: white;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-image-wrapper #companylogoimage {
+    height: 100px;
+    width: 100px;
+    border-radius: 8px;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 10px;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 {
+    margin-bottom: 20px;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 .companyheader-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 .companyheader-div h2 {
+    margin: 0px;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 #companyshortinformation {
+    display: flex;
+    flex-direction: column;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 #companyshortinformation .profile-top-info-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    margin-top: 4px;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 #companyshortinformation .profile-top-info-row img {
+    margin-right: 8px;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 #initiate-chat {
+    margin-top: 10px;
+    padding: 6px;
+    font-size: 14px;
+    font-weight: bolder;
+    border-radius: 8px;
+    background-color: #f07900;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column1 #initiate-chat:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column2 {
+    display: flex;
+    text-align: left;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column2 p {
+    margin: 0;
+    margin-bottom: 4px;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column2 #numberofreviewscompany {
+    font-weight: bold;
+  }
+  #account-page #account-wrapper-wrapper #account-page-wrapper #account-companybackground #account-companybackground-column2 #companybackground-rating {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+  }
+  #account-page #account-wrapper-wrapper #companyannonser {
+    width: 100%;
+    margin: auto;
+  }
+  #account-page #account-wrapper-wrapper #companybroadbackground {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #account-page #account-wrapper-wrapper #companybroadbackground #companybroadbackground-text {
+    width: 100%;
+    padding: 0px;
+  }
+  #new-chatwindow {
+    display: none;
+    height: 64vh;
+    width: 0px;
+    position: fixed;
+    z-index: 10;
+    top: 20vh;
+    right: 0%;
+    background-color: #f4f4f4;
+    overflow: hidden;
+    transition: 0.5s;
+    flex-direction: column;
+    color: black;
+    border-radius: 6px;
+    box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+  }
+  #new-chatwindow #new-chatwindow-wrapper {
+    padding: 20px;
+  }
+  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-top {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-top #new-chat-reciever-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-top #new-chat-reciever-wrapper p:nth-child(1) {
+    font-size: 16px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-top #new-chat-reciever-wrapper #new-chat-reciever {
+    margin-left: 6px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 2px 4px 2px 4px;
+    background-color: #b9b9b9;
+    text-align: center;
+    border-radius: 3px;
+  }
+  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-top #close-new-chat {
+    padding-left: 90%;
+    font-size: 34px;
+    margin-bottom: 10px;
+  }
+  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-top #close-new-chat:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-text-wrapper {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 100%;
+  }
+  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-text-wrapper #new-chatwindow-input {
+    width: 90%;
+    height: 40vh;
+    resize: none;
+  }
+  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-bottom {
+    display: flex;
+    justify-content: flex-end;
+  }
+  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-bottom #new-send-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #b9b9b9;
+    border-radius: 50%;
+    margin-right: 10px;
+    padding: 10px;
+  }
+  #new-chatwindow #new-chatwindow-wrapper #new-chatwindow-bottom #new-send-wrapper:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  #no-account-error {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  #no-account-error h4 {
+    text-align: center;
+    font-size: 7vw;
+  }
+  #no-account-error button {
+    width: 50vw;
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    background-color: #f07900;
+    color: white;
+    padding: 10px 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   }
 }
 /* MOBILE CSS */

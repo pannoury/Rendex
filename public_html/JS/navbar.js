@@ -17,13 +17,13 @@ function loggedInControl(){
                     success: function(response){
                         var response = JSON.parse(response);
                         if(response[0] == 1){
-                            var width = window.screen.width;
+                            var width = window.innerWidth;
                             if(width > 875){
                                 document.getElementById('loginanchorTrue').innerText = `${response[1]}`;
                                 document.getElementById('loginanchor').style.display = "none";
                                 document.getElementById('loggedInFalse').style.display = "none";
                             }
-                            else if(width < 875){
+                            else if(width <= 875){
                                 document.getElementById('loginsidemenu').innerText = `${response[1]}`;
                                 document.getElementById('createaccountsidemenu').style.display = "none";
                             }

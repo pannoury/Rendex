@@ -1,112 +1,19 @@
 window.onload = function(){
   loggedInControl();
   cookieConsentLoad();
-  displayMyAccount();
   clearSettingsList();
+  checkWidth();
 };
 
-function displayMyAccount(){
-  var loginId = getCookie("a_user");
-  var newArrayLoginId = loginId.split(',');
-  var accountid = newArrayLoginId[0];
-  var role = newArrayLoginId[1];
-  if(accountid != null && accountid != undefined){
-    $.ajax(
-      {
-        url: './PHP/individuals.php',
-        dataType: 'text',
-        method: 'GET',
-          data: {
-              userid: accountid,
-              role: role,
-          },
-          success: function(response){
-            var response = JSON.parse(response);
-            if(response[0] == 1){ //if successful
-              if(role == 1){ //individual
-                var width = window.innerWidth;
-                if(response[9] === ""){
-                  if(width > 875){
-                    var img = document.createElement('img');
-                    img.setAttribute('id', "myaccount-profilepicture");
-                    img.setAttribute('src', './assets/images/unchosen-profilepic.svg');
-                    img.style.width = "100px";
-                    img.style.height = "100px";
-                    document.getElementById('myaccount-profilepicture').appendChild(img);
-                  }
-                  else{
-                    var img = document.createElement('img');
-                    img.setAttribute('id', "myaccount-profilepicture");
-                    img.setAttribute('src', './assets/images/unchosen-profilepic.svg');
-                    img.style.width = "30vw";
-                    img.style.height = "30vw";
-                    document.getElementById('myaccount-profilepicture').appendChild(img);
-                  }
-                }
-                else if(response[9] !== ""){
-                  if(width > 875){
-                    var img = document.createElement('img');
-                    img.setAttribute('id', "myaccount-profilepicture")
-                    img.setAttribute('src', `${response[9]}`);
-                    img.style.width = "100px"
-                    img.style.height = "100px"
-                    document.getElementById('myaccount-profilepicture').appendChild(img);
-                  }
-                  else{
-                    var img = document.createElement('img');
-                    img.setAttribute('id', "myaccount-profilepicture")
-                    img.setAttribute('src', `${response[9]}`);
-                    img.style.width = "30vw"
-                    img.style.height = "30vw"
-                    document.getElementById('myaccount-profilepicture').appendChild(img);
-                  }
-                }
-                var firstName = response[1];
-                var lastName = response[2];
-                var email = response[3];
-                document.getElementById('myaccount-name-wrapper').innerText = `${firstName} ${lastName}`;
-                document.getElementById('myaccount-email').innerText = `${email}`;
-                document.getElementById('h1header-myaccount').innerText = `${firstName} ${lastName}!`;
-  
-                parent.location.hash = `/${firstName}-${lastName}/${newArrayLoginId[0]}`;
-              }
-              else if(role == 2){ //organisation
-                document.getElementById('options-wrapper-row2').style.display = "none";
-              }
-            }
-            else{
-              console.log("Failed to fetch data from server");
-              // add error page9
-            }
-          },
-      }
-    );
-    document.getElementById('showpublicprofile-anchor').setAttribute('href', `https://rendex.se/profile?id=${accountid}`);
-  }
-  else{
-    window.location = 'https://rendex.se/login';
-  }
-};
-
-
-document.getElementById('logout').onclick = function(){
-  eraseCookie("a_user");
-  sessionStorage.clear();
-  setTimeout(function(){
-    window.location = 'https://rendex.se';
-  }, 2000);
-};
-document.getElementById('account-settings').onclick = function(){
+function checkWidth(){
   var width = window.innerWidth;
+
   if(width > 875){
-    document.getElementById('settings-window').style.width = "60vw";
+    window.location = "https://rendex.se/myaccount"
   }
   else{
-    window.location = "https://rendex.se/settings";
+    //do nothing
   }
-};
-document.getElementById('settings-closeanchor').onclick = function(){
-  document.getElementById('settings-window').style.width = "0vw";
 }
 
 function clearSettingsList(){
@@ -119,7 +26,7 @@ function clearSettingsList(){
   for(i=0; i < settingWindows.length; i++){
     settingWindows[i].style.display = "none";
   }
-
+  
   document.getElementById('settings-window-upload-picture').value = "";
 }
 function settingsListClick(id){
@@ -166,7 +73,7 @@ function retrieveAccountInformation(id){
                 document.getElementById('settings-window-streetnumber').value = `${response[6]}`;
                 document.getElementById('settings-window-zipcode').value = `${response[7]}`;
                 document.getElementById('settings-window-phonenumber').value = `${response[8]}`;
-                if(response.length == 10){
+                if(response[9] !== null || response[9] !== ""){
                   document.getElementById('settings-window-file-existing-name').innerText = `${response[9].replace("./Uploads/", "")}`;
                   document.getElementById('settings-window-file-existing-name').style.color = "blue";
                   document.getElementById('settings-window-file-existing-name').setAttribute('href', `https://rendex.se${response[9].substring(1)}`);
@@ -180,24 +87,8 @@ function retrieveAccountInformation(id){
               }
               else if(id == "settings-option3"){ //Företagsprofil
                 document.getElementById('settings-window-companyprofile').style.display = "flex";
-                if(response[10] !== "" || response[10] !== null && response[11] !== "" && response[11] !== null){
-                  document.getElementById('myaccount-beskrivning').value = `${response[10]}`;
-                  document.getElementById('settings-window-website-link').value = `${response[11]}`;
-                }
-                else if(response[10] === "" || response[10] == null && response[11] === "" && response[11] == null){
-                  document.getElementById('myaccount-beskrivning').value = "";
-                  document.getElementById('settings-window-website-link').value = "";
-                }
-                else{
-                  if(response[10] === "" || response[10] == null){
-                    document.getElementById('myaccount-beskrivning').value = "";
-                    document.getElementById('settings-window-website-link').value = `${response[11]}`;
-                  }
-                  else if(response[11] === "" || response[11] == null){
-                    document.getElementById('myaccount-beskrivning').value = `${response[10]}`;
-                    document.getElementById('settings-window-website-link').value = "";
-                  }
-                }
+                document.getElementById('myaccount-beskrivning').value = `${response[10]}`;
+                document.getElementById('settings-window-website-link').value = `${response[11]}`;
               }
               else if(id == "settings-option4"){
             
@@ -464,82 +355,14 @@ document.getElementById('show-password-row-2').onclick = () => {
 document.getElementById('settings-window-companyprofile-btn').onclick = () => {
   var descriptionText = document.getElementById('myaccount-beskrivning').value
   var websiteLink = document.getElementById('settings-window-website-link').value
-  var loginId = getCookie("a_user");
-  var newArrayLoginId = loginId.split(',');
-  var accountid = newArrayLoginId[0];
-  var role = newArrayLoginId[1];
 
-  console.log(descriptionText.length, websiteLink.length)
   if(descriptionText.length > 10 && websiteLink.length > 4){
-    $.ajax(
-      {
-        url: './PHP/accountpage.php', //this is to check the old password,
-        method: 'POST',          //if success, correct old password has been given
-        dataType: 'text',
-        data: {
-          requestid: 3,
-          description: descriptionText,
-          website: websiteLink,
-          role: role,
-          accountid: accountid
-        },
-        success: function(response){
-          var response = JSON.parse(response);
-          if(response == 1){
-            location.reload();
-          }
-        },
-      }
-    )
+
   }
   else if(descriptionText.length > 10 && websiteLink.length == 0){
-    $.ajax(
-      {
-        url: './PHP/accountpage.php', //this is to check the old password,
-        method: 'POST',          //if success, correct old password has been given
-        dataType: 'text',
-        data: {
-          requestid: 3,
-          role: role,
-          accountid: accountid,
-          description: descriptionText
-        },
-        success: function(response){
-          var response = JSON.parse(response);
-          if(response == 1){
-            location.reload();
-          }
-        },
-      }
-    )
+
   }
   else if(descriptionText.length == 0 && websiteLink.length > 4){
-    $.ajax(
-      {
-        url: './PHP/accountpage.php', //this is to check the old password,
-        method: 'POST',          //if success, correct old password has been given
-        dataType: 'text',
-        data: {
-          requestid: 3,
-          role: role,
-          accountid: accountid,
-          website: websiteLink
-        },
-        success: function(response){
-          var response = JSON.parse(response);
-          if(response == 1){
-            location.reload();
-          }
-        },
-      }
-    )
-  }
-  else{
-    // do nothing
-  }
-}
 
-/***********Create Article Link **************/
-document.getElementById('create-article-btn').onclick = () => {
-  window.location = "https://rendex.se/createarticle";
+  }
 }

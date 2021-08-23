@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="sv" style="display:flex;width:100%">
+<head>
+  <title>Rendex</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Hitta renoverare">
+  <meta name="keywords" content="arbete, bygg, renovering, elektriker, offert, hitta renoverare, hitta arbetare, hitta elektriker, golv, lägga golv, VVS, Rendex, Rendex AB">
+  <meta name="author" content="Patrick Tannoury">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="sass/style.css" type="text/css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+  <script> 
+  $(function(){
+    $("#footer").load("footer.html"); 
+  });
+  $(function(){
+    $("#cookiewindowpopupwrapper").load("cookieswindow.html");
+  });
+  </script>
+</head>
+<body>
+  <!--Navigation Bar-->
+
+  <header id="header">
+    <div class="container">
+      <div id="navlogo">
+        <a id="navlogo-link" href="https://rendex.se">
+          <img src="./assets/images/freelans-full-black.svg" id="logo-desktop" alt="logo-black" class="logo" width="125" height="40px">
+          <img src="./assets/images/freelans-full-white.svg" id="logo-mobile" alt="logo-white" class="logo" width="125px" height="40px">
+        </a>
+        <ul class="navbarselector">
+          <li id="languageanchor">
+            <img src="assets/images/globe-black.svg" alt="globe" height="18px" id="globeicon">
+            <p id="language-selected">SE</p>
+            <ul id="language-options">
+              <li id="swedish-selected"><img src="./assets/images/sweden-roundflag.svg">Svenska</li>
+              <li id="english-selected"><img src="./assets/images/uk-roundflag.svg">English</li>
+            </ul>
+          </li>
+          <li><a id="searchpageanchor">Sök</a></li>
+          <li><a id="inboxlink1">Inkorg</a></li>
+          <li><a id="loginanchorTrue"></a></li>
+        </ul> 
+      </div>
+      <div id="navbar-commit">
+        <ul id="navbar-ul-commit">
+          <li id="loginlist"><a id="loginanchor" href="https://rendex.se/login">Logga in</a></li>
+          <li id="loggedInFalse"><button href="https://rendex.se/create_account" id="loggedInFalseAnchor">Bli Medlem</button></li>
+        </ul>
+      </div>
+      <nav class="navbar">
+        <span class="open-slide">
+          <a href="#" id="hamburgermenu-btn">
+            <img id="hamburgermenu" src="./assets/images/Hamburgermenu-black.svg" alt="hamburgermenu" width="30px" height="30px">
+            <img id="cross-black" src="./assets/images/cross-black.svg" alt="blackcross" width="30px" height="30px">
+          </a>
+        </span>
+      </nav>
+    </div>
+    <div id="side-menu" class="side-nav">      
+      <a href="https://rendex.se">Hem</a>
+      <a id="loginsidemenu">Logga in</a>
+      <a href="https://rendex.se/create_account" id="createaccountsidemenu">Bli Medlem</a>
+      <a id="inboxlink2">Inkorg</a>
+      <a href="searchpage">Sök</a>
+    </div>
+  </header>
+
+  <!--END-Navigation Bar-->
+  <main id="createarticle-main">
+      <div id="createarticle-wrapper">
+        <h2>Skapa Annons</h2>
+        <div class="one-input-div">
+          <label>Kategori</label>
+          <div class="one-input-div-inputselect">
+            <select id="createarticle-category">
+              <optgroup label="IT">
+                <option>Webutveckling</option>
+                <option>Grafisk Design</option>
+              </optgroup>
+            </select>
+            <svg class="one-input-div-inputselect-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 12" enable-background="new 0 0 20 12" xml:space="preserve">
+            <path d="M17.5,0.5L10,8.4L2.5,0.5c-0.6-0.6-1.5-0.6-2,0l0,0c-0.6,0.6-0.6,1.5,0,2.1l8.5,9
+              c0.4,0.5,1.1,0.5,1.6,0.3c0.2-0.1,0.4-0.2,0.5-0.3l8.5-8.9c0.6-0.6,0.6-1.5,0-2.1l0,0C19-0.1,18.1-0.1,17.5,0.5z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="one-input-div">
+          <label>Region</label>
+          <div class="one-input-div-inputselect">
+            <select id="createarticle-regionselect" placeholder="Region"> 
+              <option value="" disabled selected id="disabledselect">Välj Region</option>
+              <option value="Hela Sverige">Hela Sverige</option>
+              <option value="Blekinge">Blekinge</option>
+              <option value="Dalarna">Dalarna</option>
+              <option value="Gotland">Gotland</option>
+              <option value="Gävleborg">Gävleborg</option>
+              <option value="Halland">Halland</option>
+              <option value="Jämtland">Jämtland</option>
+              <option value="Jönköping">Jönköping</option>
+              <option value="Kalmar">Kalmar</option>
+              <option value="Kronoberg">Kronoberg</option>
+              <option value="Norrbotten">Norrbotten</option>
+              <option value="Örebro">Örebro</option>
+              <option value="Östergötland">Östergötland</option>
+              <option value="Skåne">Skåne</option>
+              <option value="Sörmland">Sörmland</option>
+              <option value="Stockholm" selected="stockholm">Stockholm</option>
+              <option value="Uppsala">Uppsala</option>
+              <option value="Värmland">Värmland</option>
+              <option value="Västerbotten">Västerbotten</option>
+              <option value="Västernorrland">Västernorrland</option>
+              <option value="Västmanland">Västmanland</option>
+              <option value="Västra Götaland">Västra Götaland</option>
+            </select>
+            <svg class="one-input-div-inputselect-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 12" enable-background="new 0 0 20 12" xml:space="preserve">
+              <path d="M17.5,0.5L10,8.4L2.5,0.5c-0.6-0.6-1.5-0.6-2,0l0,0c-0.6,0.6-0.6,1.5,0,2.1l8.5,9
+                c0.4,0.5,1.1,0.5,1.6,0.3c0.2-0.1,0.4-0.2,0.5-0.3l8.5-8.9c0.6-0.6,0.6-1.5,0-2.1l0,0C19-0.1,18.1-0.1,17.5,0.5z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="one-input-div">
+          <label>Kommun</label>
+          <div class="one-input-div-inputselect">
+            <select id="createarticle-municipality"></select>
+            <svg class="one-input-div-inputselect-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 12" enable-background="new 0 0 20 12" xml:space="preserve">
+              <path d="M17.5,0.5L10,8.4L2.5,0.5c-0.6-0.6-1.5-0.6-2,0l0,0c-0.6,0.6-0.6,1.5,0,2.1l8.5,9
+                c0.4,0.5,1.1,0.5,1.6,0.3c0.2-0.1,0.4-0.2,0.5-0.3l8.5-8.9c0.6-0.6,0.6-1.5,0-2.1l0,0C19-0.1,18.1-0.1,17.5,0.5z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="one-input-div">
+          <label>Pris</label>
+          <div class="two-input-div-inputselect">
+            <div class="price-range">
+              <input type="text" required="true">
+            </div>
+            <div class="price-range">
+              <input>
+            </div>
+          </div>
+          <div class="checkbox-div">
+            <input type="checkbox">
+            <label>Ange prisintervall</label>
+          </div>
+        </div>
+        <div class="one-input-div">
+          <label>Rubrik</label>
+          <div class="one-input-div-inputselect">
+            <input type="text" required>
+          </div>
+        </div>
+        <div class="one-input-div">
+          <label>Beskrivning</label>
+          <div class="one-input-div-inputselect">
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    <div id="cookiewindowpopupwrapper"></div>
+  </main>
+<div id="footer"></div>
+<script src="./JS/createarticle.js"></script>
+<script src="./JS/cityarray1.js"></script>
+<script src="./JS/navbar.js"></script>
+<script src="./JS/cookie.js"></script>
+<!--FOOTER END-->
+</body>
+<html>

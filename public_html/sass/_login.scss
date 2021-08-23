@@ -51,12 +51,6 @@
                 }
             }
         }
-        #login-side-hero{
-            background-image: url(../assets/images/freelans-hero-create-account.svg);
-            background-size: cover;
-            width: 60%;
-            border-radius: 6px;
-        }
     }
     .bankID-QR{
         img{    
@@ -298,3 +292,32 @@
     }
 }
 //***************************** BankID Help window ************************* //
+
+//**************HERO-LOGIN SIDE ILLUSTRATION****************//
+@media(min-width:875px){
+    #login-side-hero{
+        background-image: url(../assets/images/freelans-hero-create-account.svg);
+        border-radius: 6px;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 60%;
+    }
+}
+@media(min-width:875px) and (max-width:1400px){
+    #login-side-hero{
+        background-size: cover;
+    }
+}
+@media(min-width:1400px){
+    #login-side-hero{
+        background-size: contain;
+        background-position: center;
+        background-position-x: right;
+    }
+}
+@media(min-width:1600px){
+    #login-side-hero{
+        background-size: cover;
+        background-position: center;
+    }
+}

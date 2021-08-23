@@ -1,41 +1,37 @@
-@media(min-width:875px){
+@media(max-width:875px){
     #account-page{
+        padding-top: 88px;
         display: flex;
         flex-direction: column;
         #account-wrapper-wrapper{
             display: flex;
             flex-direction: column;
-            border-radius: 8px;
-            width: 80%;
-            margin: auto auto 100px auto;
+            padding: 20px 10px 10px 10px;
             background-color: #f4f4f4;
             #account-page-wrapper{
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 justify-content: space-between;
                 #account-image-wrapper{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+                    margin: auto;
                     height: 100px;
                     width: 100px;
                     border-radius: 8px;
-                    padding: 20px;
                     background-color: #fff;
                     color: white;
                     #companylogoimage{
-                        height: 120px;
-                        width: 120px;
+                        height: 100px;
+                        width: 100px;
                         border-radius: 8px;
                     }
                 }
                 #account-companybackground{
-                    width: 82%;
-                    padding: 20px;
                     display: flex;
-                    flex-direction: row;
+                    flex-direction: column;
                     justify-content: space-between;
+                    padding-top: 10px;
                     #account-companybackground-column1{
+                        margin-bottom: 20px;
                         .companyheader-div{
                             display: flex;
                             flex-direction: row;
@@ -57,14 +53,10 @@
                                 img{
                                     margin-right: 8px;
                                 }
-                                a{
-                                    color: blue;
-                                }
                             }
                         }
                         #initiate-chat{
                             margin-top: 10px;
-                            margin-left: 40px;
                             padding: 6px;
                             font-size: 14px;
                             font-weight: bolder;
@@ -78,7 +70,7 @@
                     }
                     #account-companybackground-column2{
                         display: flex;
-                        text-align: right;
+                        text-align: left;
                         p{
                             margin: 0;
                             margin-bottom: 4px;
@@ -97,70 +89,34 @@
             #companyannonser{
                 width: 100%;
                 margin: auto;
-                padding-left: 20px;
                 #companyannonser-wrapper{
                 }
             }
             #companybroadbackground{
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 justify-content: space-between;
                 #companybroadbackground-text{
-                    width: 60%;
-                    padding: 20px;
+                    width: 100%;
+                    padding: 0px;
                 }
                 #profile-skills{
 
                 }
             }
         }
-        #no-account-error{
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            img{
-                margin: auto;
-                width: 40vw;
-            }
-            h4{
-                text-align: center;
-                font-size: 40px;
-                margin: 0px;
-            }
-            button{
-                position: relative;
-                margin-top: 20px;
-                font-size: 20px;
-                border-radius: 20px;
-                font-weight: bolder;
-                padding: 10px 20px 10px 20px;
-                margin-left: -20px;
-                margin-bottom: 20px;
-                border-style: none;
-                color: white;
-                box-shadow: 0 2px 5px rgba(0,0,0,.3);
-                background-color: $rendex-orange;
-                &:hover{
-                    cursor: pointer;
-                    opacity: 0.8;
-                    top: -2px;
-                    box-shadow: 0 4px 10px rgba(0,0,0,.5);
-                    color: black;
-                }
-            }
-        }
     }
     #new-chatwindow{
-        height: 60vh;
+        display: none;
+        height: 64vh;
         width: 0px;
         position: fixed;
         z-index: 10;
         top: 20vh;
-        right: 25%;
+        right: 0%;
         background-color: #f4f4f4;
-        overflow-x: hidden;
+        overflow: hidden;
         transition: 0.5s;
-        display: flex;
         flex-direction: column;
         color: black;
         border-radius: 6px;
@@ -169,7 +125,7 @@
             padding: 20px;
             #new-chatwindow-top{
                 display: flex;
-                flex-direction: row;
+                flex-direction: column-reverse;
                 justify-content: space-between;
                 align-items: center;
                 #new-chat-reciever-wrapper{
@@ -178,7 +134,7 @@
                     align-items: center;
                     p{
                         &:nth-child(1){
-                            font-size: 20px;
+                            font-size: 16px;
                             margin-bottom: 0px;
                             margin-top: 0px;
                         }
@@ -188,7 +144,7 @@
                         margin-bottom: 0px;
                         margin-top: 0px;
                         font-weight: bold;
-                        font-size: 20px;
+                        font-size: 16px;
                         padding: 2px 4px 2px 4px;
                         background-color: #b9b9b9;
                         text-align: center;
@@ -196,7 +152,9 @@
                     }
                 }
                 #close-new-chat{
-                    font-size: 40px;
+                    padding-left: 90%;
+                    font-size: 34px;
+                    margin-bottom: 10px;
                     &:hover{
                         cursor: pointer;
                         opacity: 0.8;
@@ -234,6 +192,27 @@
                     }
                 }
             }
+        }
+    }
+    #no-account-error{
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        h4{
+            text-align: center;
+            font-size: 7vw;
+        }
+        button{
+            width: 50vw;
+            margin-bottom: 40px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 20px;
+            border: none;
+            background-color: $rendex-orange;
+            color: white;
+            padding: 10px 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,.3);
         }
     }
 }

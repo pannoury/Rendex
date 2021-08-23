@@ -10,7 +10,6 @@ var region = localStorage.getItem("regionSelected");
 var roleSelected = localStorage.getItem('roleSelected');
 var purposeSelected = localStorage.getItem('purposeSelected');
 var regionCityHeader = document.getElementById('regioncityheader');
-var width = window.screen.width;
 
 $(document).ready(function(){
     loggedInControl();

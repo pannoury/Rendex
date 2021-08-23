@@ -38,6 +38,7 @@ function getURLParameterProfile(){
                 },
                 success: function(response){
                     var response = JSON.parse(response);
+                    console.log(response)
                     
                     if(response[1] == 1){ //individual
                         individualRender(response, id);
@@ -65,7 +66,7 @@ function individualRender(response, id){
     document.getElementById('profile-email').innerText = `${response[2]}`
     $.ajax(
         {
-            url: './PHP/individuals.php',
+            url: './PHP/profile.php',
             dataType: 'text',
             method: 'GET',
             data: {
@@ -74,18 +75,73 @@ function individualRender(response, id){
             },
             success: function(response){
                 var response = JSON.parse(response);
+                console.log(response)
                 document.getElementById('accountpage-companyname').innerText = `${response[1]} ${response[2]}`;
                 
                 //hide information that is only shown among organisation profiles
                 document.querySelectorAll('.profile-top-info-row')[2].style.display = "none";
                 document.querySelectorAll('.profile-top-info-row')[3].style.display = "none";
                 
-                if(response.length == 9){
+                //Add Description text
+                document.getElementById('profile-description-text').innerText = `${response[10]}`;
+
+                //profile picture
+                if(response[9] == undefined || response[9] == null || response[9] === ""){
                     document.getElementById('companylogoimage').setAttribute('src', './assets/images/unchosen-profilepic.svg');
                 }
-                else if(response.length == 10){
+                else{
                     document.getElementById('companylogoimage').setAttribute('src', `${response[9]}`);
                 }
+                //website
+                if(response[11] === "" || response[11] == null || response[11] == undefined){
+                    document.querySelectorAll('.profile-top-info-row')[5].style.display = "none";
+                }
+                else{
+                    document.getElementById('company-website').innerText = `${response[11]}`;
+                    document.getElementById('company-website').setAttribute('href', `${response[11]}`);
+                }
+                $.ajax( //See whether you have reviews or not
+                    {
+                        url: './PHP/profile.php',
+                        dataType: 'text',
+                        method: 'GET',
+                        data: {
+                            userid: id,
+                            requestid: 1,
+                        },
+                        success: function(response){
+                            var response = JSON.parse(response);
+                            console.log(response);
+                            if(response == 1 || response[0] == 1){
+                                console.log(response);
+                                /*
+                                $.ajax( //Get Average Score in Reviews
+                                    {
+                                        url: './PHP/profile.php',
+                                        dataType: 'text',
+                                        method: 'GET',
+                                        data: {
+                                            userid: id,
+                                            requestid: 2,
+                                        },
+                                        success: function(response){
+                                            var response = JSON.parse(response);
+                                            console.log(response);
+                                        }
+                                    }
+                                );
+                                */
+                            }
+                            else if(response == 0 || response[0] == 0){
+                                document.getElementById('numberofreviewscompany').innerText = "0";
+                                var img = document.querySelectorAll('.rating-star');
+                                for(i=0; i<img.length; i++){
+                                    img[i].setAttribute('src', './assets/images/empty-star.svg')
+                                }
+                            }
+                        }
+                    }
+                );
             }
         }
     );
@@ -103,7 +159,6 @@ function organisationRender(response, id){
 /************Chat function */
 document.getElementById('initiate-chat').addEventListener('click', function(){
     var width = window.innerWidth;
-    console.log(width)
 
     document.getElementById('initiate-chat').setAttribute('aria-label', 'open');
     var url_string = window.location.href;

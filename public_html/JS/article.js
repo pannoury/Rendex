@@ -101,10 +101,10 @@ function populateArticlePage(response){
                             success: function(response){
                                 var response = JSON.parse(response);
                                 console.log(response);
-                                if(response.length == 9){ //no profilepicture exist
+                                if(response[9] === "" || response[9] == null || response[9] == undefined){ //no profilepicture exist
                                     document.getElementById('article-profile-picture').setAttribute('src', './assets/images/unchosen-profilepic.svg');
                                 }
-                                else if(response.length === 10){
+                                else if(response[9] !== "" && response[9] !== null && response[9] !== undefined){
                                     document.getElementById('article-profile-picture').setAttribute('src', `${response[9]}`);
                                 }
 
@@ -148,12 +148,15 @@ function populateArticlePage(response){
 
 document.getElementsByClassName('article-option-btn')[0].addEventListener('click', function(){
     var btnMode = document.getElementsByClassName('article-option-btn')[0].getAttribute('aria-label');
+    var arrow = document.getElementsByClassName('article-option-btn')[0].getElementsByTagName('svg')[0];
     if(btnMode == "open"){
         document.getElementById('about-assignment-giver').style.display = "none";
         document.getElementsByClassName('article-option-btn')[0].setAttribute('aria-label', 'closed');
+        arrow.setAttribute('transform', 'rotate(0)');
     }
     else{
         document.getElementById('about-assignment-giver').style.display = "flex";
         document.getElementsByClassName('article-option-btn')[0].setAttribute('aria-label', 'open');
+        arrow.setAttribute('transform', 'rotate(180)');
     }
 });

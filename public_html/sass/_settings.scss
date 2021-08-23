@@ -1,0 +1,241 @@
+@media(max-width:875px){
+    #settingsmain{
+        #settings-window-settings{
+            height: auto;
+            width: 100%;
+            background-color: #fff;
+            transition: 0.5s;
+            display: flex;
+            flex-direction: column;
+            color: black;
+            border-radius: 6px;
+            box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+            #settings-window-wrapper-settings{
+                padding: 20px;
+                #settings-window-header-settings{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    h3{
+                        font-size: 24px;
+                    }
+                }
+                #settings-window-middle-settings{
+                    display: flex;
+                    flex-direction: column;
+                    #settings-window-mid-options{
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        overflow-x: auto;
+                        ul{
+                            list-style-type: none;
+                            padding: 0px;
+                            margin: 0px;
+                            display: flex;
+                            flex-direction: row;
+                            .settings-option{
+                                display: flex;
+                                justify-content: center;
+                                padding: 6px 12px 6px 12px;
+                                margin-bottom: 10px;
+                                min-width: 115px;
+                                border-radius: 30px;
+                                background-color: #d4d4d4;
+                                &:hover{
+                                    background-color: #c6c6c6;
+                                    cursor: pointer;
+                                }
+                                &:nth-child(2){
+                                    margin-left: 20px;
+                                    margin-right: 20px;
+                                }
+                                &:nth-child(4){
+                                    margin-left: 20px;
+                                }
+                            }
+                        }
+                    }
+                    #settings-window-mid-display{
+                        width: 100%;
+                        .settings-window-mid-option-display{
+                            display: none;
+                            flex-direction: column;
+                            .settings-window-wrapper{
+                                background-color: #fff;
+                                padding: 14px;
+                                border-radius: 3px;
+                                .settings-window-wrapper-header{
+                                    margin-top: 0px;
+                                    margin-bottom: 5px;
+                                    font-size: 18px;
+                                }
+                                .settings-window-wrapper-explanation{
+                                    margin-bottom: 20px;
+                                }
+                                .one-input-div{
+                                    display: flex;
+                                    flex-direction: column;
+                                    margin-bottom: 20px;
+                                    label{
+                                        font-weight: bold;
+                                        margin-bottom: 6px;
+                                        .gray{
+                                            font-weight: normal;
+                                            color: #5c5c5c;
+                                        }
+                                    }
+                                    input{
+                                        height: 40px;
+                                        font-size: 16px;
+                                        width: 45.5%;
+                                        padding-left: 10px;
+                                    }
+                                    label{
+                                        resize: none;
+                                        width: 95%;
+                                    }
+                                    .settings-window-file-input{
+                                        margin-top: 10px;
+                                        padding-left: 0px;
+                                    }
+                                    #settings-window-file-existing-file{
+                                        margin-bottom: 0px;
+                                    }
+                                    #settings-window-upload-picture{
+                                        width: 100%;
+                                    }
+                                    #settings-window-file-existing-name{
+                                        width: fit-content;
+                                    }
+                                    #myaccount-beskrivning{
+                                        resize: none;
+                                        height: 100px;
+                                    }
+                                    .one-input-div-100{
+                                        position: relative;
+                                        display: flex;
+                                        align-items: center;
+                                        #settings-window-website-link{
+                                            width: 95%;
+                                            padding-left: 50px;
+                                        }
+                                        .icon-input-left{
+                                            position: absolute;
+                                            margin-left: 10px;
+                                        }
+                                    }
+                                }
+                                .two-input-div{
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: space-between;
+                                    margin-bottom: 20px;
+                                    .two-input-div-column{
+                                        width: 48%;
+                                        display: flex;
+                                        flex-direction: column;
+                                        label{
+                                            font-weight: bold;
+                                            margin-bottom: 6px;
+                                            .gray{
+                                                font-weight: normal;
+                                                color: #5c5c5c;
+                                            }
+                                        }
+                                        input{
+                                            height: 40px;
+                                            font-size: 16px;
+                                            padding-left: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                            .settings-window-save-btn{
+                                background-color: #f07900;
+                                color: white;
+                                font-size: 14px;
+                                font-weight: bold;
+                                padding: 10px 20px 10px 20px;
+                                border-radius: 30px;
+                                border-style: none;
+                                &:hover{
+                                    background-color: #c96400;
+                                    cursor: pointer;
+                                    color: black
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        };
+    }
+}
+@media(max-width:500px){
+    #settingsmain{
+        .password-div{
+            &:first-of-type{
+                margin-bottom: 20px;
+            }
+            label{
+                font-size: 16px;
+                font-weight: bold;
+            }
+            .password-wrapper{
+                position: relative;
+                display: flex;
+                align-items: center;
+                #settings-window-old-password, #settings-window-new-password{
+                    border-radius: 3px;
+                    border: 1px solid black;
+                    height: 40px;
+                    width: 100%;
+                    padding-left: 10px;
+                }
+                .show-password-myaccount{
+                    position: absolute;
+                    width: 25px;
+                    margin-left: 85%;
+                    svg{
+                        fill: #9f9f9f;
+                        &:hover{
+                            fill: black;
+                            cursor: pointer;
+                        }
+                    }
+                }
+        
+            }
+        }
+    }
+}
+@media(max-width:875px) and (min-width:500px){
+    #settingsmain{
+        .password-div{
+            .password-wrapper{
+                position: relative;
+                display: flex;
+                align-items: center;
+                #settings-window-old-password, #settings-window-new-password{
+                    border-radius: 3px;
+                    border: 1px solid black;
+                }
+                .show-password-myaccount{
+                    position: absolute;
+                    width: 25px;
+                    margin-left: 42%;
+                    svg{
+                        fill: #9f9f9f;
+                        &:hover{
+                            fill: black;
+                            cursor: pointer;
+                        }
+                    }
+                }
+        
+            }
+        }
+    }
+}

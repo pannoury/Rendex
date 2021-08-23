@@ -1,13 +1,14 @@
-var width = window.screen.width;
+var width = window.screen.innerWidth;
 var användarNamn = document.getElementById('användarnamnlogin');
 var password = document.getElementById('lösenordlogin');
 var loginButton = document.getElementById('login-btn');
-$(document).ready(function(){
+
+window.onload = () =>{
     loggedInControl();
-    //loggedInControl2();
+    loggedInControl2();
     languageControl();
     cookieConsentLoad();
-});
+};
 async function loggedInControl2(){
     var loginId = getCookie("a_user");
     var newArrayLoginId = loginId.split(',');
