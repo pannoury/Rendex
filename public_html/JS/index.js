@@ -9,9 +9,21 @@ window.addEventListener('load', function(){
     document.getElementById('index-subscription-checkbox').checked = false;
 });
 
+const mysql = require('mysql');
+var conn = mysql.createConnection({
+    host: 'mysql44.unoeuro.com', 
+    user: 'rendex_se', 
+    password: '3411bRendex', 
+    databse: 'rendex_se_db',
+});
+
+conn.connect(function(err){
+    if(err) throw err;
+    console.log("Connected");
+});
+
 document.getElementById('indexsearchbutton').addEventListener('click', function(){
-    regionCityCheck();
-    rolePurposeCheck();
+    searchValueGet();
 });
 function indexNumberCount(){
     $.ajax(
@@ -109,14 +121,9 @@ function indexNumberCount(){
 
 }
 
-function regionCityCheck(){
+function searchValueGet(){ //Old, needs update
     var regionSelected = document.getElementById('mainRegionSelect').value;
     var citySelected = document.getElementById('defualtCitySelect').value;
-    localStorage.setItem("regionSelected", `${regionSelected}`);
-    localStorage.setItem("citySelected", `${citySelected}`);
-    return (regionSelected, citySelected);
-}
-function rolePurposeCheck(){
     var roleSelected = document.getElementById('mainRoleSelect');
     var purposeSelected = document.getElementById('mainPurposeSelect');
     var alertMessagePurpose = document.getElementById('error-message-purpose');
@@ -143,15 +150,15 @@ function rolePurposeCheck(){
             purposeSelected.style.borderColor ="red";
         }
     }
-    else if(roleSelected.value != null && purposeSelected.value !=null && roleSelected.value == "Uppdragstagare"){
+    else if(roleSelected.value !== null && purposeSelected.value !== null 
+        && roleSelected.value == "Uppdragstagare"){
         var loggedinCookie = getCookie("a_user");
+        var roleSelected = roleSelected.value.replace(' ', '+')
+        var purposeSelected = purposeSelected.value.replace(' ', '+')
         if(loggedinCookie != null){
             var loggedinCookie = loggedinCookie.split(',');
-            if(loggedinCookie[1] == 1){
-                window.location.href= "searchpage.html";
-            }
-            else if(loggedinCookie[1] == 2 || loggedinCookie[1] == 3){
-                window.location.href= "searchpage.html";
+            if(loggedinCookie[1] > 0){
+                window.location = `https://rendex.se/searchpage?r=${regionSelected}&c=${citySelected}&ro=${roleSelected}&p=${purposeSelected}`;
             }
         }
         else{
@@ -159,12 +166,17 @@ function rolePurposeCheck(){
         }
     }
     else {
-        window.location.href= "searchpage.html";
+        var regionSelected = regionSelected.replace(' ', '+')
+        var citySelected = citySelected.replace(' ', '+')
+        var roleSelected = roleSelected.value.replace(' ', '+')
+        var purposeSelected = purposeSelected.value.replace(' ', '+')
+
+        window.location = `https://rendex.se/searchpage?r=${regionSelected}&c=${citySelected}&ro=${roleSelected}&p=${purposeSelected}`;
     }
-    localStorage.setItem("roleSelected", `${roleSelected.value}`);
-    localStorage.setItem("purposeSelected", `${purposeSelected.value}`);
-    return (roleSelected.value, purposeSelected.value)
 }
+
+
+/***************DYNAMIC SEARCH CITY OPTIONS****************/
 document.getElementById('mainRegionSelect').onchange = function(){
     cityOptionMain();
 };
@@ -175,8 +187,7 @@ function cityOptionMain(){
     var array = window[`${regionSelected}CityArray`];
     generateCityOptions(array);
 }
-
-function generateCityOptions(array){
+function generateCityOptions(array){ //populates cityOptions depending on Region Selected (dynamic)
     var cityOptions = document.getElementById('defualtCitySelect');
     for(i = 0; i < array.length; i++) {
         var option = document.createElement('option');
@@ -189,6 +200,13 @@ function generateCityOptions(array){
 function clearCityOptions(){
     $('#defualtCitySelect').find('option').remove();
 }
+/***************DYNAMIC SEARCH CITY OPTIONS****************/
+
+
+
+
+//Bottom-down, subscription options
+//Dynamic change of prices Annual/monthly subscription
 document.getElementById('index-subscription-checkbox').onchange = function indexButtonSlider(){
     var checkbox = document.getElementById('index-subscription-checkbox');
     if(checkbox.checked == true){
@@ -204,5 +222,15 @@ document.getElementById('index-subscription-checkbox').onchange = function index
         for(i=0; i<priceBox.length; i++){
             priceBox[i].innerText = "100 SEK";
         }
+    }
+}
+document.getElementById('index-text-btn').onclick = () =>{
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
+    if(newArrayLoginId[0] >= 1){
+        window.location = 'https://rendex.se/myaccount';
+    }
+    else{
+        window.location = "https://rendex.se/create_account"
     }
 }

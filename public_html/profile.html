@@ -9,7 +9,6 @@
   <meta name="author" content="Patrick Tannoury">
   <link rel="stylesheet" href="sass/style.css" type="text/css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script>
   $(function(){
     $("#footer").load("footer.html"); 
@@ -79,7 +78,21 @@
           <div id="account-companybackground-column1">
             <div class="companyheader-div">
               <div><h2><span id="accountpage-companyname"></span></h2></div>
-              <button id="initiate-chat"><img src="./assets/images/chatbubble-white-empty.svg" height="20px" width="20px"></button>
+              <div id="profile-initiate-btn-wrapper">
+                <a id="initiate-chat" class="profile-initiate-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 0 24 24" width="20px" fill="#fff">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+                  </svg>
+                </a>
+                <a id="report-user-btn" class="profile-initiate-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/>
+                  </svg>
+                </a>
+              </div>
+
             </div>
             <div id="companyshortinformation">
               <p class="profile-top-info-row"><img src="./assets/images/mail-icon.svg" height="20px" width="20px"><span id="profile-email"></span></p>

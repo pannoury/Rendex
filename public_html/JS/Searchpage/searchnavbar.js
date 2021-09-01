@@ -55,6 +55,7 @@ function loggedInControl(){
     else{
         document.getElementById('loginanchor').textContent = "Logga In";
     }
+    document.getElementById('searchpageanchor').style.color = "#f07900";
 };
 function roleControl(){
     var role = localStorage.getItem("roleSelected");

@@ -103,13 +103,33 @@
                             width: calc(100% - 250px);
                             max-height: 600px;
                             overflow-y: auto;
-                            h2{
-                                margin-top: 0px;
-                                font-size: 28px;
-                                text-align: center;
+                            display: none;
+                            .profile-header-row2-column-header-wrapper{
+                                h2{
+                                    margin-top: 0px;
+                                    font-size: 28px;
+                                    text-align: center;
+                                }
+                                .profile-header-row2-column-back-btn{
+                                    display: none;
+                                }
                             }
                             #my-articles-wrapper-wrapper{
+                                display: none;
                                 padding: 0px 20px;
+                                #my-articles-no-articles-found{
+                                    display: none;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    img{
+                                        width: 400px;
+                                    }
+                                    h3{
+                                        text-align: center;
+                                        margin: 0px;
+                                        font-size: 24px;
+                                    }
+                                }
                                 .profile-header-column-2-div{
                                     margin-bottom: 20px;
                                     .my-articles-wrapper{
@@ -206,9 +226,9 @@
         top: 15vh;
         right: 20%;
         background-color: #f4f4f4;
-        overflow-y: auto;
         transition: 0.5s;
         display: flex;
+        overflow: hidden;
         flex-direction: column;
         color: black;
         border-radius: 6px;
@@ -268,6 +288,8 @@
                 }
                 #settings-window-mid-display{
                     width: 70%;
+                    overflow: auto;
+                    max-height: calc(605px - 80px);
                     .settings-window-mid-option-display{
                         display: none;
                         flex-direction: column;
@@ -373,6 +395,15 @@
                                         height: 40px;
                                         font-size: 16px;
                                         padding-left: 10px;
+                                    }
+                                    .input50{
+                                        display: flex;
+                                        align-items: center;
+                                        height: 40px;
+                                        font-size: 16px;
+                                        padding-left: 10px;
+                                        border: 1px solid black;
+                                        border-radius: 3px;
                                     }
                                 }
                             }

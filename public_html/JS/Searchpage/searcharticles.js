@@ -1,10 +1,112 @@
-var regionSelected = localStorage.getItem("regionSelected");
-var citySelected = localStorage.getItem("citySelected");
-var purposeSelected = localStorage.getItem("purposeSelected");
-var roleSelected = localStorage.getItem("roleSelected");
+function articleCounter(){ //counts the number of articles
+
+    var urlParameters = new URLSearchParams(window.location.search);      
+    var region = arrayCreator(urlParameters.get("r"));
+    var city = arrayCreator(urlParameters.get("c"));
+    var purpose = arrayCreator(urlParameters.get("p"));
+    var price = arrayCreator(urlParameters.get("pr"));
+    var rating = arrayCreator(urlParameters.get("ra"));
+    var role = arrayCreator(urlParameters.get("ro"));
+    function arrayCreator(value){
+        if(value === null || value === undefined || value === "undefined"){
+            return 0;
+        }
+        else if(value.includes(',')){
+            var array = value.split(',')
+            var length = array.length;
+            var count = 0;
+            if(!isNaN(array[0])){
+                if(value.substring(0,1) === ','){ //highprice only defined
+                    var array = `${value.substring(1)},high`
+                    return '\'' + array.split(',').join('\',\'') + '\'';
+                }
+                else if(value.slice(-1) === ','){
+                    var array = `${value}low`
+                    return '\'' + array.split(',').join('\',\'') + '\'';
+                }
+                else if(value.slice(-1) !== ',' && value.substring(0,1) !== ','){
+                    return '\'' + value.split(',').join('\',\'') + '\'';
+                }
+                else{
+                    var value = '\'' + value.split(',').join('\',\'') + '\'';
+                    return value
+                }
+            }
+            else{
+                for(i=0; i<array.length; i++){
+                    var element = document.getElementById(`${array[i]}`);
+                    if(element === null){
+                        //do nothing
+                    }
+                    else{
+                        count++
+                    }
+                }
+                if(count === length){ //pass an array, readable by PHP through json_decode
+                    //return JSON.stringify(value.split(','));
+                    //return value = value.split(',')
+                    var value = '\'' + value.split(',').join('\',\'') + '\'';
+                    return value
+                }
+                else{
+                    return 0
+                }
+            }
+        }
+        else{
+            var element = value.replace(' ', "");
+            var element = document.getElementById(`${element}`);
+            if(element === null && value !== "Uppdragsgivare" && value !== "Uppdragstagare"){
+                return 0
+            }
+            else{
+                return value;
+            }
+        }
+    }
+    
+    $.ajax(
+        {
+            url: './PHP/articleload.php',
+            dataType: 'text',
+            method: 'GET',
+            data: {
+                requestid: 9,
+                region: region,
+                city: city,
+                purpose: purpose,
+                price: price,
+                rating: rating,
+                role: role,
+                count: 1,
+            },
+            success: function(response){
+                var response = JSON.parse(response);
+                var p = document.querySelector(".search-result-midpage-header-right p");
+                if(response == 0){
+                    p.innerText = "0 Annonser"
+                }
+                else if(response == 1){
+                    p.innerText = `${response} Annons`;
+                }
+                else if(response > 1){
+                    p.innerText = `${response} Annonser`;
+                }
+
+                document.getElementsByClassName('pagination-navigation-bottom')[0].innerText = `1 - ${response}`;
+                document.getElementsByClassName('pagination-side-total-count')[0].innerText = `${response}`;
+                if(response < 40){
+                    document.getElementById('loadmorearticles-btn').style.display = "none";
+                }
+                else{
+                    //do nothing, display load button
+                }
+            },
+        }
+    );
+}
 
 function ajaxResponse(response){
-    console.log(response);
     if(response !== null || response !== undefined){
         if(response == 0){
             document.getElementById('searchresult-articlecounter').innerText = "0 Annonser";
@@ -28,23 +130,7 @@ function ajaxResponse(response){
     articleCounter();
 }
 
-function articleCounter(){
-    var width = window.innerWidth;
-    var articleCount = document.querySelectorAll('.article-wrapper');
-    var p = document.querySelector(".search-result-midpage-header-right p");
-    if(articleCount.length == 0){
-        p.innerText = "0 Annonser"
-    }
-    else if(articleCount.length == 1){
-        p.innerText = `${articleCount.length} Annons`;
-    }
-    else if(articleCount.length > 1){
-        p.innerText = `${articleCount.length} Annonser`;
-    }
-}
-
 function createArticle(array){
-    console.log(array);
     var resultWrapper = document.getElementById('article-wrapper-wrapper');
 
     /************First layer *********/
@@ -54,19 +140,23 @@ function createArticle(array){
 
     var div2 = document.createElement('div');
     div2.setAttribute('class', 'article-information-wrapper');
+    div2.addEventListener('click', function(e){
+        window.location = `https://rendex.se/article?id=${array[1]}`
+    });
     a1.appendChild(div2);
-
-    var div1 = document.createElement('div');
-    div1.setAttribute('class', 'article-image-wrapper');
-    a1.appendChild(div1);
     /************First layer *********/
     
     /********ARTICLE-IMAGE-WRAPPER********* */
-    /*
-    var image = document.createElement('img');
-    image.setAttribute('alt', 'article-image');
-    div1.appendChild(image);
-    */
+    
+    var hoverDiv = document.createElement('div');
+    hoverDiv.setAttribute('class', 'article-option-wrapper');
+    var hoverDivSVG = document.createElement('span');
+    hoverDivSVG.setAttribute('class', 'article-save');
+    hoverDivSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/></svg>`
+    hoverDivSVG.setAttribute('aria-label', `${array[1]}`)
+    hoverDiv.appendChild(hoverDivSVG);
+    a1.appendChild(hoverDiv);
+    
     /********ARTICLE-IMAGE-WRAPPER********* */
 
     /********ARTICLE-INFORMATION-WRAPPER********* */
@@ -98,6 +188,16 @@ function createArticle(array){
     var div6 = document.createElement('div');
     div6.setAttribute('class', 'article-rating article-info');
     div5.appendChild(div6);
+
+    var urlParameters = new URLSearchParams(window.location.search);  
+    var role = urlParameters.get("ro");
+    if(role === null || role === "undefined" || role === undefined || role === "Uppdragsgivare" || role === "null"){
+        div6.innerHTML = `<p class="article-rating">${array[2]}, ${array[3]}<p>`
+    }
+    else if(role === "Uppdragstagare"){
+        
+    }
+    
 
     var p1 = document.createElement('p');
     p1.setAttribute('class', 'article-price article info');
@@ -131,7 +231,7 @@ function createArticle(array){
                             success: function(response){
                                 var response = JSON.parse(response);
                                 console.log(response)
-                                a1.setAttribute('href', `https://rendex.se/article?id=${array[1]}`);
+                                a1.setAttribute('aria-label', `${array[1]}`);
                             }
                         }
                     );
@@ -158,25 +258,36 @@ function createArticle(array){
     );
 
     pA.innerText = `${array[6]}`; //article titel label
-    pB.innerText = `${array[8].substring(0,10)}`; //date label
+    pB.innerText = `${array[9].substring(0,10)}`; //date label
     p2.innerText = `${array[5]}`; //category label
 
     /************PRICE WINDOW IN ARTICLE *************/
-    if(array[7].includes(',') === true){ //a price intervall is set
-        var priceIntervall = array[7].split(','); //its going to contain two values'
-        if(priceIntervall[0].length >= 4){ //value is equal or more than 10k
-
-            p1.innerText = `${priceIntervall[0].substring(0, priceIntervall[0].length-3)}K - ${priceIntervall[1].substring(0, priceIntervall[1].length-3)}K`;
-            p1.style.fontWeight = "bold";
-        }
+    if(array[7].length >= 4){ //value is equal or more than 10k
+        p1.innerText = `${array[7].substring(0, array[7].length-3)}K - ${array[8].substring(0, array[8].length-3)}K`;
+    }
+    else if(array[7].length < 4 && array[8].length >= 4){
+        p1.innerText = `${array[7]} - ${array[8].substring(0, array[8].length-3)}K`;
     }
     else{
-        p1.innerText = `${array[7]}`;
-        p1.style.fontWeight = "bold";
+        p1.innerText = `${array[7]} - ${array[8]}`;
     }
+    p1.style.fontWeight = "bold";
     /************PRICE WINDOW IN ARTICLE *************/
+    var width = window.innerWidth
+    if(width > 875){
+        if(array[4].length > 240){
+            pMid.innerText = `${array[4].replace(/\r?\n|\r/g, "").substring(0,240)}...`;
+        }
+        else if(array[4].length <= 240){
+            pMid.innerText = `${array[4].replace(/\r?\n|\r/g, "")}`
+        }
+    }
+    else{ //mobile
+        pMid.innerText = `${array[4].replace(/\r?\n|\r/g, "").substring(0,200)}...`;
+    }
 
-    pMid.innerText = `${array[4].replace(/\r?\n|\r/g, "").substring(0,300)}`;
+
+    
     marginTopFix();
 };
 
@@ -185,4 +296,12 @@ function marginTopFix(){
     for(i=0; i < fix.length; i++){
         fix[i].style.marginTop = "0px";
     }
+}
+
+function saveButtonArticles(e){
+    var string = e.href;
+    var id = string.substring(string.indexOf("=")).replace("=", '')
+    console.log(id)
+    console.log(e)
+    e.preventDefault();
 }

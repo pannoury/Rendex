@@ -17,6 +17,7 @@ window.addEventListener('load', function(){
     purposeControl();
     regionControl();
     /* setInterval(clear, 600000) */
+    loggedInControlCreateAccount();
 });
 $(document).ready(function(){
     setTimeout(function(){
@@ -37,6 +38,16 @@ function hideAndClearElements(){
     document.getElementById('phonenumberinput').value = "";
     document.getElementById('password1').value = "";
     document.getElementById('password-repeat').value = "";
+}
+function loggedInControlCreateAccount(){
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
+    if(newArrayLoginId[0] >= 1){
+        window.location = 'https://rendex.se/myaccount';
+    }
+    else{
+        window.location = 'https://rendex.se/login';
+    }
 }
 /******UNIVERSAL SETTINGS END******** */
 

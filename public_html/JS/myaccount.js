@@ -3,6 +3,8 @@ window.onload = function(){
   cookieConsentLoad();
   displayMyAccount();
   clearSettingsList();
+
+  document.getElementById('loginanchorTrue').style.color = "#f07900";
 };
 
 function displayMyAccount(){
@@ -169,13 +171,13 @@ function retrieveAccountInformation(id){
             if(response[0] == 1){ //if successful
               if(id == "settings-option1"){ //Kontaktuppgifter
                 document.getElementById('settings-window-kontaktuppgifter').style.display = "flex";
-                document.getElementById('settings-window-firstname').value = `${response[1]}`;
-                document.getElementById('settings-window-lastname').value = `${response[2]}`;
+                document.getElementById('settings-window-firstname').innerText = `${response[1]}`;
+                document.getElementById('settings-window-lastname').innerText = `${response[2]}`;
                 document.getElementById('settings-window-streetadress').value = `${response[5]}`;
                 document.getElementById('settings-window-streetnumber').value = `${response[6]}`;
                 document.getElementById('settings-window-zipcode').value = `${response[7]}`;
                 document.getElementById('settings-window-phonenumber').value = `${response[8]}`;
-                if(response.length == 10){
+                if(response[9] !== ""){
                   document.getElementById('settings-window-file-existing-name').innerText = `${response[9].replace("./Uploads/", "")}`;
                   document.getElementById('settings-window-file-existing-name').style.color = "blue";
                   document.getElementById('settings-window-file-existing-name').setAttribute('href', `https://rendex.se${response[9].substring(1)}`);
@@ -309,8 +311,8 @@ function updateContactInformation(imagePath){
   var accountid = newArrayLoginId[0];
   var role = newArrayLoginId[1];
 
-  var firstname = document.getElementById('settings-window-firstname').value;
-  var lastname = document.getElementById('settings-window-lastname').value;
+  var firstname = document.getElementById('settings-window-firstname');
+  var lastname = document.getElementById('settings-window-lastname');
   var phonenumber = document.getElementById('settings-window-phonenumber').value;
   var alertnativePhonenumber = document.getElementById('settings-window-phonenumber-alternative').value;
   var streetadress = document.getElementById('settings-window-streetadress').value;
@@ -329,8 +331,6 @@ function updateContactInformation(imagePath){
           role: role,
           accountid: accountid,
           imagepath: imagePath.substring(1),
-          firstname: firstname,
-          lastname: lastname,
           phonenumber: phonenumber,
           alternativephonenumber: alertnativePhonenumber,
           streetadress: streetadress,

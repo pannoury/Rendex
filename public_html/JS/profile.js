@@ -14,11 +14,12 @@ function viewControl(){ //checks whether its you looking at your public profile 
     var cookieid = cookieid.split(',');
     
     if(cookieid[0] == id){ //you are looking at your own page
-        document.getElementById('initiate-chat').style.display = "none";
+        document.getElementById('profile-initiate-btn-wrapper').style.display = "none";
     }
     else if(cookieid[0] == null || cookieid[0] == undefined){
         window.location = "https://rendex.se/login"
     }
+    document.getElementById('report-user-btn').setAttribute('href', `https://rendex.se/report?id=${id}`);
 }
 
 function getURLParameterProfile(){

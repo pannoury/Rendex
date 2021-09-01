@@ -9,12 +9,10 @@
         $id = $conn->real_escape_string($_GET['userid']);
         $chatid = $conn->real_escape_string($_GET['chatid']);
         $sender = $conn->real_escape_string($_GET['sender']);
-        $sql = "SELECT DISTINCT chat_id FROM chatdb WHERE 
-        (
-            account_id='$id' 
-            OR counterpart='$id' 
-        )
-            AND active=1 ORDER BY chat_time DESC";
+        
+        $sql = "SELECT chat_id FROM chatdb WHERE (account_id='$id' OR counterpart='$id') 
+        AND active=1 GROUP BY chat_id ORDER BY MAX(chat_time) DESC";
+
         $result = mysqli_query($conn,$sql); 
         $rows = mysqli_num_rows($result); 
         if(mysqli_num_rows($result) > 1){
@@ -264,7 +262,7 @@
         $chatid = $conn->real_escape_string($_GET['chatid']);
         $sender = $conn->real_escape_string($_GET['sender']);
         $chatRows = $conn->real_escape_string($_GET['chatRows']);
-        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' AND account_id=$sender AND active=1 ORDER BY chat_time DESC";
+        $sql = "SELECT * FROM chatdb WHERE chat_id='$chatid' AND account_id='$sender' AND active=1 ORDER BY chat_time DESC";
         $result = mysqli_query($conn,$sql);  
         $rows = mysqli_num_rows($result);
         if(mysqli_num_rows($result) > $chatRows){

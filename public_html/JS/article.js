@@ -39,6 +39,7 @@ function getURLParameter(){
             }
         );
     }
+    articleViewCount(articleid);
 };
 function populateArticlePage(response){
     var articleTitle = document.getElementById('article-title');
@@ -52,22 +53,17 @@ function populateArticlePage(response){
     articleIdSpan.innerText = `(#${response[1]})`;
     articleDescription.innerText = response[4];
     regionLocation.innerText = `${response[3]}, ${response[2]}`;
-    date.innerText = response[8].substring(0,10);
+    date.innerText = response[9].substring(0,10);
     type.innerText = response[5];
 
-    if(response[7].includes(',')){
-        priceValue = response[7].split(',');
-        if(priceValue[0].length >= 5){
-            priceLow = priceValue[0]/1000;
-            priceHigh = priceValue[1]/1000;
-            price.innerText = `${priceLow}K - ${priceHigh}K`
-        }
-        else{
-            price.innerText = `${priceValue[0]} - ${priceValue[1]}`
-        }
+    if(response[7].length >= 4){ //value is equal or more than 10k
+        price.innerText = `${response[7].substring(0, response[7].length-3)}K - ${response[8].substring(0, response[8].length-3)}K`;
+    }
+    else if(response[7].length < 4 && response[8].length >= 4){
+        price.innerText = `${response[7]} - ${response[8].substring(0, response[8].length-3)}K`;
     }
     else{
-        price.innerText = response[7];
+        price.innerText = `${response[7]} - ${response[8]}`;
     }
 
     sessionStorage.setItem("ac_id", `${response[0]}`);
@@ -160,3 +156,25 @@ document.getElementsByClassName('article-option-btn')[0].addEventListener('click
         arrow.setAttribute('transform', 'rotate(180)');
     }
 });
+
+
+
+
+function articleViewCount(articleid){
+    console.log(articleid)
+    $.ajax(
+        {
+            url: './PHP/articleStatistics.php',
+            dataType: 'text',
+            method: 'POST',
+            data: {
+                requestid: 1,
+                articleId: articleid,
+            },
+            success: function(response){
+                var response = JSON.parse(response);
+                console.log(response);
+            }
+        }
+    );
+}

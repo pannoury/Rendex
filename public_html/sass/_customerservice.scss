@@ -1,0 +1,32 @@
+#faq-main{
+    margin-bottom: 40px;
+    h1{
+        width: 80%;
+        margin: auto;
+    }
+    #recommended-topics-wrapper{
+        width: 80%;
+        margin: auto;
+        h4{
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .grid-row-4items{
+            display: flex;
+            flex-direction: row;
+            .grid-row-item{
+                width: 10vw;
+                padding: 20px;
+                box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.384);
+                text-align: center;
+                border-radius: 3px;
+                border: 1px solid black;
+                margin-right: 50px;
+                &:hover{
+                    opacity: 0.8;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

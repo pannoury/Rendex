@@ -75,13 +75,30 @@
                 <path id="iconSearch_svg" d="M12.618 23.318c-6.9 0-10.7-3.8-10.7-10.7 0-6.9 3.8-10.7 10.7-10.7 6.9 0 10.7 3.8 10.7 10.7 0 3.458-.923 6.134-2.745 7.955-1.821 1.822-4.497 2.745-7.955 2.745zm17.491 5.726l-7.677-7.678c1.854-2.155 2.804-5.087 2.804-8.748C25.236 4.6 20.636 0 12.618 0S0 4.6 0 12.618c0 8.019 4.6 12.618 12.618 12.618 3.485 0 6.317-.85 8.44-2.531l7.696 7.695 1.355-1.356z"></path>
               </svg>
               <input type="search" placeholder="Sök bland uppdragstagare" class="searchpage-search" id="searchpage-searchindex">
+              <div id="searchpage-search-suggestions">
+                <ul>
+                  <li class="suggestion-row">
+                    <p class="skeleton skeleton-text"></p>
+                  </li>
+                  <li class="suggestion-row">
+                    <p class="skeleton skeleton-text"></p>
+                  </li>
+                  <li class="suggestion-row">
+                    <p class="skeleton skeleton-text"></p>
+                  </li>
+                </ul>
+              </div>
             </form>
-          </div>
-          <div id="searchpage-regioncity-select-wrapper">
-            <img src="./assets/images/filter-icon-white.svg" height="18px" width="18px">
-            <button id="locationselect-button">Filtrera</button>
-            <img id="location-arrow-down" src="./assets/images/arrow-down.svg" height="16px" width="16px">
-            <img id="location-arrow-up" src="./assets/images/arrow-up.svg" height="16px" width="16px">
+            <button id="filter-initiate-button">
+              <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF">
+                <g>
+                  <path d="M0,0h24 M24,24H0" fill="none"/>
+                  <path d="M4.25,5.61C6.27,8.2,10,13,10,13v6c0,0.55,0.45,1,1,1h2c0.55,0,1-0.45,1-1v-6c0,0,3.72-4.8,5.74-7.39 C20.25,4.95,19.78,4,18.95,4H5.04C4.21,4,3.74,4.95,4.25,5.61z"/>
+                  <path d="M0,0h24v24H0V0z" fill="none"/>
+                </g>
+              </svg>
+              Filtrera
+            </button>
           </div>
         </div>
       </div>
@@ -96,7 +113,7 @@
         <div class="search-result-midpage">
           <div class="search-result-midpage-header">
             <div class="search-result-midpage-header-left">
-              <h1 id="search-header-result-area"><span id="search-role-span">Uppdragstagare</span> i <span id="region-header-display">Stockholm</span></h1>
+              <h1 id="search-header-result-area"><span id="search-role-span">Uppdragstagare</span> i <span id="region-header-display"></span></h1>
             </div>
             <div class="search-result-midpage-header-right">
               <p id="searchresult-articlecounter"></p>
@@ -128,90 +145,183 @@
           </div>
         </div>
       </div>
+      <div id="search-filter-wrapper">
+        <div id="search-filter-wrapper-top">
+          <h2>Filtrera Sökningen</h2>
+          <a id="search-filter-close-anchor">
+            <span>&#10006</span><span>Stäng</span>
+          </a>
+        </div>
+        <div id="search-filter-wrapper-mid">
+          <div class="search-filter-option">
+            <div class="search-filter-option-header" id="optionRegion" onclick="filterOptionSelect(id)" aria-label="untoggled">
+              <div class="search-filter-option-header-left">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Region</span>
+              </div>
+              <svg class="filter-option-arrow-down" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                <path d="M0 0h24v24H0V0z" fill="none"/>
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+              </svg>
+            </div>
+            <div class="search-filter-expandable">
+              <div class="search-filter-column-option">
+                <div id="locationregion-row-wrapper-1" class="locationregion-row"><input type="checkbox" value="Hela Sverige" id="helasverigecheckbox" name="region" class="regioncheckbox"><p>Hela Sverige</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Blekinge" id="Blekinge"><p>Blekinge</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Dalarna" id="Dalarna"><p>Dalarna</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Gävleborg" id="Gävleborg"><p>Gävleborg</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Gotland" id="Gotland"><p>Gotland</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Halland" id="Halland"><p>Halland</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Jämtland" id="Jämtland"><p>Jämtland</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Jönköping" id="Jönköping"><p>Jönköping</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Kalmar" id="Kalmar"><p>Kalmar</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Kronoberg" id="Kronoberg"><p>Kronoberg</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Norrbotten" id="Norrbotten"><p>Norrbotten</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Örebro" id="Örebro"><p>Örebro</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Östergötland" id="Östergötland"><p>Östergötland</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Skåne" id="Skåne"><p>Skåne</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Sörmland" id="Sörmland"><p>Sörmland</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Stockholm" id="Stockholm"><p>Stockholm</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Uppsala" id="Uppsala"><p>Uppsala</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Värmland" id="Värmland"><p>Värmland</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Västerbotten" id="Västerbotten"><p>Västerbotten</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Västernorrland" id="Västernorrland"><p>Västernorrland</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Västmanland" id="Västmanland"><p>Västmanland</p></div>
+                <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Västra Götaland" id="Västra Götaland"><p>Västra Götaland</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="search-filter-option">
+            <div class="search-filter-option-header" id="optionCity" onclick="filterOptionSelect(id)" aria-label="untoggled">
+              <div class="search-filter-option-header-left">
+                <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                  <g>
+                    <rect fill="none" height="24" width="24"/>
+                  </g>
+                  <g>
+                    <path d="M17,11V3H7v4H3v14h8v-4h2v4h8V11H17z M7,19H5v-2h2V19z M7,15H5v-2h2V15z M7,11H5V9h2V11z M11,15H9v-2h2V15z M11,11H9V9h2 V11z M11,7H9V5h2V7z M15,15h-2v-2h2V15z M15,11h-2V9h2V11z M15,7h-2V5h2V7z M19,19h-2v-2h2V19z M19,15h-2v-2h2V15z"/>
+                  </g>
+                </svg>
+                <span>Stad</span>
+              </div>
+              <svg class="filter-option-arrow-down" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                <path d="M0 0h24v24H0V0z" fill="none"/>
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+              </svg>
+            </div>
+            <div class="search-filter-expandable">
+              <div id="locationheader-wrapper-city" class="locationheader-wrapper-city">
+                <h2><span id="regioncityheader"></span></h2>
+                <div id="allareas-wrapper"><input type="checkbox" name="city" value="Alla Städer" id="allaområdencheckbox" class="citycheckbox"><label>Alla områden</label></div>
+              </div>
+              <div id="locationselect-cityoptions">
+              </div>
+            </div>
+          </div>
+          <div class="search-filter-option">
+            <div class="search-filter-option-header" id="optionCategory" onclick="filterOptionSelect(id)" aria-label="untoggled">
+              <div class="search-filter-option-header-left">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                  <path d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M12 2l-5.5 9h11z"/>
+                  <circle cx="17.5" cy="17.5" r="4.5"/>
+                  <path d="M3 13.5h8v8H3z"/>
+                </svg>
+                <span>Kategori</span>
+              </div>
+              <svg class="filter-option-arrow-down" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                <path d="M0 0h24v24H0V0z" fill="none"/>
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+              </svg>
+            </div>
+            <div class="search-filter-expandable">
+              <div id="locationheader-wrapper-category" class="locationheader-wrapper-city">
+                <div id="allareas-wrapper"><input type="checkbox" name="category" value="Alla Kategorier" id="allakategoriercheckbox" class="categorycheckbox"><label>Alla Kategorier</label></div>
+                <div id="categoryselect-searchpage">
+                  <div class="search-filter-column-option">
+                    <div class="locationregion-row"><input type="checkbox" name="category" class="categorycheckbox" value="Grafisk Design" id="GrafiskDesign"><p>Grafisk Design</p></div>
+                    <div class="locationregion-row"><input type="checkbox" name="category" class="categorycheckbox" value="Webbutveckling" id="Webbutveckling"><p>Webbutveckling</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="search-filter-option">
+            <div class="search-filter-option-header" id="optionPrice" onclick="filterOptionSelect(id)" aria-label="untoggled">
+              <div class="search-filter-option-header-left">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                  <path d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M19 14V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-9-1c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-6v11c0 1.1-.9 2-2 2H4v-2h17V7h2z"/>
+                </svg>
+                <span>Pris</span>
+              </div>
+              <svg class="filter-option-arrow-down" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                <path d="M0 0h24v24H0V0z" fill="none"/>
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+              </svg>
+            </div>
+            <div class="search-filter-expandable">
+              <div id="locationheader-wrapper-price" class="locationheader-wrapper-city">
+                <h2><span id="regioncityheader"></span></h2>
+                <div id="allprice-wrapper"><input type="checkbox" name="price" value="Alla Priser" id="allapricecheckbox" class="pricecheckbox"><label>Alla priser</label></div>
+                <div id="price-range-wrapper">
+                  <input id="lowPrice" class="filter-price-input" placeholder="Pris från">
+                  <input id="highPrice" class="filter-price-input" placeholder="Pris till">
+                </div>
+              </div>
+              <div id="filterselect-priceoptions">
+              </div>
+            </div>
+          </div>
+          <div class="search-filter-option">
+            <div class="search-filter-option-header" id="optionRating" onclick="filterOptionSelect(id)" aria-label="untoggled">
+              <div class="search-filter-option-header-left">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                  <path d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                </svg>
+                <span>Betyg</span>
+              </div>
+              <svg class="filter-option-arrow-down" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                <path d="M0 0h24v24H0V0z" fill="none"/>
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+              </svg>
+            </div>
+            <div class="search-filter-expandable">
+              <div id="locationheader-wrapper-rating" class="locationheader-wrapper-city">
+                <h2><span id="regioncityheader"></span></h2>
+                <div id="allrating-wrapper"><input type="checkbox" name="rating" value="Alla Betyg" id="allaratingcheckbox" class="ratingcheckbox"><label>Alla Betyg</label></div>
+                <div class="search-filter-column-option">
+                  <div class="locationregion-row"><input type="checkbox" name="rating" class="ratingcheckbox" value="1" id="rating1"><img src="./assets/images/full-star-orange.svg"></div>
+                  <div class="locationregion-row"><input type="checkbox" name="rating" class="ratingcheckbox" value="2" id="rating2"><img src="./assets/images/full-star-orange.svg"><img src="./assets/images/full-star-orange.svg"></div>
+                  <div class="locationregion-row"><input type="checkbox" name="rating" class="ratingcheckbox" value="2" id="rating3"><img src="./assets/images/full-star-orange.svg"><img src="./assets/images/full-star-orange.svg"><img src="./assets/images/full-star-orange.svg"></div>
+                  <div class="locationregion-row"><input type="checkbox" name="rating" class="ratingcheckbox" value="2" id="rating4"><img src="./assets/images/full-star-orange.svg"><img src="./assets/images/full-star-orange.svg"><img src="./assets/images/full-star-orange.svg"><img src="./assets/images/full-star-orange.svg"></div>
+                  <div class="locationregion-row"><input type="checkbox" name="rating" class="ratingcheckbox" value="2" id="rating5"><img src="./assets/images/full-star-orange.svg"><img src="./assets/images/full-star-orange.svg"><img src="./assets/images/full-star-orange.svg"><img src="./assets/images/full-star-orange.svg"><img src="./assets/images/full-star-orange.svg"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="filter-btn-count-wrapper">
+            <button id="initiateSearchFilter">Filtrera</button>
+            <p><span id="filter-count-articles"></span> Träffar</p>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="cookiewindowpopupwrapper"></div>
   </main>
-  
-  <div id="searchpage-filter-window">
-    <div id="searchpage-filter-top">
-      <h4>
-        Filter Inställningar
-      </h4>
-      <a id="close-filter-settings">
-        Stäng <span>&#10006;</span>
-      </a>
-    </div>
-    <div id="searchpage-mid-wrapper">
-      <div id="searchpage-mid-left"></div>
-      <div id="searchpage-mid-right"></div>
-    </div>
-  </div>
-  <div id="locationselectwindow">
-    <div id="locationheader-wrapper">    
-      <h2><span id="region-location-cityheader">Välj Region</span></h2>
-      <a id="closelocationselectwindow">&times;</a>
-    </div>
-    <div class="locationregion-row" id="locationhelasverige">
-      <div id="locationregion-row-wrapper-1">      
-        <input type="checkbox" value="Hela Sverige" id="helasverigecheckbox" name="region" class="regioncheckbox">
-        <p>Hela Sverige</p>
-      </div>
-    </div>
-    <div id="locationselect-wrapper">
-      <div id="locationselectwindow-region">
-        <div id="locationregion-specific">
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Blekinge" id="Blekinge"><p>Blekinge</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Dalarna" id="Dalarna"><p>Dalarna</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Gävleborg" id="Gävleborg"><p>Gävleborg</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Gotland" id="Gotland"><p>Gotland</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Halland" id="Halland"><p>Halland</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Jämtland" id="Jämtland"><p>Jämtland</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Jönköping" id="Jönköping"><p>Jönköping</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Kalmar" id="Kalmar"><p>Kalmar</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Kronoberg" id="Kronoberg"><p>Kronoberg</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Norrbotten" id="Norrbotten"><p>Norrbotten</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Örebro" id="Örebro"><p>Örebro</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Östergötland" id="Östergötland"><p>Östergötland</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Skåne" id="Skåne"><p>Skåne</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Sörmland" id="Sörmland"><p>Sörmland</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Stockholm" id="Stockholm"><p>Stockholm</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Uppsala" id="Uppsala"><p>Uppsala</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Värmland" id="Värmland"><p>Värmland</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Västerbotten" id="Västerbotten"><p>Västerbotten</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Västernorrland" id="Västernorrland"><p>Västernorrland</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Västmanland" id="Västmanland"><p>Västmanland</p></div>
-          <div class="locationregion-row"><input type="checkbox" name="region" class="regioncheckbox" value="Västra Götaland" id="Västra Götaland"><p>Västra Götaland</p></div>
-        </div>
-      </div>
-      <div id="locationselectwindow-separator"></div>
-    </div>
-    <div id="location-button-wrapper">
-      <button id="location-initiate-button">Visa annonser</button>
-      <button id="location-city-button">Välj områden</button>
-    </div>
-  </div>
-  <div id="locationselectwindow-city">
-    <div id="locationheader-wrapper-city">
-      <h2><span id="regioncityheader"></span></h2>
-      <div id="allareas-wrapper"><input type="checkbox" name="city" value="Alla Städer" id="allaområdencheckbox" class="citycheckbox"><label>Alla områden</label></div>
-    </div>
-    <div id="locationselect-cityoptions">
-    </div>
-    <div id="cityoptionbtns">
-      <button id="backtoregionselect"><img src="./assets/images/arrow-left.svg" height="16px" width="16px">Regioner</button>
-      <button id="selectcitybtn">Visa annonser</button>
-    </div>
-  </div>
+
   <div id="footer"></div>
   <div id="darkcover"></div>
   <!--FOOTER END-->
   <script src="./JS/Searchpage/search.js"></script>
-  <script src="./JS/Searchpage/searchcity.js"></script>
-  <script src="./JS/Searchpage/searchclear.js"></script>
-  <script src="./JS/Searchpage/search-sidemenu.js"></script>
   <script src="./JS/Searchpage/searchfilter.js"></script>
+  <script src="./JS/Searchpage/searchRegionCity.js"></script>
   <script src="./JS/Searchpage/searcharticles.js"></script>
-  <script src="./JS/Searchpage/cityarray2.js"></script>
+  <script src="./JS/Searchpage/cityarraySearchpage.js"></script>
   <script src="./JS/Searchpage/searchnavbar.js"></script>
   <script src="./JS/cookie.js"></script>
 </body>

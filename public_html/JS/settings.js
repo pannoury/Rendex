@@ -83,8 +83,8 @@ function retrieveAccountInformation(id){
               document.getElementById('settings-window-mid-options').style.display = "none";
               if(id == "settings-option1"){ //Kontaktuppgifter
                 document.getElementById('settings-window-kontaktuppgifter').style.display = "flex";
-                document.getElementById('settings-window-firstname').value = `${response[1]}`;
-                document.getElementById('settings-window-lastname').value = `${response[2]}`;
+                document.getElementById('settings-window-firstname').innerText = `${response[1]}`;
+                document.getElementById('settings-window-lastname').innerText = `${response[2]}`;
                 document.getElementById('settings-window-streetadress').value = `${response[5]}`;
                 document.getElementById('settings-window-streetnumber').value = `${response[6]}`;
                 document.getElementById('settings-window-zipcode').value = `${response[7]}`;
@@ -230,8 +230,6 @@ function updateContactInformation(imagePath){
           role: role,
           accountid: accountid,
           imagepath: imagePath.substring(1),
-          firstname: firstname,
-          lastname: lastname,
           phonenumber: phonenumber,
           alternativephonenumber: alertnativePhonenumber,
           streetadress: streetadress,
@@ -256,8 +254,6 @@ function updateContactInformation(imagePath){
           requestid: 2,
           role: role,
           accountid: accountid,
-          firstname: firstname,
-          lastname: lastname,
           phonenumber: phonenumber,
           alternativephonenumber: alertnativePhonenumber,
           streetadress: streetadress,

@@ -23,6 +23,8 @@ window.addEventListener('load', function conversationCount(){
     document.getElementById('insert-window').style.display = "none";
     $('.text-sent-wrapper').css("justify-content", "flex-start");
     reload();
+
+    document.getElementById('inboxlink1').style.color = "#f07900"
 }); 
 
 function reload(){
@@ -47,6 +49,7 @@ function populateChatList(){
             },
             success: function(response){
                 var response = JSON.parse(response);
+                console.log(response)
                 if(Array.isArray(response) == false){ //single chatbox
                     sessionStorage.setItem('c_id', `${response}`);
                     $.ajax(
@@ -72,6 +75,7 @@ function populateChatList(){
                 }
                 else if(response.length > 1){ //multiple chatbox
                     response.forEach(element => {
+                        console.log(element)
                         $.ajax(
                             {
                                 url: './PHP/inbox.php',
@@ -83,6 +87,7 @@ function populateChatList(){
                                 },
                                 success: function(response){
                                     var query = JSON.parse(response);
+                                    console.log(query)
                                     conversationPopulate(query, element);
                                 },
                             }

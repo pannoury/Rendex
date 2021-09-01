@@ -29,9 +29,7 @@
                 $streetadress = utf8_decode($streetadress);
     
                 $sql = "UPDATE Individuals 
-                SET firstname='$firstname', 
-                lastname='$lastname', 
-                streetadress='$streetadress',  
+                SET streetadress='$streetadress',  
                 streetnumber='$streetnumber', 
                 zipcode='$zipcode', 
                 phonenumber='$phonenumber', 
@@ -67,9 +65,7 @@
                 $streetadress = utf8_decode($streetadress);
     
                 $sql = "UPDATE Individuals 
-                SET firstname='$firstname', 
-                lastname='$lastname', 
-                streetadress='$streetadress', 
+                SET streetadress='$streetadress', 
                 zipcode='$zipcode', 
                 streetnumber='$streetnumber',  
                 phonenumber='$phonenumber' 

@@ -1,119 +1,149 @@
 /*********************************************************** */
 //                  v.2.1                                    //
-//                                                           //
+//           Last Updated: 24/08/2021                        //
 //                                                           //
 //                                                           //
 /*********************************************************** */
 var regionHeader = document.getElementById('region-header-display');
-var citySelected = localStorage.getItem("citySelected");
-var region = localStorage.getItem("regionSelected");
-var roleSelected = localStorage.getItem('roleSelected');
-var purposeSelected = localStorage.getItem('purposeSelected');
 var regionCityHeader = document.getElementById('regioncityheader');
+var url_string = window.location.href;
+var url = new URL(url_string);
+var citySelected = url.searchParams.get("c")
+var roleSelected = url.searchParams.get("ro")
+var purposeSelected = url.searchParams.get("p")
+var priceSelected = url.searchParams.get("pr")
+var innerWidth = window.innerWidth;
 
-$(document).ready(function(){
+window.onload = () =>{
     loggedInControl();
     cookieConsentLoad();
-    loadRegionCheck();
     languageControl();
-    roleControl(); 
+    articleCounter();
+    retriveArticle();
 
-    regionFilter(); //searchfilter.js
-
+    //regionFilter(); //searchfilter.js
     document.getElementById('globeicon').setAttribute('src', './assets/images/globe.svg')
     document.getElementById('logo-mobile').style.display = "block";
+};
+document.addEventListener('DOMContentLoaded', () => {
+    loadSearchParameters();
 });
 
-function loadRegionCheck(){
-    var region = localStorage.getItem("regionSelected");
-    if(region !== undefined && region !== null){
-        if (region.includes(',')) {
-            regionHeader.innerText = "Flera Regioner";
-            document.getElementById('location-city-button').style.display = "none";
-            regionArrayPopulate(region);
-            document.getElementById('location-city-button').style.display = "none";
+document.getElementById('initiateSearchFilter').onclick = () =>{
+    //Region
+    function regionInitiateControl(){
+        var region = document.querySelectorAll('.regioncheckbox:checked');
+        if(region.length === 1){
+            var region = document.querySelectorAll('.regioncheckbox:checked')[0].value;
+            return region.replace(' ', '+')
         }
-        else{
-            var region = region.replace(/[^a-öA-Ö ]/g, "");
-            if(region == 'Hela Sverige'){
-                regionHeader.innerText = "Hela Sverige";
-                regionCityHeader.innerText = "Hela Sverige";
-                this.localStorage.removeItem("citySelected");
-                document.getElementById('helasverigecheckbox').checked = true;
-                document.getElementById('location-city-button').style.display = "none";
+        else if(region.length > 1){
+            var regionMultiple = document.querySelectorAll('.regioncheckbox:checked');
+            var region = [];
+            for(i=0; i<regionMultiple.length; i++){
+                region.push(regionMultiple[i].value)
             }
-            else{
-                loadRegionCheckV2(`${region}`);
-            }
+            var region = region.toString().replace(' ', '+')
+            return region
         }
     }
-    else if(region === null || region === undefined){
-        regionHeader.innerText = "Hela Sverige";
-        localStorage.setItem("regionSelected", "Hela Sverige");
-        document.getElementById('helasverigecheckbox').checked = true;
-        document.getElementById('location-city-button').style.display = "none";
-    }
-    else{
-        regionHeader.innerText = "Flera Regioner";
-        document.getElementById('location-city-button').style.display = "none";
-    } //might need to be removed, archaic!
-};
-
-function loadRegionCheckV2(regionValue){
-    regionHeader.innerText = `${regionValue}`;
-    regionCityHeader.innerText = `${regionValue}`;
-    if (regionValue === 'Västra Götaland') {
-        document.getElementById('helasverigecheckbox').checked = false;
-        document.getElementById(`${regionValue}`).checked = true;
-
-        var citySelected = this.localStorage.getItem("citySelected");
-        if (citySelected !== null && citySelected !== undefined){
-            if (citySelected.includes(',')){
-                var citySelected = citySelected.replace(/"/g, "");
-                var citySelected = citySelected.split(',');
-                if(citySelected.length === 1 && citySelected.includes('Alla Städer') === false){
-                    var citySelected = citySelected.toString();
+    //City
+    function cityInitiateControl(){
+        var region = document.querySelectorAll('.regioncheckbox:checked');
+        if(region.length > 1){ //region = array, ignore city
+            return null
+        }
+        else if(region.length == 1){
+            var city = document.querySelectorAll('.citycheckbox:checked');
+            if(city.length == 1){
+                var city = document.querySelectorAll('.citycheckbox:checked')[0].value;
+                return city.replace(' ', '+')
+            }
+            else if(city.length > 1){
+                var cityMultiple = document.querySelectorAll('.citycheckbox:checked');
+                var city = [];
+                for(i=0; i<cityMultiple.length; i++){
+                    city.push(cityMultiple[i].value)
                 }
+                var city = city.toString().replace(' ', '+')
+                return city
             }
-            else if(citySelected.includes('Alla Städer')){
+            else if(city.length === 0){
+                return null
             }
-            else{
-                var citySelected = citySelected.replace(/"/g, "");
-                regionHeader.innerText = `${citySelected}`;
-            }
-        }
-        else if(citySelected === null || citySelected === undefined){
-            clearCitySelection();
-        }
-        else{
         }
     }
-    else{
-        document.getElementById('helasverigecheckbox').checked = false;
-        document.getElementById(`${regionValue}`).checked = true;
-
-    
-    
-        var citySelected = this.localStorage.getItem("citySelected");
-        if (citySelected !== null && citySelected !== undefined){
-            if (citySelected.includes(',')){
-                var citySelected = citySelected.replace(/"/g, "");
-                var citySelected = citySelected.split(',');
-                if(citySelected.length === 1 && citySelected.includes('Alla Städer') === false){
-                    var citySelected = citySelected.toString();
+    //Category
+    function categoryInitiateControl(){
+        var category = document.querySelectorAll('.categorycheckbox:checked');
+        if(category.length === 1){
+            var category = document.querySelectorAll('.categorycheckbox:checked')[0].value;
+            return category.replace(' ', '+')
+        }
+        else if(category.length > 1){
+            var categoryMultiple = document.querySelectorAll('.categorycheckbox:checked');
+            var category = [];
+            for(i=0; i<categoryMultiple.length; i++){
+                category.push(categoryMultiple[i].value)
+            }
+            var category = category.toString().replace(' ', '+')
+            return category
+        }
+    }
+    //Price
+    function priceInitiateControl(){
+        var price = document.querySelectorAll('.pricecheckbox:checked');
+        if(price.length === 1){
+            var price = document.querySelectorAll('.pricecheckbox:checked')[0].value;
+            return price.replace(' ', '+')
+        }
+        else if(price.length === 0){
+            var lowPrice = document.getElementById('lowPrice').value;
+            var highPrice = document.getElementById('highPrice').value;
+            if(lowPrice === null && highPrice === null){
+                return 'Alla+Priser'
+            }
+            else{
+                if(highPrice === null && lowPrice !== null){
+                    return lowPrice;
                 }
+                else if(lowPrice === null && highPrice !== null){
+                    return highPrice
+                }
+                else if(lowPrice !== null && highPrice !== null){
+                    return [lowPrice, highPrice];
+                }
+                
             }
-            else if(citySelected.includes('Alla Städer')){
-            }
-            else{
-                var citySelected = citySelected.replace(/"/g, "");
-                regionHeader.innerText = `${citySelected}`;
-            }
-        }
-        else if(citySelected === null || citySelected === undefined){
-            clearCitySelection();
-        }
-        else{
         }
     }
-};
+    //Rating
+    function ratingInitiateControl(){
+        var rating = document.querySelectorAll('.ratingcheckbox:checked');
+        if(rating.length === 1){
+            var rating = document.querySelectorAll('.ratingcheckbox:checked')[0].value;
+            return rating.replace(' ', '+')
+        }
+        else if(rating.length > 1){
+            var ratingMultiple = document.querySelectorAll('.ratingcheckbox:checked');
+            var rating = [];
+            for(i=0; i<ratingMultiple.length; i++){
+                rating.push(ratingMultiple[i].value)
+            }
+            var rating = rating.toString().replace(' ', '+')
+            return rating
+        }
+    }
+    //Final Step
+    var region = regionInitiateControl();
+    var city = cityInitiateControl();
+    var category = categoryInitiateControl();
+    var price = priceInitiateControl()
+    var rating = ratingInitiateControl()
+
+    var url_string = window.location.href;
+    var url = new URL(url_string);  
+    var role = url.searchParams.get("ro");
+
+    window.location = `https://rendex.se/searchpage?r=${region}&c=${city}&p=${category}&pr=${price}&ra=${rating}&ro=${role}`;
+}

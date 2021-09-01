@@ -8,6 +8,8 @@ window.onload = () =>{
     loggedInControl2();
     languageControl();
     cookieConsentLoad();
+
+    document.getElementById('loginanchor').style.color = "#f07900"
 };
 async function loggedInControl2(){
     var loginId = getCookie("a_user");

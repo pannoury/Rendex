@@ -40,6 +40,29 @@
                             h2{
                                 margin: 0px;
                             }
+                            #profile-initiate-btn-wrapper{
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                .profile-initiate-btn{
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    width: 30px;
+                                    height: 30px;
+                                    font-size: 14px;
+                                    font-weight: bolder;
+                                    border-radius: 8px;
+                                    background-color: #f07900;
+                                    &:hover{
+                                        cursor: pointer;
+                                        opacity: 0.8;
+                                    }
+                                    &:nth-child(1){
+                                        margin-right: 10px;
+                                    }
+                                }
+                            }
                         }
                         #companyshortinformation{
                             display: flex;
@@ -53,18 +76,6 @@
                                 img{
                                     margin-right: 8px;
                                 }
-                            }
-                        }
-                        #initiate-chat{
-                            margin-top: 10px;
-                            padding: 6px;
-                            font-size: 14px;
-                            font-weight: bolder;
-                            border-radius: 8px;
-                            background-color: #f07900;
-                            &:hover{
-                                cursor: pointer;
-                                opacity: 0.8;
                             }
                         }
                     }
