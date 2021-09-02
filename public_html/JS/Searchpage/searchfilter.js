@@ -78,7 +78,6 @@ function retriveArticle(){
     var rating = arrayCreator(urlParameters.get("ra"));
     var role = arrayCreator(urlParameters.get("ro"));
 
-
     function arrayCreator(value){
         console.log(value)
         if(value === null || value === undefined || value === "undefined"){
@@ -106,7 +105,7 @@ function retriveArticle(){
             }
             else{
                 for(i=0; i<array.length; i++){
-                    var element = document.getElementById(`${array[i]}`);
+                    var element = document.getElementById(`${array[i].replace(' ','')}`);
                     if(element === null){
                         //do nothing
                     }

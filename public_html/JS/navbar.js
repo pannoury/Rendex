@@ -27,6 +27,7 @@ function loggedInControl(){
                                 document.getElementById('loginsidemenu').innerText = `${response[1]}`;
                                 document.getElementById('createaccountsidemenu').style.display = "none";
                             }
+                            document.getElementsByTagName('body')[0].style.visibility = "visible";
                         }
                         else{
                             console.log("Failed to fetch data from server");

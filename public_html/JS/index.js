@@ -1,5 +1,6 @@
 /******************************* Index Search *************************************/
 window.addEventListener('load', function(){
+    console.log("load")
     languageControl();
     loggedInControl();
     cookieConsentLoad();
@@ -7,19 +8,7 @@ window.addEventListener('load', function(){
     cityOptionMain();
     localStorage.clear();
     document.getElementById('index-subscription-checkbox').checked = false;
-});
-
-const mysql = require('mysql');
-var conn = mysql.createConnection({
-    host: 'mysql44.unoeuro.com', 
-    user: 'rendex_se', 
-    password: '3411bRendex', 
-    databse: 'rendex_se_db',
-});
-
-conn.connect(function(err){
-    if(err) throw err;
-    console.log("Connected");
+    //document.getElementsByTagName('body')[0].style.visibility = "visible";
 });
 
 document.getElementById('indexsearchbutton').addEventListener('click', function(){

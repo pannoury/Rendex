@@ -1,7 +1,7 @@
 <?php
     include "config.php";
 
-    $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp' , 'pdf' , 'doc' , 'ppt'); // valid extensions
+    $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
     $path = '../Uploads/'; // upload directory
     
     if(!empty($_POST['name']) || !empty($_POST['email']) || $_FILES['profilepicture']){

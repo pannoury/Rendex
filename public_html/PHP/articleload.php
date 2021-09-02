@@ -273,6 +273,7 @@
                 }
                 else if($region == "0" || $region === 0){
                 }
+
                 //City
                 if(strpos($city, ',') === true && $city !== "0"){ //array
                     $sql .= " AND city IN ($city) ";
@@ -282,6 +283,7 @@
                 }
                 else if($city == 0 || $city === "0"){
                 }
+
                 //Category
                 if(strpos($category, ',') === true && $category !== "0"){ //array
                     $sql .= " AND type IN ($category) ";
@@ -321,7 +323,7 @@
                     $sql .= " OFFSET $offset";
                 }
                 
-                //echo ($price[1]);
+                //echo ($region);
                 //echo ($sql);
         
                 $result = mysqli_query($conn,$sql);

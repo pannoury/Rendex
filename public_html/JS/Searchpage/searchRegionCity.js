@@ -87,7 +87,7 @@ function loadSearchParameters(){ //onload settings
     else if(region.includes(',')){ //array, multiple regions
         var region = region.split(',')
         for(x in region){
-            document.getElementById(`${region[x]}`).checked = true;
+            document.getElementById(`${region[x].replace(' ', '')}`).checked = true;
         }
         document.getElementById('allareas-wrapper').style.display = "none";
         regionHeader.innerText = "Flera Regioner"

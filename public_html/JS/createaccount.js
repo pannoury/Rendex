@@ -46,7 +46,7 @@ function loggedInControlCreateAccount(){
         window.location = 'https://rendex.se/myaccount';
     }
     else{
-        window.location = 'https://rendex.se/login';
+        
     }
 }
 /******UNIVERSAL SETTINGS END******** */
