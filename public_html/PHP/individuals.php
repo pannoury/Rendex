@@ -3,7 +3,6 @@
 
     $id = $conn->real_escape_string($_GET['userid']);
     $role = $conn->real_escape_string($_GET['role']);
-    $requestid = $conn->real_escape_string($_GET['requestid']);
     
     if(isset($_GET['role']) && isset($_GET['requestid']) == false){
         if($role == 1){ //Individuals
@@ -90,6 +89,7 @@
         }
     }
     else if(isset($_GET['requestid'])){
+        $requestid = $conn->real_escape_string($_GET['requestid']);
         if($requestid == 1 && $role == 0){
             $sql = "SELECT * FROM Accounts WHERE accountId='$id'";
             $result = mysqli_query($conn,$sql);

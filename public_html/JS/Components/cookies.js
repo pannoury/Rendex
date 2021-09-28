@@ -1,3 +1,5 @@
+import * as index from "../index.js";
+
 function createCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -39,3 +41,5 @@ function consentClicked(){
   createCookie("cookieconsent", "true", "365");
   document.getElementById('cookiewindowpopupwrapper').style.display = "none";
 };
+
+export { createCookie, getCookie, eraseCookie, cookieConsentLoad, consentClicked }

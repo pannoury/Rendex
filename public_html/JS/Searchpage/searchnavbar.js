@@ -56,6 +56,7 @@ function loggedInControl(){
         document.getElementById('loginanchor').textContent = "Logga In";
     }
     document.getElementById('searchpageanchor').style.color = "#f07900";
+    document.getElementsByTagName('body')[0].style.visibility = "visible";
 };
 function roleControl(){
     var role = localStorage.getItem("roleSelected");

@@ -18,6 +18,11 @@
   });
   </script>
 </head>
+<style>
+  body{
+    visibility: hidden;
+  }
+</style>
 <body>
   <!--Navigation Bar-->
 
@@ -69,7 +74,7 @@
   <!--END-Navigation Bar-->
 
   <main id="account-page">
-    <div id="account-wrapper-wrapper">
+    <div id="account-wrapper-wrapper" class="profile-section">
       <div id="account-page-wrapper">
         <div id="account-image-wrapper">
           <img alt="Company Logo/Image" id="companylogoimage">
@@ -127,22 +132,22 @@
           </div>
         </div>
       </div>
-      <div id="companybroadbackground">
-        <div id="companybroadbackground-text">
-          <h2>Beskrivning</h2>
-          <p id="profile-description-text"></p>
-        </div>
-        <div id="profile-skills">
-
-        </div>
-      </div>
-      <div id="companyannonser">
-        <h2>Pågående Annonser</h2>
-        <div id="companyannonser-wrapper">
-  
-        </div>
+      <div id="companybroadbackground-text">
+        <h2>Beskrivning</h2>
+        <p id="profile-description-text"></p>
       </div>
     </div>
+    <div id="company-skills" class="profile-section">
+      <h2>Färdigheter</h2>
+    </div>
+    <div id="companyannonser" class="profile-section">
+      <h2>Pågående Annonser</h2>
+    </div>
+    <div id="previes-articles" class="profile-section">
+      <h2>Recensioner</h2>
+    </div>
+
+
     <div id="no-account-error">
       <img src="./assets/images/profile-not-found.svg">
       <h4>Konto kunde inte hittas</h4>
@@ -171,9 +176,14 @@
     <div id="cookiewindowpopupwrapper"></div>
   </main>
 
+  <div id="notification-div">
+    <div>
+    </div>
+  </div>
   <div id="footer"></div>
 
   <script src="./JS/profile.js"></script>
+  <script src="./JS/Searchpage/saveArticle.js"></script>
   <script src="./JS/navbar.js"></script>
   <script src="./JS/cookie.js"></script>
 </body>

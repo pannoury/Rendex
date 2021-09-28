@@ -12,7 +12,7 @@ function displayMyAccount(){
   var newArrayLoginId = loginId.split(',');
   var accountid = newArrayLoginId[0];
   var role = newArrayLoginId[1];
-  if(accountid != null && accountid != undefined){
+  if(accountid !== null && accountid !== undefined && accountid !== ""){
     $.ajax(
       {
         url: './PHP/individuals.php',

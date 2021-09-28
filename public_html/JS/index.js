@@ -1,9 +1,12 @@
+import * as cookie from "./Components/cookies.js";
+import * as language from "./Components/language.js";
+import * as navbar from "./Components/navbar.js";
+
 /******************************* Index Search *************************************/
 window.addEventListener('load', function(){
-    console.log("load")
-    languageControl();
-    loggedInControl();
-    cookieConsentLoad();
+    language.languageControl();
+    navbar.loggedInControl();
+    cookie.cookieConsentLoad();
     indexNumberCount();
     cityOptionMain();
     localStorage.clear();
@@ -178,7 +181,7 @@ function cityOptionMain(){
 }
 function generateCityOptions(array){ //populates cityOptions depending on Region Selected (dynamic)
     var cityOptions = document.getElementById('defualtCitySelect');
-    for(i = 0; i < array.length; i++) {
+    for(let i = 0; i < array.length; i++) {
         var option = document.createElement('option');
         option.setAttribute('value', array[i]);
         $('#disabledselect').remove();

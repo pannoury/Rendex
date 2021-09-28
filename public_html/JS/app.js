@@ -1,7 +1,7 @@
-/*
+
 var mysql = require('mysql');
 
-var con = mysql.createConnection({
+var conn = mysql.createConnection({
     host: "mysql44.unoeuro.com",
     port: "3306",
     user: "rendex_se",
@@ -10,8 +10,9 @@ var con = mysql.createConnection({
 
 });
 
-con.connect(function(err){
+conn.connect(function(err){
     if(err) throw err;
     console.log("Connected!");
 });
-*/
+
+con.query('SELECT * FROM Accounts WHERE username = ? AND password = ?')

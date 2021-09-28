@@ -45,10 +45,43 @@ function saveArticle(id, target){
                         );
                     }
                     else{
-                        console.log(response[12])
                         if(response[12].includes(',')){
-                            console.log(response[12])
-                            console.log(response[12].split(','))
+                            var savedArticles = response[12].split(',')
+                            var bracket = "";
+                            for(i=0; i<savedArticles.length; i++){
+                                if(savedArticles[i] === id){
+                                    var hit = savedArticles[i];
+                                }
+                                else{
+                                    var bracket = `${bracket}` + `${savedArticles[i]},`
+                                }
+                            }
+                            if(hit !== "" && hit !== undefined){
+                                var x = bracket.split(',')
+                                var y = bracket.length;
+                                if(bracket[y] === undefined){
+                                    var bracket = bracket.replace(/,\s*$/, "");
+                                }
+                                ajaxUpdateSavedArticles(newArrayLoginId[0], bracket, newArrayLoginId[1])
+                                changeSVG(target, 0)
+                                var notification = document.getElementById('notification-div');
+                                notification.innerText = "Denna annons är inte längra sparad!";
+                                notification.style.visibility = "visible";
+                                setTimeout(function(){
+                                    notification.style.visibility = "hidden";
+                                }, 3000);
+                            }
+                            else if(hit === undefined){
+                                changeSVG(target, 1)
+                                var newSavedArticles = `${response[12]},${id}`;
+                                ajaxUpdateSavedArticles(newArrayLoginId[0], newSavedArticles, newArrayLoginId[1])
+                                var notification = document.getElementById('notification-div');
+                                notification.innerText = "Annons sparad!";
+                                notification.style.visibility = "visible";
+                                setTimeout(function(){
+                                    notification.style.visibility = "hidden";
+                                }, 3000);
+                            }
                         }
                         else{
                             var articleId = target.getAttribute('aria-label')
@@ -62,8 +95,6 @@ function saveArticle(id, target){
                                 ajaxUpdateSavedArticles(newArrayLoginId[0], savedArticles, 1)
                             }
                         }
-                        //changeSVG(target);
-                        console.log("not empty!")
                     }
                 },
             }
@@ -102,19 +133,6 @@ function ajaxUpdateSavedArticles(userid, articleid, role){
             },
             success: function(response){
                 var response = JSON.parse(response);
-                if(response == 1){
-                    /*
-                    var notification = document.getElementById('notification-div');
-                    notification.innerText = "Annons sparad!";
-                    notification.style.visibility = "visible";
-                    setTimeout(function(){
-                        notification.style.visibility = "hidden";
-                    }, 3000);
-                    */
-                }
-                else{
-
-                }
             },
         }
     );

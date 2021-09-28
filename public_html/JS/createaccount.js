@@ -10,7 +10,6 @@ var fullYear = today.getFullYear();
 window.addEventListener('load', function(){
     document.getElementById('loadingwindow').style.height = "100vh";
     sessionStorage.clear();
-    hideAndClearElements();
     languageControl();
     loggedInControl();
     cookieConsentLoad();
@@ -23,22 +22,12 @@ $(document).ready(function(){
     setTimeout(function(){
         document.getElementById('loadingwindow').style.height = "0vh";
     }, 1000);
+    document.getElementById('createaccountsection').style.visibility = "visible"
     console.log(document.getElementById('agreetoa').checked)
     console.log(document.getElementById('regioninput').value);
     console.log(document.getElementById('purposeselect').value);
 });
 
-function hideAndClearElements(){
-    document.getElementById('insurancenumber').value = "";
-    document.getElementById('firstnameinput').value = "";
-    document.getElementById('surnameinput').value = "";
-    document.getElementById('emailinput').value = "";
-    document.getElementById('streetadressinput').value = "";
-    document.getElementById('zipcodeinput').value = "";
-    document.getElementById('phonenumberinput').value = "";
-    document.getElementById('password1').value = "";
-    document.getElementById('password-repeat').value = "";
-}
 function loggedInControlCreateAccount(){
     var loginId = getCookie("a_user");
     var newArrayLoginId = loginId.split(',');
@@ -46,22 +35,100 @@ function loggedInControlCreateAccount(){
         window.location = 'https://rendex.se/myaccount';
     }
     else{
-        
+        //do nothing
+    }
+    function hideAndClearElements(){
+        document.getElementById('insurancenumber').value = "";
+        document.getElementById('firstnameinput').value = "";
+        document.getElementById('surnameinput').value = "";
+        document.getElementById('emailinput').value = "";
+        document.getElementById('streetadressinput').value = "";
+        document.getElementById('zipcodeinput').value = "";
+        document.getElementById('phonenumberinput').value = "";
+        document.getElementById('password1').value = "";
+        document.getElementById('password-repeat').value = "";
+    }
+    hideAndClearElements();
+    //Insurance number
+    document.getElementById('insurancenumber').oninput = () =>{
+        insuranceNumber()
+    };
+    document.getElementById('insurancenumber').onblur = () => {
+        insuranceNumber()
+    };
+    //Firstname
+    document.getElementById('firstnameinput').oninput = () => {
+        firstName();
+    }
+    document.getElementById('firstnameinput').onblur = () => {
+        firstName();
+    }
+    //Surname input
+    document.getElementById('surnameinput').oninput = () => {
+        surname()
+    }
+    document.getElementById('surnameinput').onblur = () => {
+        surname()
+    }
+    //Email
+    document.getElementById('emailinput').oninput = () => {
+        email()
+    }
+    document.getElementById('emailinput').onblur = () => {
+        email()
+    }
+    //role selector
+    document.getElementById('purposeselect').onchange = () => {
+        purposeControl();
+    }
+    //street adress
+    document.getElementById('streetadressinput').oninput = () => {
+        streetAdress()
+    }
+    document.getElementById('streetadressinput').onblur = () => {
+        streetAdress()
+    }
+    //zipcode
+    document.getElementById('zipcodeinput').oninput = () => {
+        zipCode()
+    }
+    document.getElementById('zipcodeinput').onblur = () => {
+        zipCode()
+    }
+    /****************************Phone number ***********************************/
+    document.getElementById('phonenumberinput').oninput = function(){
+        phoneNumber()
+    }
+    document.getElementById('phonenumberinput').onblur = function(){
+        phoneNumber()
+    }
+    /***********Region Select********* */
+    document.getElementById('regioninput').onchange = () => {
+        regionControl();
+    }
+    //Password
+    //First password row
+    document.getElementById('password1').oninput = () => {
+        password1()
+    }
+    document.getElementById('password1').onblur = () => {
+        password1()
+    }
+    document.getElementById('password-repeat').oninput = () => {
+        passwordRepeat();
+    }
+    document.getElementById('password-repeat').onblur = () => {
+        passwordRepeat();
     }
 }
 /******UNIVERSAL SETTINGS END******** */
 
 /****************************PERSONNUMMER/ORGNUMMER***************************** */
-document.getElementById('insurancenumber').addEventListener('input', function insuranceLengthCheck(){
-    insuranceNumber()
-});
-document.getElementById('insurancenumber').onblur = () => {
-    insuranceNumber()
-};
 function insuranceNumber(){
     var a = document.getElementById('insurancenumber');
     var b = a.value;
     var c = document.getElementById('wronginsurancenumber');
+    document.getElementById('insurancenumber').value = a.value.replace(/\D+/g, '').replace(/^0+/, '');
     if(b.length === 10 && !isNaN(b) && b.substring(0,1) == 5){ //org nr check
         a.style.borderColor = "black";
         c.style.display = "none";
@@ -115,14 +182,11 @@ function insuranceNumber(){
 }
 
 //First Name "Förnamn" Input
-document.getElementById('firstnameinput').oninput = () => {
-    firstName();
-}
-document.getElementById('firstnameinput').onblur = () => {
-    firstName();
-}
+
 function firstName(){
     var value = document.getElementById('firstnameinput').value;
+    document.getElementById('firstnameinput').value = value.replace(/[0-9]/g, "");
+    document.getElementById('firstnameinput').value = document.getElementById('firstnameinput').value.replace(/^\ +/g, '');
     if(value.lenght <= 1 || !/[^a-zA-Z]/.test(document.getElementById('firstnameinput').value) == false){
         document.getElementById('firstnameinput').style.borderColor = "red";
         document.getElementById('firstnameinput').setAttribute('aria-label', "");
@@ -133,15 +197,11 @@ function firstName(){
     }
     createAccountFormControl()
 }
-//Surname input
-document.getElementById('surnameinput').oninput = () => {
-    surname()
-}
-document.getElementById('surnameinput').onblur = () => {
-    surname()
-}
 function surname(){
     var value = document.getElementById('surnameinput').value;
+    document.getElementById('surnameinput').value = value.replace(/[0-9]/g, "");
+    document.getElementById('surnameinput').value = value.replace(/\W+/g, "");
+    document.getElementById('surnameinput').value = document.getElementById('surnameinput').value.replace(/^\ +/g, '');
     if(value.lenght <= 2 || !/[^a-zA-Z]/.test(document.getElementById('surnameinput').value) == false){
         document.getElementById('surnameinput').style.borderColor = "red";
         document.getElementById('surnameinput').setAttribute('aria-label', "");
@@ -152,15 +212,9 @@ function surname(){
     }
     createAccountFormControl()
 }
-//Email
-document.getElementById('emailinput').oninput = () => {
-    email()
-}
-document.getElementById('emailinput').onblur = () => {
-    email()
-}
 function email(){
     var value = document.getElementById('emailinput').value;
+    var value = value.replace(' ', '');
     if(value.length >= 10 && value.includes('@') == true){
         $.ajax(
             {
@@ -177,10 +231,13 @@ function email(){
                     if(query == "0"){
                         document.getElementById('emailinput').style.borderColor = "black";
                         document.getElementById('emailinput').setAttribute('aria-label', 'complete');
+                        document.getElementById('wrongemailrepeat').style.display = "none"
                     }
                     else{
                         document.getElementById('emailinput').style.borderColor = "red";
                         document.getElementById('emailinput').setAttribute('aria-label', "");
+                        document.getElementById('wrongemailrepeat').style.display = "block"
+                        document.getElementById('wrongemailrepeat').innerText = "Denna E-mailadress är upptaget"
                     }
                 },
             }
@@ -189,13 +246,11 @@ function email(){
     else{
         document.getElementById('emailinput').style.borderColor = "red";
         document.getElementById('emailinput').setAttribute('aria-label', "");
+        document.getElementById('wrongemailrepeat').style.display = "none"
     }
     createAccountFormControl()
 }
-//role selector
-document.getElementById('purposeselect').onchange = () => {
-    purposeControl();
-}
+
 function purposeControl(){
     var value = document.getElementById('purposeselect').value;
     if(value !== ""){
@@ -206,13 +261,7 @@ function purposeControl(){
     }
     createAccountFormControl()
 }
-//street adress
-document.getElementById('streetadressinput').oninput = () => {
-    streetAdress()
-}
-document.getElementById('streetadressinput').onblur = () => {
-    streetAdress()
-}
+
 function streetAdress(){
     var value = document.getElementById('streetadressinput').value;
     if(value.length <= 5){
@@ -225,13 +274,7 @@ function streetAdress(){
     }
     createAccountFormControl()
 }
-//zipcode
-document.getElementById('zipcodeinput').oninput = () => {
-    zipCode()
-}
-document.getElementById('zipcodeinput').onblur = () => {
-    zipCode()
-}
+
 function zipCode(){
     var value = document.getElementById('zipcodeinput').value;
     if(value.length == 5 && /^\d+$/.test(value)){
@@ -244,16 +287,12 @@ function zipCode(){
     }
     createAccountFormControl()
 }
-/****************************Phone number ***********************************/
-document.getElementById('phonenumberinput').oninput = function(){
-    phoneNumber()
-}
-document.getElementById('phonenumberinput').onblur = function(){
-    phoneNumber()
-}
+
 function phoneNumber(){
     var x = document.getElementById('phonenumberinput').value;
     var c = document.getElementById('wrongphonenumber');
+    document.getElementById('phonenumberinput').value = document.getElementById('phonenumberinput').value.replace(' ','');
+    document.getElementById('phonenumberinput').value = document.getElementById('phonenumberinput').value.replace(/\D+/g, '')
     if(isNaN(x) == true){
         document.getElementById('phonenumberinput').style.borderColor = "red";
         c.style.display = "block"
@@ -299,10 +338,7 @@ function phoneNumber(){
     }
     createAccountFormControl()
 }
-/***********Region Select********* */
-document.getElementById('regioninput').onchange = () => {
-    regionControl();
-}
+
 function regionControl(){
     var value = document.getElementById('regioninput').value;
     console.log(value);
@@ -315,16 +351,10 @@ function regionControl(){
     createAccountFormControl()
 }
 /***********Region Select********* */
-//Password
-//First password row
-document.getElementById('password1').oninput = () => {
-    password1()
-}
-document.getElementById('password1').onblur = () => {
-    password1()
-}
+
 function password1(){
     var password = document.getElementById('password1');
+    document.getElementById('password1').value = document.getElementById('password1').value.replace(' ','')
     var regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])")
     console.log(regex.test(password.value))
     if(password.value.length >= 8 && regex.test(password.value) == true){
@@ -345,14 +375,10 @@ function password1(){
     createAccountFormControl()
 }
 //second row
-document.getElementById('password-repeat').oninput = () => {
-    passwordRepeat();
-}
-document.getElementById('password-repeat').onblur = () => {
-    passwordRepeat();
-}
+
 function passwordRepeat(){
     var password = document.getElementById('password-repeat');
+    document.getElementById('password-repeat').value = document.getElementById('password-repeat').value.replace(' ','')
     var regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])")
     if(password.value.length >= 8 && regex.test(password.value) == true){
         var password1 = document.getElementById('password1').value;

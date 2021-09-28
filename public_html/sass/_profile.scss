@@ -2,18 +2,27 @@
     #account-page{
         display: flex;
         flex-direction: column;
-        #account-wrapper-wrapper{
+        .profile-section{
             display: flex;
             flex-direction: column;
             border-radius: 8px;
             width: 80%;
-            margin: auto auto 100px auto;
-            background-color: #d4d4d4;
+            margin: 0px auto 20px auto;
+            background-color: #fff;
+            border: #d5d5d5 1px solid;
+            padding: 20px;
+            h2{
+                margin-top: 0px;
+            }
+        }
+        #account-wrapper-wrapper{
+            display: flex;
+            flex-direction: column;
             #account-page-wrapper{
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
-                padding: 20px;
+                margin-bottom: 20px;
                 #account-image-wrapper{
                     display: flex;
                     justify-content: center;
@@ -21,18 +30,16 @@
                     height: 100px;
                     width: 100px;
                     border-radius: 8px;
-                    padding: 20px;
                     background-color: #fff;
                     color: white;
                     #companylogoimage{
-                        height: 120px;
-                        width: 120px;
+                        height: 100px;
+                        width: 100px;
                         border-radius: 8px;
                     }
                 }
                 #account-companybackground{
                     width: 82%;
-                    padding: 20px;
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
@@ -107,24 +114,104 @@
                     }
                 }
             }
-            #companyannonser{
-                width: 100%;
-                background-color: #f4f4f4;
-                margin-top: 0px;
-                border-bottom-left-radius: 8px;
-                border-bottom-right-radius: 8px;
+            #companybroadbackground-text{
                 h2{
-                    padding-left: 20px;
+                    margin-top: 0px;
                 }
             }
-            #companybroadbackground{
+        }
+        #companyannonser{
+            h2{
+                margin-top: 0px;
+            }
+            .article-wrapper{
                 display: flex;
                 flex-direction: row;
+                background-color: #fff;
                 justify-content: space-between;
-                background-color: #f4f4f4;
-                #companybroadbackground-text{
-                    width: 60%;
-                    padding: 20px;
+                padding: 10px 20px 10px 20px;
+                border-radius: 4px;
+                margin-bottom: 10px;
+                height:140px;
+                border: 1px #d5d5d5 solid;
+                &:hover{
+                    cursor: pointer;
+                    background-color: #f4f4f4;
+                }
+                .article-image-wrapper{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 20%;
+                }
+                .article-information-wrapper{
+                    display: flex;
+                    flex-direction: column;
+                    width: 90%;
+                    .title-wrapper{
+                        width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        .article-title{
+                            font-weight: bold;
+                            font-size: 18px;
+                            max-width: 80%;
+                            margin: 0px;
+                            margin-top: 0px;
+                        }
+                        .time-stamp{
+                            text-align: right;
+                            width: 20%;
+                            margin: 0px;
+                        }
+                    }
+                    .article-information-middle{
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                        .article-information-middle-text{
+                            margin: 0px;
+                        }
+                    }
+                    .article-information-bottom{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-top: auto;
+                        .article-info{
+                            width: 30%;
+                        }
+                        .article-rating{
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            margin: 0px;
+                        }
+                        .article-price{
+                            margin: 0px;
+                        }
+                        .article-class{
+                            margin: 0px;
+                        }
+                    }
+                }
+                .article-option-wrapper{
+                    display: flex;
+                    justify-content: center;
+                    width: 10%;
+                    .article-save{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 25px;
+                        height: 25px;
+                        padding: 10px;
+                        &:hover{
+                            background-color: #d4d4d4;
+                            border-radius: 50%;
+                        }
+                    }
                 }
             }
         }
@@ -249,5 +336,15 @@
                 }
             }
         }
+    }
+    #notification-div{
+        position: fixed;
+        padding: 10px 20px;
+        bottom: 25px;
+        left: 25px;
+        background-color: #d4d4d4;
+        border-radius: 6px;
+        visibility: hidden;
+        transition: visibility 0.5s ease-in;
     }
 }

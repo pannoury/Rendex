@@ -1,3 +1,5 @@
+import * as cookie from "./Components/cookies.js";
+import * as navbar from "./Components/navbar.js";
 
 var insertWindow = document.getElementById('insert-window');
 var windowButton = document.getElementById('insert-button-chat');
@@ -5,14 +7,14 @@ var chatOptionsButton = document.getElementById('conversation-options');
 var chatOptionsWindow = document.getElementById('conversation-options-window');
 let today = new Date();
 var day = today.getDate();
-var month = today.getMonth();
+var month = today.getMonth() + 1;
 var hours = today.getHours();
 var minutes = today.getMinutes();
 var fullYear = today.getFullYear();
 
 window.addEventListener('load', function conversationCount(){
-    loggedInControl();
-    cookieConsentLoad();
+    navbar.loggedInControl();
+    cookie.cookieConsentLoad();
     cssChatList();
     populateChatList();
     sessionStorage.clear();
@@ -242,11 +244,13 @@ BASED ON CURRENT TIME******* */
 function setDate(p2,time){
     var p2 = p2;
     var time = time;
+
     var sentyear = time.substring(0,4);
     var sentmonth = time.substring(5,7)
     var sentday = time.substring(8,10);
+    console.log(month)
     if(fullYear == sentyear){
-        if(month = sentmonth){
+        if(month == sentmonth){
             if(day == sentday){
                 p2.innerText = `${time.substring(11,16)}`;
                 p2.style.fontWeight = "bold";
@@ -531,19 +535,8 @@ function populateConvoList(id){
 };
 /********MOBILE VERSION, LEAVING A SPECIFIC CONVERSATION ********* */
 document.getElementById('leaveconversation-anchor').onclick = function (){
-    /*
-    document.getElementById('conversation-inbox-list').style.display = "block";
-    document.getElementById('conversation-display').style.display = "none";
-    document.getElementById('conversation-display').style.width = "0vw";
-    $(".conversation-selection").each(function (){
-        $(this).css("backgroundColor", "#38383D");
-        $(this).attr('aria-label', "diselected");
-    });
-    $('.chat-item').remove();
-    */
     sessionStorage.clear("c_id");
     location.reload()
-    //clearInterval(reactiveTextLoading);
 };
 
 function populateChatHeader(chatArray){

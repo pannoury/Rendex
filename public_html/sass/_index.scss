@@ -279,12 +279,13 @@
         flex-direction: row;
         flex-wrap: wrap;
         margin: auto;
+        justify-content: space-between;
         .index-text-column{
-            width: 40%;
+            width: 45%;
             border-radius: 8px;
             background-color: #f4f4f4;
             padding: 12px;
-            margin: 0 20px 20px 20px;
+            margin: 0 0 20px 0;
             .index-text-header{
                 display: flex;
                 flex-direction: row;

@@ -1,5 +1,7 @@
+import * as cookie from "./cookies.js";
+
 function loggedInControl(){
-    var loginId = getCookie("a_user");
+    var loginId = cookie.getCookie("a_user");
     var newArrayLoginId = loginId.split(',');
     if(newArrayLoginId[0] > 0){
         if(newArrayLoginId[1] == 1){ //Individual
@@ -22,18 +24,23 @@ function loggedInControl(){
                                 document.getElementById('loginanchorTrue').innerText = `${response[1]}`;
                                 document.getElementById('loginanchor').style.display = "none";
                                 document.getElementById('loggedInFalse').style.display = "none";
+                                document.getElementsByTagName('body')[0].style.visibility = "visible";
                             }
                             else if(width <= 875){
                                 document.getElementById('loginsidemenu').innerText = `${response[1]}`;
                                 document.getElementById('createaccountsidemenu').style.display = "none";
+                                document.getElementsByTagName('body')[0].style.visibility = "visible";
                             }
-                            document.getElementsByTagName('body')[0].style.visibility = "visible";
                         }
                         else{
                             console.log("Failed to fetch data from server");
+                            document.getElementsByTagName('body')[0].style.visibility = "visible";
                         }
     
                     },
+                    error: function(response){
+                        console.log("An error has occurred while trying to connect to the server");
+                    }
                 }
             );
         }
@@ -43,10 +50,12 @@ function loggedInControl(){
     }
     else{
         document.getElementById('loginanchor').textContent = "Logga In";
+        document.getElementsByTagName('body')[0].style.visibility = "visible";
     }
 };
-document.getElementById('loginanchorTrue').onclick = function(){
-    var loginId = getCookie("a_user");
+
+document.getElementById('loginanchorTrue').onclick = () =>{
+    var loginId = cookie.getCookie("a_user");
     var newArrayLoginId = loginId.split(',');
     if(newArrayLoginId[0] >= 1){
         window.location = 'https://rendex.se/myaccount';
@@ -55,8 +64,8 @@ document.getElementById('loginanchorTrue').onclick = function(){
         window.location = 'https://rendex.se/login';
     }
 };
-document.getElementById('loginsidemenu').onclick = function(){
-    var loginId = getCookie("a_user");
+document.getElementById('loginsidemenu').onclick = () => {
+    var loginId = cookie.getCookie("a_user");
     var newArrayLoginId = loginId.split(',');
     if(newArrayLoginId[0] >= 1){
         window.location = 'https://rendex.se/myaccount';
@@ -65,7 +74,7 @@ document.getElementById('loginsidemenu').onclick = function(){
         window.location = 'https://rendex.se/login';
     }
 }
-document.getElementById('hamburgermenu-btn').addEventListener('click', function(){
+document.getElementById('hamburgermenu-btn').onclick = () => {
     var sideMenu = document.getElementById('side-menu').offsetWidth;
     if(sideMenu !== 0){
         document.getElementById('side-menu').style.width='0';
@@ -77,9 +86,9 @@ document.getElementById('hamburgermenu-btn').addEventListener('click', function(
         document.getElementById('hamburgermenu').style.display = "none";
         document.getElementById('cross-black').style.display = "block";
     }
-});
-document.getElementById('inboxlink1').onclick = function(){
-    var loginId = getCookie("a_user");
+};
+document.getElementById('inboxlink1').onclick = () => {
+    var loginId = cookie.getCookie("a_user");
     var newArrayLoginId = loginId.split(',');
     if(newArrayLoginId[0] >= 1){
         document.getElementById('inboxlink1').href = "https://rendex.se/inbox";
@@ -88,8 +97,8 @@ document.getElementById('inboxlink1').onclick = function(){
         window.location = 'https://rendex.se/login';
     }
 };
-document.getElementById('inboxlink2').addEventListener('click',function(){
-    var loginId = getCookie("a_user");
+document.getElementById('inboxlink2').onclick = () => {
+    var loginId = cookie.getCookie("a_user");
     var newArrayLoginId = loginId.split(',');
     if(newArrayLoginId[0] >= 1){
         window.location = 'https://rendex.se/inbox';
@@ -97,8 +106,8 @@ document.getElementById('inboxlink2').addEventListener('click',function(){
     else{
         window.location = 'https://rendex.se/login';
     }
-});
-document.getElementById('languageanchor').onclick = function(){
+};
+document.getElementById('languageanchor').onclick = () => {
     var ul = document.getElementById('languageanchor');
     ulAriaLabel = ul.getAttribute('aria-label');
     if(ulAriaLabel == null || ulAriaLabel == undefined || ulAriaLabel == "not displayed"){
@@ -111,13 +120,14 @@ document.getElementById('languageanchor').onclick = function(){
     }
     
 }
-window.onscroll = function(){
+window.onscroll = () => {
+    var pathName = window.location.pathname
     var navbar = document.getElementById('header');
     if(window.innerWidth > 1080){
         if(window.pageYOffset >= 1){
             navbar.style.backgroundColor = "#333";
             var list = document.querySelectorAll('.navbarselector li a');
-            for(i=0; i < list.length; i++){
+            for(let i=0; i < list.length; i++){
                 list[i].style.color = "white";
             }
             document.getElementById('language-selected').style.color = "white";
@@ -126,9 +136,9 @@ window.onscroll = function(){
             document.getElementById('loginanchor').style.color = "white";
         }
         else{
-            navbar.style.backgroundColor = "#ffffff";
+            navbar.style.backgroundColor = 'rgb(255, 255, 255, 0)';
             var list = document.querySelectorAll('.navbarselector li a');
-            for(i=0; i < list.length; i++){
+            for(let i=0; i < list.length; i++){
                 list[i].style.color = "black";
             }
             document.getElementById('language-selected').style.color = "black";
@@ -136,19 +146,29 @@ window.onscroll = function(){
             document.getElementsByClassName('logo')[0].setAttribute('src', './assets/images/freelans-full-black.svg');
             document.getElementById('loginanchor').style.color = "black";
         }
+        
+        if(pathName === "/inbox"){
+            document.getElementById('inboxlink1').style.color = "#f07900"
+        }
+        else if(pathName === "/myaccount"){
+            document.getElementById('loginanchorTrue').style.color = "#f07900";
+        }
+        else{
+            //do nothing
+        }
     }
     else{
         navbar.style.backgroundColor = "#333";
         document.getElementsByClassName('logo')[0].setAttribute('src', './assets/images/rendex_white.svg');
     }
 };
-document.getElementById('loggedInFalseAnchor').onclick = function (){
+document.getElementById('loggedInFalseAnchor').onclick = () =>{
     window.location = "https://rendex.se/create_account"
 }
 
 /***************LANGUAGE SETTINGS *************/
 $(document).ready(function(){
-    var lang = getCookie("lang");
+    var lang = cookie.getCookie("lang");
     if(lang = undefined || lang == null){
         console.log("no language cookie");
     }
@@ -160,7 +180,7 @@ $(document).ready(function(){
     }
 });
 document.getElementById('english-selected').onclick = function(){
-    var lang = getCookie("lang");
+    var lang = cookie.getCookie("lang");
     if(lang = undefined || lang == null){
         createCookie("lang", "ENG", 365);
     }
@@ -173,7 +193,7 @@ document.getElementById('english-selected').onclick = function(){
     
 };
 document.getElementById('swedish-selected').onclick = function(){
-    var lang = getCookie("lang");
+    var lang = cookie.getCookie("lang");
     if(lang = undefined || lang == null){
         createCookie("lang", "SE", 365);
     }
@@ -185,7 +205,7 @@ document.getElementById('swedish-selected').onclick = function(){
     location.reload();
 };
 document.getElementById('searchpageanchor').onclick = function(){
-    var loginId = getCookie("a_user");
+    var loginId = cookie.getCookie("a_user");
     var newArrayLoginId = loginId.split(',');
     if(newArrayLoginId[0] === null || newArrayLoginId[0] === undefined || newArrayLoginId[0] === ""){
         window.location = "https://rendex.se/login"
@@ -198,3 +218,5 @@ document.getElementById('searchpageanchor').onclick = function(){
     }
 }
 /***************LANGUAGE SETTINGS *************/
+
+export { loggedInControl }

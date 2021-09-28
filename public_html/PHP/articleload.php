@@ -4,7 +4,7 @@
     
     $requestId = $conn->real_escape_string($_GET['requestid']);
 
-    if(isset($_GET['requestid']) && $requestId == 1){
+    if(isset($_GET['requestid']) && $requestId == 1){ //deprecated, archaic
         if(isset($_GET['region']) && isset($_GET['city']) && isset($_GET['purpose'])
         && isset($_GET['price']) && isset($_GET['rating']) && isset($_GET['role'])){
             $region = utf8_decode($_GET['region']);
@@ -302,7 +302,7 @@
                     }
                     else{
                         $priceLow = str_replace("'", "", $price[0]);
-                        $sql .= " AND price_low <= $priceLow ";
+                        $sql .= " AND price_low >= $priceLow ";
                     }
                 }
                 else if(is_numeric($price[1])){
@@ -310,7 +310,7 @@
                     $priceHigh = $price[1];
                     $priceLow = str_replace("'", "", $priceLow);
                     $priceHigh = str_replace("'", "", $priceHigh);
-                    $sql .= " AND price_low <= $priceLow ";
+                    $sql .= " AND price_low >= $priceLow ";
                     $sql .= " AND price_high <= $priceHigh ";
                 }
                 else{
@@ -341,6 +341,19 @@
 
             }
         }
+    }
+    else if(isset($_GET['requestid']) && isset($_GET['articleid'])){
+        if($requestId == 10){
+            $id = $conn->real_escape_string($_GET['articleid']);
+
+            $sql = "SELECT * FROM Articles WHERE articleid='$id' AND active='1'";
+    
+            $result = mysqli_query($conn,$sql);  
+            $rows = mysqli_num_rows($result);
+
+            retrieveArticleInformation($result, $rows);
+        }
+
     }
     else{
         echo ("error in fetching data");

@@ -1,5 +1,7 @@
+import * as cookie from "./cookies.js";
+
 function languageControl(){
-    var languageCookie = getCookie("lang");
+    var languageCookie = cookie.getCookie("lang");
     var path = window.location.pathname;
 
     if(languageCookie !== null || languageCookie !== undefined){
@@ -22,3 +24,5 @@ function languageControl(){
         //geolocation API
     }
 };
+
+export { languageControl }

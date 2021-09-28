@@ -166,6 +166,51 @@ function createArticle(array){
     var hoverDivSVG = document.createElement('span');
     hoverDivSVG.setAttribute('class', 'article-save');
     //hoverDivSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/></svg>`
+    
+    var loginId = getCookie("a_user");
+    var newArrayLoginId = loginId.split(',');
+    $.ajax(
+        {
+            url: './PHP/individuals.php',
+            dataType: 'text',
+            method: 'GET',
+            data: {
+                requestid: 2,
+                userid: newArrayLoginId[0],
+                role: newArrayLoginId[1],
+            },
+            success: function(response){
+                var response = JSON.parse(response);
+                if(response !== 0 || response !== ""){
+                    if(response.includes(',')){
+                        var response = response.split(',')
+                    }
+                    var articleId = array[1]
+                    if(response.constructor === Array){
+                        if(response.indexOf(articleId) > -1){
+                            hoverDivSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>`
+                        }
+                        else{
+                            hoverDivSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/></svg>`
+                        }
+                    }
+                    else{
+                        if(response === articleId){
+                            hoverDivSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>`
+                        }
+                        else{
+                            hoverDivSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/></svg>`
+                        }
+                    }
+                }
+                else{
+                    //do nothing
+                }
+            },
+        }
+    );
+    
+    
     hoverDivSVG.setAttribute('aria-label', `${array[1]}`)
     hoverDiv.appendChild(hoverDivSVG);
     a1.appendChild(hoverDiv);
@@ -296,9 +341,10 @@ function createArticle(array){
         }
     }
     else{ //mobile
-        pMid.innerText = `${array[4].replace(/\r?\n|\r/g, "").substring(0,200)}...`;
+        pMid.innerText = `${array[4].replace(/\r?\n|\r/g, "").substring(0,150)}...`;
     }
 
+    //controlCheckSavedArticles(hoverDivSVG);
     marginTopFix();
 };
 
@@ -315,49 +361,4 @@ function saveButtonArticles(e){
     console.log(id)
     console.log(e)
     e.preventDefault();
-}
-
-function controlCheckSavedArticles(elementSVG){
-    var loginId = getCookie("a_user");
-    var newArrayLoginId = loginId.split(',');
-    $.ajax(
-        {
-            url: './PHP/individuals.php',
-            dataType: 'text',
-            method: 'GET',
-            data: {
-                requestid: 2,
-                userid: newArrayLoginId[0],
-                role: newArrayLoginId[1],
-            },
-            success: function(response){
-                var response = JSON.parse(response);
-                if(response !== 0 || response !== ""){
-                    var articleId = element.getAttribute('aria-label');
-                    if(response.constructor === Array){
-                        var response = response.split(',');
-                        for(i=0; i<response.length; i++){
-                            if(response[i] === articleId){
-                                //elementSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>`
-                            }
-                            else{
-                                //elementSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/></svg>`
-                            }
-                        }
-                    }
-                    else{
-                        if(response === articleId){
-                            //elementSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>`
-                        }
-                        else{
-                            //elementSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z"/></svg>`
-                        }
-                    }
-                }
-                else{
-                    //do nothing
-                }
-            },
-        }
-    );
 }
