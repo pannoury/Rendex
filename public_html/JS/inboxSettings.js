@@ -89,7 +89,9 @@ function conversationPopulate(query, element){
     var a = document.createElement('a');
     a.setAttribute('class', 'conversation-selection');
     a.setAttribute('id', `conversation-${element}`);
-    a.addEventListener('click', conversationSelect(a.id));
+    a.addEventListener('click', function(){
+        conversationSelect(a.id);
+    });
     convoList.appendChild(a);
     var div1 = document.createElement('div');
     div1.setAttribute('class', 'conversation');
@@ -232,7 +234,7 @@ function conversationSelect(id){
     }
 };
 function populateConvoList(id){
-    clearInterval(reactiveTextLoading);
+    //clearInterval(reactiveTextLoading);
     var width = window.screen.width;
     var selectedElement = document.getElementById(`${id}`);
     selectedElement.setAttribute('aria-label', "selected");
@@ -273,7 +275,7 @@ function populateConvoList(id){
                     document.getElementById('chat-display-window').style.height = "50vh";
                     document.getElementById('conversation-display').style.marginLeft = "-1px";
                 }
-                reactiveTextLoading();
+                //reactiveTextLoading();
             },
         }
     );
@@ -550,7 +552,7 @@ function chatTextParser(queryChat){
     var accountid = newArrayLoginId[0];
 
     if(queryChat[0].constructor === Array){ //Multiple texts has been sent
-        for(i=0; i < queryChat.length; i++){
+        for(let i=0; i < queryChat.length; i++){
             if(queryChat[i][1] != accountid){ //grey text AKA recieved text
                 var li = document.createElement('li');
                 li.setAttribute('class', 'chat-item');

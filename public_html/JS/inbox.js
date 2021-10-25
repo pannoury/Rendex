@@ -21,7 +21,15 @@ window.addEventListener('load', function conversationCount(){
     $('.text-sent-wrapper').css("justify-content", "flex-start");
  
     document.getElementById('inboxlink1').style.color = "#f07900"
+    webSocket()
 }); 
+
+function webSocket(){
+    var socket = new WebSocket('https://codenoury.se/PHP/inbox2.php');
+    socket.onmessage = function(e) {
+        console.log(e);
+    };
+}
 
 
 
