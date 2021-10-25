@@ -1,3 +1,5 @@
+import * as cookies from "../Components/cookies.js";
+import * as navbar from "../Components/navbar.js";
 /*********************************************************** */
 //                  v.2.2                                    //
 //           Last Updated: 01/09/2021                        //
@@ -15,9 +17,8 @@ var priceSelected = url.searchParams.get("pr")
 var innerWidth = window.innerWidth;
 
 window.onload = () =>{
-    loggedInControl();
-    cookieConsentLoad();
-    languageControl();
+    navbar.loggedInControl();
+    cookies.cookieConsentLoad();
     articleCounter();
     retriveArticle();
 
